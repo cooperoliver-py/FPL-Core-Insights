@@ -1,0 +1,56 @@
+name: FPL Predictions
+
+on:
+  schedule:
+    - cron: '30 0,8,16 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fpl-predictions
+  cancel-in-progress: false
+
+jobs:
+  predict:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Sync upstream data
+        run: |
+          git remote add upstream https://github.com/olbauday/FPL-Core-Insights.git
+          git fetch --no-tags upstream main
+          echo "FPL_DATA_SHA=$(git rev-parse upstream/main)" >> "$GITHUB_ENV"
+          git rm -r --ignore-unmatch data
+          git restore --source=upstream/main --staged --worktree -- data
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Generate predictions
+        run: python scripts/fpl_predictions.py
+
+      - name: Run tests
+        run: |
+          if find tests -type f -name 'test*.py' -print -quit 2>/dev/null | grep -q .; then
+            python -m unittest discover -s tests
+          fi
+
+      - name: Commit results
+        run: |
+          git add -A -- data predictions
+          git diff --cached --quiet && exit 0
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Update FPL predictions'
+          git push origin main

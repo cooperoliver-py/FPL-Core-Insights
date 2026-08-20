@@ -1,0 +1,23 @@
+{
+  "_comment": "Copy this file to squad.json, then add exactly 15 current FPL players before using --squad.",
+  "_comment_players": "Each item in players must contain player_code and purchase_price. Find player_code in data/2026-2027/players.csv; do not use player_id.",
+  "_comment_prices": "purchase_price and bank are in millions of pounds, so 7.5 means £7.5m.",
+  "bank": 0.0,
+  "players": [
+    {"player_code": 141746, "purchase_price": 12.0},
+    {"player_code": 424876, "purchase_price": 7.0},
+    {"player_code": 223340, "purchase_price": 9.5},
+    {"player_code": 502500, "purchase_price": 8.0},
+    {"player_code": 178301, "purchase_price": 8.0},
+    {"player_code": 446008, "purchase_price": 8.0},
+    {"player_code": 208706, "purchase_price": 7.0},
+    {"player_code": 97032, "purchase_price": 6.5},
+    {"player_code": 247348, "purchase_price": 5.5},
+    {"player_code": 95658, "purchase_price": 5.0},
+    {"player_code": 220237, "purchase_price": 5.0},
+    {"player_code": 244723, "purchase_price": 4.5},
+    {"player_code": 98747, "purchase_price": 5.0},
+    {"player_code": 80201, "purchase_price": 4.5},
+    {"player_code": 567119, "purchase_price": 4.5}
+  ]
+}

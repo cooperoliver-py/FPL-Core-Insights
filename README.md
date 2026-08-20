@@ -30,9 +30,11 @@ It’s a simple way to:
 
 ## Data Updates
 
-The dataset is automatically refreshed twice daily at:
-- **7:30 AM UTC**
-- **5:30 PM UTC**
+The upstream dataset is automatically refreshed three times daily at:
+
+- **07:30 UTC**
+- **15:30 UTC**
+- **23:30 UTC**
 
 All data is provided in **CSV format** for easy import into any data analysis tool.
 
@@ -40,6 +42,131 @@ All data is provided in **CSV format** for easy import into any data analysis to
 Feel free to use the data from this repository in whatever way works best for you—whether for your website, blog posts, or other projects. If possible, I’d greatly appreciate it if you could include a link back to this repository as the data source.
 
 Inspired by the amazing work of [vaastav/Fantasy-Premier-League](https://github.com/vaastav/Fantasy-Premier-League), this project aims to continue the spirit of open data in the FPL community. If you build something cool, let me know – I'd be happy to feature a link to your project!
+
+## FPL Prediction Model (This Fork)
+
+This fork turns the updating dataset into two clear reports:
+
+* `predictions/latest.md` is the human-readable report: the next-Gameweek forecasts, a legal 15-player squad, suggested starting XI, captain and vice-captain, confidence notes, and transfer advice when a current squad is supplied.
+* `predictions/latest.csv` has one row per current player for sorting or further analysis. It includes forecasts for up to five Gameweeks, the five-week weighted score, predicted value, confidence, data coverage, model baselines and the main prediction drivers.
+
+Run the model without a saved squad to build an opening 15-player roster within the £100.0m budget. Run it with your current squad to receive the top 10 legal, same-position transfer options. It recommends **at most one transfer per Gameweek**, or **HOLD** when even the best option does not improve weighted starting-XI and captain points; it never submits changes to the FPL website.
+
+### Run It Locally
+
+Clone the fork once (skip this block if it is already on your computer):
+
+```bash
+git clone https://github.com/cooperoliver-py/FPL-Core-Insights.git
+cd FPL-Core-Insights
+```
+
+Then update `main`, create an isolated Python environment, install the existing dependencies, and generate both reports:
+
+```bash
+git switch main
+git pull --ff-only origin main
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install -r requirements.txt
+python3 scripts/fpl_predictions.py
+```
+
+By default, the script finds the latest season and the next editable/upcoming Premier League Gameweek. You can pin that same current season and Gameweek for a reproducible run:
+
+```bash
+python3 scripts/fpl_predictions.py --season 2026-2027 --gameweek 1
+```
+
+`--gameweek` accepts 1–38, and `--output-dir DIR` changes the report directory from its `predictions` default.
+Historical-season replay is intentionally rejected: this v1 model trains on the completed 2025/26 season, so presenting an earlier target as a point-in-time backtest would introduce look-ahead bias.
+
+### Add Your Current Squad
+
+First make a working copy of the supplied template:
+
+```bash
+cp squad.example.json squad.json
+```
+
+Edit `squad.json` so `players` contains exactly 15 unique objects, each with its real `player_code` and your `purchase_price`, plus your current `bank` balance. Prices and bank are written in millions of pounds: `7.5` means £7.5m. The script validates the normal 2/5/5/3 position split, no more than three players from one club, current player codes, and non-negative prices and bank. The intentionally empty `squad.example.json` is documentation only; `--squad` requires all 15 entries.
+
+Find each code in `data/2026-2027/players.csv`:
+
+* `player_code` identifies the same real player across seasons, so the model uses it for your squad.
+* `player_id` (and the `id` in `playerstats.csv`) is a season-specific dataset/FPL row identifier. Do not put it in `squad.json`.
+
+Use the price you actually paid, not necessarily today's `now_cost`; FPL's selling-price rule shares only part of a price rise, and the script calculates that sale value. Then run:
+
+```bash
+python3 scripts/fpl_predictions.py --squad squad.json
+```
+
+For automatic weekly transfer advice, commit `squad.json` to the fork's `main` branch; the scheduled script loads a root-level `squad.json` automatically:
+
+```bash
+git add squad.json
+git commit -m "Add current FPL squad"
+git push origin main
+```
+
+After making a real FPL transfer, update its player, purchase price and bank, then commit and push again. If you keep the file only on your computer, the scheduled GitHub report will continue to recommend an opening squad instead. A committed squad is visible to anyone if your fork is public, but it contains no FPL login or credential.
+
+### What the Strategy Optimises
+
+The model predicts each player's points over the next five Gameweeks, then weights those Gameweeks `1.0, 0.9, 0.8, 0.7, 0.6`, so the nearest fixture matters most. `predicted_value` is that weighted score divided by the player's current price: horizon-weighted predicted FPL points per £1.0m. Squad, XI and captain selection obey the FPL constraints below.
+
+Player points come from scikit-learn's `HistGradientBoostingRegressor`; SciPy's mixed-integer optimiser then chooses a legal squad, XI and captain rather than asking the model to learn the FPL rules. The primary training set is 2025/26 because it is the completed season compatible with the defensive-contribution scoring retained for 2026/27. Features use only information available before the predicted Gameweek.
+
+The CSV confidence label is based on up to five prior player-Gameweek rows (`low` below 0.50, `medium` below 0.80, otherwise `high`) and is reduced for GW1 and promoted-team Elo fallbacks.
+
+### Automatic Updates in Your Fork
+
+The `FPL Predictions` GitHub Actions workflow needs no Supabase account or secrets. At **00:30, 08:30 and 16:30 UTC**—one hour after the upstream data runs—it:
+
+1. fetches the original repository;
+2. mirrors only its `data/` directory, including upstream deletions;
+3. runs the prediction script and tests; and
+4. commits changed `data/` and `predictions/` files back to your fork's `main` branch.
+
+In Git terms, **`origin` is your fork** (`cooperoliver-py/FPL-Core-Insights`) and **`upstream` is the original data repository** (`olbauday/FPL-Core-Insights`). The workflow creates and fetches its own `upstream` remote. A fresh local clone normally has only `origin`; if you also want to inspect the source repository locally, add it once with:
+
+```bash
+git remote add upstream https://github.com/olbauday/FPL-Core-Insights.git
+git fetch upstream
+git remote -v
+```
+
+The workflow updates the GitHub repository, not files already open on your computer, so run `git pull --ff-only origin main` in your local clone to receive each new report. Pull from `origin` for this fork's predictions; do not merge all of `upstream/main`, because the workflow intentionally copies only upstream data.
+
+Scheduled workflows are disabled by default in a public fork. To turn on only the safe workflow:
+
+1. Merge this work into the fork's `main` branch.
+2. On GitHub, open **Settings → Actions → General** and allow GitHub Actions for the repository.
+3. Open **Actions → FPL Predictions**, click **Enable workflow**, then use **Run workflow** once to verify it.
+4. Leave the inherited **Data Import from Supabase** workflow disabled. It calls the source project's private `SUPABASE_URL` and `SUPABASE_KEY`; this fork does not need or have them.
+
+The workflow requests write access only so it can commit its reports. If its final push is rejected, choose **Read and write permissions** under **Settings → Actions → General → Workflow permissions**. GitHub documents how to [enable or disable one workflow](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/disable-and-enable-workflows).
+
+### Confirmed 2026/27 FPL Rules Used Here
+
+* **Squad:** £100.0m buys 15 players: two goalkeepers, five defenders, five midfielders and three forwards, with at most three from any club ([official squad rules](https://www.premierleague.com/en/news/2174419/fpl-basics-how-to-pick-a-squad)).
+* **Gameweek team:** select 11 with one goalkeeper, at least three defenders, at least two midfielders and at least one forward. The captain scores double; the vice-captain takes over if the captain does not play ([official team-management rules](https://www.premierleague.com/en/news/2174899)).
+* **Transfers:** after GW1 there is one new free transfer per Gameweek; unused free transfers roll up to five, and each transfer beyond the available allowance costs four points ([official transfer rules](https://www.premierleague.com/en/news/2174907)). This model deliberately limits its weekly recommendation to one transfer and does not recommend points hits.
+* **Chips:** 2026/27 again provides two sets of Wildcard, Free Hit, Triple Captain and Bench Boost—one set in each half of the season, eight chips total. First-half chips cannot be carried past the GW19 deadline ([official 2026/27 changes](https://www.premierleague.com/en/news/4679873/all-you-need-to-know-about-changes-to-fpl-for-202627)).
+
+Core scoring includes 1 point for an appearance under 60 minutes or 2 points for 60+ minutes; goals score 10/6/5/4 for goalkeepers/defenders/midfielders/forwards; assists score 3; goalkeeper and defender clean sheets score 4 and midfielder clean sheets score 1; every three goalkeeper saves score 1; a penalty save scores 5; and the top match performers receive 1–3 bonus points. Penalty misses, cards, own goals and goals conceded by goalkeepers or defenders can deduct points. See the Premier League's [full scoring table](https://www.premierleague.com/en/news/2174909).
+
+Defensive contributions remain in 2026/27 and add 2 points at most once per match: defenders need 10 combined clearances, blocks, interceptions and tackles; midfielders and forwards need 12 when ball recoveries are also counted. See the official [2026/27 defensive-contribution explanation](https://www.premierleague.com/en/news/4361991).
+
+### Model Limits
+
+* Pre-season and GW1 2026/27 forecasts have lower confidence because the new season has little or no league evidence.
+* New players and promoted clubs are cold starts. The model falls back to position-level history, the previous season's team Elo for incumbent clubs, and a conservative league Elo with an explicit confidence flag for promoted clubs because 2026/27 Elo is not yet populated.
+* The official [2026/27 bonus-points-system changes](https://www.premierleague.com/en/news/4679946) make last season's bonus history an imperfect guide until current-season matches accumulate.
+* Player status and price are held constant across the five-Gameweek forecast, and fixture forecasts are not fed recursively into later predictions.
+* These are data-driven recommendations, not guarantees. Injuries, rotation, transfers and late team news can invalidate them, so check the report near the deadline.
+* Chips are not optimised; the two official chip sets remain a manual decision.
 
 ## What's New for the 2026/27 Season?
 

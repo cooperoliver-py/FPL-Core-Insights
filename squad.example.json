@@ -1,0 +1,7 @@
+{
+  "_comment": "Copy this file to squad.json, then add exactly 15 current FPL players before using --squad.",
+  "_comment_players": "Each item in players must contain player_code and purchase_price. Find player_code in data/2026-2027/players.csv; do not use player_id.",
+  "_comment_prices": "purchase_price and bank are in millions of pounds, so 7.5 means £7.5m.",
+  "bank": 0.0,
+  "players": []
+}
