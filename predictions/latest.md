@@ -45,7 +45,7 @@ GW1 confidence is deliberately capped below `high`: returning players carry 2025
 
 Raw drivers are descriptive inputs, not SHAP or causal attributions.
 
-## Recommended £100m squad
+## ML-optimal £100m squad
 
 | Player | Club | Position | Cost | Weighted score | Starts | Captains | Vice-captains |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -59,6 +59,28 @@ Raw drivers are descriptive inputs, not SHAP or causal attributions.
 | Neave | NEW | Forward | £4.5m | 3.07 | Bench | — | — |
 | Pope | NEW | Goalkeeper | £5.0m | 13.11 | GW2, GW4, GW5 | — | — |
 | Kelleher | BRE | Goalkeeper | £5.0m | 12.80 | GW1, GW3 | — | — |
+| B.Fernandes | MUN | Midfielder | £12.0m | 22.37 | GW1, GW2, GW3, GW4, GW5 | GW1, GW2, GW3, GW5 | — |
+| Szoboszlai | LIV | Midfielder | £7.0m | 20.55 | GW1, GW2, GW3, GW4, GW5 | GW4 | GW1, GW2, GW3 |
+| Saka | ARS | Midfielder | £9.5m | 17.18 | GW1, GW2, GW3, GW4, GW5 | — | — |
+| Mbeumo | MUN | Midfielder | £8.0m | 16.66 | GW1, GW2, GW3, GW4, GW5 | — | — |
+| Bruno G. | ARS | Midfielder | £7.0m | 16.51 | GW1, GW2, GW3, GW4, GW5 | — | — |
+
+Squad cost: £100.0m.
+
+## Your current squad
+
+| Player | Club | Position | Cost | Weighted score | Starts | Captains | Vice-captains |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Virgil | LIV | Defender | £6.5m | 15.05 | GW1, GW2, GW3, GW4 | — | — |
+| Maguire | MUN | Defender | £5.0m | 14.24 | GW1, GW2 | — | — |
+| Muñoz | CRY | Defender | £5.5m | 14.18 | GW1, GW3, GW4, GW5 | — | — |
+| Botman | NEW | Defender | £5.0m | 14.15 | GW2, GW4, GW5 | — | GW5 |
+| Mitchell | CRY | Defender | £4.5m | 13.10 | GW3, GW5 | — | — |
+| Watkins | AVL | Forward | £8.0m | 18.21 | GW1, GW2, GW3, GW4, GW5 | — | GW4 |
+| Thiago | BRE | Forward | £8.0m | 16.72 | GW1, GW2, GW3, GW4, GW5 | — | — |
+| Mheuka | CHE | Forward | £4.5m | 2.09 | Bench | — | — |
+| Pope | NEW | Goalkeeper | £5.0m | 13.11 | GW2, GW3, GW4, GW5 | — | — |
+| Leno | FUL | Goalkeeper | £4.5m | 11.65 | GW1 | — | — |
 | B.Fernandes | MUN | Midfielder | £12.0m | 22.37 | GW1, GW2, GW3, GW4, GW5 | GW1, GW2, GW3, GW5 | — |
 | Szoboszlai | LIV | Midfielder | £7.0m | 20.55 | GW1, GW2, GW3, GW4, GW5 | GW4 | GW1, GW2, GW3 |
 | Saka | ARS | Midfielder | £9.5m | 17.18 | GW1, GW2, GW3, GW4, GW5 | — | — |

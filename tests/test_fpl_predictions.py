@@ -132,6 +132,10 @@ class FPLPredictionsTests(unittest.TestCase):
                 "GW1_lineup": [True],
                 "GW1_captain": [True],
                 "GW1_vice_captain": [False],
+                "current_squad": [True],
+                "current_GW1_lineup": [True],
+                "current_GW1_captain": [False],
+                "current_GW1_vice_captain": [True],
             }
         )
         transfers = pd.DataFrame(
@@ -153,6 +157,9 @@ class FPLPredictionsTests(unittest.TestCase):
 
         self.assertIn("**Outgoing → Incoming**", markdown)
         self.assertIn("| Outgoing | Incoming |", markdown)
+        self.assertIn("## ML-optimal £100m squad", markdown)
+        self.assertIn("## Your current squad", markdown)
+        self.assertIn("| Starter | TST | Forward | £5.0m | 5.00 | GW1 | — | GW1 |", markdown)
         self.assertRegex(markdown, r"Last generated: \d{4}-\d{2}-\d{2} \d{2}:\d{2} UTC")
 
     def test_workflow_data_revision_override_is_stable(self):

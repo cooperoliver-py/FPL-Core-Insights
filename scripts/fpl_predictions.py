@@ -979,49 +979,63 @@ def _render_markdown(
             "",
             "Raw drivers are descriptive inputs, not SHAP or causal attributions.",
             "",
-            "## Recommended £100m squad",
-            "",
         )
     )
-    squad = forecast.loc[forecast["player_code"].isin(recommended_codes)].sort_values(
-        ["position", "weighted_score", "player_code"],
-        ascending=[True, False, True],
-        kind="mergesort",
-    )
-    lines.append(
-        _markdown_table(
-            [
-                "Player",
-                "Club",
-                "Position",
-                "Cost",
-                "Weighted score",
-                "Starts",
-                "Captains",
-                "Vice-captains",
-            ],
+    squads = [("ML-optimal £100m squad", forecast["player_code"].isin(recommended_codes), "")]
+    if transfers is not None:
+        squads.append(("Your current squad", forecast["current_squad"], "current_"))
+    for title, selected, prefix in squads:
+        squad = forecast.loc[selected].sort_values(
+            ["position", "weighted_score", "player_code"],
+            ascending=[True, False, True],
+            kind="mergesort",
+        )
+        lines.extend(
             (
-                (
-                    row.web_name,
-                    row.team_short_name,
-                    row.position,
-                    f"£{row.now_cost:.1f}m",
-                    f"{row.weighted_score:.2f}",
-                    ", ".join(
-                        f"GW{gw}" for gw in gameweeks if getattr(row, f"GW{gw}_lineup")
-                    ) or "Bench",
-                    ", ".join(
-                        f"GW{gw}" for gw in gameweeks if getattr(row, f"GW{gw}_captain")
-                    ) or "—",
-                    ", ".join(
-                        f"GW{gw}" for gw in gameweeks if getattr(row, f"GW{gw}_vice_captain")
-                    ) or "—",
-                )
-                for row in squad.itertuples(index=False)
-            ),
+                f"## {title}",
+                "",
+                _markdown_table(
+                    [
+                        "Player",
+                        "Club",
+                        "Position",
+                        "Cost",
+                        "Weighted score",
+                        "Starts",
+                        "Captains",
+                        "Vice-captains",
+                    ],
+                    (
+                        (
+                            row.web_name,
+                            row.team_short_name,
+                            row.position,
+                            f"£{row.now_cost:.1f}m",
+                            f"{row.weighted_score:.2f}",
+                            ", ".join(
+                                f"GW{gw}"
+                                for gw in gameweeks
+                                if getattr(row, f"{prefix}GW{gw}_lineup")
+                            ) or "Bench",
+                            ", ".join(
+                                f"GW{gw}"
+                                for gw in gameweeks
+                                if getattr(row, f"{prefix}GW{gw}_captain")
+                            ) or "—",
+                            ", ".join(
+                                f"GW{gw}"
+                                for gw in gameweeks
+                                if getattr(row, f"{prefix}GW{gw}_vice_captain")
+                            ) or "—",
+                        )
+                        for row in squad.itertuples(index=False)
+                    ),
+                ),
+                "",
+                f"Squad cost: £{squad['now_cost'].sum():.1f}m.",
+                "",
+            )
         )
-    )
-    lines.extend(("", f"Squad cost: £{squad['now_cost'].sum():.1f}m.", ""))
     if transfers is not None:
         lines.extend(("## One-transfer recommendation", ""))
         if transfers.empty or transfers.iloc[0]["weighted_gain"] <= 1e-9:
