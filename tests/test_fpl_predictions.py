@@ -153,6 +153,7 @@ class FPLPredictionsTests(unittest.TestCase):
 
         self.assertIn("**Outgoing → Incoming**", markdown)
         self.assertIn("| Outgoing | Incoming |", markdown)
+        self.assertRegex(markdown, r"Last generated: \d{4}-\d{2}-\d{2} \d{2}:\d{2} UTC")
 
     def test_workflow_data_revision_override_is_stable(self):
         with patch.dict(os.environ, {"FPL_DATA_SHA": "upstream-commit"}):

@@ -10,6 +10,7 @@ import os
 import re
 import subprocess
 from collections import Counter
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Iterable
 
@@ -906,6 +907,8 @@ def _render_markdown(
     point_columns = [f"GW{gameweek}_predicted_points" for gameweek in gameweeks]
     lines = [
         f"# FPL predictions: {season}, GW{gameweeks[0]}",
+        "",
+        f"Last generated: {datetime.now(UTC):%Y-%m-%d %H:%M UTC}",
         "",
         f"Data commit: `{_data_sha()}`",
         "",
