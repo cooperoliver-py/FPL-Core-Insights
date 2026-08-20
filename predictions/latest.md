@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW1
 
-Last generated: 2026-08-20 15:02 UTC
+Last generated: 2026-08-20 17:02 UTC
 
-Data commit: `1196637fe5e6dda981a7a1f4ac48c89b118affde`
+Data commit: `e1cc9f81622ac3da6ef5f5426ed9b1f9ecd0e6fc`
 
 Forecasts use only the canonical 2025/26 `By Gameweek` player data, strictly lagged 3/5-GW form, and target Premier League fixtures. Five-GW weights are [1.0, 0.9, 0.8, 0.7, 0.6]; price and availability are held constant.
 
@@ -40,8 +40,8 @@ GW1 confidence is deliberately capped below `high`: returning players carry 2025
 | Amad | MUN | Midfielder | 4.02 | 3.82 | 3.72 | 2.69 | 3.72 | 14.55 | 2.43 | medium | 5-GW avg pts 2.80; mins 69; xGI 0.41; fixture Elo diff +131 |
 | Mainoo | MUN | Midfielder | 3.96 | 3.75 | 3.31 | 2.70 | 3.31 | 13.86 | 2.52 | medium | 5-GW avg pts 4.80; mins 90; xGI 0.13; fixture Elo diff +131 |
 | Sarr | CRY | Midfielder | 3.95 | 2.84 | 3.95 | 3.82 | 3.93 | 14.70 | 2.26 | medium | 5-GW avg pts 4.40; mins 78; xGI 0.66; fixture Elo diff -6 |
+| Mukiele | SUN | Defender | 3.94 | 3.24 | 3.23 | 2.27 | 2.39 | 12.47 | 2.27 | medium | 5-GW avg pts 4.60; mins 90; xGI 0.18; fixture Elo diff -134 |
 | Havertz | ARS | Forward | 3.86 | 3.15 | 3.81 | 3.49 | 3.43 | 14.24 | 1.90 | medium | 5-GW avg pts 3.40; mins 35; xGI 0.27; fixture Elo diff +265 |
-| Keane | EVE | Defender | 3.86 | 2.92 | 2.97 | 3.52 | 4.46 | 14.01 | 2.80 | medium | 5-GW avg pts 2.40; mins 90; xGI 0.12; fixture Elo diff -4 |
 
 Raw drivers are descriptive inputs, not SHAP or causal attributions.
 
@@ -56,7 +56,7 @@ Raw drivers are descriptive inputs, not SHAP or causal attributions.
 | Keane | EVE | Defender | £5.0m | 14.01 | GW1, GW4, GW5 | — | — |
 | Watkins | AVL | Forward | £8.0m | 18.21 | GW1, GW3, GW4, GW5 | — | GW4 |
 | Thiago | BRE | Forward | £8.0m | 16.72 | GW1, GW2, GW3, GW4, GW5 | — | — |
-| Neave | NEW | Forward | £4.5m | 3.07 | Bench | — | — |
+| Mheuka | CHE | Forward | £4.5m | 2.09 | Bench | — | — |
 | Pope | NEW | Goalkeeper | £5.0m | 13.11 | GW2, GW4, GW5 | — | — |
 | Kelleher | BRE | Goalkeeper | £5.0m | 12.80 | GW1, GW3 | — | — |
 | B.Fernandes | MUN | Midfielder | £12.0m | 22.37 | GW1, GW2, GW3, GW4, GW5 | GW1, GW2, GW3, GW5 | — |
