@@ -1,6 +1,6 @@
 # FPL predictions: 2026-2027, GW1
 
-Last generated: 2026-08-21 09:09 UTC
+Last generated: 2026-08-21 15:56 UTC
 
 Data commit: `de6b1566cc88c76aaba3559b92cc49f7346126e9`
 
@@ -72,10 +72,10 @@ Squad cost: £100.0m.
 | Player | Club | Position | Cost | Weighted score | Starts | Captains | Vice-captains |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Virgil | LIV | Defender | £6.5m | 15.05 | GW1, GW2, GW3, GW4 | — | — |
-| Maguire | MUN | Defender | £5.0m | 14.24 | GW1, GW2, GW5 | — | — |
-| Muñoz | CRY | Defender | £5.5m | 14.18 | GW1, GW2, GW3, GW4, GW5 | — | — |
+| Maguire | MUN | Defender | £5.0m | 14.24 | GW1, GW2 | — | — |
+| Muñoz | CRY | Defender | £5.5m | 14.18 | GW1, GW3, GW4, GW5 | — | — |
 | Botman | NEW | Defender | £5.0m | 14.15 | GW2, GW3, GW4, GW5 | — | GW5 |
-| Mitchell | CRY | Defender | £4.5m | 13.10 | GW1, GW3, GW4, GW5 | — | — |
+| Mitchell | CRY | Defender | £4.5m | 13.10 | GW3, GW5 | — | — |
 | Watkins | AVL | Forward | £8.0m | 18.21 | GW1, GW2, GW3, GW4, GW5 | — | GW4 |
 | Thiago | BRE | Forward | £8.0m | 16.72 | GW1, GW2, GW3, GW4, GW5 | — | — |
 | Mheuka | CHE | Forward | £4.5m | 2.09 | Bench | — | — |
@@ -85,26 +85,26 @@ Squad cost: £100.0m.
 | Szoboszlai | LIV | Midfielder | £7.0m | 20.55 | GW1, GW2, GW3, GW4, GW5 | GW4 | GW1, GW2, GW3 |
 | Saka | ARS | Midfielder | £9.5m | 17.18 | GW1, GW2, GW3, GW4, GW5 | — | — |
 | Mbeumo | MUN | Midfielder | £8.0m | 16.66 | GW1, GW2, GW3, GW4, GW5 | — | — |
-| Bruno G. | ARS | Midfielder | £7.0m | 7.70 | Bench | — | — |
+| Enzo | CHE | Midfielder | £7.0m | 14.53 | GW1, GW2, GW4, GW5 | — | — |
 
 Squad cost: £100.0m.
 
 ## One-transfer recommendation
 
-**Bruno G. → Enzo** (projected weighted XI+captain gain 2.80).
+**Mitchell → Robinson** (projected weighted XI+captain gain 0.47).
 
 | Out | In | Sell | Buy | Bank after | XI+captain gain |
 | --- | --- | --- | --- | --- | --- |
-| Bruno G. | Enzo | £7.0m | £7.0m | £0.0m | 2.80 |
-| Bruno G. | Anderson | £7.0m | £6.5m | £0.5m | 2.40 |
-| Bruno G. | Foden | £7.0m | £7.0m | £0.0m | 2.40 |
-| Bruno G. | Gallagher | £7.0m | £5.5m | £1.5m | 2.26 |
-| Bruno G. | Groß | £7.0m | £5.5m | £1.5m | 2.02 |
-| Bruno G. | Sarr | £7.0m | £6.5m | £0.5m | 1.88 |
-| Bruno G. | Fernandes | £7.0m | £6.0m | £1.0m | 1.86 |
-| Bruno G. | Gakpo | £7.0m | £7.0m | £0.0m | 1.71 |
-| Bruno G. | E.Le Fée | £7.0m | £6.0m | £1.0m | 1.46 |
-| Bruno G. | Rayan | £7.0m | £6.5m | £0.5m | 1.41 |
+| Mitchell | Robinson | £4.5m | £4.5m | £0.0m | 0.47 |
+| Muñoz | Danso | £5.5m | £5.0m | £0.5m | 0.29 |
+| Mitchell | Rodon | £4.5m | £4.5m | £0.0m | 0.18 |
+| Botman | Danso | £5.0m | £5.0m | £0.0m | 0.04 |
+| Mheuka | Scarlett | £4.5m | £4.5m | £0.0m | 0.00 |
+| Mheuka | Walle Egeli | £4.5m | £4.5m | £0.0m | 0.00 |
+| Mheuka | Furo | £4.5m | £4.5m | £0.0m | 0.00 |
+| Mheuka | Neave | £4.5m | £4.5m | £0.0m | 0.00 |
+| Mheuka | Kusi-Asare | £4.5m | £4.5m | £0.0m | 0.00 |
+| Maguire | Danso | £5.0m | £5.0m | £0.0m | -0.10 |
 
 ## Limits
 
