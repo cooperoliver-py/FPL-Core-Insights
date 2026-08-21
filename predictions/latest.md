@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW1
 
-Last generated: 2026-08-21 15:56 UTC
+Last generated: 2026-08-21 17:02 UTC
 
-Data commit: `de6b1566cc88c76aaba3559b92cc49f7346126e9`
+Data commit: `39439c4e40055f427c30c5a7129852d12e1d8c71`
 
 Forecasts use only the canonical 2025/26 `By Gameweek` player data, strictly lagged 3/5-GW form, and target Premier League fixtures. Five-GW weights are [1.0, 0.9, 0.8, 0.7, 0.6]; price and availability are held constant.
 
@@ -56,7 +56,7 @@ Raw drivers are descriptive inputs, not SHAP or causal attributions.
 | Botman | NEW | Defender | £5.0m | 14.15 | GW2, GW3, GW5 | — | — |
 | Watkins | AVL | Forward | £8.0m | 18.21 | GW1, GW3, GW4, GW5 | — | GW4 |
 | Thiago | BRE | Forward | £8.0m | 16.72 | GW1, GW2, GW3, GW4, GW5 | — | — |
-| Scarlett | TOT | Forward | £4.5m | 0.52 | Bench | — | — |
+| Mheuka | CHE | Forward | £4.5m | 2.09 | Bench | — | — |
 | Pope | NEW | Goalkeeper | £5.0m | 13.11 | GW2, GW4, GW5 | — | — |
 | Kelleher | BRE | Goalkeeper | £5.0m | 12.80 | GW1, GW3 | — | — |
 | B.Fernandes | MUN | Midfielder | £12.0m | 22.37 | GW1, GW2, GW3, GW4, GW5 | GW1, GW2, GW3, GW5 | — |
