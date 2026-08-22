@@ -9,6 +9,8 @@ from supabase import create_client, Client
 import logging
 from datetime import date, datetime, timezone
 
+from clean_playermatchstats import sanitize as sanitize_playermatchstats
+
 # --- Configuration ---
 
 
@@ -147,6 +149,41 @@ def ensure_playermatchstats_columns(df: pd.DataFrame) -> pd.DataFrame:
         if col not in df.columns:
             df[col] = pd.NA
     return df[PLAYERMATCHSTATS_COLUMNS]
+
+# Bzzoiro match enrichment. Column order is taken from the 2025-2026
+# files already in the repo so both seasons read identically - those were
+# loaded once by hand and never wired into this script, which is why
+# 2026-2027 had none of it.
+#
+# Not essential data: a season that has not been ingested simply has no
+# rows, and fetch_all_rows already returns an empty frame on error, so a
+# missing table degrades to empty files rather than failing the export.
+BZZOIRO_EXPORTS = {
+    'shots.csv': ('bzzoiro_shots', [
+        'match_id', 'shot_index', 'minute', 'added_time', 'is_home',
+        'player_id', 'player_name', 'outcome', 'situation', 'body_part',
+        'xg', 'xgot', 'start_x', 'start_y',
+        'goal_mouth_y', 'goal_mouth_z', 'goal_mouth_location',
+    ]),
+    'momentum.csv': ('bzzoiro_momentum', ['match_id', 'minute', 'value']),
+    'xg_by_minute.csv': ('bzzoiro_xg_by_minute', [
+        'match_id', 'minute', 'home_xg', 'away_xg',
+        'home_cumulative_xg', 'away_cumulative_xg',
+    ]),
+}
+
+
+def fetch_bzzoiro_exports(supabase: Client) -> dict:
+    """{filename: DataFrame} for the enrichment tables, columns normalised."""
+    frames = {}
+    for filename, (table, columns) in BZZOIRO_EXPORTS.items():
+        df = fetch_all_rows(supabase, table)
+        # reindex rather than select: it fixes the column order AND
+        # supplies any column the table is missing, so the header is the
+        # same whether the fetch returned rows, nothing, or an error.
+        frames[filename] = df.reindex(columns=columns)
+    return frames
+
 
 def fetch_all_rows(supabase: Client, table_name: str) -> pd.DataFrame:
     """Fetches all rows from a Supabase table, handling pagination."""
@@ -396,6 +433,7 @@ def main():
     teams_df = fetch_all_rows(supabase, 'teams')
     matches_df = fetch_all_rows(supabase, 'matches')
     playermatchstats_df = fetch_all_rows(supabase, 'playermatchstats')
+    bzzoiro_dfs = fetch_bzzoiro_exports(supabase)
 
     essential_dfs = [gameweeks_df, players_df, playerstats_df, teams_df, matches_df]
     if any(df.empty for df in essential_dfs):
@@ -409,6 +447,15 @@ def main():
     if playermatchstats_df.empty:
         logger.info("  > 'playermatchstats' is empty (season not started?) - continuing with empty stats.")
         playermatchstats_df = ensure_playermatchstats_columns(pd.DataFrame())
+
+    # Correct the known upstream defects (phantom appearances, null minutes on
+    # non-appearances, timelines that contradict minutes_played) once, here,
+    # so every file written below inherits the cleaned rows. See
+    # scripts/clean_playermatchstats.py for what is fixed and why.
+    logger.info("\n--- Sanitising playermatchstats ---")
+    playermatchstats_df = sanitize_playermatchstats(
+        playermatchstats_df, players_df, matches_df, logger=logger
+    )
 
     # --- Data Pre-processing ---
     def extract_tournament_slug(match_id):
@@ -500,6 +547,15 @@ def main():
         # Ensure playerstats has all columns in consistent order
         gw_playerstats_normalized = ensure_playerstats_columns(gw_playerstats)
         gw_playerstats_normalized.to_csv(os.path.join(gw_path, 'playerstats.csv'), index=False)
+
+        # Enrichment goes with the dynamic files, not the locked snapshot:
+        # Bzzoiro can publish a match late, and a finished gameweek must
+        # still be able to receive it.
+        gw_match_ids = set(gw_matches['match_id'].dropna())
+        for filename, (_table, columns) in BZZOIRO_EXPORTS.items():
+            frame = bzzoiro_dfs[filename]
+            rows = frame[frame['match_id'].isin(gw_match_ids)]
+            rows.to_csv(os.path.join(gw_path, filename), index=False)
 
         players_path = os.path.join(gw_path, 'players.csv')
         teams_path = os.path.join(gw_path, 'teams.csv')

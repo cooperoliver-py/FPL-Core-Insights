@@ -179,6 +179,8 @@ The 2026/27 dataset lives in `data/2026-2027/` and follows the same layout as pr
 ### 🏃 Pre-Season Friendlies Under Gameweek 0
 Pre-season friendlies are collected under **Gameweek 0**, keeping them cleanly separated from the league campaign. That means you can analyse pre-season minutes and form for FPL-listed players before your first GW1 decisions. (Friendly coverage depends on what gets published for each fixture — smaller venues sometimes only have team-level data.)
 
+Use `minutes_played` as the source of truth for minutes. A player who was named but never came on is recorded as **0 minutes**, not a blank — deriving minutes from `finish_min - start_min` instead will credit those players with a full match. `start_min` / `finish_min` are best-effort: some fixtures arrive with no substitution timeline at all, and every player then shows a start of 0. Both columns are corrected on export where they contradict `minutes_played`; see `scripts/clean_playermatchstats.py` for exactly what is fixed and what is deliberately left alone.
+
 ### 🔁 A More Reliable Pipeline
 The pipeline behind this repository was overhauled over the summer: cup and European fixtures are picked up automatically as soon as draws are made (no more manually tracked competitions), and daily health checks catch missing or stale data before it reaches the CSVs.
 
