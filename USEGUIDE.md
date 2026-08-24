@@ -20,6 +20,50 @@ python scripts/fpl_predictions.py
 The model automatically reads the root-level `squad.json`. Open
 `predictions/latest.md` when it finishes.
 
+## Update data from the original repository
+
+The GitHub Actions workflow does this automatically. To update immediately on
+your computer, first check that you have no local edits inside `data/`:
+
+```bash
+git status --short -- data
+```
+
+If that command prints nothing, check whether the original repository is
+already configured as `upstream`:
+
+```bash
+git remote -v
+```
+
+If `upstream` is missing, add it once:
+
+```bash
+git remote add upstream https://github.com/olbauday/FPL-Core-Insights.git
+```
+
+Then fetch the original repository, copy only its latest data, and rerun the
+model:
+
+```bash
+git fetch upstream main
+git restore --source=upstream/main --worktree -- data
+source .venv/bin/activate
+python scripts/fpl_predictions.py
+```
+
+This replaces your local `data/` files with the upstream versions without
+merging the rest of the original repository. Avoid `git pull upstream main`,
+which would merge the entire upstream repository.
+
+To save the refreshed data and report to your fork:
+
+```bash
+git add -- data predictions
+git commit -m "Update upstream FPL data and predictions"
+git push origin main
+```
+
 ## Run it through GitHub Actions
 
 1. Open the repository's **Actions** tab.
