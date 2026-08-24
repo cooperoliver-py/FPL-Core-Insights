@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW2
 
-Last generated: 2026-08-23 16:54 UTC
+Last generated: 2026-08-24 02:09 UTC
 
-Data commit: `734303a6889f7bc83742ad98926b8f1c4342dc99`
+Data commit: `247962353d5901d83256761b504cbc00dcd22716`
 
 Forecasts use only the canonical 2025/26 `By Gameweek` player data, strictly lagged 3/5-GW form, and target Premier League fixtures. Five-GW weights are [1.0, 0.9, 0.8, 0.7, 0.6]; price and availability are held constant.
 
@@ -29,7 +29,6 @@ Forecasts use only the canonical 2025/26 `By Gameweek` player data, strictly lag
 | Virgil | LIV | Defender | 3.96 | 3.86 | 4.02 | 2.93 | 2.90 | 14.44 | 2.22 | high | 5-GW avg pts 4.60; mins 90; xGI 0.20; fixture Elo diff +82 |
 | Cunha | MUN | Midfielder | 3.94 | 3.51 | 3.34 | 3.51 | 3.87 | 14.55 | 1.82 | high | 5-GW avg pts 3.60; mins 51; xGI 0.27; fixture Elo diff +109 |
 | Gallagher | TOT | Midfielder | 3.81 | 3.80 | 4.06 | 3.48 | 3.24 | 14.87 | 2.70 | high | 5-GW avg pts 4.00; mins 88; xGI 0.15; fixture Elo diff -83 |
-| Anderson | MCI | Midfielder | 3.80 | 4.53 | 3.36 | 3.85 | 3.36 | 15.28 | 2.35 | high | 5-GW avg pts 7.20; mins 76; xGI 0.30; fixture Elo diff +165 |
 | Lacroix | CHE | Defender | 3.75 | 2.11 | 4.51 | 3.62 | 3.38 | 13.82 | 2.30 | high | 5-GW avg pts 2.20; mins 84; xGI 0.08; fixture Elo diff -25 |
 | Mainoo | MUN | Midfielder | 3.75 | 3.31 | 2.70 | 3.31 | 3.53 | 13.32 | 2.42 | high | 5-GW avg pts 4.80; mins 90; xGI 0.13; fixture Elo diff +109 |
 | Rayan | BOU | Midfielder | 3.74 | 3.42 | 3.71 | 3.39 | 3.45 | 14.23 | 2.19 | high | 5-GW avg pts 4.40; mins 64; xGI 0.27; fixture Elo diff +28 |
@@ -38,6 +37,7 @@ Forecasts use only the canonical 2025/26 `By Gameweek` player data, strictly lag
 | Groß | BHA | Midfielder | 3.72 | 4.01 | 4.10 | 2.74 | 3.95 | 14.89 | 2.71 | high | 5-GW avg pts 2.60; mins 72; xGI 0.28; fixture Elo diff +23 |
 | Foden | MCI | Midfielder | 3.70 | 4.28 | 3.36 | 4.17 | 3.36 | 15.17 | 2.17 | high | 5-GW avg pts 3.40; mins 50; xGI 0.29; fixture Elo diff +165 |
 | Saka | ARS | Midfielder | 3.67 | 4.61 | 4.36 | 4.06 | 4.61 | 16.92 | 1.78 | high | 5-GW avg pts 4.80; mins 45; xGI 0.40; fixture Elo diff +239 |
+| Danso | TOT | Defender | 3.65 | 3.76 | 4.22 | 3.28 | 3.14 | 14.59 | 2.92 | high | 5-GW avg pts 4.40; mins 90; xGI 0.08; fixture Elo diff -83 |
 
 Raw drivers are descriptive inputs, not SHAP or causal attributions.
 
