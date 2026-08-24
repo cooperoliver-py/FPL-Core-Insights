@@ -1,6 +1,6 @@
 # FPL predictions: 2026-2027, GW2
 
-Last generated: 2026-08-24 19:51 UTC
+Last generated: 2026-08-24 20:35 UTC
 
 Data commit: `d9c0fbcd7e318901772321e705dfba31fd496e1f`
 
@@ -67,40 +67,40 @@ Squad cost: £100.0m.
 
 | Player | Club | Position | Cost | Weighted score | Starts | Captains | Vice-captains |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Botman | NEW | Defender | £5.0m | 15.66 | GW2, GW3, GW4, GW5, GW6 | — | GW5 |
+| Botman | NEW | Defender | £5.0m | 15.66 | GW2, GW3, GW4, GW5, GW6 | — | GW5, GW6 |
 | Virgil | LIV | Defender | £6.5m | 14.44 | GW2, GW3, GW4 | — | — |
 | Muñoz | CRY | Defender | £5.5m | 14.12 | GW3, GW4, GW5, GW6 | — | — |
-| Maguire | MUN | Defender | £5.0m | 13.50 | GW2, GW6 | — | — |
+| Maguire | MUN | Defender | £5.0m | 13.50 | GW2, GW3, GW5, GW6 | — | — |
 | Mitchell | CRY | Defender | £4.5m | 13.08 | GW3, GW5, GW6 | — | — |
-| Watkins | AVL | Forward | £8.0m | 18.42 | GW2, GW3, GW4, GW5, GW6 | — | GW4, GW6 |
-| Thiago | BRE | Forward | £8.0m | 15.96 | GW2, GW3, GW4, GW5 | — | — |
+| Thiago | BRE | Forward | £8.0m | 15.96 | GW2, GW3, GW4, GW5, GW6 | — | — |
+| João Pedro | CHE | Forward | £7.5m | 12.22 | GW2, GW4 | — | — |
 | Mheuka | CHE | Forward | £4.5m | 2.09 | Bench | — | — |
 | Pope | NEW | Goalkeeper | £5.0m | 13.75 | GW2, GW3, GW4, GW5, GW6 | — | — |
 | Leno | FUL | Goalkeeper | £4.5m | 11.78 | Bench | — | — |
 | B.Fernandes | MUN | Midfielder | £12.0m | 22.34 | GW2, GW3, GW4, GW5, GW6 | GW2, GW3, GW5, GW6 | — |
 | Szoboszlai | LIV | Midfielder | £7.0m | 19.62 | GW2, GW3, GW4, GW5, GW6 | GW4 | GW2, GW3 |
 | Mbeumo | MUN | Midfielder | £8.0m | 17.05 | GW2, GW3, GW4, GW5, GW6 | — | — |
-| Saka | ARS | Midfielder | £9.5m | 16.92 | GW2, GW3, GW4, GW5, GW6 | — | — |
+| Saka | ARS | Midfielder | £9.5m | 16.92 | GW2, GW3, GW4, GW5, GW6 | — | GW4 |
 | Enzo | CHE | Midfielder | £7.0m | 14.35 | GW2, GW4, GW5, GW6 | — | — |
 
-Squad cost: £100.0m.
+Squad cost: £99.5m.
 
 ## One-transfer recommendation
 
-**Mitchell → Robinson** (projected weighted XI+captain gain 0.35).
+**João Pedro → Watkins** (projected weighted XI+captain gain 5.51).
 
 | Out | In | Sell | Buy | Bank after | XI+captain gain |
 | --- | --- | --- | --- | --- | --- |
-| Mitchell | Robinson | £4.5m | £4.5m | £0.0m | 0.35 |
-| Maguire | Danso | £5.0m | £5.0m | £0.0m | 0.31 |
-| Maguire | Thiaw | £5.0m | £5.0m | £0.0m | 0.19 |
-| Leno | Verbruggen | £4.5m | £4.5m | £0.0m | 0.12 |
-| Leno | Kinsky | £4.5m | £4.5m | £0.0m | 0.11 |
-| Muñoz | Danso | £5.5m | £5.0m | £0.5m | 0.08 |
-| Muñoz | Keane | £5.5m | £5.0m | £0.5m | 0.04 |
-| Maguire | Keane | £5.0m | £5.0m | £0.0m | 0.02 |
-| Muñoz | Thiaw | £5.5m | £5.0m | £0.5m | 0.01 |
-| Leno | Forster | £4.5m | £4.0m | £0.5m | 0.00 |
+| João Pedro | Watkins | £7.5m | £8.0m | £0.0m | 5.51 |
+| Thiago | Watkins | £8.0m | £8.0m | £0.5m | 2.47 |
+| João Pedro | Havertz | £7.5m | £7.5m | £0.5m | 1.07 |
+| Mitchell | Danso | £4.5m | £5.0m | £0.0m | 0.92 |
+| Mitchell | Keane | £4.5m | £5.0m | £0.0m | 0.78 |
+| Mitchell | Thiaw | £4.5m | £5.0m | £0.0m | 0.67 |
+| Mitchell | Canvot | £4.5m | £5.0m | £0.0m | 0.58 |
+| João Pedro | Calvert-Lewin | £7.5m | £6.0m | £2.0m | 0.47 |
+| João Pedro | Osula | £7.5m | £6.0m | £2.0m | 0.43 |
+| Mitchell | Morato | £4.5m | £5.0m | £0.0m | 0.42 |
 
 ## Limits
 
