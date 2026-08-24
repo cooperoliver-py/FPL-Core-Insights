@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW2
 
-Last generated: 2026-08-24 09:24 UTC
+Last generated: 2026-08-24 17:07 UTC
 
-Data commit: `2f753eb25e375f544d2fd9722d44e9456e9fa0c0`
+Data commit: `d9c0fbcd7e318901772321e705dfba31fd496e1f`
 
 Forecasts use only the canonical 2025/26 `By Gameweek` player data, strictly lagged 3/5-GW form, and target Premier League fixtures. Five-GW weights are [1.0, 0.9, 0.8, 0.7, 0.6]; price and availability are held constant.
 
