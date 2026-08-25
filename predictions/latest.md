@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW2
 
-Last generated: 2026-08-25 02:03 UTC
+Last generated: 2026-08-25 09:10 UTC
 
-Data commit: `012d6ca6a7b2ace3fc9dc292f9c15dd8d48ec469`
+Data commit: `89c1639f4cbd77ec08d3d4c3f3133f19213aed3e`
 
 Forecasts use only the canonical 2025/26 `By Gameweek` player data, strictly lagged 3/5-GW form, and target Premier League fixtures. Five-GW weights are [1.0, 0.9, 0.8, 0.7, 0.6]; price and availability are held constant.
 
@@ -22,7 +22,7 @@ Forecasts use only the canonical 2025/26 `By Gameweek` player data, strictly lag
 | Szoboszlai | LIV | Midfielder | 5.28 | 5.41 | 5.13 | 3.96 | 3.86 | 19.33 | 2.76 | high | 5-GW avg pts 6.80; mins 90; xGI 0.62; fixture Elo diff +82 |
 | Haaland | MCI | Forward | 4.58 | 5.01 | 4.43 | 5.08 | 4.43 | 18.84 | 1.22 | high | 5-GW avg pts 5.80; mins 72; xGI 0.67; fixture Elo diff +165 |
 | Mbeumo | MUN | Midfielder | 4.54 | 4.19 | 3.21 | 4.19 | 4.43 | 16.47 | 2.06 | high | 5-GW avg pts 4.20; mins 66; xGI 1.03; fixture Elo diff +109 |
-| Gonzalo | FUL | Forward | 4.41 | 3.58 | 3.01 | 2.77 | 5.48 | 15.26 | 2.54 | low | 5-GW avg pts 6.00; mins 90; xGI 0.72; fixture Elo diff +7 |
+| Gonzalo | FUL | Forward | 4.30 | 3.47 | 3.02 | 2.78 | 5.19 | 14.91 | 2.49 | low | 5-GW avg pts 6.00; mins 90; xGI 0.74; fixture Elo diff +7 |
 | Gakpo | LIV | Midfielder | 4.05 | 4.20 | 4.05 | 2.83 | 2.68 | 14.65 | 2.09 | high | 5-GW avg pts 4.80; mins 84; xGI 0.36; fixture Elo diff +82 |
 | Maguire | MUN | Defender | 4.04 | 3.33 | 2.62 | 3.33 | 3.57 | 13.62 | 2.72 | high | 5-GW avg pts 4.20; mins 90; xGI 0.15; fixture Elo diff +109 |
 | Cunha | MUN | Midfielder | 3.98 | 3.58 | 3.44 | 3.58 | 3.92 | 14.81 | 1.85 | high | 5-GW avg pts 4.00; mins 67; xGI 0.36; fixture Elo diff +109 |
@@ -50,11 +50,11 @@ Raw drivers are descriptive inputs, not SHAP or causal attributions.
 | Botman | NEW | Defender | £5.0m | 14.28 | GW4, GW5, GW6 | — | — |
 | Tarkowski | EVE | Defender | £6.0m | 13.84 | GW4, GW5, GW6 | — | GW5 |
 | Maguire | MUN | Defender | £5.0m | 13.62 | GW2, GW3, GW5, GW6 | — | — |
-| Watkins | AVL | Forward | £8.0m | 17.92 | GW3, GW4, GW5, GW6 | GW4 | — |
-| Gonzalo | FUL | Forward | £6.0m | 15.26 | GW2, GW6 | — | GW6 |
+| Watkins | AVL | Forward | £8.0m | 17.92 | GW3, GW4, GW5, GW6 | GW4 | GW6 |
+| Gonzalo | FUL | Forward | £6.0m | 14.91 | GW2, GW6 | — | — |
 | Thiago | BRE | Forward | £8.0m | 14.87 | GW2, GW3, GW5 | — | — |
 | Horníček | NEW | Goalkeeper | £5.0m | 13.37 | GW2, GW3, GW4, GW5, GW6 | — | — |
-| Woodman | LIV | Goalkeeper | £4.0m | 1.57 | Bench | — | — |
+| Austin | TOT | Goalkeeper | £4.0m | 0.52 | Bench | — | — |
 | B.Fernandes | MUN | Midfielder | £12.0m | 22.59 | GW2, GW3, GW4, GW5, GW6 | GW2, GW3, GW5, GW6 | — |
 | Szoboszlai | LIV | Midfielder | £7.0m | 19.33 | GW2, GW3, GW4, GW5, GW6 | — | GW2, GW3, GW4 |
 | Mbeumo | MUN | Midfielder | £8.0m | 16.47 | GW2, GW3, GW4, GW5, GW6 | — | — |
@@ -73,9 +73,9 @@ Squad cost: £100.0m.
 | Muñoz | CRY | Defender | £5.5m | 12.60 | GW3, GW4, GW5, GW6 | — | — |
 | Mitchell | CRY | Defender | £4.5m | 10.04 | GW3 | — | — |
 | Thiago | BRE | Forward | £8.0m | 14.87 | GW2, GW3, GW4, GW5 | — | — |
-| João Pedro | CHE | Forward | £7.5m | 12.12 | GW2, GW4, GW5, GW6 | — | — |
+| João Pedro | CHE | Forward | £7.5m | 12.33 | GW2, GW4, GW5, GW6 | — | — |
 | Mheuka | CHE | Forward | £4.5m | 1.57 | Bench | — | — |
-| Leno | FUL | Goalkeeper | £4.5m | 11.93 | GW2, GW3, GW6 | — | — |
+| Leno | FUL | Goalkeeper | £4.5m | 11.75 | GW2, GW3, GW6 | — | — |
 | Pope | NEW | Goalkeeper | £5.0m | 10.18 | GW4, GW5 | — | — |
 | B.Fernandes | MUN | Midfielder | £12.0m | 22.59 | GW2, GW3, GW4, GW5, GW6 | GW2, GW3, GW5, GW6 | — |
 | Szoboszlai | LIV | Midfielder | £7.0m | 19.33 | GW2, GW3, GW4, GW5, GW6 | GW4 | GW2, GW3 |
@@ -87,20 +87,20 @@ Squad cost: £99.5m.
 
 ## One-transfer recommendation
 
-**João Pedro → Watkins** (projected weighted XI+captain gain 5.84).
+**João Pedro → Watkins** (projected weighted XI+captain gain 5.67).
 
 | Out | In | Sell | Buy | Bank after | XI+captain gain |
 | --- | --- | --- | --- | --- | --- |
-| João Pedro | Watkins | £7.5m | £8.0m | £0.0m | 5.84 |
-| João Pedro | Gonzalo | £7.5m | £6.0m | £2.0m | 3.20 |
-| Thiago | Watkins | £8.0m | £8.0m | £0.5m | 3.07 |
-| João Pedro | Havertz | £7.5m | £7.5m | £0.5m | 2.48 |
-| Mitchell | Thiaw | £4.5m | £5.0m | £0.0m | 2.04 |
-| Mitchell | Hall | £4.5m | £5.0m | £0.0m | 1.90 |
-| Mitchell | Bijol | £4.5m | £5.0m | £0.0m | 1.80 |
-| João Pedro | Calvert-Lewin | £7.5m | £6.0m | £2.0m | 1.77 |
-| Mitchell | Castagne | £4.5m | £4.5m | £0.5m | 1.73 |
+| João Pedro | Watkins | £7.5m | £8.0m | £0.0m | 5.67 |
+| Thiago | Watkins | £8.0m | £8.0m | £0.5m | 3.05 |
+| João Pedro | Gonzalo | £7.5m | £6.0m | £2.0m | 2.66 |
+| João Pedro | Havertz | £7.5m | £7.5m | £0.5m | 2.30 |
+| Mitchell | Thiaw | £4.5m | £5.0m | £0.0m | 2.01 |
+| Mitchell | Hall | £4.5m | £5.0m | £0.0m | 1.88 |
+| Mitchell | Bijol | £4.5m | £5.0m | £0.0m | 1.78 |
 | Muñoz | Truffert | £5.5m | £5.5m | £0.5m | 1.69 |
+| Pope | Horníček | £5.0m | £5.0m | £0.5m | 1.69 |
+| Saka | Semenyo | £9.5m | £8.5m | £1.5m | 1.63 |
 
 ## Limits
 
