@@ -26,7 +26,7 @@ It’s a simple way to:
 - See who’s actually extracting value from the insights
 - Have a bit of competitive fun along the way
 
-👉 **[Join the FPL Core League](https://fantasy.premierleague.com/leagues/auto-join/jxhhge)**
+👉 **[Join the FPL Core League](https://fantasy.premierleague.com/leagues/auto-join/2gtyce)**
 
 ## Data Updates
 
