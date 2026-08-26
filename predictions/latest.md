@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW2
 
-Last generated: 2026-08-26 02:10 UTC
+Last generated: 2026-08-26 09:13 UTC
 
-Data commit: `3cf2950995897f5c8c47cd7de048a4fbd466d861`
+Data commit: `a15c0e4bd998581a6a75cf7ba987afd7e426f9b9`
 
 Forecasts use only the canonical 2025/26 `By Gameweek` player data, strictly lagged 3/5-GW form, and target Premier League fixtures. Five-GW weights are [1.0, 0.9, 0.8, 0.7, 0.6]; price and availability are held constant.
 
@@ -26,7 +26,7 @@ Forecasts use only the canonical 2025/26 `By Gameweek` player data, strictly lag
 | Gakpo | LIV | Midfielder | 4.45 | 4.43 | 4.45 | 3.24 | 3.13 | 16.14 | 2.31 | high | 5-GW avg pts 4.80; mins 84; xGI 0.36; fixture Elo diff +82 |
 | Mbeumo | MUN | Midfielder | 4.39 | 4.17 | 3.11 | 4.17 | 4.37 | 16.17 | 2.02 | high | 5-GW avg pts 4.20; mins 66; xGI 1.03; fixture Elo diff +109 |
 | Silva | BOU | Defender | 4.28 | 3.92 | 4.06 | 3.85 | 4.00 | 16.16 | 3.23 | low | 5-GW avg pts 2.00; mins 90; xGI 0.00; fixture Elo diff +28 |
-| M.Sangaré | BRE | Midfielder | 4.28 | 4.83 | 3.24 | 4.44 | 3.04 | 16.15 | 2.94 | low | 5-GW avg pts 14.00; mins 75; xGI 0.38; fixture Elo diff +6 |
+| M.Sangaré | BRE | Midfielder | 4.28 | 4.83 | 3.24 | 4.44 | 3.04 | 16.15 | 2.88 | low | 5-GW avg pts 14.00; mins 75; xGI 0.38; fixture Elo diff +6 |
 | João Pedro | CHE | Forward | 4.21 | 2.30 | 4.32 | 3.64 | 4.01 | 14.70 | 1.96 | high | 5-GW avg pts 4.40; mins 72; xGI 0.40; fixture Elo diff -25 |
 | Thomas | COV | Defender | 4.16 | 2.35 | 3.47 | 3.01 | 3.47 | 13.24 | 3.31 | low | 5-GW avg pts 3.00; mins 90; xGI 0.03; fixture Elo diff -162 |
 | Cunha | MUN | Midfielder | 4.10 | 3.61 | 3.47 | 3.61 | 4.02 | 15.05 | 1.88 | high | 5-GW avg pts 4.00; mins 67; xGI 0.36; fixture Elo diff +109 |
@@ -49,19 +49,19 @@ Raw drivers are descriptive inputs, not SHAP or causal attributions.
 | Dedić | NEW | Defender | £4.5m | 15.49 | GW2, GW4, GW5, GW6 | — | — |
 | Botman | NEW | Defender | £5.0m | 15.02 | GW5, GW6 | — | — |
 | Bijol | LEE | Defender | £5.0m | 14.45 | GW2, GW3, GW4, GW5 | — | — |
-| Maguire | MUN | Defender | £5.0m | 13.89 | GW2, GW3, GW6 | — | — |
+| De Cuyper | BHA | Defender | £4.6m | 13.82 | GW3, GW4, GW6 | — | — |
 | Haaland | MCI | Forward | £15.5m | 19.02 | GW2, GW3, GW4, GW5, GW6 | — | GW5 |
 | Watkins | AVL | Forward | £8.0m | 17.92 | GW3, GW4, GW5, GW6 | GW4 | — |
-| Gonzalo | FUL | Forward | £6.0m | 17.45 | GW2, GW3, GW4, GW5, GW6 | — | GW6 |
+| Gonzalo | FUL | Forward | £6.0m | 17.45 | GW2, GW3, GW5, GW6 | — | GW6 |
 | Horníček | NEW | Goalkeeper | £5.0m | 15.79 | GW2, GW3, GW4, GW5, GW6 | — | — |
-| Woodman | LIV | Goalkeeper | £4.0m | 1.57 | Bench | — | — |
+| Phillips | HUL | Goalkeeper | £4.0m | 0.52 | Bench | — | — |
 | B.Fernandes | MUN | Midfielder | £12.0m | 22.11 | GW2, GW3, GW4, GW5, GW6 | GW2, GW3, GW5, GW6 | — |
 | Szoboszlai | LIV | Midfielder | £7.0m | 18.73 | GW2, GW3, GW4, GW5, GW6 | — | GW2, GW3, GW4 |
-| M.Sangaré | BRE | Midfielder | £5.5m | 16.15 | GW2, GW3, GW5 | — | — |
+| M.Sangaré | BRE | Midfielder | £5.6m | 16.15 | GW2, GW3, GW5 | — | — |
 | Gakpo | LIV | Midfielder | £7.0m | 16.14 | GW2, GW3, GW4 | — | — |
-| Groß | BHA | Midfielder | £5.5m | 15.43 | GW4, GW6 | — | — |
+| Groß | BHA | Midfielder | £5.5m | 15.43 | GW2, GW4, GW6 | — | — |
 
-Squad cost: £100.0m.
+Squad cost: £99.7m.
 
 ## Your current squad
 
