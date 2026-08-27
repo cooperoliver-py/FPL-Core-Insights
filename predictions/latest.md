@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW2
 
-Last generated: 2026-08-26 18:17 UTC
+Last generated: 2026-08-27 10:09 UTC
 
-Data commit: `0d089b23aad6f2685b707b0d7fb98b06c8706c59`
+Data commit: `20995486fd108fff02c62db8bcb5ca5aef975716`
 
 Forecasts use only the canonical 2025/26 `By Gameweek` player data, strictly lagged 3/5-GW form, and target Premier League fixtures. Five-GW weights are [1.0, 0.9, 0.8, 0.7, 0.6]; price and availability are held constant.
 
@@ -25,7 +25,7 @@ Forecasts use only the canonical 2025/26 `By Gameweek` player data, strictly lag
 | Gonzalo | FUL | Forward | 4.62 | 4.72 | 3.55 | 3.62 | 4.59 | 17.01 | 2.83 | low | 5-GW avg pts 6.00; mins 90; xGI 0.74; fixture Elo diff +12 |
 | Silva | BOU | Defender | 4.36 | 3.92 | 4.06 | 3.85 | 4.00 | 16.25 | 3.25 | low | 5-GW avg pts 2.00; mins 90; xGI 0.00; fixture Elo diff +28 |
 | Gakpo | LIV | Midfielder | 4.27 | 3.95 | 4.27 | 3.07 | 2.96 | 15.18 | 2.17 | high | 5-GW avg pts 4.80; mins 84; xGI 0.36; fixture Elo diff +87 |
-| João Pedro | CHE | Forward | 4.21 | 2.30 | 3.56 | 3.64 | 4.01 | 14.09 | 1.88 | high | 5-GW avg pts 4.40; mins 72; xGI 0.40; fixture Elo diff +2 |
+| João Pedro | CHE | Forward | 4.20 | 2.30 | 3.55 | 3.63 | 4.01 | 14.06 | 1.85 | high | 5-GW avg pts 4.40; mins 72; xGI 0.40; fixture Elo diff +2 |
 | Dasilva | COV | Defender | 4.17 | 2.45 | 3.12 | 2.69 | 3.12 | 12.63 | 3.16 | low | 5-GW avg pts 1.00; mins 90; xGI 0.02; fixture Elo diff -140 |
 | van Ewijk | COV | Defender | 4.17 | 2.45 | 3.12 | 2.69 | 3.12 | 12.63 | 3.16 | low | 5-GW avg pts 1.00; mins 90; xGI 0.01; fixture Elo diff -140 |
 | Thomas | COV | Defender | 4.14 | 2.35 | 3.47 | 3.01 | 3.47 | 13.23 | 3.31 | low | 5-GW avg pts 3.00; mins 90; xGI 0.03; fixture Elo diff -140 |
@@ -47,19 +47,19 @@ Raw drivers are descriptive inputs, not SHAP or causal attributions.
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Silva | BOU | Defender | £5.0m | 16.25 | GW2, GW3, GW4, GW5, GW6 | — | — |
 | Dedić | NEW | Defender | £4.5m | 15.18 | GW2, GW3, GW4, GW5, GW6 | — | — |
-| Bijol | LEE | Defender | £5.0m | 14.45 | GW2, GW3, GW4, GW5 | — | — |
 | Thomas | COV | Defender | £4.0m | 13.23 | GW2, GW6 | — | — |
+| Rodon | LEE | Defender | £4.5m | 13.03 | GW3, GW4, GW5 | — | — |
 | Dasilva | COV | Defender | £4.0m | 12.63 | GW2 | — | — |
 | Haaland | MCI | Forward | £15.5m | 19.40 | GW2, GW3, GW4, GW5, GW6 | — | GW3, GW5 |
-| Watkins | AVL | Forward | £8.0m | 17.51 | GW3, GW4, GW5, GW6 | GW4 | GW6 |
+| Watkins | AVL | Forward | £7.9m | 17.51 | GW3, GW4, GW5, GW6 | GW4 | GW6 |
 | Gonzalo | FUL | Forward | £6.0m | 17.01 | GW2, GW3, GW4, GW5, GW6 | — | — |
 | Horníček | NEW | Goalkeeper | £5.0m | 15.90 | GW2, GW3, GW4, GW5, GW6 | — | — |
-| Steele | BHA | Goalkeeper | £4.0m | 0.50 | Bench | — | — |
+| Palmer | IPS | Goalkeeper | £4.0m | 0.52 | Bench | — | — |
 | B.Fernandes | MUN | Midfielder | £12.0m | 21.83 | GW2, GW3, GW4, GW5, GW6 | GW2, GW3, GW5, GW6 | — |
 | Szoboszlai | LIV | Midfielder | £7.0m | 18.48 | GW2, GW3, GW4, GW5, GW6 | — | GW2 |
 | Palmer | CHE | Midfielder | £9.5m | 16.22 | GW2, GW4, GW5, GW6 | — | GW4 |
+| M.Sangaré | BRE | Midfielder | £5.6m | 15.66 | GW2, GW3, GW5 | — | — |
 | Groß | BHA | Midfielder | £5.5m | 15.40 | GW3, GW4, GW6 | — | — |
-| Janelt | BRE | Midfielder | £5.0m | 14.08 | GW3, GW5 | — | — |
 
 Squad cost: £100.0m.
 
@@ -73,7 +73,7 @@ Squad cost: £100.0m.
 | Muñoz | CRY | Defender | £5.5m | 12.04 | GW3, GW4, GW5, GW6 | — | — |
 | Mitchell | CRY | Defender | £4.5m | 10.04 | GW3 | — | — |
 | Thiago | BRE | Forward | £8.0m | 14.78 | GW2, GW3, GW4, GW5 | — | — |
-| João Pedro | CHE | Forward | £7.5m | 14.09 | GW2, GW4, GW5, GW6 | — | — |
+| João Pedro | CHE | Forward | £7.6m | 14.06 | GW2, GW4, GW5, GW6 | — | — |
 | Mheuka | CHE | Forward | £4.5m | 1.49 | Bench | — | — |
 | Leno | FUL | Goalkeeper | £4.5m | 11.63 | GW2, GW3, GW5, GW6 | — | — |
 | Pope | NEW | Goalkeeper | £5.0m | 9.92 | GW4 | — | — |
@@ -83,7 +83,7 @@ Squad cost: £100.0m.
 | Saka | ARS | Midfielder | £9.5m | 15.80 | GW2, GW3, GW4, GW5, GW6 | — | — |
 | Enzo | CHE | Midfielder | £7.0m | 13.59 | GW2, GW4, GW5, GW6 | — | — |
 
-Squad cost: £99.5m.
+Squad cost: £99.6m.
 
 ## One-transfer recommendation
 
@@ -95,11 +95,11 @@ Squad cost: £99.5m.
 | Pope | Horníček | £5.0m | £5.0m | £0.5m | 4.16 |
 | Mitchell | Silva | £4.5m | £5.0m | £0.0m | 4.15 |
 | Muñoz | Silva | £5.5m | £5.0m | £1.0m | 3.57 |
-| João Pedro | Watkins | £7.5m | £8.0m | £0.0m | 3.50 |
+| João Pedro | Watkins | £7.5m | £7.9m | £0.1m | 3.53 |
 | Mitchell | Dedić | £4.5m | £4.5m | £0.5m | 3.09 |
-| Thiago | Watkins | £8.0m | £8.0m | £0.5m | 2.91 |
+| Thiago | Watkins | £8.0m | £7.9m | £0.6m | 2.91 |
 | Mitchell | Bijol | £4.5m | £5.0m | £0.0m | 2.79 |
-| João Pedro | Gonzalo | £7.5m | £6.0m | £2.0m | 2.70 |
+| João Pedro | Gonzalo | £7.5m | £6.0m | £2.0m | 2.73 |
 | Maguire | Silva | £5.0m | £5.0m | £0.5m | 2.52 |
 
 ## Limits
