@@ -677,7 +677,9 @@ def _forecast(
 
 
 def _select_initial_squad(forecast: pd.DataFrame, gameweeks: list[int]) -> list[object]:
-    candidates = forecast.loc[~forecast["status"].astype(str).isin(UNAVAILABLE)].copy()
+    candidates = forecast.loc[
+        (~forecast["status"].astype(str).isin(UNAVAILABLE)) & (~forecast["excluded"])
+    ].copy()
     candidates = candidates.sort_values("player_code", kind="mergesort")
     count = len(candidates)
     if count < 15:
@@ -735,7 +737,9 @@ def _select_initial_squad(forecast: pd.DataFrame, gameweeks: list[int]) -> list[
     return selected
 
 
-def _resolve_user_squad(path: Path, catalog: pd.DataFrame) -> tuple[pd.DataFrame, float]:
+def _resolve_user_squad(
+    path: Path, catalog: pd.DataFrame
+) -> tuple[pd.DataFrame, float, set[int]]:
     if not path.is_file():
         raise FileNotFoundError(f"squad file not found: {path}")
     try:
@@ -743,6 +747,14 @@ def _resolve_user_squad(path: Path, catalog: pd.DataFrame) -> tuple[pd.DataFrame
     except json.JSONDecodeError as exc:
         raise ValueError(f"invalid squad JSON in {path}: {exc}") from exc
     validate_squad(payload, catalog)
+    excluded = payload.get("excluded_player_codes", [])
+    if not isinstance(excluded, list) or any(
+        isinstance(code, bool) or not isinstance(code, int) for code in excluded
+    ):
+        raise ValueError("excluded_player_codes must be a list of integer player_code values")
+    excluded_codes = set(excluded)
+    if len(excluded_codes) != len(excluded):
+        raise ValueError("excluded_player_codes must not contain duplicates")
     bank = float(payload["bank"])
     selections = pd.DataFrame(payload["players"])
     if "purchase_price" not in selections:
@@ -765,7 +777,7 @@ def _resolve_user_squad(path: Path, catalog: pd.DataFrame) -> tuple[pd.DataFrame
         calculate_selling_price(purchase, current)
         for purchase, current in zip(resolved["purchase_price"], resolved["now_cost"])
     ]
-    return resolved, bank
+    return resolved, bank, excluded_codes
 
 
 def _exact_lineup_score(squad: pd.DataFrame, points_column: str) -> float:
@@ -802,7 +814,16 @@ def _transfer_options(
     gameweeks: list[int],
 ) -> pd.DataFrame:
     point_columns = [f"GW{gameweek}_predicted_points" for gameweek in gameweeks]
-    columns = ["player_code", "web_name", "team_code", "position", "status", "now_cost", *point_columns]
+    columns = [
+        "player_code",
+        "web_name",
+        "team_code",
+        "position",
+        "status",
+        "excluded",
+        "now_cost",
+        *point_columns,
+    ]
     pool = forecast[columns].copy().set_index("player_code", drop=False)
     squad = user_squad.drop(columns=[column for column in point_columns if column in user_squad]).merge(
         forecast[["player_code", *point_columns]], on="player_code", how="left", validate="one_to_one"
@@ -821,6 +842,7 @@ def _transfer_options(
             (~pool.index.isin(squad_codes))
             & (pool["position"] == outgoing["position"])
             & (~pool["status"].astype(str).isin(UNAVAILABLE))
+            & (~pool["excluded"])
             & (pool["now_cost"] <= funds + 1e-9)
         ].sort_index(kind="mergesort")
         for incoming in incoming_pool.itertuples(index=False):
@@ -944,7 +966,7 @@ def _render_markdown(
                 "",
             )
         )
-    top = forecast.sort_values(
+    top = forecast.loc[~forecast["excluded"]].sort_values(
         [point_columns[0], "player_code"], ascending=[False, True], kind="mergesort"
     ).head(20)
     lines.extend(
@@ -1098,6 +1120,7 @@ def _write_outputs(
         "team_short_name",
         "position",
         "status",
+        "excluded",
         "now_cost",
         "selected_by_percent",
     ]
@@ -1175,6 +1198,12 @@ def run(
     model, evaluation = _evaluate_and_fit(training)
     forecast = _forecast(model, training, season, gameweeks)
     forecast = forecast.copy()
+    forecast["excluded"] = False
+    user_squad = None
+    bank = 0.0
+    if squad_path is not None:
+        user_squad, bank, excluded_codes = _resolve_user_squad(squad_path, forecast)
+        forecast["excluded"] = forecast["player_code"].astype(int).isin(excluded_codes)
     selected_indices = _select_initial_squad(forecast, gameweeks)
     recommended = forecast.loc[selected_indices]
     recommended_codes = set(recommended["player_code"].astype(int))
@@ -1198,8 +1227,7 @@ def run(
         forecast[f"current_GW{gameweek_value}_vice_captain"] = False
 
     transfers = None
-    if squad_path is not None:
-        user_squad, bank = _resolve_user_squad(squad_path, forecast)
+    if user_squad is not None:
         user_codes = set(user_squad["player_code"].astype(int))
         forecast["current_squad"] = forecast["player_code"].astype(int).isin(user_codes)
         user_squad = user_squad.merge(

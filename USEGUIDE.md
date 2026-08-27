@@ -20,6 +20,19 @@ python scripts/fpl_predictions.py
 The model automatically reads the root-level `squad.json`. Open
 `predictions/latest.md` when it finishes.
 
+## Exclude players from recommendations
+
+Add stable `player_code` values to `excluded_player_codes` in `squad.json`:
+
+```json
+"excluded_player_codes": [178301, 448047]
+```
+
+Excluded players remain visible in the CSV and can still be recommended as a
+transfer-out when already owned, but they cannot appear in top picks, the
+ML-optimal squad, or transfer-in suggestions. This setting never modifies
+`data/` and survives upstream updates.
+
 ## Update data from the original repository
 
 The GitHub Actions workflow does this automatically. To update immediately on

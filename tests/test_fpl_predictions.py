@@ -97,16 +97,18 @@ class FPLPredictionsTests(unittest.TestCase):
         )
         columns = ["player_code", "web_name", "team_code", "position", "status", "now_cost"]
         forecast = squad[columns].copy()
+        forecast["excluded"] = False
         forecast["GW1_predicted_points"] = squad["predicted_points"]
         incoming = pd.DataFrame(
             {
-                "player_code": [16, 17, 18, 19],
-                "web_name": ["Available", "Injured", "Unavailable", "Suspended"],
-                "team_code": [9] * 4,
-                "position": ["Forward"] * 4,
-                "status": ["a", "i", "u", "s"],
-                "now_cost": [5.0] * 4,
-                "GW1_predicted_points": [20.0] * 4,
+                "player_code": [16, 17, 18, 19, 20],
+                "web_name": ["Available", "Injured", "Unavailable", "Suspended", "Excluded"],
+                "team_code": [9] * 5,
+                "position": ["Forward"] * 5,
+                "status": ["a", "i", "u", "s", "a"],
+                "excluded": [False, False, False, False, True],
+                "now_cost": [5.0] * 5,
+                "GW1_predicted_points": [20.0] * 5,
             }
         )
 
@@ -115,6 +117,34 @@ class FPLPredictionsTests(unittest.TestCase):
         )
 
         self.assertEqual(set(options["in_player_code"]), {16})
+
+    def test_excluded_player_is_not_selected_for_optimal_squad(self):
+        forecast = legal_squad().assign(status="a", now_cost=5.0, excluded=False)
+        forecast["weighted_score"] = forecast["predicted_points"]
+        forecast["GW1_predicted_points"] = forecast["predicted_points"]
+        excluded = pd.DataFrame(
+            {
+                "player_code": [16],
+                "position": ["Forward"],
+                "team_code": [9],
+                "purchase_price": [5.0],
+                "predicted_points": [100.0],
+                "status": ["a"],
+                "now_cost": [5.0],
+                "excluded": [True],
+                "weighted_score": [100.0],
+                "GW1_predicted_points": [100.0],
+            }
+        )
+
+        selected = predictions._select_initial_squad(
+            pd.concat([forecast, excluded], ignore_index=True), [1]
+        )
+
+        selected_codes = set(
+            pd.concat([forecast, excluded], ignore_index=True).loc[selected, "player_code"]
+        )
+        self.assertNotIn(16, selected_codes)
 
     def test_non_empty_transfer_table_renders_reserved_in_column(self):
         forecast = pd.DataFrame(
@@ -136,6 +166,7 @@ class FPLPredictionsTests(unittest.TestCase):
                 "current_GW1_lineup": [True],
                 "current_GW1_captain": [False],
                 "current_GW1_vice_captain": [True],
+                "excluded": [False],
             }
         )
         transfers = pd.DataFrame(
