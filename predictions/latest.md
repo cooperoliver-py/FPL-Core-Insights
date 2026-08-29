@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW3
 
-Last generated: 2026-08-29 18:03 UTC
+Last generated: 2026-08-29 19:28 UTC
 
-Data commit: `e4a20d2e8d07ad960d680f229f09e72b936e919c`
+Data commit: `77cd0ebd2e8e628ee01926c54c89f9eb4cd74b70`
 
 Forecasts use only the canonical 2025/26 `By Gameweek` player data, strictly lagged 3/5-GW form, and target Premier League fixtures. Five-GW weights are [1.0, 0.9, 0.8, 0.7, 0.6]; price and availability are held constant.
 
@@ -54,7 +54,7 @@ Raw drivers are descriptive inputs, not SHAP or causal attributions.
 | Gonzalo | FUL | Forward | £6.0m | 18.02 | GW3, GW4, GW5, GW6, GW7 | GW7 | GW6 |
 | Emersonn | IPS | Forward | £5.5m | 13.24 | GW3, GW6 | — | — |
 | Horníček | NEW | Goalkeeper | £5.0m | 15.51 | GW3, GW4, GW5, GW6, GW7 | — | — |
-| Forster | BOU | Goalkeeper | £4.0m | 0.52 | Bench | — | — |
+| Steele | BHA | Goalkeeper | £4.0m | 0.50 | Bench | — | — |
 | B.Fernandes | MUN | Midfielder | £12.0m | 21.50 | GW3, GW4, GW5, GW6, GW7 | GW3, GW5, GW6 | GW7 |
 | Szoboszlai | LIV | Midfielder | £7.0m | 18.36 | GW3, GW4, GW5, GW6, GW7 | — | GW3, GW4 |
 | Palmer | CHE | Midfielder | £9.6m | 15.85 | GW4, GW5, GW6, GW7 | GW4 | — |
