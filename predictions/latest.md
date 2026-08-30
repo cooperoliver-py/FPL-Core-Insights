@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW3
 
-Last generated: 2026-08-29 19:28 UTC
+Last generated: 2026-08-30 05:42 UTC
 
-Data commit: `77cd0ebd2e8e628ee01926c54c89f9eb4cd74b70`
+Data commit: `63c923758a5f9362bea86695a7af8319b4aa99e9`
 
 Forecasts use only the canonical 2025/26 `By Gameweek` player data, strictly lagged 3/5-GW form, and target Premier League fixtures. Five-GW weights are [1.0, 0.9, 0.8, 0.7, 0.6]; price and availability are held constant.
 
@@ -54,7 +54,7 @@ Raw drivers are descriptive inputs, not SHAP or causal attributions.
 | Gonzalo | FUL | Forward | £6.0m | 18.02 | GW3, GW4, GW5, GW6, GW7 | GW7 | GW6 |
 | Emersonn | IPS | Forward | £5.5m | 13.24 | GW3, GW6 | — | — |
 | Horníček | NEW | Goalkeeper | £5.0m | 15.51 | GW3, GW4, GW5, GW6, GW7 | — | — |
-| Steele | BHA | Goalkeeper | £4.0m | 0.50 | Bench | — | — |
+| Davies | LIV | Goalkeeper | £4.0m | 0.50 | Bench | — | — |
 | B.Fernandes | MUN | Midfielder | £12.0m | 21.50 | GW3, GW4, GW5, GW6, GW7 | GW3, GW5, GW6 | GW7 |
 | Szoboszlai | LIV | Midfielder | £7.0m | 18.36 | GW3, GW4, GW5, GW6, GW7 | — | GW3, GW4 |
 | Palmer | CHE | Midfielder | £9.6m | 15.85 | GW4, GW5, GW6, GW7 | GW4 | — |
@@ -81,26 +81,26 @@ Squad cost: £99.8m.
 | Szoboszlai | LIV | Midfielder | £7.0m | 18.36 | GW3, GW4, GW5, GW6, GW7 | GW4 | GW3, GW7 |
 | Saka | ARS | Midfielder | £9.5m | 16.32 | GW3, GW4, GW5, GW6, GW7 | — | — |
 | Mbeumo | MUN | Midfielder | £8.0m | 15.85 | GW3, GW4, GW5, GW6, GW7 | — | — |
-| Enzo | CHE | Midfielder | £7.0m | 13.72 | GW4, GW5, GW6, GW7 | — | — |
+| Enzo | CHE | Midfielder | £6.9m | 11.22 | GW4, GW5, GW6, GW7 | — | — |
 
-Squad cost: £99.6m.
+Squad cost: £99.5m.
 
 ## One-transfer recommendation
 
-**Mitchell → Silva** (projected weighted XI+captain gain 4.43).
+**Mitchell → Silva** (projected weighted XI+captain gain 4.49).
 
 | Out | In | Sell | Buy | Bank after | XI+captain gain |
 | --- | --- | --- | --- | --- | --- |
-| Mitchell | Silva | £4.5m | £5.0m | £0.0m | 4.43 |
+| Mitchell | Silva | £4.5m | £5.0m | £0.0m | 4.49 |
+| Enzo | Gakpo | £6.9m | £7.0m | £0.4m | 3.84 |
 | Thiago | Gonzalo | £8.0m | £6.0m | £2.5m | 3.76 |
+| Enzo | Groß | £6.9m | £5.5m | £1.9m | 3.73 |
 | João Pedro | Gonzalo | £7.5m | £6.0m | £2.0m | 3.71 |
+| Enzo | M.Sangaré | £6.9m | £5.6m | £1.8m | 3.64 |
+| Enzo | Schade | £6.9m | £6.0m | £1.4m | 3.48 |
+| Mitchell | Dedić | £4.5m | £4.5m | £0.5m | 3.42 |
 | Pope | Horníček | £5.0m | £5.0m | £0.5m | 3.38 |
-| Mitchell | Dedić | £4.5m | £4.5m | £0.5m | 3.36 |
 | Leno | Horníček | £4.5m | £5.0m | £0.0m | 3.28 |
-| Muñoz | Silva | £5.5m | £5.0m | £1.0m | 3.09 |
-| Mitchell | Bijol | £4.5m | £5.0m | £0.0m | 2.87 |
-| Mitchell | De Cuyper | £4.5m | £4.6m | £0.4m | 2.84 |
-| Maguire | Silva | £5.0m | £5.0m | £0.5m | 2.62 |
 
 ## Limits
 
