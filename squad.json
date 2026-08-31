@@ -3,7 +3,7 @@
   "_comment_players": "Each item in players must contain player_code and purchase_price. Find player_code in data/2026-2027/players.csv; do not use player_id.",
   "_comment_prices": "purchase_price and bank are in millions of pounds, so 7.5 means £7.5m.",
   "bank": 0.5,
-  "excluded_player_codes": [178301],
+  "excluded_player_codes": [101188, 105717, 149929, 155405, 168636, 172453, 178301, 180736, 184254, 200641, 204822, 220566, 221399, 221632, 222018, 222625, 232571, 232859, 235826, 242880, 433036, 437738, 443261, 444307, 451302, 462387, 469247, 476887, 477547, 489580, 490161, 490881, 494307, 494950, 500957, 508479, 519634, 534392, 536916, 545477, 546600, 547676, 548308, 549074, 549653, 550090, 551262, 578545, 586268, 590014, 597320, 606798, 629397, 660392, 661800],
   "players": [
     {"player_code": 141746, "purchase_price": 12.0},
     {"player_code": 424876, "purchase_price": 7.0},
