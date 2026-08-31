@@ -1,6 +1,6 @@
 # FPL predictions: 2026-2027, GW3
 
-Last generated: 2026-08-31 05:57 UTC
+Last generated: 2026-08-31 09:34 UTC
 
 Data commit: `ef88c82a46fc3b7723cd8c701f37b57fb0454a9c`
 
@@ -54,7 +54,7 @@ Raw drivers are descriptive inputs, not SHAP or causal attributions.
 | Gonzalo | FUL | Forward | £6.0m | 18.02 | GW3, GW4, GW5, GW6, GW7 | GW7 | GW6 |
 | Emersonn | IPS | Forward | £5.5m | 13.24 | GW3, GW6 | — | — |
 | Horníček | NEW | Goalkeeper | £5.0m | 15.51 | GW3, GW4, GW5, GW6, GW7 | — | — |
-| Davies | LIV | Goalkeeper | £4.0m | 0.50 | Bench | — | — |
+| Lecomte | FUL | Goalkeeper | £4.0m | 0.52 | Bench | — | — |
 | B.Fernandes | MUN | Midfielder | £12.0m | 21.50 | GW3, GW4, GW5, GW6, GW7 | GW3, GW5, GW6 | GW7 |
 | Szoboszlai | LIV | Midfielder | £7.0m | 18.36 | GW3, GW4, GW5, GW6, GW7 | — | GW3, GW4 |
 | Palmer | CHE | Midfielder | £9.6m | 15.85 | GW4, GW5, GW6, GW7 | GW4 | — |
