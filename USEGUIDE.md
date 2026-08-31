@@ -20,6 +20,25 @@ python scripts/fpl_predictions.py
 The model automatically reads the root-level `squad.json`. Open
 `predictions/latest.md` when it finishes.
 
+The report starts with data freshness. If an earlier Gameweek is still in
+progress, it shows the completed-fixture count and the clubs whose form is
+deferred. Finished clubs can contribute recent form, but live performance is
+not scored until the Gameweek is officially finished and data-checked.
+
+The final pre-deadline forecast is saved under
+`predictions/archive/{season}/GWxx.csv`. Completed archived forecasts are
+summarised in `predictions/performance.csv` and in the live-performance section
+of `predictions/latest.md`.
+
+Generate the highest-scoring completed weekly squads with:
+
+```bash
+python scripts/team_of_the_week.py
+```
+
+This writes `TeamOfTheWeek/GWx/team.md` and `team.csv` only after the official
+Gameweek is both finished and data-checked.
+
 ## Exclude players from recommendations
 
 Add stable `player_code` values to `excluded_player_codes` in `squad.json`:
@@ -28,10 +47,11 @@ Add stable `player_code` values to `excluded_player_codes` in `squad.json`:
 "excluded_player_codes": [178301, 448047]
 ```
 
-Excluded players remain visible in the CSV and can still be recommended as a
-transfer-out when already owned, but they cannot appear in top picks, the
-ML-optimal squad, or transfer-in suggestions. This setting never modifies
-`data/` and survives upstream updates.
+Excluded players remain visible in the CSV with zero forecasts and can still be
+recommended as a transfer-out when already owned. They cannot start, captain,
+appear in top picks, enter the ML-optimal squad, or be suggested as a
+transfer-in. Their valid historical performances remain part of model training.
+This setting never modifies `data/` and survives upstream updates.
 
 ## Update data from the original repository
 
@@ -63,6 +83,7 @@ git fetch upstream main
 git restore --source=upstream/main --worktree -- data
 source .venv/bin/activate
 python scripts/fpl_predictions.py
+python scripts/team_of_the_week.py
 ```
 
 This replaces your local `data/` files with the upstream versions without
@@ -72,7 +93,7 @@ which would merge the entire upstream repository.
 To save the refreshed data and report to your fork:
 
 ```bash
-git add -- data predictions
+git add -- data predictions TeamOfTheWeek
 git commit -m "Update upstream FPL data and predictions"
 git push origin main
 ```

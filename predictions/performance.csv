@@ -1,0 +1,2 @@
+season,gameweek,data_commit_sha,players,appeared,zero_actual_pct,model_mae,model_rmse,model_spearman,rolling_mae,rolling_rmse,rolling_spearman,ep_next_mae,ep_next_rmse,ep_next_spearman,appeared_model_mae,appeared_model_spearman,top20_actual_mean,pool_actual_mean,optimal_xi_captain_points,current_xi_captain_points,fpl_average
+2026-2027,1,39439c4e40055f427c30c5a7129852d12e1d8c71,600,308,51.1667,1.5281,2.5797,0.5529,1.5577,2.7978,0.4582,1.6193,2.8511,0.4355,2.2555,0.1713,3.4,1.8772,39.0,29.0,50

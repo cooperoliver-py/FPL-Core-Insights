@@ -45,10 +45,12 @@ Inspired by the amazing work of [vaastav/Fantasy-Premier-League](https://github.
 
 ## FPL Prediction Model (This Fork)
 
-This fork turns the updating dataset into two clear reports:
+This fork turns the updating dataset into clear prediction and results reports:
 
 * `predictions/latest.md` is the human-readable report: the next-Gameweek forecasts, a legal 15-player squad, suggested starting XI, captain and vice-captain, confidence notes, and transfer advice when a current squad is supplied.
-* `predictions/latest.csv` has one row per current player for sorting or further analysis. It includes forecasts for up to five Gameweeks, the five-week weighted score, predicted value, confidence, data coverage, model baselines and the main prediction drivers.
+* `predictions/latest.csv` has one row per current player for sorting or further analysis. It includes forecasts for up to five Gameweeks, the five-week weighted score, predicted value, confidence, current-season coverage, model baselines and the main prediction drivers.
+* `predictions/performance.csv` scores frozen pre-deadline forecasts after each Gameweek is officially finished and checked. `predictions/archive/{season}/GWxx.csv` holds the point-in-time forecasts used for that scoring.
+* `TeamOfTheWeek/GWx/` contains CSV and Markdown versions of the highest-scoring 15-player squad once that Gameweek is officially finished and checked.
 
 Run the model without a saved squad to build an opening 15-player roster within the £100.0m budget. Run it with your current squad to receive the top 10 legal, same-position transfer options. It recommends **at most one transfer per Gameweek**, or **HOLD** when even the best option does not improve weighted starting-XI and captain points; it never submits changes to the FPL website.
 
@@ -118,6 +120,12 @@ The model predicts each player's points over the next five Gameweeks, then weigh
 
 Player points come from scikit-learn's `HistGradientBoostingRegressor`; SciPy's mixed-integer optimiser then chooses a legal squad, XI and captain rather than asking the model to learn the FPL rules. The primary training set is 2025/26 because it is the completed season compatible with the defensive-contribution scoring retained for 2026/27. Features use only information available before the predicted Gameweek.
 
+Recent form combines strictly shifted 3/5-GW averages with an exponentially weighted view of points, minutes, starts and expected goal involvements, plus the immediately preceding match's minutes. Completed clubs from a partially played Gameweek can contribute form; a club is deferred if any of its fixtures in that Gameweek remains unfinished. The report names every incomplete source Gameweek and deferred club.
+
+Historical performance uses expanding walk-forward folds for GWs 31–38 and the same availability/no-fixture post-processing as live forecasts. Before each deadline, the latest forecast is frozen in `predictions/archive/`; after official `finished` and `data_checked` flags are both true, the next run adds live MAE, RMSE, rank correlation, top-20 yield and realised XI-plus-captain points to `predictions/performance.csv` and `latest.md`. Incomplete Gameweeks are never scored provisionally.
+
+Players in `squad.json`'s `excluded_player_codes` keep their valid historical training examples, but all current forecasts and baselines are forced to zero. They cannot be selected, captained or recommended as transfer-ins; an already-owned exclusion remains visible so it can be recommended for transfer out.
+
 The CSV confidence label is based on up to five prior player-Gameweek rows (`low` below 0.50, `medium` below 0.80, otherwise `high`) and is reduced for GW1 and promoted-team Elo fallbacks.
 
 ### Automatic Updates in Your Fork
@@ -126,8 +134,8 @@ The `FPL Predictions` GitHub Actions workflow needs no Supabase account or secre
 
 1. fetches the original repository;
 2. mirrors only its `data/` directory, including upstream deletions;
-3. runs the prediction script and tests; and
-4. commits changed `data/` and `predictions/` files back to your fork's `main` branch.
+3. runs the prediction and completed-Team-of-the-Week scripts plus tests; and
+4. commits changed `data/`, `predictions/` and `TeamOfTheWeek/` files back to your fork's `main` branch.
 
 In Git terms, **`origin` is your fork** (`cooperoliver-py/FPL-Core-Insights`) and **`upstream` is the original data repository** (`olbauday/FPL-Core-Insights`). The workflow creates and fetches its own `upstream` remote. A fresh local clone normally has only `origin`; if you also want to inspect the source repository locally, add it once with:
 
@@ -161,7 +169,7 @@ Defensive contributions remain in 2026/27 and add 2 points at most once per matc
 
 ### Model Limits
 
-* Pre-season and GW1 2026/27 forecasts have lower confidence because the new season has little or no league evidence.
+* Early-season forecasts have limited current-season evidence; the report shows how many current-season matches each player contributes.
 * New players and promoted clubs are cold starts. The model falls back to position-level history, the previous season's team Elo for incumbent clubs, and a conservative league Elo with an explicit confidence flag for promoted clubs because 2026/27 Elo is not yet populated.
 * The official [2026/27 bonus-points-system changes](https://www.premierleague.com/en/news/4679946) make last season's bonus history an imperfect guide until current-season matches accumulate.
 * Player status and price are held constant across the five-Gameweek forecast, and fixture forecasts are not fed recursively into later predictions.

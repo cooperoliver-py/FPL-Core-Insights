@@ -1,0 +1,16 @@
+season,gameweek,position,position_rank,player_code,player_id,first_name,second_name,web_name,team_code,club,points,minutes,goals_scored,assists,clean_sheets,bonus
+2026-2027,1,Goalkeeper,1,473284,572,Konstantinos,Tzolakis,Tzolakis,88,HUL,10,90,0,0,1,3
+2026-2027,1,Goalkeeper,2,432720,385,James,Trafford,Trafford,2,LEE,9,90,0,0,1,2
+2026-2027,1,Defender,1,465730,115,Maxim,De Cuyper,De Cuyper,36,BHA,17,77,1,1,1,2
+2026-2027,1,Defender,2,606930,586,Nobel,Mendy,Mendy,88,HUL,15,63,1,0,1,1
+2026-2027,1,Defender,3,146426,279,Semi,Ajayi,Ajayi,88,HUL,14,63,1,0,1,2
+2026-2027,1,Defender,4,607464,88,Michael,Kayode,Kayode,94,BRE,13,75,1,0,1,1
+2026-2027,1,Defender,5,198869,10,Benjamin,White,White,3,ARS,11,90,0,1,1,2
+2026-2027,1,Midfielder,1,532529,123,Jack,Hinshelwood,Hinshelwood,36,BHA,16,63,2,0,1,3
+2026-2027,1,Midfielder,2,513545,565,Mamadou,Sangaré,M.Sangaré,94,BRE,14,75,0,2,1,3
+2026-2027,1,Midfielder,3,244851,154,Cole,Palmer,Palmer,8,CHE,13,82,1,1,0,3
+2026-2027,1,Midfielder,4,466525,335,Anton,Stach,Stach,2,LEE,13,90,1,0,1,3
+2026-2027,1,Midfielder,5,243298,367,Cody,Gakpo,Gakpo,14,LIV,12,90,1,0,0,3
+2026-2027,1,Forward,1,475168,165,João Pedro,Junqueira de Jesus,João Pedro,8,CHE,11,90,1,1,0,2
+2026-2027,1,Forward,2,543968,316,Emersonn,Correia da Silva,Emersonn,40,IPS,9,65,1,0,0,3
+2026-2027,1,Forward,3,586309,249,Thierno,Barry,Barry,11,EVE,8,78,1,0,1,2
