@@ -1,0 +1,16 @@
+season,gameweek,position,position_rank,player_code,player_id,first_name,second_name,web_name,team_code,club,points,minutes,goals_scored,assists,clean_sheets,bonus
+2026-2027,2,Goalkeeper,1,473284,572,Konstantinos,Tzolakis,Tzolakis,88,HUL,10,90.0,0.0,0.0,1.0,3.0
+2026-2027,2,Goalkeeper,2,470551,567,Lukás,Hornícek,Horníček,4,NEW,7,90.0,0.0,0.0,1.0,0.0
+2026-2027,2,Defender,1,17761,229,James,Tarkowski,Tarkowski,11,EVE,12,90.0,1.0,0.0,0.0,2.0
+2026-2027,2,Defender,2,463726,593,Amar,Dedic,Dedić,4,NEW,11,90.0,0.0,1.0,1.0,2.0
+2026-2027,2,Defender,3,466075,8,Riccardo,Calafiori,Calafiori,3,ARS,11,90.0,0.0,1.0,1.0,2.0
+2026-2027,2,Defender,4,487838,449,Lewis,Hall,Hall,4,NEW,11,90.0,0.0,0.0,1.0,3.0
+2026-2027,2,Defender,5,108416,277,John,Egan,Egan,88,HUL,9,90.0,0.0,0.0,1.0,1.0
+2026-2027,2,Midfielder,1,141746,426,Bruno,Borges Fernandes,B.Fernandes,1,MUN,23,90.0,3.0,1.0,0.0,3.0
+2026-2027,2,Midfielder,2,466052,399,Rayan,Cherki,Cherki,43,MCI,14,81.0,2.0,0.0,0.0,3.0
+2026-2027,2,Midfielder,3,60307,124,Pascal,Groß,Groß,36,BHA,13,90.0,1.0,1.0,0.0,3.0
+2026-2027,2,Midfielder,4,222531,480,Morgan,Gibbs-White,Gibbs-White,17,NFO,13,90.0,1.0,1.0,0.0,3.0
+2026-2027,2,Midfielder,5,503139,69,Alex,Scott,Scott,91,BOU,12,86.0,1.0,0.0,1.0,3.0
+2026-2027,2,Forward,1,223094,411,Erling,Haaland,Haaland,43,MCI,13,90.0,2.0,0.0,0.0,3.0
+2026-2027,2,Forward,2,475168,165,João Pedro,Junqueira de Jesus,João Pedro,8,CHE,9,90.0,1.0,1.0,0.0,2.0
+2026-2027,2,Forward,3,177815,346,Dominic,Calvert-Lewin,Calvert-Lewin,2,LEE,8,90.0,1.0,0.0,0.0,2.0

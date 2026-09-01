@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW3
 
-Last generated: 2026-09-01 13:50 UTC
+Last generated: 2026-09-01 19:30 UTC
 
-Data commit: `5064faee7eae9eb8f95aeaf6ecc00dd7f0a0abd1`
+Data commit: `abf27a6293d18390616806988dbbd11bdbb995fe`
 
 ## Data freshness
 
@@ -27,6 +27,7 @@ The predicted top 20 averaged 5.20 actual points versus 1.69 for the selectable 
 | GW | MAE | RMSE | Spearman | Top 20 | Pool | XI + captain | FPL avg |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 | 1.528 | 2.580 | 0.553 | 3.40 | 1.88 | 39 | 50 |
+| 2 | 1.211 | 2.131 | 0.697 | 6.60 | 1.74 | 112 | 81 |
 
 XI + captain is measured before autosubs; archived exclusions are omitted from forecast-skill metrics.
 
@@ -87,7 +88,7 @@ Squad cost: £99.9m.
 | Botman | NEW | Defender | £5.0m | 13.14 | GW3, GW4, GW5, GW6 | — | — |
 | Maguire | MUN | Defender | £5.0m | 12.58 | GW3, GW5, GW6, GW7 | — | — |
 | Mitchell | CRY | Defender | £4.5m | 11.17 | GW3, GW4, GW5, GW6, GW7 | — | — |
-| Muñoz | CRY | Defender | £5.4m | 8.89 | Bench | — | — |
+| Muñoz | NFO | Defender | £5.4m | 9.11 | Bench | — | — |
 | Thiago | BRE | Forward | £8.0m | 19.50 | GW3, GW4, GW5, GW6, GW7 | — | GW3, GW5 |
 | João Pedro | CHE | Forward | £7.6m | 18.65 | GW3, GW4, GW5, GW6, GW7 | GW4 | GW6, GW7 |
 | Mheuka | CHE | Forward | £4.5m | 0.57 | Bench | — | — |
