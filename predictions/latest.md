@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW3
 
-Last generated: 2026-09-01 19:30 UTC
+Last generated: 2026-09-02 04:56 UTC
 
-Data commit: `abf27a6293d18390616806988dbbd11bdbb995fe`
+Data commit: `b26196ca55e1efbd7336f82ab65b53b187f96704`
 
 ## Data freshness
 
@@ -43,7 +43,7 @@ XI + captain is measured before autosubs; archived exclusions are omitted from f
 | Cherki | MCI | Midfielder | 5.27 | 3.86 | 5.02 | 3.86 | 5.27 | 18.61 | 2.42 | high | 5-GW avg pts 5.80; mins 49; xGI 0.45; current GWs 2; fixture Elo diff +192 |
 | Szoboszlai | LIV | Midfielder | 4.90 | 4.79 | 4.02 | 3.81 | 4.69 | 17.91 | 2.56 | high | 5-GW avg pts 5.00; mins 90; xGI 0.61; current GWs 2; fixture Elo diff +79 |
 | Isak | LIV | Forward | 4.73 | 5.19 | 4.59 | 4.40 | 4.81 | 19.04 | 2.12 | high | 5-GW avg pts 2.20; mins 41; xGI 0.42; current GWs 2; fixture Elo diff +79 |
-| M.Sangaré | BRE | Midfielder | 4.73 | 3.51 | 4.39 | 3.07 | 3.36 | 15.56 | 2.78 | low | 5-GW avg pts 9.00; mins 82; xGI 0.31; current GWs 2; fixture Elo diff -17 |
+| M.Sangaré | BRE | Midfielder | 4.73 | 3.51 | 4.39 | 3.07 | 3.36 | 15.56 | 2.73 | low | 5-GW avg pts 9.00; mins 82; xGI 0.31; current GWs 2; fixture Elo diff -17 |
 | Gibbs-White | NFO | Midfielder | 4.66 | 3.58 | 4.88 | 4.33 | 2.86 | 16.54 | 2.09 | high | 5-GW avg pts 6.20; mins 72; xGI 0.49; current GWs 2; fixture Elo diff -24 |
 | Anderson | MCI | Midfielder | 4.60 | 3.61 | 4.24 | 3.61 | 4.60 | 16.53 | 2.58 | high | 5-GW avg pts 6.20; mins 77; xGI 0.36; current GWs 2; fixture Elo diff +192 |
 | Guéhi | MCI | Defender | 4.57 | 3.34 | 3.90 | 3.34 | 4.57 | 15.77 | 2.63 | high | 5-GW avg pts 5.80; mins 90; xGI 0.30; current GWs 2; fixture Elo diff +192 |
@@ -62,23 +62,23 @@ Raw drivers are descriptive inputs, not SHAP or causal attributions.
 
 | Player | Club | Position | Cost | Weighted score | Starts | Captains | Vice-captains |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Guéhi | MCI | Defender | £6.0m | 15.77 | GW3, GW4, GW5, GW7 | — | — |
-| Tarkowski | EVE | Defender | £6.0m | 15.29 | GW4, GW5, GW6 | — | — |
-| De Cuyper | BHA | Defender | £4.7m | 14.65 | GW3, GW4, GW7 | — | — |
+| Guéhi | MCI | Defender | £6.0m | 15.77 | GW3, GW5, GW7 | — | — |
+| Tarkowski | EVE | Defender | £6.0m | 15.29 | GW4, GW5, GW6, GW7 | — | — |
+| De Cuyper | BHA | Defender | £4.7m | 14.65 | GW3, GW4, GW6, GW7 | — | — |
 | Dedić | NEW | Defender | £4.5m | 14.40 | GW5, GW6 | — | — |
-| Robinson | FUL | Defender | £4.5m | 13.42 | GW3, GW6, GW7 | — | — |
+| Muharemović | LEE | Defender | £5.0m | 14.08 | GW3, GW4 | — | — |
 | Thiago | BRE | Forward | £8.0m | 19.50 | GW3, GW4, GW5, GW6, GW7 | — | GW5 |
 | Isak | LIV | Forward | £9.0m | 19.04 | GW3, GW4, GW5, GW6, GW7 | — | GW4 |
-| João Pedro | CHE | Forward | £7.6m | 18.65 | GW4, GW5, GW6, GW7 | GW4 | GW6 |
+| João Pedro | CHE | Forward | £7.7m | 18.65 | GW4, GW5, GW6, GW7 | GW4 | GW6 |
 | Horníček | NEW | Goalkeeper | £5.0m | 14.00 | GW3, GW4, GW5, GW6 | — | — |
 | Leno | FUL | Goalkeeper | £4.5m | 12.43 | GW7 | — | — |
 | B.Fernandes | MUN | Midfielder | £12.0m | 24.47 | GW3, GW4, GW5, GW6, GW7 | GW3, GW5, GW6, GW7 | — |
 | Foden | MCI | Midfielder | £7.0m | 19.33 | GW3, GW4, GW5, GW6, GW7 | — | GW3, GW7 |
-| Semenyo | MCI | Midfielder | £8.5m | 18.82 | GW3, GW4, GW5, GW6, GW7 | — | — |
+| Cherki | MCI | Midfielder | £7.7m | 18.61 | GW3, GW4, GW5, GW6, GW7 | — | — |
 | Szoboszlai | LIV | Midfielder | £7.0m | 17.91 | GW3, GW4, GW6, GW7 | — | — |
-| M.Sangaré | BRE | Midfielder | £5.6m | 15.56 | GW3, GW5 | — | — |
+| M.Sangaré | BRE | Midfielder | £5.7m | 15.56 | GW3, GW5 | — | — |
 
-Squad cost: £99.9m.
+Squad cost: £99.8m.
 
 ## Your current squad
 
@@ -90,7 +90,7 @@ Squad cost: £99.9m.
 | Mitchell | CRY | Defender | £4.5m | 11.17 | GW3, GW4, GW5, GW6, GW7 | — | — |
 | Muñoz | NFO | Defender | £5.4m | 9.11 | Bench | — | — |
 | Thiago | BRE | Forward | £8.0m | 19.50 | GW3, GW4, GW5, GW6, GW7 | — | GW3, GW5 |
-| João Pedro | CHE | Forward | £7.6m | 18.65 | GW3, GW4, GW5, GW6, GW7 | GW4 | GW6, GW7 |
+| João Pedro | CHE | Forward | £7.7m | 18.65 | GW3, GW4, GW5, GW6, GW7 | GW4 | GW6, GW7 |
 | Mheuka | CHE | Forward | £4.5m | 0.57 | Bench | — | — |
 | Leno | FUL | Goalkeeper | £4.5m | 12.43 | GW3, GW4, GW5, GW6, GW7 | — | — |
 | Pope | NEW | Goalkeeper | £5.0m | 6.32 | Bench | — | — |
@@ -100,7 +100,7 @@ Squad cost: £99.9m.
 | Saka | ARS | Midfielder | £9.5m | 15.41 | GW3, GW4, GW5, GW6, GW7 | — | — |
 | Enzo | CHE | Midfielder | £6.9m | 10.00 | GW4, GW7 | — | — |
 
-Squad cost: £99.4m.
+Squad cost: £99.5m.
 
 ## One-transfer recommendation
 
@@ -112,7 +112,7 @@ Squad cost: £99.4m.
 | Enzo | Anderson | £6.9m | £6.4m | £1.0m | 5.65 |
 | Enzo | Rayan | £6.9m | £6.5m | £0.9m | 4.92 |
 | Muñoz | Rúben | £5.4m | £5.5m | £0.4m | 4.77 |
-| Enzo | M.Sangaré | £6.9m | £5.6m | £1.8m | 4.68 |
+| Enzo | M.Sangaré | £6.9m | £5.7m | £1.7m | 4.68 |
 | Enzo | Groß | £6.9m | £5.5m | £1.9m | 4.58 |
 | Enzo | Iwobi | £6.9m | £5.5m | £1.9m | 4.42 |
 | Muñoz | Hill | £5.4m | £5.5m | £0.4m | 4.06 |
