@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW3
 
-Last generated: 2026-09-02 12:55 UTC
+Last generated: 2026-09-02 19:28 UTC
 
-Data commit: `598a570389b96897c36a05d168af2e739f80910d`
+Data commit: `f30417a69bad03bf33be946a3ea93a722a8462a5`
 
 ## Data freshness
 
@@ -44,6 +44,7 @@ XI + captain is measured before autosubs; archived exclusions are omitted from f
 | Szoboszlai | LIV | Midfielder | 4.90 | 4.79 | 4.02 | 3.81 | 4.69 | 17.91 | 2.56 | high | 5-GW avg pts 5.00; mins 90; xGI 0.61; current GWs 2; fixture Elo diff +79 |
 | Isak | LIV | Forward | 4.73 | 5.19 | 4.59 | 4.40 | 4.81 | 19.04 | 2.12 | high | 5-GW avg pts 2.20; mins 41; xGI 0.42; current GWs 2; fixture Elo diff +79 |
 | M.Sangaré | BRE | Midfielder | 4.73 | 3.51 | 4.39 | 3.07 | 3.36 | 15.56 | 2.73 | low | 5-GW avg pts 9.00; mins 82; xGI 0.31; current GWs 2; fixture Elo diff -17 |
+| Ndiaye | MCI | Midfielder | 4.68 | 3.03 | 3.58 | 3.03 | 4.68 | 15.19 | 2.53 | high | 5-GW avg pts 3.80; mins 90; xGI 0.25; current GWs 2; fixture Elo diff +192 |
 | Gibbs-White | NFO | Midfielder | 4.66 | 3.58 | 4.88 | 4.33 | 2.86 | 16.54 | 2.09 | high | 5-GW avg pts 6.20; mins 72; xGI 0.49; current GWs 2; fixture Elo diff -24 |
 | Anderson | MCI | Midfielder | 4.60 | 3.61 | 4.24 | 3.61 | 4.60 | 16.53 | 2.58 | high | 5-GW avg pts 6.20; mins 77; xGI 0.36; current GWs 2; fixture Elo diff +192 |
 | Guéhi | MCI | Defender | 4.57 | 3.34 | 3.90 | 3.34 | 4.57 | 15.77 | 2.63 | high | 5-GW avg pts 5.80; mins 90; xGI 0.30; current GWs 2; fixture Elo diff +192 |
@@ -54,7 +55,6 @@ XI + captain is measured before autosubs; archived exclusions are omitted from f
 | Wirtz | LIV | Midfielder | 4.19 | 4.44 | 4.04 | 3.36 | 4.26 | 16.32 | 2.18 | high | 5-GW avg pts 1.60; mins 39; xGI 0.30; current GWs 2; fixture Elo diff +79 |
 | Virgil | LIV | Defender | 4.17 | 3.97 | 3.21 | 3.07 | 3.88 | 14.79 | 2.28 | high | 5-GW avg pts 4.20; mins 90; xGI 0.25; current GWs 2; fixture Elo diff +79 |
 | Gonzalo | FUL | Forward | 4.15 | 3.24 | 3.38 | 4.73 | 4.84 | 15.99 | 2.66 | low | 5-GW avg pts 4.00; mins 90; xGI 0.51; current GWs 2; fixture Elo diff +21 |
-| Havertz | ARS | Forward | 4.07 | 4.01 | 3.84 | 3.90 | 3.81 | 15.77 | 2.10 | high | 5-GW avg pts 4.20; mins 64; xGI 0.33; current GWs 2; fixture Elo diff +258 |
 
 Raw drivers are descriptive inputs, not SHAP or causal attributions.
 
@@ -86,8 +86,8 @@ Squad cost: £99.8m.
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Virgil | LIV | Defender | £6.5m | 14.79 | GW3, GW4, GW5, GW6, GW7 | — | — |
 | Botman | NEW | Defender | £5.0m | 13.14 | GW3, GW4, GW5, GW6 | — | — |
-| Maguire | MUN | Defender | £5.0m | 12.58 | GW3, GW5, GW6, GW7 | — | — |
-| Mitchell | CRY | Defender | £4.5m | 11.17 | GW3, GW4, GW5, GW6, GW7 | — | — |
+| Maguire | MUN | Defender | £5.0m | 12.58 | GW3, GW4, GW5, GW6, GW7 | — | — |
+| Mitchell | CRY | Defender | £4.5m | 11.17 | GW4, GW6, GW7 | — | — |
 | Muñoz | NFO | Defender | £5.4m | 9.11 | Bench | — | — |
 | Thiago | BRE | Forward | £8.0m | 19.50 | GW3, GW4, GW5, GW6, GW7 | — | GW3, GW5 |
 | João Pedro | CHE | Forward | £7.7m | 18.65 | GW3, GW4, GW5, GW6, GW7 | GW4 | GW6, GW7 |
@@ -98,26 +98,26 @@ Squad cost: £99.8m.
 | Szoboszlai | LIV | Midfielder | £7.0m | 17.91 | GW3, GW4, GW5, GW6, GW7 | — | — |
 | Mbeumo | MUN | Midfielder | £8.0m | 17.27 | GW3, GW4, GW5, GW6, GW7 | — | — |
 | Saka | ARS | Midfielder | £9.5m | 15.41 | GW3, GW4, GW5, GW6, GW7 | — | — |
-| Enzo | CHE | Midfielder | £6.9m | 10.00 | GW4, GW7 | — | — |
+| Enzo | MCI | Midfielder | £6.9m | 11.28 | GW3, GW5, GW7 | — | — |
 
 Squad cost: £99.5m.
 
 ## One-transfer recommendation
 
-**Enzo → Foden** (projected weighted XI+captain gain 8.45).
+**Enzo → Foden** (projected weighted XI+captain gain 7.75).
 
 | Out | In | Sell | Buy | Bank after | XI+captain gain |
 | --- | --- | --- | --- | --- | --- |
-| Enzo | Foden | £6.9m | £7.0m | £0.4m | 8.45 |
-| Enzo | Anderson | £6.9m | £6.4m | £1.0m | 5.65 |
-| Enzo | Rayan | £6.9m | £6.5m | £0.9m | 4.92 |
-| Muñoz | Rúben | £5.4m | £5.5m | £0.4m | 4.77 |
-| Enzo | M.Sangaré | £6.9m | £5.7m | £1.7m | 4.68 |
-| Enzo | Groß | £6.9m | £5.5m | £1.9m | 4.58 |
-| Enzo | Iwobi | £6.9m | £5.5m | £1.9m | 4.42 |
-| Muñoz | Hill | £5.4m | £5.5m | £0.4m | 4.06 |
+| Enzo | Foden | £6.9m | £7.0m | £0.4m | 7.75 |
+| Enzo | Anderson | £6.9m | £6.4m | £1.0m | 4.94 |
+| Muñoz | Rúben | £5.4m | £5.5m | £0.4m | 4.59 |
+| Enzo | Rayan | £6.9m | £6.5m | £0.9m | 4.22 |
+| Enzo | M.Sangaré | £6.9m | £5.7m | £1.7m | 3.98 |
 | Saka | Foden | £9.5m | £7.0m | £3.0m | 3.92 |
-| Enzo | Dewsbury-Hall | £6.9m | £6.5m | £0.9m | 3.88 |
+| Muñoz | Hill | £5.4m | £5.5m | £0.4m | 3.88 |
+| Enzo | Groß | £6.9m | £5.5m | £1.9m | 3.87 |
+| Enzo | Iwobi | £6.9m | £5.5m | £1.9m | 3.71 |
+| Muñoz | De Cuyper | £5.4m | £4.7m | £1.2m | 3.62 |
 
 ## Limits
 
