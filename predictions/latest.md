@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW4
 
-Last generated: 2026-09-05 04:50 UTC
+Last generated: 2026-09-05 11:57 UTC
 
-Data commit: `a7fed41e88eabe90a085b876f9385cfd2fab1d85`
+Data commit: `e79cd443362444ae97cbc308d83f21e920a470f7`
 
 ## Data freshness
 
@@ -41,7 +41,7 @@ XI + captain is measured before autosubs; archived exclusions are omitted from f
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | João Pedro | CHE | Forward | 5.76 | 5.41 | 4.87 | 5.17 | 5.50 | 21.45 | 2.79 | high | 5-GW avg pts 4.60; mins 72; xGI 0.55; current GWs 2; fixture Elo diff +40 |
 | B.Fernandes | MUN | Midfielder | 5.10 | 6.28 | 6.86 | 6.28 | 5.55 | 23.97 | 2.00 | high | 5-GW avg pts 10.20; mins 90; xGI 0.86; current GWs 2; fixture Elo diff +69 |
-| Szoboszlai | LIV | Midfielder | 5.00 | 4.18 | 3.97 | 4.80 | 5.03 | 18.32 | 2.62 | high | 5-GW avg pts 5.20; mins 90; xGI 0.58; current GWs 3; fixture Elo diff +44 |
+| Szoboszlai | LIV | Midfielder | 5.00 | 4.18 | 3.97 | 4.80 | 5.03 | 18.32 | 2.62 | high | 5-GW avg pts 5.20; mins 90; xGI 0.59; current GWs 3; fixture Elo diff +44 |
 | Rogers | CHE | Midfielder | 4.90 | 4.43 | 4.32 | 4.43 | 4.61 | 18.21 | 2.43 | high | 5-GW avg pts 5.40; mins 70; xGI 0.54; current GWs 2; fixture Elo diff +40 |
 | Isak | LIV | Forward | 4.74 | 4.01 | 3.89 | 4.32 | 4.84 | 17.39 | 1.93 | high | 5-GW avg pts 4.60; mins 49; xGI 0.47; current GWs 3; fixture Elo diff +44 |
 | Thiago | BRE | Forward | 4.66 | 5.43 | 4.02 | 4.26 | 5.36 | 18.96 | 2.37 | high | 5-GW avg pts 1.60; mins 88; xGI 0.46; current GWs 2; fixture Elo diff -3 |
