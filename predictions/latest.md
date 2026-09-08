@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW4
 
-Last generated: 2026-09-07 20:06 UTC
+Last generated: 2026-09-08 05:02 UTC
 
-Data commit: `059a701e40d524eaddc259a4223a181b6b115ab5`
+Data commit: `ed638d38f6d79fdcd7c547ac9de07bca45b591c7`
 
 ## Data freshness
 
@@ -42,7 +42,7 @@ XI + captain is measured before autosubs; archived exclusions are omitted from f
 | Szoboszlai | LIV | Midfielder | 4.92 | 4.09 | 3.93 | 4.67 | 4.95 | 17.99 | 2.57 | high | 5-GW avg pts 5.20; mins 90; xGI 0.59; current GWs 3; fixture Elo diff +44 |
 | Khalaili | CRY | Defender | 4.76 | 3.86 | 4.10 | 3.84 | 4.10 | 16.67 | 3.33 | medium | 5-GW avg pts 2.00; mins 66; xGI 0.30; current GWs 3; fixture Elo diff +11 |
 | Gabriel | ARS | Defender | 4.76 | 4.62 | 4.56 | 4.52 | 4.56 | 18.47 | 2.31 | high | 5-GW avg pts 4.40; mins 81; xGI 0.12; current GWs 3; fixture Elo diff +264 |
-| Isak | LIV | Forward | 4.73 | 3.90 | 3.78 | 4.31 | 4.82 | 17.17 | 1.91 | high | 5-GW avg pts 4.60; mins 49; xGI 0.47; current GWs 3; fixture Elo diff +44 |
+| Isak | LIV | Forward | 4.73 | 3.90 | 3.78 | 4.31 | 4.82 | 17.17 | 1.89 | high | 5-GW avg pts 4.60; mins 49; xGI 0.47; current GWs 3; fixture Elo diff +44 |
 | Thiago | BRE | Forward | 4.60 | 5.45 | 4.15 | 4.36 | 5.38 | 19.11 | 2.42 | high | 5-GW avg pts 1.60; mins 88; xGI 0.52; current GWs 3; fixture Elo diff -3 |
 | Groß | BHA | Midfielder | 4.37 | 2.62 | 4.00 | 3.96 | 2.95 | 14.46 | 2.63 | high | 5-GW avg pts 4.20; mins 90; xGI 0.41; current GWs 3; fixture Elo diff +6 |
 | Palmer | CHE | Midfielder | 4.37 | 4.27 | 4.03 | 4.27 | 4.46 | 17.10 | 1.78 | high | 5-GW avg pts 6.20; mins 88; xGI 0.39; current GWs 3; fixture Elo diff +40 |
@@ -54,7 +54,7 @@ XI + captain is measured before autosubs; archived exclusions are omitted from f
 | Barry | EVE | Forward | 4.03 | 4.29 | 4.18 | 4.11 | 2.29 | 15.48 | 2.76 | high | 5-GW avg pts 3.00; mins 67; xGI 0.49; current GWs 3; fixture Elo diff +2 |
 | Rice | ARS | Midfielder | 4.02 | 3.63 | 3.88 | 3.63 | 3.88 | 15.26 | 2.06 | high | 5-GW avg pts 3.60; mins 66; xGI 0.08; current GWs 3; fixture Elo diff +264 |
 | Kamada | CRY | Midfielder | 4.02 | 3.30 | 3.34 | 3.43 | 3.34 | 14.07 | 2.81 | high | 5-GW avg pts 3.00; mins 81; xGI 0.14; current GWs 3; fixture Elo diff +11 |
-| Tzolis | ARS | Midfielder | 3.98 | 3.64 | 3.79 | 3.60 | 3.79 | 15.08 | 2.32 | medium | 5-GW avg pts 3.67; mins 70; xGI 0.18; current GWs 3; fixture Elo diff +264 |
+| Tzolis | ARS | Midfielder | 3.98 | 3.64 | 3.79 | 3.60 | 3.79 | 15.08 | 2.36 | medium | 5-GW avg pts 3.67; mins 70; xGI 0.18; current GWs 3; fixture Elo diff +264 |
 | Lacroix | CHE | Defender | 3.95 | 3.63 | 3.24 | 3.47 | 3.54 | 14.36 | 2.39 | high | 5-GW avg pts 2.20; mins 66; xGI 0.06; current GWs 3; fixture Elo diff +40 |
 
 Raw drivers are descriptive inputs, not SHAP or causal attributions.
@@ -86,8 +86,8 @@ Squad cost: £99.9m.
 | Player | Club | Position | Cost | Weighted score | Starts | Captains | Vice-captains |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Virgil | LIV | Defender | £6.5m | 13.51 | GW4, GW5, GW6, GW7, GW8 | — | — |
-| Maguire | MUN | Defender | £5.0m | 12.87 | GW5, GW6, GW7, GW8 | — | — |
 | Botman | NEW | Defender | £5.0m | 12.84 | GW4, GW5, GW6, GW8 | — | — |
+| Maguire | MUN | Defender | £4.9m | 12.64 | GW5, GW6, GW7, GW8 | — | — |
 | Mitchell | CRY | Defender | £4.5m | 11.79 | GW4, GW6, GW7, GW8 | — | — |
 | Muñoz | NFO | Defender | £5.4m | 8.51 | Bench | — | — |
 | Thiago | BRE | Forward | £7.9m | 19.11 | GW4, GW5, GW6, GW7, GW8 | — | GW5, GW8 |
@@ -101,7 +101,7 @@ Squad cost: £99.9m.
 | Mbeumo | MUN | Midfielder | £7.9m | 17.15 | GW4, GW5, GW6, GW7, GW8 | — | GW6 |
 | Enzo | MCI | Midfielder | £6.9m | 12.31 | GW4, GW5, GW7 | — | — |
 
-Squad cost: £99.2m.
+Squad cost: £99.1m.
 
 ## One-transfer recommendation
 
@@ -111,12 +111,12 @@ Squad cost: £99.2m.
 | --- | --- | --- | --- | --- | --- |
 | Muñoz | Khalaili | £5.4m | £5.0m | £0.9m | 5.17 |
 | Mitchell | Khalaili | £4.5m | £5.0m | £0.0m | 4.64 |
+| Maguire | Khalaili | £4.9m | £5.0m | £0.4m | 3.97 |
 | Enzo | Anderson | £6.9m | £6.3m | £1.1m | 3.79 |
 | Muñoz | Castagne | £5.4m | £4.5m | £1.4m | 3.76 |
-| Maguire | Khalaili | £5.0m | £5.0m | £0.5m | 3.73 |
 | Botman | Khalaili | £5.0m | £5.0m | £0.5m | 3.69 |
 | Muñoz | Branthwaite | £5.4m | £5.5m | £0.4m | 3.33 |
-| Mitchell | Castagne | £4.5m | £4.5m | £0.5m | 3.17 |
+| Mitchell | Castagne | £4.5m | £4.5m | £0.5m | 3.18 |
 | Virgil | Khalaili | £6.5m | £5.0m | £2.0m | 3.16 |
 | Enzo | Dewsbury-Hall | £6.9m | £6.5m | £0.9m | 3.09 |
 
