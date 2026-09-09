@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW4
 
-Last generated: 2026-09-09 05:02 UTC
+Last generated: 2026-09-09 12:36 UTC
 
-Data commit: `cd802ee1f4a388ba9bc7e300988976701363b695`
+Data commit: `63cd9e40e01071c36ace7b1ec18b689248dab9b3`
 
 ## Data freshness
 
@@ -88,7 +88,7 @@ Squad cost: £99.9m.
 | Virgil | LIV | Defender | £6.5m | 13.51 | GW4, GW5, GW6, GW7, GW8 | — | — |
 | Botman | NEW | Defender | £5.0m | 12.84 | GW4, GW5, GW6, GW8 | — | — |
 | Maguire | MUN | Defender | £4.9m | 12.64 | GW5, GW6, GW7, GW8 | — | — |
-| Mitchell | CRY | Defender | £4.5m | 11.79 | GW4, GW6, GW7, GW8 | — | — |
+| Mitchell | CRY | Defender | £4.5m | 11.79 | GW4, GW7 | — | — |
 | Muñoz | NFO | Defender | £5.4m | 8.51 | Bench | — | — |
 | Thiago | BRE | Forward | £7.9m | 19.11 | GW4, GW5, GW6, GW7, GW8 | — | GW5, GW8 |
 | João Pedro | CHE | Forward | £7.7m | 18.85 | GW4, GW5, GW6, GW7, GW8 | — | GW4 |
@@ -99,26 +99,26 @@ Squad cost: £99.9m.
 | Szoboszlai | LIV | Midfielder | £7.0m | 17.99 | GW4, GW5, GW6, GW7, GW8 | — | GW7 |
 | Saka | ARS | Midfielder | £9.5m | 17.50 | GW4, GW5, GW6, GW7, GW8 | — | — |
 | Mbeumo | MUN | Midfielder | £7.9m | 17.15 | GW4, GW5, GW6, GW7, GW8 | — | GW6 |
-| Enzo | MCI | Midfielder | £6.9m | 12.31 | GW4, GW5, GW7 | — | — |
+| Gakpo | LIV | Midfielder | £7.2m | 15.13 | GW4, GW5, GW6, GW7, GW8 | — | — |
 
-Squad cost: £99.1m.
+Squad cost: £99.4m.
 
 ## One-transfer recommendation
 
-**Muñoz → Khalaili** (projected weighted XI+captain gain 5.17).
+**Muñoz → Khalaili** (projected weighted XI+captain gain 4.97).
 
 | Out | In | Sell | Buy | Bank after | XI+captain gain |
 | --- | --- | --- | --- | --- | --- |
-| Muñoz | Khalaili | £5.4m | £5.0m | £0.9m | 5.17 |
-| Mitchell | Khalaili | £4.5m | £5.0m | £0.0m | 4.64 |
-| Maguire | Khalaili | £4.9m | £5.0m | £0.4m | 3.97 |
-| Enzo | Anderson | £6.9m | £6.3m | £1.1m | 3.79 |
-| Muñoz | Castagne | £5.4m | £4.5m | £1.4m | 3.76 |
-| Botman | Khalaili | £5.0m | £5.0m | £0.5m | 3.69 |
-| Muñoz | Branthwaite | £5.4m | £5.5m | £0.4m | 3.33 |
-| Mitchell | Castagne | £4.5m | £4.5m | £0.5m | 3.18 |
-| Virgil | Khalaili | £6.5m | £5.0m | £2.0m | 3.16 |
-| Enzo | Dewsbury-Hall | £6.9m | £6.5m | £0.9m | 3.09 |
+| Muñoz | Khalaili | £5.4m | £5.0m | £0.6m | 4.97 |
+| Maguire | Khalaili | £4.9m | £5.0m | £0.1m | 3.83 |
+| Muñoz | Castagne | £5.4m | £4.5m | £1.1m | 3.71 |
+| Botman | Khalaili | £5.0m | £5.0m | £0.2m | 3.69 |
+| Muñoz | Branthwaite | £5.4m | £5.5m | £0.1m | 3.17 |
+| Virgil | Khalaili | £6.5m | £5.0m | £1.7m | 3.16 |
+| Mitchell | Castagne | £4.5m | £4.5m | £0.2m | 3.13 |
+| Muñoz | Silva | £5.4m | £5.0m | £0.6m | 2.68 |
+| Muñoz | Milenković | £5.4m | £5.5m | £0.1m | 2.64 |
+| Muñoz | Muharemović | £5.4m | £5.0m | £0.6m | 2.64 |
 
 ## Limits
 
