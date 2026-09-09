@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW4
 
-Last generated: 2026-09-09 13:06 UTC
+Last generated: 2026-09-09 19:23 UTC
 
-Data commit: `63cd9e40e01071c36ace7b1ec18b689248dab9b3`
+Data commit: `ec22344798a416e6b5776aa96dce743488d9bec2`
 
 ## Data freshness
 
@@ -64,10 +64,10 @@ Raw drivers are descriptive inputs, not SHAP or causal attributions.
 | Player | Club | Position | Cost | Weighted score | Starts | Captains | Vice-captains |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Gabriel | ARS | Defender | £8.0m | 18.47 | GW4, GW5, GW6, GW7, GW8 | — | — |
-| Khalaili | CRY | Defender | £5.0m | 16.67 | GW4, GW6, GW7, GW8 | — | — |
+| Khalaili | CRY | Defender | £5.0m | 16.67 | GW4, GW5, GW6, GW7, GW8 | — | — |
 | Tarkowski | EVE | Defender | £6.0m | 15.10 | GW4, GW5, GW6 | — | — |
 | Castagne | FUL | Defender | £4.5m | 15.00 | GW6, GW7, GW8 | — | GW7 |
-| Dedić | NEW | Defender | £4.5m | 14.09 | GW5 | — | — |
+| Justin | LEE | Defender | £4.5m | 12.10 | Bench | — | — |
 | Thiago | BRE | Forward | £7.9m | 19.11 | GW4, GW5, GW6, GW7, GW8 | — | GW5, GW8 |
 | João Pedro | CHE | Forward | £7.7m | 18.85 | GW4, GW5, GW6, GW7, GW8 | — | — |
 | Gonzalo | FUL | Forward | £6.0m | 16.24 | GW6, GW7, GW8 | — | GW6 |
