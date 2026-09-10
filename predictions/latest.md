@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW4
 
-Last generated: 2026-09-10 13:04 UTC
+Last generated: 2026-09-10 19:12 UTC
 
-Data commit: `f15bf7b6dea6cb441c2dc1ad9a02e4d9749cc68f`
+Data commit: `9ded469b9df24c2a2d70ce32e5362491aed2a2fd`
 
 ## Data freshness
 
@@ -67,7 +67,7 @@ Raw drivers are descriptive inputs, not SHAP or causal attributions.
 | Khalaili | CRY | Defender | £5.0m | 16.67 | GW4, GW5, GW6, GW7, GW8 | — | — |
 | Tarkowski | EVE | Defender | £6.0m | 15.10 | GW4, GW5, GW6 | — | — |
 | Castagne | FUL | Defender | £4.5m | 15.00 | GW6, GW7, GW8 | — | GW7 |
-| Justin | LEE | Defender | £4.5m | 12.10 | Bench | — | — |
+| Thomas | COV | Defender | £4.0m | 13.03 | Bench | — | — |
 | Thiago | BRE | Forward | £7.9m | 19.11 | GW4, GW5, GW6, GW7, GW8 | — | GW5, GW8 |
 | João Pedro | CHE | Forward | £7.7m | 18.85 | GW4, GW5, GW6, GW7, GW8 | — | — |
 | Gonzalo | FUL | Forward | £6.0m | 16.24 | GW6, GW7, GW8 | — | GW6 |
@@ -79,7 +79,7 @@ Raw drivers are descriptive inputs, not SHAP or causal attributions.
 | Anderson | MCI | Midfielder | £6.3m | 16.21 | GW4, GW5, GW7 | — | — |
 | Gibbs-White | NFO | Midfielder | £7.9m | 16.19 | GW4, GW5, GW6, GW8 | — | — |
 
-Squad cost: £99.9m.
+Squad cost: £99.4m.
 
 ## Your current squad
 
