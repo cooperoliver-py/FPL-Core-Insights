@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW4
 
-Last generated: 2026-09-10 19:12 UTC
+Last generated: 2026-09-11 05:02 UTC
 
-Data commit: `9ded469b9df24c2a2d70ce32e5362491aed2a2fd`
+Data commit: `fa7c25097e953cb3b2598f8a532a664c0ceb1e5f`
 
 ## Data freshness
 
@@ -44,7 +44,7 @@ XI + captain is measured before autosubs; archived exclusions are omitted from f
 | Gabriel | ARS | Defender | 4.76 | 4.62 | 4.56 | 4.52 | 4.56 | 18.47 | 2.31 | high | 5-GW avg pts 4.40; mins 81; xGI 0.12; current GWs 3; fixture Elo diff +264 |
 | Isak | LIV | Forward | 4.73 | 3.90 | 3.78 | 4.31 | 4.82 | 17.17 | 1.89 | high | 5-GW avg pts 4.60; mins 49; xGI 0.47; current GWs 3; fixture Elo diff +44 |
 | Thiago | BRE | Forward | 4.60 | 5.45 | 4.15 | 4.36 | 5.38 | 19.11 | 2.42 | high | 5-GW avg pts 1.60; mins 88; xGI 0.52; current GWs 3; fixture Elo diff -3 |
-| Palmer | CHE | Midfielder | 4.37 | 4.27 | 4.03 | 4.27 | 4.46 | 17.10 | 1.78 | high | 5-GW avg pts 6.20; mins 88; xGI 0.39; current GWs 3; fixture Elo diff +40 |
+| Palmer | CHE | Midfielder | 4.37 | 4.27 | 4.03 | 4.27 | 4.46 | 17.10 | 1.76 | high | 5-GW avg pts 6.20; mins 88; xGI 0.39; current GWs 3; fixture Elo diff +40 |
 | Saka | ARS | Midfielder | 4.35 | 4.30 | 4.48 | 4.31 | 4.48 | 17.50 | 1.84 | high | 5-GW avg pts 6.40; mins 67; xGI 0.47; current GWs 3; fixture Elo diff +264 |
 | Haaland | MCI | Forward | 4.33 | 5.89 | 4.33 | 5.73 | 4.33 | 19.71 | 1.27 | high | 5-GW avg pts 6.60; mins 72; xGI 0.74; current GWs 3; fixture Elo diff +141 |
 | Groß | BHA | Midfielder | 4.25 | 2.62 | 3.88 | 3.84 | 2.95 | 14.16 | 2.53 | high | 5-GW avg pts 4.20; mins 90; xGI 0.41; current GWs 3; fixture Elo diff +6 |
