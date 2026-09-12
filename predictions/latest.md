@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW4
 
-Last generated: 2026-09-11 19:15 UTC
+Last generated: 2026-09-12 04:54 UTC
 
-Data commit: `cbfca4de07feb2c0ae8c6929a8cec03ba10e1b84`
+Data commit: `ee4031165b5612e9f47096dd62605f815086c439`
 
 ## Data freshness
 
@@ -67,7 +67,7 @@ Raw drivers are descriptive inputs, not SHAP or causal attributions.
 | Khalaili | CRY | Defender | £5.0m | 16.67 | GW4, GW5, GW6, GW7, GW8 | — | — |
 | Tarkowski | EVE | Defender | £6.0m | 15.10 | GW4, GW5, GW6 | — | — |
 | Castagne | FUL | Defender | £4.5m | 15.00 | GW6, GW7, GW8 | — | GW7 |
-| Ajer | BRE | Defender | £4.5m | 11.99 | Bench | — | — |
+| Justin | LEE | Defender | £4.5m | 12.10 | Bench | — | — |
 | Thiago | BRE | Forward | £7.9m | 19.11 | GW4, GW5, GW6, GW7, GW8 | — | GW5, GW8 |
 | João Pedro | CHE | Forward | £7.7m | 18.85 | GW4, GW5, GW6, GW7, GW8 | — | — |
 | Gonzalo | FUL | Forward | £6.0m | 16.24 | GW6, GW7, GW8 | — | GW6 |
