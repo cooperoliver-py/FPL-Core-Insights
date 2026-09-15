@@ -1,0 +1,16 @@
+season,gameweek,position,position_rank,player_code,player_id,first_name,second_name,web_name,team_code,club,points,minutes,goals_scored,assists,clean_sheets,bonus
+2026-2027,4,Goalkeeper,1,154561,1,David,Raya Martín,Raya,3,ARS,14,90.0,0.0,0.0,1.0,3.0
+2026-2027,4,Goalkeeper,2,80201,250,Bernd,Leno,Leno,54,FUL,9,90.0,0.0,0.0,1.0,2.0
+2026-2027,4,Defender,1,226182,330,Jayden,Bogle,Bogle,2,LEE,15,82.0,1.0,0.0,1.0,3.0
+2026-2027,4,Defender,2,455084,305,Leif,Davis,Davis,40,IPS,14,90.0,1.0,2.0,0.0,1.0
+2026-2027,4,Defender,3,83299,116,Lewis,Dunk,Dunk,36,BHA,12,90.0,1.0,0.0,1.0,0.0
+2026-2027,4,Defender,4,224967,233,Vitalii,Mykolenko,Mykolenko,11,EVE,11,90.0,0.0,0.0,1.0,3.0
+2026-2027,4,Defender,5,465730,115,Maxim,De Cuyper,De Cuyper,36,BHA,11,90.0,0.0,1.0,1.0,2.0
+2026-2027,4,Midfielder,1,60307,124,Pascal,Groß,Groß,36,BHA,17,90.0,1.0,2.0,1.0,3.0
+2026-2027,4,Midfielder,2,513418,94,Kevin,Schade,Schade,94,BRE,15,90.0,2.0,0.0,0.0,3.0
+2026-2027,4,Midfielder,3,540324,286,Mohamed,Belloumi,Belloumi,88,HUL,13,59.0,2.0,0.0,0.0,2.0
+2026-2027,4,Midfielder,4,435997,336,Noah,Okafor,Okafor,2,LEE,9,71.0,1.0,0.0,1.0,1.0
+2026-2027,4,Midfielder,5,201658,68,Marcus,Tavernier,Tavernier,91,BOU,8,82.0,1.0,0.0,0.0,2.0
+2026-2027,4,Forward,1,475168,165,João Pedro,Junqueira de Jesus,João Pedro,8,CHE,12,90.0,1.0,1.0,0.0,3.0
+2026-2027,4,Forward,2,543968,316,Emersonn,Correia da Silva,Emersonn,40,IPS,12,62.0,1.0,1.0,0.0,3.0
+2026-2027,4,Forward,3,177815,346,Dominic,Calvert-Lewin,Calvert-Lewin,2,LEE,10,77.0,1.0,1.0,1.0,2.0

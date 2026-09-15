@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW5
 
-Last generated: 2026-09-15 13:48 UTC
+Last generated: 2026-09-15 19:48 UTC
 
-Data commit: `c276843ee2b90d41ba20e8839dd900284c48b4af`
+Data commit: `9731d1fab5b791e40f85f3540b28d186fa2d39d9`
 
 ## Data freshness
 
@@ -29,6 +29,7 @@ The predicted top 20 averaged 5.20 actual points versus 1.69 for the selectable 
 | 1 | 1.528 | 2.580 | 0.553 | 3.40 | 1.88 | 39 | 50 |
 | 2 | 1.211 | 2.131 | 0.697 | 6.60 | 1.74 | 112 | 81 |
 | 3 | 1.211 | 2.030 | 0.750 | 4.25 | 1.83 | 44 | 51 |
+| 4 | 1.278 | 2.257 | 0.711 | 5.40 | 1.91 | 72 | 69 |
 
 XI + captain is measured before autosubs; archived exclusions are omitted from forecast-skill metrics.
 
