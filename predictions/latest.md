@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW5
 
-Last generated: 2026-09-15 19:48 UTC
+Last generated: 2026-09-16 05:06 UTC
 
-Data commit: `9731d1fab5b791e40f85f3540b28d186fa2d39d9`
+Data commit: `d2b7c3a7f9bc7ba4781efef1fda2408b12d4d5cb`
 
 ## Data freshness
 
@@ -39,7 +39,7 @@ XI + captain is measured before autosubs; archived exclusions are omitted from f
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Haaland | MCI | Forward | 6.49 | 4.83 | 6.34 | 4.83 | 6.44 | 23.15 | 1.49 | high | 5-GW avg pts 6.60; mins 72; xGI 0.77; current GWs 4; fixture Elo diff +156 |
 | B.Fernandes | MUN | Midfielder | 6.30 | 6.52 | 6.30 | 5.61 | 6.30 | 24.92 | 2.08 | high | 5-GW avg pts 8.60; mins 90; xGI 0.73; current GWs 4; fixture Elo diff +97 |
-| Gibbs-White | NFO | Midfielder | 5.96 | 5.18 | 3.29 | 5.46 | 5.32 | 20.27 | 2.57 | high | 5-GW avg pts 7.00; mins 90; xGI 0.62; current GWs 4; fixture Elo diff +15 |
+| Gibbs-White | NFO | Midfielder | 5.96 | 5.18 | 3.29 | 5.46 | 5.32 | 20.27 | 2.53 | high | 5-GW avg pts 7.00; mins 90; xGI 0.62; current GWs 4; fixture Elo diff +15 |
 | Thiago | BRE | Forward | 4.86 | 3.78 | 3.98 | 4.92 | 4.72 | 17.73 | 2.24 | high | 5-GW avg pts 1.40; mins 88; xGI 0.52; current GWs 4; fixture Elo diff +7 |
 | João Pedro | CHE | Forward | 4.84 | 4.57 | 4.61 | 4.89 | 4.11 | 18.53 | 2.38 | high | 5-GW avg pts 6.80; mins 90; xGI 0.59; current GWs 4; fixture Elo diff -10 |
 | Gabriel | ARS | Defender | 4.81 | 4.96 | 4.71 | 4.96 | 3.90 | 18.85 | 2.36 | high | 5-GW avg pts 5.00; mins 81; xGI 0.11; current GWs 4; fixture Elo diff +229 |
@@ -75,12 +75,12 @@ Raw drivers are descriptive inputs, not SHAP or causal attributions.
 | Pickford | EVE | Goalkeeper | £5.5m | 14.22 | GW5, GW6, GW9 | — | — |
 | Leno | FUL | Goalkeeper | £4.5m | 13.90 | GW7, GW8 | — | — |
 | B.Fernandes | MUN | Midfielder | £12.0m | 24.92 | GW5, GW6, GW7, GW8, GW9 | GW5, GW6, GW7, GW8, GW9 | — |
-| Gibbs-White | NFO | Midfielder | £7.9m | 20.27 | GW5, GW6, GW8, GW9 | — | GW5, GW6, GW8, GW9 |
+| Gibbs-White | NFO | Midfielder | £8.0m | 20.27 | GW5, GW6, GW8, GW9 | — | GW5, GW6, GW8, GW9 |
 | Mbeumo | MUN | Midfielder | £7.9m | 18.75 | GW5, GW6, GW7, GW8, GW9 | — | — |
 | Szoboszlai | LIV | Midfielder | £7.0m | 17.00 | GW6, GW7, GW8 | — | GW7 |
 | Schlager | NFO | Midfielder | £5.0m | 15.66 | GW5, GW8 | — | — |
 
-Squad cost: £99.7m.
+Squad cost: £99.8m.
 
 ## Your current squad
 
