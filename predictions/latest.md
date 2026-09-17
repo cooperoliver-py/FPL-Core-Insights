@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW5
 
-Last generated: 2026-09-16 19:40 UTC
+Last generated: 2026-09-17 05:09 UTC
 
-Data commit: `0ab5146a46b551d24178580d1417eaf5daf786de`
+Data commit: `f764c744f59b5b2418863d481cbf1f98a1a7e161`
 
 ## Data freshness
 
@@ -41,7 +41,6 @@ XI + captain is measured before autosubs; archived exclusions are omitted from f
 | B.Fernandes | MUN | Midfielder | 6.30 | 6.52 | 6.30 | 5.61 | 6.30 | 24.92 | 2.08 | high | 5-GW avg pts 8.60; mins 90; xGI 0.73; current GWs 4; fixture Elo diff +97 |
 | Gibbs-White | NFO | Midfielder | 5.96 | 5.18 | 3.29 | 5.46 | 5.32 | 20.27 | 2.53 | high | 5-GW avg pts 7.00; mins 90; xGI 0.62; current GWs 4; fixture Elo diff +15 |
 | Thiago | BRE | Forward | 4.86 | 3.78 | 3.98 | 4.92 | 4.72 | 17.73 | 2.24 | high | 5-GW avg pts 1.40; mins 88; xGI 0.52; current GWs 4; fixture Elo diff +7 |
-| João Pedro | CHE | Forward | 4.84 | 4.57 | 4.61 | 4.89 | 4.11 | 18.53 | 2.38 | high | 5-GW avg pts 6.80; mins 90; xGI 0.59; current GWs 4; fixture Elo diff -10 |
 | Gabriel | ARS | Defender | 4.81 | 4.96 | 4.71 | 4.96 | 3.90 | 18.85 | 2.36 | high | 5-GW avg pts 5.00; mins 81; xGI 0.11; current GWs 4; fixture Elo diff +229 |
 | Palmer | CHE | Midfielder | 4.73 | 4.60 | 4.49 | 5.03 | 3.98 | 18.37 | 1.89 | high | 5-GW avg pts 6.80; mins 88; xGI 0.40; current GWs 4; fixture Elo diff -10 |
 | Semenyo | MCI | Midfielder | 4.67 | 3.76 | 4.96 | 3.63 | 4.29 | 17.14 | 2.04 | high | 5-GW avg pts 4.40; mins 83; xGI 0.27; current GWs 4; fixture Elo diff +156 |
@@ -57,6 +56,7 @@ XI + captain is measured before autosubs; archived exclusions are omitted from f
 | Szoboszlai | LIV | Midfielder | 4.14 | 3.93 | 4.84 | 4.97 | 3.28 | 17.00 | 2.43 | high | 5-GW avg pts 4.00; mins 90; xGI 0.57; current GWs 4; fixture Elo diff -6 |
 | Havertz | ARS | Forward | 4.13 | 4.21 | 4.04 | 4.21 | 3.71 | 16.32 | 2.15 | high | 5-GW avg pts 4.20; mins 78; xGI 0.36; current GWs 4; fixture Elo diff +229 |
 | Pickford | EVE | Goalkeeper | 4.10 | 4.15 | 3.48 | 2.20 | 3.44 | 14.22 | 2.59 | high | 5-GW avg pts 3.80; mins 90; xGI 0.01; current GWs 4; fixture Elo diff -10 |
+| Calvert-Lewin | LEE | Forward | 4.10 | 2.19 | 3.57 | 4.27 | 3.29 | 13.89 | 2.32 | high | 5-GW avg pts 4.40; mins 79; xGI 0.61; current GWs 4; fixture Elo diff -81 |
 
 Raw drivers are descriptive inputs, not SHAP or causal attributions.
 
@@ -65,22 +65,22 @@ Raw drivers are descriptive inputs, not SHAP or causal attributions.
 | Player | Club | Position | Cost | Weighted score | Starts | Captains | Vice-captains |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Gabriel | ARS | Defender | £8.0m | 18.85 | GW5, GW6, GW7, GW8, GW9 | — | — |
-| Khalaili | CRY | Defender | £5.0m | 15.86 | GW5, GW6, GW8, GW9 | — | — |
-| Silva | BOU | Defender | £5.0m | 15.44 | GW7, GW9 | — | — |
-| Tarkowski | EVE | Defender | £6.1m | 15.12 | GW5, GW6, GW7, GW9 | — | — |
+| Khalaili | CRY | Defender | £5.0m | 15.86 | GW5, GW6, GW7, GW8, GW9 | — | — |
+| Silva | BOU | Defender | £5.0m | 15.44 | GW5, GW6, GW7, GW9 | — | — |
+| Robinson | FUL | Defender | £4.5m | 13.65 | GW6, GW7, GW8 | — | — |
 | Bassey | FUL | Defender | £4.5m | 13.61 | GW6, GW7, GW8 | — | — |
-| João Pedro | CHE | Forward | £7.8m | 18.53 | GW5, GW6, GW7, GW8, GW9 | — | — |
-| Thiago | BRE | Forward | £7.9m | 17.73 | GW5, GW7, GW8, GW9 | — | — |
+| Haaland | MCI | Forward | £15.5m | 23.15 | GW5, GW6, GW7, GW8, GW9 | GW5, GW7, GW9 | — |
 | Barry | EVE | Forward | £5.6m | 15.53 | GW5, GW6, GW7, GW9 | — | — |
-| Pickford | EVE | Goalkeeper | £5.5m | 14.22 | GW5, GW6, GW9 | — | — |
-| Leno | FUL | Goalkeeper | £4.5m | 13.90 | GW7, GW8 | — | — |
-| B.Fernandes | MUN | Midfielder | £12.0m | 24.92 | GW5, GW6, GW7, GW8, GW9 | GW5, GW6, GW7, GW8, GW9 | — |
-| Gibbs-White | NFO | Midfielder | £8.0m | 20.27 | GW5, GW6, GW8, GW9 | — | GW5, GW6, GW8, GW9 |
+| Walle Egeli | IPS | Forward | £4.5m | 0.57 | Bench | — | — |
+| Leno | FUL | Goalkeeper | £4.5m | 13.90 | GW6, GW7, GW8 | — | — |
+| Horníček | NEW | Goalkeeper | £5.0m | 13.85 | GW5, GW9 | — | — |
+| B.Fernandes | MUN | Midfielder | £12.0m | 24.92 | GW5, GW6, GW7, GW8, GW9 | GW6, GW8 | GW5, GW7, GW9 |
+| Gibbs-White | NFO | Midfielder | £8.0m | 20.27 | GW5, GW6, GW7, GW8, GW9 | — | GW6, GW8 |
 | Mbeumo | MUN | Midfielder | £7.9m | 18.75 | GW5, GW6, GW7, GW8, GW9 | — | — |
-| Szoboszlai | LIV | Midfielder | £7.0m | 17.00 | GW6, GW7, GW8 | — | GW7 |
-| Schlager | NFO | Midfielder | £5.0m | 15.66 | GW5, GW8 | — | — |
+| Schlager | NFO | Midfielder | £5.0m | 15.66 | GW5, GW8, GW9 | — | — |
+| Janelt | BRE | Midfielder | £5.0m | 13.71 | GW5, GW8, GW9 | — | — |
 
-Squad cost: £99.8m.
+Squad cost: £100.0m.
 
 ## Your current squad
 
@@ -88,11 +88,11 @@ Squad cost: £99.8m.
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Botman | NEW | Defender | £5.0m | 13.76 | GW5, GW6, GW7, GW8, GW9 | — | — |
 | Maguire | MUN | Defender | £4.9m | 13.18 | GW5, GW6, GW7, GW8, GW9 | — | — |
-| Virgil | LIV | Defender | £6.5m | 12.92 | GW6, GW7, GW8 | — | — |
-| Muñoz | NFO | Defender | £5.4m | 11.59 | GW5, GW9 | — | — |
-| Mitchell | CRY | Defender | £4.5m | 11.14 | Bench | — | — |
-| João Pedro | CHE | Forward | £7.8m | 18.53 | GW5, GW6, GW7, GW8, GW9 | — | — |
+| Virgil | LIV | Defender | £6.5m | 12.92 | GW5, GW6, GW7, GW8 | — | — |
+| Muñoz | NFO | Defender | £5.4m | 11.59 | GW5, GW6, GW8, GW9 | — | — |
+| Mitchell | CRY | Defender | £4.5m | 11.14 | GW7, GW9 | — | — |
 | Thiago | BRE | Forward | £7.9m | 17.73 | GW5, GW6, GW7, GW8, GW9 | — | GW5 |
+| João Pedro | CHE | Forward | £7.8m | 10.79 | Bench | — | — |
 | Mheuka | CHE | Forward | £4.5m | 0.38 | Bench | — | — |
 | Leno | FUL | Goalkeeper | £4.5m | 13.90 | GW5, GW6, GW7, GW8, GW9 | — | — |
 | Pope | NEW | Goalkeeper | £4.9m | 2.29 | Bench | — | — |
@@ -106,20 +106,20 @@ Squad cost: £99.5m.
 
 ## One-transfer recommendation
 
-**Muñoz → Khalaili** (projected weighted XI+captain gain 3.90).
+**João Pedro → Havertz** (projected weighted XI+captain gain 4.93).
 
 | Out | In | Sell | Buy | Bank after | XI+captain gain |
 | --- | --- | --- | --- | --- | --- |
-| Muñoz | Khalaili | £5.4m | £5.0m | £0.6m | 3.90 |
+| João Pedro | Havertz | £7.6m | £7.6m | £0.2m | 4.93 |
+| João Pedro | Barry | £7.6m | £5.6m | £2.2m | 4.56 |
+| Muñoz | Khalaili | £5.4m | £5.0m | £0.6m | 4.17 |
 | Gakpo | Tavernier | £7.2m | £6.1m | £1.3m | 3.80 |
+| Muñoz | Silva | £5.4m | £5.0m | £0.6m | 3.75 |
 | Gakpo | Dewsbury-Hall | £7.2m | £6.5m | £0.9m | 3.60 |
-| Gakpo | Schlager | £7.2m | £5.0m | £2.4m | 3.52 |
-| Muñoz | Silva | £5.4m | £5.0m | £0.6m | 3.48 |
+| João Pedro | Gonzalo | £7.6m | £6.0m | £1.8m | 3.50 |
+| Gakpo | Schlager | £7.2m | £5.0m | £2.4m | 3.48 |
 | Gakpo | Rice | £7.2m | £7.4m | £0.0m | 3.35 |
 | Gakpo | M.Sangaré | £7.2m | £5.7m | £1.7m | 3.30 |
-| Muñoz | Branthwaite | £5.4m | £5.5m | £0.1m | 2.82 |
-| Virgil | Khalaili | £6.5m | £5.0m | £1.7m | 2.79 |
-| Muñoz | Hill | £5.4m | £5.5m | £0.1m | 2.73 |
 
 ## Limits
 
