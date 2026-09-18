@@ -337,6 +337,35 @@ class FPLPredictionsTests(unittest.TestCase):
 
         self.assertEqual(set(options["in_player_code"]), {16})
 
+    def test_returning_players_can_enter_squads_and_transfer_options(self):
+        forecast = legal_squad().assign(status="a", now_cost=5., excluded=False,
+                                         GW1_availability=1., GW2_availability=1.)
+        forecast["web_name"] = forecast["player_code"].astype(str)
+        forecast["GW1_predicted_points"] = 1.
+        forecast["GW2_predicted_points"] = 1.
+        forecast["weighted_score"] = 1.9
+        returner = forecast.iloc[[-1]].copy()
+        returner["player_code"], returner["team_code"], returner["status"] = 99, 99, "s"
+        returner["GW1_availability"], returner["GW2_availability"] = 0., 1.
+        returner["GW1_predicted_points"], returner["GW2_predicted_points"] = 0., 20.
+        returner["weighted_score"] = 18.
+        pool = pd.concat([forecast, returner], ignore_index=True)
+        selected = predictions._select_initial_squad(pool, [1, 2])
+        self.assertIn(99, pool.loc[selected, "player_code"].tolist())
+        options = predictions._transfer_options(forecast, 0., pool, [1, 2])
+        self.assertIn(99, options["in_player_code"].tolist())
+        pool.loc[pool["player_code"].eq(99), "status"] = "u"
+        self.assertFalse(predictions._selectable(pool, [1, 2]).iloc[-1])
+
+    def test_completed_current_season_replay_fails_before_loading_training(self):
+        with patch.object(predictions, "_latest_season", return_value="2026-2027"), \
+             patch.object(predictions, "_season_path"), \
+             patch.object(predictions, "_before_gameweek_deadline", return_value=False), \
+             patch.object(predictions, "_load_training_data") as training:
+            with self.assertRaisesRegex(ValueError, "past-deadline"):
+                predictions.run(gameweek=1)
+            training.assert_not_called()
+
     def test_excluded_player_is_not_selected_for_optimal_squad(self):
         forecast = legal_squad().assign(status="a", now_cost=5.0, excluded=False)
         forecast["weighted_score"] = forecast["predicted_points"]

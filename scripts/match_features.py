@@ -17,6 +17,7 @@ WORKLOAD_COLUMNS = (
     "workload_nonpl_minutes_7d", "workload_nonpl_minutes_14d",
     "workload_friendlies_minutes_28d", "workload_days_since_last",
     "workload_recorded_appearances_14d", "workload_history_appearances",
+    "workload_records_14d", "workload_nonpl_records_14d",
 )
 _FIXTURE_COLUMNS = (
     "match_id", "kickoff_time", "finished", "home_team", "away_team",
@@ -86,8 +87,9 @@ def build_match_features(
     matches, appearances = match_data
     # Conservative completion buffer also excludes an in-progress match's final export.
     history = matches.loc[matches["finished"] & (matches["kickoff_time"] + pd.Timedelta(hours=3) < cutoff)]
-    observed = appearances.loc[appearances["match_id"].isin(history["match_id"]) & appearances["minutes_played"].gt(0)].copy()
-    observed["age_days"] = (cutoff - observed["kickoff_time"]).dt.total_seconds() / 86400
+    recorded = appearances.loc[appearances["match_id"].isin(history["match_id"]) & appearances["minutes_played"].ge(0)].copy()
+    recorded["age_days"] = (cutoff - recorded["kickoff_time"]).dt.total_seconds() / 86400
+    observed = recorded.loc[recorded["minutes_played"].gt(0)]
     result = pd.DataFrame(np.nan, index=players.index, columns=WORKLOAD_COLUMNS)
     player_ids = pd.to_numeric(players["player_id"], errors="coerce")
 
@@ -96,14 +98,16 @@ def build_match_features(
         result[column] = mapped if default is None else mapped.fillna(default)
 
     for days in (7, 14):
-        recent = observed.loc[observed["age_days"].le(days)]
-        assign(f"workload_all_minutes_{days}d", recent.groupby("player_id")["minutes_played"].sum(), 0)
+        recent = recorded.loc[recorded["age_days"].le(days)]
+        assign(f"workload_all_minutes_{days}d", recent.groupby("player_id")["minutes_played"].sum())
         nonpl = recent.loc[recent["competition"].ne("Premier League")]
-        assign(f"workload_nonpl_minutes_{days}d", nonpl.groupby("player_id")["minutes_played"].sum(), 0)
+        assign(f"workload_nonpl_minutes_{days}d", nonpl.groupby("player_id")["minutes_played"].sum())
+    assign("workload_records_14d", recent.groupby("player_id").size(), 0)
+    assign("workload_nonpl_records_14d", nonpl.groupby("player_id").size(), 0)
     assign("workload_days_since_last", observed.groupby("player_id")["age_days"].min())
     assign("workload_history_appearances", observed.groupby("player_id").size(), 0)
     assign("workload_recorded_appearances_14d", observed.loc[observed["age_days"].le(14)].groupby("player_id").size(), 0)
-    recent = observed.loc[observed["age_days"].le(28)]
+    recent = recorded.loc[recorded["age_days"].le(28)]
     friendly = recent["competition"].eq("Friendlies")
-    assign("workload_friendlies_minutes_28d", recent.loc[friendly].groupby("player_id")["minutes_played"].sum(), 0)
+    assign("workload_friendlies_minutes_28d", recent.loc[friendly].groupby("player_id")["minutes_played"].sum())
     return result

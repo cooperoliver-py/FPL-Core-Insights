@@ -2,10 +2,33 @@ import unittest
 
 import pandas as pd
 
-from scripts.player_availability import availability_for_fixture, estimate_return_availability
+from scripts.player_availability import availability_for_fixture, availability_for_gameweek, estimate_return_availability
 
 
 class PlayerAvailabilityTests(unittest.TestCase):
+    def test_expired_suspension_stays_eligible_but_stale_injury_does_not(self):
+        frame = pd.DataFrame({"status": ["s", "i"], "chance_of_playing_next_round": [0, 0],
+                              "news": ["Suspended until 22 Sep", "Expected back 22 Sep"]})
+        before = availability_for_fixture(frame, "2026-09-24", "2026-09-18", injury_return_probability=.3)
+        after = availability_for_fixture(frame, "2026-09-24", "2026-09-23", injury_return_probability=.3)
+        self.assertEqual(before.tolist(), [1, .3])
+        self.assertEqual(after.tolist(), [1, 0])
+
+    def test_double_gameweek_averages_each_fixture_and_preserves_snapshot(self):
+        frame = pd.DataFrame({
+            "status_lag1": ["s", "a", "i"], "availability_lag1": [0., 1., 0.],
+            "news_lag1": ["Suspended until 22 Sep", "", "Expected back 22 Sep"],
+            "fixture_count": [2, 0, 2],
+            "fixture_kickoffs": [("2026-09-20", "2026-09-24"), (), ("2026-09-20", "2026-09-24")],
+        }, index=[8, 3, 10])
+        actual = availability_for_gameweek(frame, "2026-09-18", injury_return_probability=.4)
+        self.assertEqual(actual.tolist(), [.5, 0., .2])
+        self.assertEqual(actual.index.tolist(), [8, 3, 10])
+        frame["fixture_availability"] = actual
+        pd.testing.assert_series_equal(actual, availability_for_gameweek(
+            frame, "2026-09-18", injury_return_probability=.4
+        ))
+
     def test_return_boundary_needs_empirical_prior_and_preserves_next_round(self):
         frame = pd.DataFrame({
             "status": ["i", "i", "s"],

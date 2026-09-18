@@ -10,7 +10,7 @@
     37,
     38
   ],
-  "data_revision": "c1b5d24eb47f120a67f482d0efa8a0c00027d4e6",
+  "data_revision": "3d75be39c74dde9d1a3bc9d2ea235fa27063773f",
   "sklearn_version": "1.9.0",
   "model_parameters": {
     "estimators": [
@@ -230,25 +230,30 @@
     "workload_friendlies_minutes_28d",
     "workload_days_since_last",
     "workload_recorded_appearances_14d",
-    "workload_history_appearances"
+    "workload_history_appearances",
+    "workload_records_14d",
+    "workload_nonpl_records_14d"
   ],
   "source_sha256": {
-    "evaluate_predictions.py": "6b0c693ef47611dcda8ac95d43fe91f0ce0311f30d9495756aa186d7dc6f1518",
+    "evaluate_predictions.py": "4784095e1a87f7ff9e26af725040199cac4628f05191dd3afe1ff8fcc5623181",
     "export_data.py": "ba917d7cb06b4dd201a1e92249532944ac9742c86a4ce984db4c381bb5845f53",
     "split_by_gameweek.py": "f00e0853ce5b5912d5f2f2af4a9a8c4da55e1f170e6cb30383c556caffbf2e9f",
-    "match_features.py": "c8ecb6ddbac1d85de9e1d52f3979e82245b559a00cd4bef58b3d347aca5d62c5",
+    "match_features.py": "9fe15cc4fce3d40e77cd144f6fa9ce195ecbf10c39a8262226b078ba9c4e4c9d",
     "split_csv_data.py": "98a6bd133fd716a8a90db9baa8d4a69786d073af884eaafa9b8b0c64f3ee2232",
-    "player_availability.py": "ae84dee6c3b37db87c1557620aa4b456694a35946f85240647240cdf400ae290",
+    "player_availability.py": "78da6ddf4d39be132f5747c279076707e3ff5f2318aa939c08d70988accbff56",
     "fixcsv.py": "33b9ee1cebe33b31fbe342ee9bdf7b5dc5048a031e59251828bb63e4f843397a",
     "clean_playermatchstats.py": "4852b83456616fd6e5eb84789205e2fee4529e439f8dc49cc252391d49233f8d",
-    "fpl_predictions.py": "a9fe10fae9028f1e7c07c174ad60722bd31eb5d25d5b64c63cfa7ee99ed55420",
+    "fpl_predictions.py": "0e117d8d5a5d6673f4f72f1c131109060008e7d1899f08d74bc15e8a2d43787d",
     "team_of_the_week.py": "27c87409b3386e0d9a8e43ba49daf5b54c6439fdabb7b529c1b6d4ec54be347b"
   },
-  "scope": "One-week expanding-window evaluation; no current-season labels in these folds.",
+  "scope": "Expanding-window fitting, plus 1-5 week frozen-origin forecasts using production fixture availability. No current-season labels in these folds.",
+  "snapshot_quarantine": "2025-2026 GW1 price, availability, news, ep_next and set-piece metadata masked; copied GW15 metadata must not inform GW2.",
   "limitations": [
     "Historical exports have no publication timestamps; completed match details are assumed available three hours after kickoff.",
-    "Legacy baseline uses fixture-time Elo; refined Elo is restricted to earlier completed matches and prior-season ratings.",
-    "Historical non-PL detail coverage stops in February 2026. These folds do not validate summer cold starts or long-horizon recovery.",
-    "Development folds select features. Holdout folds assess the selected version; improvements are not guarantees."
+    "legacy_context is a comparison on sanitized inputs, not an exact replay of the original model; it retains fixture-time Elo.",
+    "Historical non-PL detail coverage stops in February 2026; unobserved workload remains missing, with record-count features.",
+    "Future fixture schedules are final exports, not archived schedules as known at each origin. Only players with observed target labels are scored.",
+    "These folds do not validate summer cold starts, live current-season refitting, or the squad/transfer optimizer. Overlapping horizons are not independent samples.",
+    "Later folds have previously been inspected and are retrospective diagnostics, not an untouched holdout."
   ]
 }

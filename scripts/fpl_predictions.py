@@ -29,15 +29,15 @@ from sklearn.pipeline import make_pipeline
 
 if __package__:
     from .match_features import WORKLOAD_COLUMNS, build_match_features, load_match_data
-    from .player_availability import availability_for_fixture, estimate_return_availability
+    from .player_availability import availability_for_gameweek, estimate_return_availability
 else:
     from match_features import WORKLOAD_COLUMNS, build_match_features, load_match_data
-    from player_availability import availability_for_fixture, estimate_return_availability
+    from player_availability import availability_for_gameweek, estimate_return_availability
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 TRAIN_SEASON = "2025-2026"
-MODEL_VERSION = "v2-form-workload-blend"
+MODEL_VERSION = "v3-snapshot-availability"
 HORIZON_WEIGHTS = (1.0, 0.9, 0.8, 0.7, 0.6)
 LAG_WINDOWS = (3, 5)
 RECENT_EWM_ALPHA = 0.35
@@ -274,10 +274,17 @@ def build_lagged_features(frame: pd.DataFrame, identity: str = "id") -> pd.DataF
     order = [identity, *(["season"] if "season" in frame else []), "gw"]
     derived = [*LAG_COLUMNS, *RECENT_COLUMNS, *FORM_COLUMNS, "availability_lag1",
                "now_cost_lag1", "ep_next_lag", "status_lag1", "news_lag1", "news_added_lag1",
-               "history_count", "cold_start", "data_coverage"]
+               "history_count", "cold_start", "data_coverage", "fixture_availability"]
     result = frame.drop(columns=derived, errors="ignore").sort_values(
         order, kind="mergesort"
     ).reset_index(drop=True)
+    # Audited source defect: 2025/26 GW1 metadata was copied from GW15.
+    # Keep match outcomes, but never propagate those later snapshots into GW2.
+    untrusted = result.get("season", pd.Series("", index=result.index)).eq("2025-2026") & result["gw"].eq(1)
+    for column in ("status", "news", "news_added", "now_cost", "ep_next",
+                   "chance_of_playing_next_round", *SET_PIECE_COLUMNS):
+        if column in result:
+            result[column] = result[column].mask(untrusted)
     extra = {}
     for metric in RAW_METRICS:
         if metric not in result:
@@ -301,7 +308,7 @@ def build_lagged_features(frame: pd.DataFrame, identity: str = "id") -> pd.DataF
     extra["history_count"] = result.groupby(identity, sort=False).cumcount()
     extra["cold_start"] = (extra["history_count"] == 0).astype(int)
     extra["data_coverage"] = extra["history_count"].clip(upper=5) / 5
-    extra["availability_lag1"] = _availability(result).groupby(
+    extra["availability_lag1"] = _availability(result).mask(untrusted).groupby(
         result[identity], sort=False
     ).shift(1)
     if "now_cost" in result:
@@ -439,6 +446,8 @@ def _incomplete_source_gameweeks(season: str, target_gameweek: int) -> list[dict
 
 
 def _availability(frame: pd.DataFrame) -> pd.Series:
+    if "fixture_availability" in frame:
+        return pd.to_numeric(frame["fixture_availability"], errors="coerce").fillna(1.0).clip(0, 1)
     if "availability_lag1" in frame:
         return pd.to_numeric(frame["availability_lag1"], errors="coerce").fillna(1.0).clip(0, 1)
     chance = pd.to_numeric(
@@ -536,6 +545,18 @@ def _team_elo_map(teams: pd.DataFrame) -> dict[int, float]:
     return result
 
 
+def _add_fixture_dates(frame: pd.DataFrame, fixtures: pd.DataFrame) -> pd.DataFrame:
+    kickoffs = pd.concat([
+        fixtures[[f"{side}_team", "kickoff_time"]].rename(columns={f"{side}_team": "team_code"})
+        for side in ("home", "away")
+    ]).assign(kickoff_time=lambda rows: pd.to_datetime(rows["kickoff_time"], utc=True))
+    result = frame.copy()
+    dates = kickoffs.groupby("team_code")["kickoff_time"]
+    result["kickoff_time"] = result["team_code"].map(dates.min())
+    result["fixture_kickoffs"] = result["team_code"].map(dates.agg(tuple))
+    return result
+
+
 def _deadline_elo(season: str, matches: pd.DataFrame, as_of) -> tuple[dict[int, float], set[int]]:
     """Use only prior-season ratings or ratings attached to already played matches."""
     start, end = (int(value) for value in season.split("-"))
@@ -613,11 +634,7 @@ def _load_training_data(
         merged["fixture_count"] = merged["fixture_count"].fillna(0)
         merged["season"] = season
         merged["deadline_time"] = deadlines.loc[gameweek]
-        kickoff = pd.concat([
-            fixtures[[f"{side}_team", "kickoff_time"]].rename(columns={f"{side}_team": "team_code"})
-            for side in ("home", "away")
-        ]).assign(kickoff_time=lambda frame: pd.to_datetime(frame["kickoff_time"], utc=True))
-        merged["kickoff_time"] = merged["team_code"].map(kickoff.groupby("team_code")["kickoff_time"].min())
+        merged = _add_fixture_dates(merged, fixtures)
         merged = pd.concat((merged, build_match_features(
             merged, match_data, deadlines.loc[gameweek]
         )), axis=1)
@@ -632,7 +649,11 @@ def _load_training_data(
     for metric in RAW_METRICS:
         if metric not in training:
             training[metric] = 0.0
-    return build_lagged_features(training, "player_code")
+    training = build_lagged_features(training, "player_code")
+    training["fixture_availability"] = availability_for_gameweek(
+        training, training["deadline_time"], is_next_round=True
+    )
+    return training
 
 
 def _model_frame(frame: pd.DataFrame) -> pd.DataFrame:
@@ -650,6 +671,9 @@ def _model_frame(frame: pd.DataFrame) -> pd.DataFrame:
     for column in MODEL_COLUMNS:
         if column not in prepared:
             prepared[column] = np.nan
+    # -1 encodes unknown workload, distinct from observed zero. Some historical
+    # folds have no friendly records at all; avoid an entirely missing column.
+    prepared[list(WORKLOAD_COLUMNS)] = prepared[list(WORKLOAD_COLUMNS)].fillna(-1.0)
     return prepared.loc[:, MODEL_COLUMNS].apply(pd.to_numeric, errors="coerce")
 
 
@@ -672,9 +696,10 @@ def _new_model() -> VotingRegressor:
     ])
 
 
-def _served_prediction(frame: pd.DataFrame, prediction) -> np.ndarray:
+def _served_prediction(frame: pd.DataFrame, prediction, *, scale_availability: bool = True) -> np.ndarray:
     adjusted = np.maximum(np.asarray(prediction, dtype=float), 0)
-    adjusted *= _availability(frame).to_numpy(float)
+    availability = _availability(frame).to_numpy(float)
+    adjusted *= availability if scale_availability else (availability > 0)
     fixture_count = pd.to_numeric(frame["fixture_count"], errors="coerce").fillna(0).to_numpy(float)
     adjusted[fixture_count == 0] = 0
     return adjusted
@@ -892,13 +917,9 @@ def _forecast(
         features = pd.concat((features, build_match_features(
             features, match_data, as_of
         )), axis=1).copy()
-        kickoff = pd.concat([
-            fixtures[[f"{side}_team", "kickoff_time"]].rename(columns={f"{side}_team": "team_code"})
-            for side in ("home", "away")
-        ]).assign(kickoff_time=lambda rows: pd.to_datetime(rows["kickoff_time"], utc=True))
-        target_dates = features["team_code"].map(kickoff.groupby("team_code")["kickoff_time"].min())
-        features["availability_lag1"] = availability_for_fixture(
-            features, target_dates, as_of, injury_return_probability=recovery["probability"],
+        features = _add_fixture_dates(features, fixtures)
+        features["fixture_availability"] = availability_for_gameweek(
+            features, as_of, injury_return_probability=recovery["probability"],
             is_next_round=gameweek == gameweeks[0],
         )
         prediction = _served_prediction(features, model.predict(_model_frame(features)))
@@ -906,7 +927,7 @@ def _forecast(
         promoted_flags.append(features["promoted_elo_fallback"])
         future_columns[f"_GW{gameweek}_elo_diff"] = features["elo_diff"].to_numpy()
         future_columns[f"_GW{gameweek}_fixture_count"] = features["fixture_count"].to_numpy()
-        future_columns[f"GW{gameweek}_availability"] = features["availability_lag1"].to_numpy()
+        future_columns[f"GW{gameweek}_availability"] = features["fixture_availability"].to_numpy()
         if gameweek == gameweeks[0]:
             for column in WORKLOAD_COLUMNS:
                 future_columns[column] = features[column].to_numpy()
@@ -918,7 +939,7 @@ def _forecast(
     point_columns = [f"GW{gameweek}_predicted_points" for gameweek in gameweeks]
     forecast["weighted_score"] = forecast[point_columns].to_numpy(float) @ weights
     forecast["predicted_value"] = forecast["weighted_score"] / forecast["now_cost"]
-    availability = _availability(forecast)
+    availability = forecast[f"GW{gameweeks[0]}_availability"]
     has_next_fixture = forecast[f"_GW{gameweeks[0]}_fixture_count"].gt(0)
     rolling_baseline = pd.to_numeric(forecast["event_points_lag5"], errors="coerce").fillna(0)
     forecast["baseline_rolling_points"] = rolling_baseline * availability * has_next_fixture
@@ -973,10 +994,17 @@ def _apply_exclusions(
     return result
 
 
+def _selectable(forecast: pd.DataFrame, gameweeks: list[int]) -> pd.Series:
+    columns = [f"GW{gw}_availability" for gw in gameweeks]
+    if all(column in forecast for column in columns):
+        available = forecast[columns].gt(0).any(axis=1)
+    else:  # Older archived forecasts have no per-gameweek availability.
+        available = ~forecast["status"].astype(str).isin(UNAVAILABLE)
+    return available & ~forecast["status"].astype(str).isin({"u", "n"}) & ~forecast["excluded"]
+
+
 def _select_initial_squad(forecast: pd.DataFrame, gameweeks: list[int]) -> list[object]:
-    candidates = forecast.loc[
-        (~forecast["status"].astype(str).isin(UNAVAILABLE)) & (~forecast["excluded"])
-    ].copy()
+    candidates = forecast.loc[_selectable(forecast, gameweeks)].copy()
     candidates = candidates.sort_values("player_code", kind="mergesort")
     count = len(candidates)
     if count < 15:
@@ -1122,6 +1150,7 @@ def _transfer_options(
         *point_columns,
     ]
     pool = forecast[columns].copy().set_index("player_code", drop=False)
+    pool["_selectable"] = _selectable(forecast, gameweeks).to_numpy()
     squad = user_squad.drop(columns=[column for column in point_columns if column in user_squad]).merge(
         forecast[["player_code", *point_columns]], on="player_code", how="left", validate="one_to_one"
     )
@@ -1138,8 +1167,7 @@ def _transfer_options(
         incoming_pool = pool.loc[
             (~pool.index.isin(squad_codes))
             & (pool["position"] == outgoing["position"])
-            & (~pool["status"].astype(str).isin(UNAVAILABLE))
-            & (~pool["excluded"])
+            & pool["_selectable"]
             & (pool["now_cost"] <= funds + 1e-9)
         ].sort_index(kind="mergesort")
         for incoming in incoming_pool.itertuples(index=False):
@@ -1605,9 +1633,9 @@ def _live_performance(output_dir: Path, season: str) -> pd.DataFrame:
         fixture_teams = set(
             pd.concat([fixtures["home_team"], fixtures["away_team"]]).dropna().astype(int)
         )
-        selectable = ~skill.get("status", pd.Series("a", index=skill.index)).astype(str).isin(
-            UNAVAILABLE
-        ) & pd.to_numeric(skill["team_code"], errors="coerce").isin(fixture_teams)
+        selectable = _selectable(skill.assign(excluded=False), [gameweek]) & pd.to_numeric(
+            skill["team_code"], errors="coerce"
+        ).isin(fixture_teams)
         pool = skill.loc[selectable]
         top = pool.nlargest(min(20, len(pool)), f"GW{gameweek}_predicted_points")
         records.append(
@@ -1767,6 +1795,8 @@ def run(
     gameweek = _next_unfinished_gameweek(season) if gameweek is None else gameweek
     if not 1 <= gameweek <= 38:
         raise ValueError("gameweek must be between 1 and 38")
+    if not _before_gameweek_deadline(season, gameweek):
+        raise ValueError("past-deadline gameweek replay is not supported with the live catalog; use evaluate_predictions.py")
     gameweeks = list(range(gameweek, min(gameweek + 5, 39)))
 
     training = _load_training_data()

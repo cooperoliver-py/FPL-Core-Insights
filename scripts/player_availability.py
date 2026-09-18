@@ -93,18 +93,38 @@ def availability_for_fixture(
         if parsed is None:
             continue
         kind, return_date = parsed
-        # A missed return date in an unchanged injury snapshot is not fresh evidence.
-        if return_date < origin.normalize() or fixture.normalize() < return_date:
+        if fixture.normalize() < return_date:
             continue
         if state == "s" and kind == "suspended until":
             probability.iloc[offset] = 1.0
         elif state in {"i", "d"} and kind == "expected back" and not is_next_round:
-            if injury_return_probability is not None:
+            # A missed injury return is uncertain; an expired suspension is not.
+            if return_date >= origin.normalize() and injury_return_probability is not None:
                 probability.iloc[offset] = max(probability.iloc[offset], injury_return_probability)
     probability.loc[status.isin({"u", "n"})] = 0.0
     if "fixture_count" in frame:
         probability.loc[pd.to_numeric(frame["fixture_count"], errors="coerce").eq(0)] = 0.0
     return probability
+
+
+def availability_for_gameweek(frame: pd.DataFrame, as_of, **kwargs) -> pd.Series:
+    """Average fixture eligibility, including returns between double-GW matches.
+
+    ponytail: fixtures receive equal weight because the model predicts GW totals;
+    replace with per-fixture point weights if a per-match model is adopted.
+    """
+    if frame.empty:
+        return pd.Series(dtype=float, index=frame.index)
+    expanded = frame.assign(
+        _row_number=np.arange(len(frame)),
+        _origin=_dates(as_of, frame.index),
+        _fixture=frame.get("fixture_kickoffs", frame.get("kickoff_time", pd.NaT)),
+    ).explode("_fixture").reset_index(drop=True)
+    expanded["_probability"] = availability_for_fixture(
+        expanded, expanded["_fixture"], expanded["_origin"], **kwargs
+    )
+    values = expanded.groupby("_row_number", sort=True)["_probability"].mean()
+    return pd.Series(values.to_numpy(), index=frame.index)
 
 
 def estimate_return_availability(history: pd.DataFrame, min_samples: int = 20) -> dict:

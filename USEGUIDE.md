@@ -138,9 +138,21 @@ OMP_NUM_THREADS=1 python scripts/evaluate_predictions.py --split holdout --outpu
 ```
 
 See `metrics.csv`, `by_gameweek.csv` and `metadata.json` in each output folder.
+`by_horizon.csv` and `horizon_by_gameweek.csv` evaluate one-to-five-week forecasts
+with player information frozen at the origin and the production availability logic.
+`refined_no_soft_scaling` tests removing the extra fractional availability multiplier
+while preserving hard unavailability and blank-gameweek rules.
 The comparisons are retrospective; `predictions/performance.csv` continues to
 score the original frozen forecasts and records the model version used.
 
 The report's **history coverage** label is not prediction certainty. In the CSV,
 `GWx_availability` shows the chance factor applied to each forecast week. Known
 suspensions can expire; a stated injury return remains an uncertain estimate.
+In double Gameweeks this factor averages availability across individual fixtures.
+Players returning within the horizon can be selected; departures and explicit
+exclusions remain ineligible. Missing workload is blank in CSV exports and encoded
+as -1 inside the model, alongside observed-record counts, rather than zero minutes.
+
+Live runs reject past-deadline Gameweeks, including those in the current season.
+The known copied metadata in 2025/26 GW1 is masked before building historical
+features; the underlying match results and original source files are retained.

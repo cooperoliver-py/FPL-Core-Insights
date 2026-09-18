@@ -9,6 +9,17 @@ from scripts.match_features import build_match_features, load_match_data
 
 
 class MatchFeaturesTests(unittest.TestCase):
+    def test_missing_workload_differs_from_an_observed_zero(self):
+        matches = pd.DataFrame({"match_id": ["cup"], "finished": [True],
+                                "kickoff_time": pd.to_datetime(["2026-09-16"], utc=True)})
+        records = pd.DataFrame({"match_id": ["cup"], "player_id": [1], "minutes_played": [0],
+                                "kickoff_time": matches.kickoff_time, "competition": ["EFL Cup"]})
+        players = pd.DataFrame({"player_id": [1, 2]})
+        result = build_match_features(players, (matches, records), "2026-09-18")
+        self.assertEqual(result.loc[0, "workload_nonpl_minutes_7d"], 0)
+        self.assertTrue(pd.isna(result.loc[1, "workload_nonpl_minutes_7d"]))
+        self.assertEqual(result["workload_nonpl_records_14d"].tolist(), [1, 0])
+
     def test_canonical_deduplication_deadline_missingness_and_team_identity(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

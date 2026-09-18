@@ -9,6 +9,19 @@ from scripts import fpl_predictions as predictions
 
 
 class ModelHistoryTests(unittest.TestCase):
+    def test_copied_gw1_metadata_is_quarantined_without_removing_match_results(self):
+        rows = pd.DataFrame({
+            "season": ["2025-2026"] * 2, "gw": [1, 2], "player_code": [7, 7],
+            "event_points": [13, 13], "minutes": [90, 90], "status": ["s", "a"],
+            "news": ["Suspended until 20 Dec", ""], "now_cost": [5.7, 5.6],
+            "chance_of_playing_next_round": [0, 100], "penalties_order": [1, 2], "ep_next": [99, 4],
+        })
+        result = predictions.build_lagged_features(rows, "player_code")
+        self.assertEqual(result.iloc[1]["event_points_lag3"], 13)
+        for name in ("availability_lag1", "news_lag1", "status_lag1", "now_cost_lag1", "penalties_order_lag1", "ep_next_lag"):
+            self.assertTrue(pd.isna(result.iloc[1][name]), name)
+        self.assertEqual(result.iloc[1]["now_cost"], 5.6)
+
     def test_new_form_features_are_shifted_and_summer_snapshots_are_reset(self):
         history = pd.DataFrame({
             "player_code": [10, 10, 10], "season": ["2025-2026", "2025-2026", "2026-2027"],

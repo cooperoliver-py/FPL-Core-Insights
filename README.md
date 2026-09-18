@@ -74,14 +74,16 @@ python3 -m pip install -r requirements.txt
 python3 scripts/fpl_predictions.py
 ```
 
-By default, the script finds the latest season and the next editable/upcoming Premier League Gameweek. You can pin that same current season and Gameweek for a reproducible run:
+By default, the script finds the latest season and the next editable/upcoming Premier League Gameweek. You can also specify the current season:
 
 ```bash
-python3 scripts/fpl_predictions.py --season 2026-2027 --gameweek 1
+python3 scripts/fpl_predictions.py --season 2026-2027
 ```
 
-`--gameweek` accepts 1–38, and `--output-dir DIR` changes the report directory from its `predictions` default.
-Historical-season replay is intentionally rejected: this v1 model trains on the completed 2025/26 season, so presenting an earlier target as a point-in-time backtest would introduce look-ahead bias.
+`--gameweek` accepts 1–38 before that Gameweek's deadline, and `--output-dir DIR` changes the report directory from its `predictions` default.
+Previous seasons and past-deadline Gameweeks are rejected because the live catalog contains current prices, health and roles. Use `scripts/evaluate_predictions.py` for historical evaluation.
+
+The model masks the known-corrupted 2025/26 GW1 snapshot metadata while retaining match results. Missing workload remains unknown, dated availability is evaluated for each fixture, and players returning during the forecast horizon can enter squad and transfer selection. Evaluation includes frozen-origin forecasts for horizons one to five and an availability-scaling comparison; details are in [MODEL_IMPROVEMENTS.md](MODEL_IMPROVEMENTS.md).
 
 ### Add Your Current Squad
 
@@ -135,7 +137,7 @@ OMP_NUM_THREADS=1 python scripts/evaluate_predictions.py --split development --o
 OMP_NUM_THREADS=1 python scripts/evaluate_predictions.py --split holdout --output-dir predictions/evaluation/holdout
 ```
 
-Development uses GWs 16–30; the later comparison uses GWs 31–38. Outputs include overall, appearance-only, position, double-Gameweek and low-history errors, top-20/captain outcomes, per-GW scores, and code/version metadata. Comparators are frozen v1, the core model with deadline-safe Elo, the refined blend and a rolling baseline. These are retrospective diagnostics; the later period was inspected during refinement. Frozen future live forecasts are the prospective check. See [MODEL_IMPROVEMENTS.md](MODEL_IMPROVEMENTS.md) for results and rejected experiments.
+Development uses GWs 16–30; the later comparison uses GWs 31–38. Outputs include overall, appearance-only, position, double-Gameweek and low-history errors, top-20/captain outcomes, per-GW scores, one-to-five-week horizon results, and code/version metadata. Comparators are the legacy fixture context on sanitized inputs, the core model with deadline-safe Elo, the refined blend, an availability-scaling ablation and a rolling baseline. These are retrospective diagnostics; the later period was inspected during refinement. Frozen future live forecasts are the prospective check. See [MODEL_IMPROVEMENTS.md](MODEL_IMPROVEMENTS.md) for results and rejected experiments.
 
 ### Automatic Updates in Your Fork
 
