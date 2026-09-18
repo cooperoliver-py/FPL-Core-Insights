@@ -54,6 +54,8 @@ This fork turns the updating dataset into clear prediction and results reports:
 
 Run the model without a saved squad to build an opening 15-player roster within the £100.0m budget. Run it with your current squad to receive the top 10 legal, same-position transfer options. It recommends **at most one transfer per Gameweek**, or **HOLD** when even the best option does not improve weighted starting-XI and captain points; it never submits changes to the FPL website.
 
+With a saved squad, both the squad comparison and transfer recommendations use your actual `bank` balance and player selling values. The comparison can retain owned players without repurchasing them at market prices; it may require multiple transfers and is separate from the one-transfer advice. The report displays your bank and available funds.
+
 ### Run It Locally
 
 Clone the fork once (skip this block if it is already on your computer):

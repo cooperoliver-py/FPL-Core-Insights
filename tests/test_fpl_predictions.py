@@ -337,6 +337,37 @@ class FPLPredictionsTests(unittest.TestCase):
 
         self.assertEqual(set(options["in_player_code"]), {16})
 
+    def test_actual_bank_and_sale_values_constrain_both_recommendations(self):
+        owned = legal_squad().assign(
+            status="a", now_cost=5., purchase_price=4.6, excluded=False,
+            GW1_availability=1., GW1_predicted_points=1., weighted_score=1.,
+        )
+        owned["web_name"] = owned["player_code"].astype(str)
+        owned.loc[0, "purchase_price"] = 4.
+        owned["selling_price"] = [
+            calculate_selling_price(purchase, current)
+            for purchase, current in zip(owned.purchase_price, owned.now_cost)
+        ]
+        incoming = owned.iloc[[-1, -1]].copy()
+        incoming["player_code"], incoming["team_code"] = [16, 17], [9, 9]
+        incoming["now_cost"] = [5., 5.1]
+        incoming["GW1_predicted_points"] = [20., 100.]
+        incoming["weighted_score"] = [20., 100.]
+        pool = pd.concat([owned, incoming], ignore_index=True)
+        selected = predictions._select_initial_squad(pool, [1], owned, .2)
+        selected_codes = set(pool.loc[selected, "player_code"])
+        self.assertIn(16, selected_codes)
+        self.assertNotIn(17, selected_codes)
+        # Retained players need not be repurchased after their price rises.
+        self.assertGreater(pool.loc[selected, "now_cost"].sum(), owned.selling_price.sum() + .2)
+        sold = owned.loc[~owned.player_code.isin(selected_codes), "selling_price"].sum()
+        bought = pool.loc[pool.index.isin(selected) & ~pool.player_code.isin(owned.player_code), "now_cost"].sum()
+        self.assertLessEqual(bought, sold + .2 + 1e-9)
+        for bank, expected in ((0., set()), (.2, {16})):
+            options = predictions._transfer_options(owned, bank, pool, [1])
+            self.assertEqual(set(options.in_player_code), expected)
+            self.assertTrue(options.bank_after.ge(-1e-9).all())
+
     def test_returning_players_can_enter_squads_and_transfer_options(self):
         forecast = legal_squad().assign(status="a", now_cost=5., excluded=False,
                                          GW1_availability=1., GW2_availability=1.)

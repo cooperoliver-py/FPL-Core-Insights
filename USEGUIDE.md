@@ -113,6 +113,13 @@ git pull --ff-only origin main
 
 ## After making an FPL transfer
 
+Set `"bank": 0.2` in `squad.json` for £0.2m of cash. Update this to the bank
+balance shown in FPL, and keep each player's original `purchase_price` accurate.
+Price changes affect selling values; they do not directly add cash to your bank.
+Transfer recommendations spend at most your bank plus the outgoing player's
+selling value. The full-squad comparison also uses your actual funds, preserving
+the value of players you keep, rather than assuming a new £100m budget.
+
 Update the player, purchase price, and bank in `squad.json`, then run:
 
 ```bash

@@ -1003,13 +1003,31 @@ def _selectable(forecast: pd.DataFrame, gameweeks: list[int]) -> pd.Series:
     return available & ~forecast["status"].astype(str).isin({"u", "n"}) & ~forecast["excluded"]
 
 
-def _select_initial_squad(forecast: pd.DataFrame, gameweeks: list[int]) -> list[object]:
+def _squad_budget(
+    forecast: pd.DataFrame, user_squad: pd.DataFrame | None = None, bank: float = 0.0,
+) -> tuple[pd.Series, float]:
+    if not math.isfinite(bank) or bank < 0:
+        raise ValueError("bank must be finite and non-negative")
+    if user_squad is None:
+        return forecast["now_cost"], 100.0
+    selling = user_squad.set_index("player_code")["selling_price"]
+    # Keeping an owned player costs the sale proceeds forgone, not the buy-back
+    # price. This is equivalent to purchases <= bank + proceeds from actual sales.
+    costs = forecast["player_code"].map(selling).fillna(forecast["now_cost"])
+    return costs, float(selling.sum()) + bank
+
+
+def _select_initial_squad(
+    forecast: pd.DataFrame, gameweeks: list[int],
+    user_squad: pd.DataFrame | None = None, bank: float = 0.0,
+) -> list[object]:
     candidates = forecast.loc[_selectable(forecast, gameweeks)].copy()
     candidates = candidates.sort_values("player_code", kind="mergesort")
     count = len(candidates)
     if count < 15:
         raise ValueError("fewer than 15 selectable players are available")
-    cost = candidates["now_cost"].to_numpy(float)
+    costs, budget = _squad_budget(candidates, user_squad, bank)
+    cost = costs.to_numpy(float)
     horizon = len(gameweeks)
     variable_count = count * (1 + 2 * horizon)
     objective = np.zeros(variable_count)
@@ -1031,7 +1049,7 @@ def _select_initial_squad(forecast: pd.DataFrame, gameweeks: list[int]) -> list[
         rows.append(({int(i): 1.0 for i in indices}, required, required))
     for _, indices in candidates.groupby("team_code", sort=True).indices.items():
         rows.append(({int(i): 1.0 for i in indices}, 0, 3))
-    rows.append(({i: float(cost[i]) for i in range(count)}, 0, 100.0 + 1e-9))
+    rows.append(({i: float(cost[i]) for i in range(count)}, 0, budget + 1e-9))
     for horizon_index in range(horizon):
         lineup_offset = count * (1 + horizon_index)
         captain_offset = count * (1 + horizon + horizon_index)
@@ -1057,8 +1075,8 @@ def _select_initial_squad(forecast: pd.DataFrame, gameweeks: list[int]) -> list[
     selected = candidates.index.to_numpy()[result.x[:count] > 0.5].tolist()
     squad = forecast.loc[selected]
     validate_squad(squad)
-    if squad["now_cost"].sum() > 100.0 + 1e-8:
-        raise RuntimeError("optimizer returned a squad above the £100m budget")
+    if costs.loc[selected].sum() > budget + 1e-8:
+        raise RuntimeError(f"optimizer returned a squad above the £{budget:.1f}m available budget")
     return selected
 
 
@@ -1258,6 +1276,8 @@ def _render_markdown(
     evaluation_context: dict[str, object] | None = None,
     incomplete_source: list[dict[str, object]] | None = None,
     live_performance: pd.DataFrame | None = None,
+    user_squad: pd.DataFrame | None = None,
+    bank: float = 0.0,
 ) -> str:
     point_columns = [f"GW{gameweek}_predicted_points" for gameweek in gameweeks]
     lines = [
@@ -1430,7 +1450,21 @@ def _render_markdown(
             "",
         )
     )
-    squads = [("ML-optimal £100m squad", forecast["player_code"].isin(recommended_codes), "")]
+    title = "ML-optimal £100m squad"
+    if user_squad is not None:
+        costs, budget = _squad_budget(forecast, user_squad, bank)
+        remaining = budget - costs.loc[forecast["player_code"].isin(recommended_codes)].sum()
+        lines.extend((
+            "## Your budget", "",
+            f"Bank: **£{bank:.1f}m**. Current squad selling value: **£{user_squad['selling_price'].sum():.1f}m**. "
+            f"Total available funds: **£{budget:.1f}m**.", "",
+            "A transfer can spend your bank plus the outgoing player's selling price. "
+            "Keeping a player does not require buying them back at their current price.", "",
+            f"The squad comparison below is affordable with **£{max(0.0, remaining):.1f}m** left in the bank. "
+            "It may require multiple transfers; use the one-transfer recommendation for your next move.", "",
+        ))
+        title = "ML-optimal squad within your budget"
+    squads = [(title, forecast["player_code"].isin(recommended_codes), "")]
     if transfers is not None:
         squads.append(("Your current squad", forecast["current_squad"], "current_"))
     for title, selected, prefix in squads:
@@ -1811,7 +1845,7 @@ def run(
         user_squad, bank, excluded_codes = _resolve_user_squad(squad_path, forecast)
         user_squad["excluded"] = user_squad["player_code"].astype(int).isin(excluded_codes)
     forecast = _apply_exclusions(forecast, excluded_codes, gameweeks)
-    selected_indices = _select_initial_squad(forecast, gameweeks)
+    selected_indices = _select_initial_squad(forecast, gameweeks, user_squad, bank)
     recommended = forecast.loc[selected_indices]
     recommended_codes = set(recommended["player_code"].astype(int))
     forecast["data_commit_sha"] = _data_sha()
@@ -1876,6 +1910,8 @@ def run(
         evaluation_context=evaluation_context,
         incomplete_source=incomplete_source,
         live_performance=live_performance,
+        user_squad=user_squad,
+        bank=bank,
     )
     return _write_outputs(
         forecast, markdown, output_dir, gameweeks, season, live_performance
