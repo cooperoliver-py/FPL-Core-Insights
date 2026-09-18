@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW5
 
-Last generated: 2026-09-18 11:30 UTC
+Last generated: 2026-09-18 13:06 UTC
 
-Data commit: `40e335833dc0a94e1e983acc498668c567fb828b`
+Data commit: `8df38acd0bee7bd58d0f7e8c13fc4d14e7cd43b1`
 
 ## Data freshness
 
@@ -53,8 +53,8 @@ XI + captain is measured before autosubs; archived exclusions are omitted from f
 | Cunha | MUN | Midfielder | 4.91 | 5.05 | 4.86 | 4.90 | 4.77 | 19.63 | 2.49 | high | 5-GW avg pts 3.20; mins 63; xGI 0.20; current GWs 4; fixture Elo diff +97 |
 | Szoboszlai | LIV | Midfielder | 4.84 | 3.75 | 5.09 | 4.57 | 2.86 | 17.19 | 2.46 | high | 5-GW avg pts 4.00; mins 90; xGI 0.57; current GWs 4; fixture Elo diff -6 |
 | Branthwaite | EVE | Defender | 4.78 | 4.66 | 4.10 | 2.57 | 3.78 | 16.32 | 2.97 | high | 5-GW avg pts 3.80; mins 72; xGI 0.04; current GWs 4; fixture Elo diff +22 |
+| Cherki | MCI | Midfielder | 4.73 | 3.92 | 5.81 | 3.92 | 4.50 | 18.35 | 2.35 | high | 5-GW avg pts 5.40; mins 50; xGI 0.42; current GWs 4; fixture Elo diff +161 |
 | Murillo | NFO | Defender | 4.73 | 4.09 | 2.61 | 4.58 | 3.88 | 16.04 | 2.92 | high | 5-GW avg pts 3.80; mins 72; xGI 0.13; current GWs 4; fixture Elo diff +21 |
-| Cherki | MCI | Midfielder | 4.41 | 3.72 | 5.50 | 3.72 | 4.20 | 17.28 | 2.22 | high | 5-GW avg pts 5.40; mins 50; xGI 0.42; current GWs 4; fixture Elo diff +161 |
 | Dewsbury-Hall | EVE | Midfielder | 4.33 | 4.26 | 3.96 | 2.75 | 3.94 | 15.62 | 2.40 | high | 5-GW avg pts 3.80; mins 89; xGI 0.23; current GWs 4; fixture Elo diff +22 |
 | Garner | EVE | Midfielder | 4.33 | 3.93 | 3.93 | 2.75 | 3.73 | 15.17 | 2.53 | high | 5-GW avg pts 2.40; mins 66; xGI 0.10; current GWs 4; fixture Elo diff +22 |
 
@@ -77,10 +77,10 @@ The squad comparison below is affordable with **£0.0m** left in the bank. It ma
 | Branthwaite | EVE | Defender | £5.5m | 16.32 | GW5, GW6, GW7, GW9 | — | — |
 | Egan | HUL | Defender | £4.1m | 15.16 | GW5, GW7, GW8, GW9 | — | — |
 | Bassey | FUL | Defender | £4.5m | 14.95 | GW6, GW7, GW8 | — | — |
-| Furlong | IPS | Defender | £3.9m | 1.80 | Bench | — | — |
+| Kipré | IPS | Defender | £3.9m | 0.83 | Bench | — | — |
 | Havertz | ARS | Forward | £7.6m | 20.88 | GW5, GW6, GW7, GW8, GW9 | — | — |
 | Thiago | BRE | Forward | £7.8m | 20.30 | GW5, GW6, GW7, GW8, GW9 | — | GW8 |
-| Mheuka | CHE | Forward | £4.5m | 0.37 | Bench | — | — |
+| Walle Egeli | IPS | Forward | £4.5m | 0.88 | Bench | — | — |
 | Leno | FUL | Goalkeeper | £4.5m | 13.94 | GW6, GW7, GW8 | — | — |
 | Horníček | NEW | Goalkeeper | £5.0m | 13.87 | GW5, GW9 | — | — |
 | B.Fernandes | MUN | Midfielder | £12.0m | 27.66 | GW5, GW6, GW7, GW8, GW9 | GW6, GW7, GW9 | GW5 |
@@ -96,9 +96,9 @@ Squad cost: £99.4m.
 | Player | Club | Position | Cost | Weighted score | Starts | Captains | Vice-captains |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Maguire | MUN | Defender | £4.9m | 15.36 | GW5, GW6, GW7, GW8, GW9 | — | — |
-| Botman | NEW | Defender | £5.0m | 14.54 | GW5, GW6, GW8, GW9 | — | — |
+| Botman | NEW | Defender | £5.0m | 14.54 | GW5, GW6, GW7, GW8, GW9 | — | — |
 | Virgil | LIV | Defender | £6.5m | 13.12 | GW5, GW7, GW8 | — | — |
-| Mitchell | CRY | Defender | £4.5m | 12.73 | GW6, GW7, GW9 | — | — |
+| Mitchell | CRY | Defender | £4.5m | 12.46 | GW6, GW9 | — | — |
 | Muñoz | NFO | Defender | £5.4m | 12.10 | GW5, GW9 | — | — |
 | Thiago | BRE | Forward | £7.8m | 20.30 | GW5, GW6, GW7, GW8, GW9 | GW8 | — |
 | João Pedro | CHE | Forward | £7.8m | 12.88 | GW5, GW6, GW7, GW8, GW9 | — | — |
@@ -120,15 +120,15 @@ Squad cost: £99.4m.
 | Out | In | Sell | Buy | Bank after | XI+captain gain |
 | --- | --- | --- | --- | --- | --- |
 | João Pedro | Havertz | £7.6m | £7.6m | £0.2m | 8.00 |
-| Mbeumo | Gibbs-White | £7.9m | £8.0m | £0.1m | 4.32 |
-| Muñoz | Branthwaite | £5.4m | £5.5m | £0.1m | 3.93 |
-| Muñoz | Murillo | £5.4m | £5.5m | £0.1m | 3.62 |
-| Virgil | Tarkowski | £6.5m | £6.1m | £0.6m | 3.24 |
-| Virgil | Branthwaite | £6.5m | £5.5m | £1.2m | 3.16 |
+| Mbeumo | Gibbs-White | £7.9m | £8.0m | £0.1m | 4.31 |
+| Muñoz | Branthwaite | £5.4m | £5.5m | £0.1m | 4.04 |
+| Muñoz | Murillo | £5.4m | £5.5m | £0.1m | 3.67 |
+| Virgil | Tarkowski | £6.5m | £6.1m | £0.6m | 3.25 |
+| Virgil | Branthwaite | £6.5m | £5.5m | £1.2m | 3.17 |
+| Muñoz | Silva | £5.4m | £5.0m | £0.6m | 3.17 |
+| Muñoz | Truffert | £5.4m | £5.5m | £0.1m | 3.11 |
 | Gakpo | Ødegaard | £7.2m | £6.8m | £0.6m | 3.11 |
-| Gakpo | Dewsbury-Hall | £7.2m | £6.5m | £0.9m | 3.05 |
-| Gakpo | Barnes | £7.2m | £6.0m | £1.4m | 2.97 |
-| Gakpo | Schade | £7.2m | £6.1m | £1.3m | 2.96 |
+| Muñoz | Rúben | £5.4m | £5.5m | £0.1m | 3.03 |
 
 ## Limits
 
