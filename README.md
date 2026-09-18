@@ -118,15 +118,24 @@ After making a real FPL transfer, update its player, purchase price and bank, th
 
 The model predicts each player's points over the next five Gameweeks, then weights those Gameweeks `1.0, 0.9, 0.8, 0.7, 0.6`, so the nearest fixture matters most. `predicted_value` is that weighted score divided by the player's current price: horizon-weighted predicted FPL points per £1.0m. Squad, XI and captain selection obey the FPL constraints below.
 
-Player points come from scikit-learn's `HistGradientBoostingRegressor`; SciPy's mixed-integer optimiser then chooses a legal squad, XI and captain rather than asking the model to learn the FPL rules. The primary training set is 2025/26 because it is the completed season compatible with the defensive-contribution scoring retained for 2026/27. Features use only information available before the predicted Gameweek.
+Player points come from an equal-weight blend of two scikit-learn `HistGradientBoostingRegressor` models: the original feature set and an expanded form/workload feature set. SciPy's mixed-integer optimiser chooses a legal squad, XI and captain. Training combines 2025/26 with completed, officially checked current-season Gameweeks before the target. Player histories use stable `player_code` across seasons; season-local IDs are never treated as the same person. Summer health, price and set-piece snapshots reset rather than carrying May values into August.
 
-Recent form combines strictly shifted 3/5-GW averages with an exponentially weighted view of points, minutes, starts and expected goal involvements, plus the immediately preceding match's minutes. Completed clubs from a partially played Gameweek can contribute form; a club is deferred if any of its fixtures in that Gameweek remains unfinished. The report names every incomplete source Gameweek and deferred club.
+Recent form combines shifted 3/5-GW averages, exponential weighting, participation and 60-minute rates, and 10-GW xG/xA, saves and defensive-contribution rates per 90 (at least 180 observed minutes). Set-piece responsibility is shifted in historical training and uses the current known snapshot in live forecasts. Canonical `By Tournament` match records supply observed all-competition/non-PL minutes over 7/14 days, preseason minutes and time since the last appearance. Completed clubs from partially played Gameweeks can contribute form, but only fully finished and checked Gameweeks become new training labels. Backfilled zero rows for players absent from the historical roster are ignored; unmapped real performances remain errors.
 
 Historical performance uses expanding walk-forward folds for GWs 31–38 and the same availability/no-fixture post-processing as live forecasts. Before each deadline, the latest forecast is frozen in `predictions/archive/`; after official `finished` and `data_checked` flags are both true, the next run adds live MAE, RMSE, rank correlation, top-20 yield and realised XI-plus-captain points to `predictions/performance.csv` and `latest.md`. Incomplete Gameweeks are never scored provisionally.
 
 Players in `squad.json`'s `excluded_player_codes` keep their valid historical training examples, but all current forecasts and baselines are forced to zero. They cannot be selected, captained or recommended as transfer-ins; an already-owned exclusion remains visible so it can be recommended for transfer out.
 
-The CSV confidence label is based on up to five prior player-Gameweek rows (`low` below 0.50, `medium` below 0.80, otherwise `high`) and is reduced for GW1 and promoted-team Elo fallbacks.
+The report calls the existing CSV `confidence` label **history coverage**: it counts up to five prior player-Gameweek rows and is reduced for GW1 and promoted-team Elo fallbacks. It is not a calibrated error probability. Forecast CSVs also include per-GW availability, workload features, model version, source-code hash and creation time. Historical live-performance rows identify their archived model version.
+
+### Compare model versions
+
+```bash
+OMP_NUM_THREADS=1 python scripts/evaluate_predictions.py --split development --output-dir predictions/evaluation/development
+OMP_NUM_THREADS=1 python scripts/evaluate_predictions.py --split holdout --output-dir predictions/evaluation/holdout
+```
+
+Development uses GWs 16–30; the later comparison uses GWs 31–38. Outputs include overall, appearance-only, position, double-Gameweek and low-history errors, top-20/captain outcomes, per-GW scores, and code/version metadata. Comparators are frozen v1, the core model with deadline-safe Elo, the refined blend and a rolling baseline. These are retrospective diagnostics; the later period was inspected during refinement. Frozen future live forecasts are the prospective check. See [MODEL_IMPROVEMENTS.md](MODEL_IMPROVEMENTS.md) for results and rejected experiments.
 
 ### Automatic Updates in Your Fork
 
@@ -169,10 +178,13 @@ Defensive contributions remain in 2026/27 and add 2 points at most once per matc
 
 ### Model Limits
 
-* Early-season forecasts have limited current-season evidence; the report shows how many current-season matches each player contributes.
-* New players and promoted clubs are cold starts. The model falls back to position-level history, the previous season's team Elo for incumbent clubs, and a conservative league Elo with an explicit confidence flag for promoted clubs because 2026/27 Elo is not yet populated.
+* Early-season forecasts have limited current-season evidence; the report shows how many current-season player-Gameweek observations each player contributes.
+* New players and promoted clubs remain cold starts. Elo uses the latest rating attached to a match completed before the forecast origin, falling back to prior-season club ratings or a conservative league-low rating for a promoted club. Target-fixture Elo is not used in historical features because it may include information after the Gameweek deadline. This is still a lagged rating, not a live Elo feed.
 * The official [2026/27 bonus-points-system changes](https://www.premierleague.com/en/news/4679946) make last season's bonus history an imperfect guide until current-season matches accumulate.
-* Player status and price are held constant across the five-Gameweek forecast, and fixture forecasts are not fed recursively into later predictions.
+* Known suspension end dates restore future eligibility. For injuries with a future expected return, later forecasts use an appearance rate estimated from earlier recovery examples (at least 20); the next round's explicit chance remains authoritative. Unknown/stale return dates remain conservative. Recovery is uncertain and has not been validated prospectively across all five horizons.
+* Prices, form and observed workload remain fixed at the forecast origin; future results are not fed recursively into later predictions. Double Gameweeks still use aggregated fixture context.
+* Cup/European coverage is incomplete, with the historical detail ending during February 2026. A missing appearance is unobserved workload, not proof of rest. Conflicting non-PL records are omitted with a warning; conflicting PL records fail validation.
+* Historical match exports lack publication timestamps. Backtests assume finished match data was available three hours after kickoff and cannot replay later source corrections. Broader accuracy superiority over the original model has not been established; see [the measured trade-offs](MODEL_IMPROVEMENTS.md).
 * These are data-driven recommendations, not guarantees. Injuries, rotation, transfers and late team news can invalidate them, so check the report near the deadline.
 * Chips are not optimised; the two official chip sets remain a manual decision.
 

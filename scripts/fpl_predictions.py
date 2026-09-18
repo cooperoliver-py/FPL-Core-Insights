@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import math
 import os
@@ -21,13 +22,22 @@ import pandas as pd
 from scipy.optimize import Bounds, LinearConstraint, milp
 from scipy.sparse import coo_matrix
 from scipy.stats import spearmanr
-from sklearn.ensemble import HistGradientBoostingRegressor
+from sklearn.compose import ColumnTransformer
+from sklearn.ensemble import HistGradientBoostingRegressor, VotingRegressor
 from sklearn.metrics import mean_absolute_error
+from sklearn.pipeline import make_pipeline
 
+if __package__:
+    from .match_features import WORKLOAD_COLUMNS, build_match_features, load_match_data
+    from .player_availability import availability_for_fixture, estimate_return_availability
+else:
+    from match_features import WORKLOAD_COLUMNS, build_match_features, load_match_data
+    from player_availability import availability_for_fixture, estimate_return_availability
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 TRAIN_SEASON = "2025-2026"
+MODEL_VERSION = "v2-form-workload-blend"
 HORIZON_WEIGHTS = (1.0, 0.9, 0.8, 0.7, 0.6)
 LAG_WINDOWS = (3, 5)
 RECENT_EWM_ALPHA = 0.35
@@ -67,7 +77,14 @@ RAW_METRICS = (
 )
 LAG_COLUMNS = tuple(f"{metric}_lag{window}" for metric in RAW_METRICS for window in LAG_WINDOWS)
 RECENT_COLUMNS = ("minutes_lag1",) + tuple(f"{metric}_ewm" for metric in RECENT_EWM_METRICS)
-MODEL_COLUMNS = LAG_COLUMNS + RECENT_COLUMNS + (
+SET_PIECE_COLUMNS = ("penalties_order", "corners_and_indirect_freekicks_order", "direct_freekicks_order")
+RATE_METRICS = ("expected_goals", "expected_assists", "defensive_contribution", "saves")
+FORM_COLUMNS = (
+    "appearance_rate", "sixty_minute_rate", "minutes_when_playing", "rate_minutes",
+    *[f"{metric}_per90" for metric in RATE_METRICS],
+    *[f"{column}_lag1" for column in SET_PIECE_COLUMNS],
+)
+BASE_MODEL_COLUMNS = LAG_COLUMNS + RECENT_COLUMNS + (
     "history_count",
     "cold_start",
     "now_cost",
@@ -83,6 +100,7 @@ MODEL_COLUMNS = LAG_COLUMNS + RECENT_COLUMNS + (
     "position_midfielder",
     "position_forward",
 )
+MODEL_COLUMNS = BASE_MODEL_COLUMNS + FORM_COLUMNS + WORKLOAD_COLUMNS
 
 
 def calculate_selling_price(purchase_price: float, current_price: float) -> float:
@@ -253,41 +271,80 @@ def build_lagged_features(frame: pd.DataFrame, identity: str = "id") -> pd.DataF
     missing = {identity, "gw"} - set(frame.columns)
     if missing:
         raise ValueError(f"lag input is missing columns: {', '.join(sorted(missing))}")
-    result = frame.copy().sort_values([identity, "gw"], kind="mergesort").reset_index(drop=True)
+    order = [identity, *(["season"] if "season" in frame else []), "gw"]
+    derived = [*LAG_COLUMNS, *RECENT_COLUMNS, *FORM_COLUMNS, "availability_lag1",
+               "now_cost_lag1", "ep_next_lag", "status_lag1", "news_lag1", "news_added_lag1",
+               "history_count", "cold_start", "data_coverage"]
+    result = frame.drop(columns=derived, errors="ignore").sort_values(
+        order, kind="mergesort"
+    ).reset_index(drop=True)
+    extra = {}
     for metric in RAW_METRICS:
         if metric not in result:
             continue
         result[metric] = pd.to_numeric(result[metric], errors="coerce")
         shifted = result.groupby(identity, sort=False)[metric].shift(1)
         for window in LAG_WINDOWS:
-            result[f"{metric}_lag{window}"] = shifted.groupby(
+            extra[f"{metric}_lag{window}"] = shifted.groupby(
                 result[identity], sort=False
             ).transform(lambda values: values.rolling(window, min_periods=1).mean())
         if metric == "minutes":
-            result["minutes_lag1"] = shifted
+            extra["minutes_lag1"] = shifted
         if metric in RECENT_EWM_METRICS:
-            result[f"{metric}_ewm"] = shifted.groupby(
+            extra[f"{metric}_ewm"] = shifted.groupby(
                 result[identity], sort=False
             ).transform(
                 lambda values: values.ewm(
                     alpha=RECENT_EWM_ALPHA, adjust=False, min_periods=1
                 ).mean()
             )
-    result["history_count"] = result.groupby(identity, sort=False).cumcount()
-    result["cold_start"] = (result["history_count"] == 0).astype(int)
-    result["data_coverage"] = result["history_count"].clip(upper=5) / 5
-    result["availability_lag1"] = _availability(result).groupby(
+    extra["history_count"] = result.groupby(identity, sort=False).cumcount()
+    extra["cold_start"] = (extra["history_count"] == 0).astype(int)
+    extra["data_coverage"] = extra["history_count"].clip(upper=5) / 5
+    extra["availability_lag1"] = _availability(result).groupby(
         result[identity], sort=False
     ).shift(1)
     if "now_cost" in result:
-        result["now_cost_lag1"] = pd.to_numeric(
+        extra["now_cost_lag1"] = pd.to_numeric(
             result["now_cost"], errors="coerce"
         ).groupby(result[identity], sort=False).shift(1)
     if "ep_next" in result:
-        result["ep_next_lag"] = result.groupby(identity, sort=False)["ep_next"].shift(1)
+        extra["ep_next_lag"] = result.groupby(identity, sort=False)["ep_next"].shift(1)
     else:
-        result["ep_next_lag"] = np.nan
-    return result
+        extra["ep_next_lag"] = np.nan
+    if "minutes" in result:
+        minutes = result.groupby(identity, sort=False)["minutes"].shift(1)
+        for name, values in (
+            ("appearance_rate", minutes.gt(0).where(minutes.notna())),
+            ("sixty_minute_rate", minutes.ge(60).where(minutes.notna())),
+            ("minutes_when_playing", minutes.where(minutes.gt(0))),
+        ):
+            extra[name] = values.groupby(result[identity], sort=False).transform(
+                lambda values: values.rolling(5, min_periods=1).mean()
+            )
+        extra["rate_minutes"] = minutes.groupby(result[identity], sort=False).transform(
+            lambda values: values.rolling(10, min_periods=1).sum()
+        )
+        for metric in RATE_METRICS:
+            if metric in result:
+                shifted = result.groupby(identity, sort=False)[metric].shift(1)
+                total = shifted.groupby(result[identity], sort=False).transform(
+                    lambda values: values.rolling(10, min_periods=1).sum()
+                )
+                extra[f"{metric}_per90"] = 90 * total / extra["rate_minutes"].where(
+                    extra["rate_minutes"].ge(180)
+                )
+    for column in (*SET_PIECE_COLUMNS, "status", "news", "news_added"):
+        if column in result:
+            extra[f"{column}_lag1"] = result.groupby(identity, sort=False)[column].shift(1)
+    if "season" in result:
+        new_season = result["season"].ne(result.groupby(identity, sort=False)["season"].shift(1))
+        # Summer prices, health and responsibilities cannot inherit a May snapshot.
+        for column in ("availability_lag1", "now_cost_lag1", "ep_next_lag", "status_lag1",
+                       "news_lag1", "news_added_lag1", *[f"{name}_lag1" for name in SET_PIECE_COLUMNS]):
+            if column in extra and isinstance(extra[column], pd.Series):
+                extra[column] = extra[column].where(~new_season)
+    return pd.concat((result, pd.DataFrame(extra, index=result.index)), axis=1).copy()
 
 
 def _read_csv(path: Path, required: Iterable[str] = ()) -> pd.DataFrame:
@@ -479,10 +536,48 @@ def _team_elo_map(teams: pd.DataFrame) -> dict[int, float]:
     return result
 
 
-def _load_training_data() -> pd.DataFrame:
+def _deadline_elo(season: str, matches: pd.DataFrame, as_of) -> tuple[dict[int, float], set[int]]:
+    """Use only prior-season ratings or ratings attached to already played matches."""
+    start, end = (int(value) for value in season.split("-"))
+    previous = DATA / f"{start - 1}-{end - 1}"
+    path = previous / "teams.csv"
+    if not path.is_file():
+        path = previous / "teams" / "teams.csv"
+    ratings = _team_elo_map(_read_csv(path)) if path.is_file() else {}
+    current_codes = set(_read_csv(DATA / season / "teams.csv")["code"].astype(int))
+    promoted = current_codes - set(ratings)
+    past = matches.loc[matches["finished"] & (
+        matches["kickoff_time"] + pd.Timedelta(hours=3) < pd.Timestamp(as_of)
+    )]
+    observations = pd.concat([
+        past[[f"{side}_team", f"{side}_team_elo", "kickoff_time"]].rename(
+            columns={f"{side}_team": "code", f"{side}_team_elo": "elo"}
+        ) for side in ("home", "away")
+    ]).dropna(subset=["code", "elo"]).sort_values("kickoff_time")
+    ratings.update(_team_elo_map(observations.drop_duplicates("code", keep="last")))
+    if not ratings:
+        raise ValueError(f"no pre-deadline Elo history for {season}")
+    return ratings, promoted
+
+
+def _load_training_data(
+    season: str = TRAIN_SEASON,
+    before_gameweek: int = 39,
+    prior_history: pd.DataFrame | None = None,
+) -> pd.DataFrame:
+    """Load completed labels and features available at each Gameweek deadline."""
     parts: list[pd.DataFrame] = []
-    for gameweek in range(1, 39):
-        base = DATA / TRAIN_SEASON / "By Gameweek" / f"GW{gameweek}"
+    summaries = _read_csv(DATA / season / "gameweek_summaries.csv").set_index("id")
+    deadlines = pd.to_datetime(summaries["deadline_time"], utc=True, errors="raise")
+    match_data = load_match_data(DATA / season)
+    fallback = _team_elo_map(_read_csv(DATA / TRAIN_SEASON / "teams.csv"))
+    for gameweek in range(1, before_gameweek):
+        summary = summaries.loc[gameweek]
+        if not _truth(pd.Series([summary["finished"]])).iloc[0] or not _truth(
+            pd.Series([summary["data_checked"]])
+        ).iloc[0]:
+            continue
+        base = DATA / season / "By Gameweek" / f"GW{gameweek}"
         stats = _read_csv(base / "player_gameweek_stats.csv", ("id", "gw", "event_points"))
         players = _read_csv(
             base / "players.csv",
@@ -497,21 +592,47 @@ def _load_training_data() -> pd.DataFrame:
             how="left",
             validate="many_to_one",
         )
+        unmapped = merged[["player_code", "team_code", "position"]].isna().any(axis=1)
+        # Upstream backfills zero rows for later signings into older stat files.
+        # They were not in that Gameweek's roster and are not training examples.
+        unlisted = unmapped & merged["event_points"].eq(0) & merged["minutes"].eq(0)
+        merged = merged.loc[~unlisted].copy()
         if merged[["player_code", "team_code", "position"]].isna().any().any():
             raise ValueError(f"unmapped player rows in {base / 'player_gameweek_stats.csv'}")
         teams = _read_csv(base / "teams.csv", ("code", "elo"))
-        fixtures = _read_csv(_fixture_file(TRAIN_SEASON, gameweek))
-        context = _fixture_context(fixtures, _team_elo_map(teams))
+        fixtures = _read_csv(_fixture_file(season, gameweek))
+        context = _fixture_context(fixtures, _team_elo_map(teams) or fallback)
+        # Keep the v1 fixture-time context solely for reproducible legacy benchmarks.
+        legacy = context.set_index("team_code").add_prefix("legacy_")
+        ratings, promoted = _deadline_elo(season, match_data[0], deadlines.loc[gameweek])
+        context = _fixture_context(
+            fixtures.assign(home_team_elo=np.nan, away_team_elo=np.nan), ratings, promoted
+        )
         merged = merged.merge(context, on="team_code", how="left", validate="many_to_one")
+        merged = merged.join(legacy, on="team_code")
         merged["fixture_count"] = merged["fixture_count"].fillna(0)
+        merged["season"] = season
+        merged["deadline_time"] = deadlines.loc[gameweek]
+        kickoff = pd.concat([
+            fixtures[[f"{side}_team", "kickoff_time"]].rename(columns={f"{side}_team": "team_code"})
+            for side in ("home", "away")
+        ]).assign(kickoff_time=lambda frame: pd.to_datetime(frame["kickoff_time"], utc=True))
+        merged["kickoff_time"] = merged["team_code"].map(kickoff.groupby("team_code")["kickoff_time"].min())
+        merged = pd.concat((merged, build_match_features(
+            merged, match_data, deadlines.loc[gameweek]
+        )), axis=1)
         parts.append(merged)
+    if prior_history is not None:
+        parts.insert(0, prior_history)
+    if not parts:
+        return pd.DataFrame()
     training = pd.concat(parts, ignore_index=True)
-    if training.duplicated(["id", "gw"]).any():
+    if training.duplicated(["season", "player_code", "gw"]).any():
         raise ValueError("training data contains duplicate player_id/gameweek rows")
     for metric in RAW_METRICS:
         if metric not in training:
             training[metric] = 0.0
-    return build_lagged_features(training, "id")
+    return build_lagged_features(training, "player_code")
 
 
 def _model_frame(frame: pd.DataFrame) -> pd.DataFrame:
@@ -532,8 +653,8 @@ def _model_frame(frame: pd.DataFrame) -> pd.DataFrame:
     return prepared.loc[:, MODEL_COLUMNS].apply(pd.to_numeric, errors="coerce")
 
 
-def _new_model() -> HistGradientBoostingRegressor:
-    return HistGradientBoostingRegressor(
+def _new_model() -> VotingRegressor:
+    parameters = dict(
         loss="squared_error",
         learning_rate=0.05,
         max_iter=200,
@@ -542,6 +663,13 @@ def _new_model() -> HistGradientBoostingRegressor:
         l2_regularization=0.1,
         random_state=42,
     )
+    core = make_pipeline(
+        ColumnTransformer([("core", "passthrough", list(BASE_MODEL_COLUMNS))]),
+        HistGradientBoostingRegressor(**parameters),
+    )
+    return VotingRegressor([
+        ("core", core), ("workload", HistGradientBoostingRegressor(**parameters)),
+    ])
 
 
 def _served_prediction(frame: pd.DataFrame, prediction) -> np.ndarray:
@@ -566,8 +694,9 @@ def _metrics(actual: np.ndarray, predicted: np.ndarray) -> dict[str, float | Non
 def _evaluate_and_fit(training: pd.DataFrame):
     target = pd.to_numeric(training["event_points"], errors="coerce")
     valid = target.notna()
-    test_gameweeks = sorted(training.loc[valid & training["gw"].ge(31), "gw"].unique())
-    if not test_gameweeks or not (valid & training["gw"].lt(test_gameweeks[0])).any():
+    historical = training.get("season", pd.Series(TRAIN_SEASON, index=training.index)).eq(TRAIN_SEASON)
+    test_gameweeks = sorted(training.loc[valid & historical & training["gw"].ge(31), "gw"].unique())
+    if not test_gameweeks or not (valid & historical & training["gw"].lt(test_gameweeks[0])).any():
         raise ValueError("held-out evaluation requires historical GWs 1-38")
     actual_parts: list[np.ndarray] = []
     model_parts: list[np.ndarray] = []
@@ -577,8 +706,8 @@ def _evaluate_and_fit(training: pd.DataFrame):
     top20_actual: list[float] = []
     pool_actual: list[float] = []
     for gameweek in test_gameweeks:
-        train_mask = valid & training["gw"].lt(gameweek)
-        test_mask = valid & training["gw"].eq(gameweek)
+        train_mask = valid & historical & training["gw"].lt(gameweek)
+        test_mask = valid & historical & training["gw"].eq(gameweek)
         evaluation_model = _new_model().fit(
             _model_frame(training.loc[train_mask]), target[train_mask]
         )
@@ -706,93 +835,81 @@ def _current_lags(
     season: str,
     target_gameweek: int,
 ) -> pd.DataFrame:
-    prior = training.sort_values(["player_code", "gw"], kind="mergesort")
-    prior_groups = {int(code): group for code, group in prior.groupby("player_code", sort=False)}
-    current_history = _completed_current_history(season, target_gameweek)
-    current_groups = (
-        {int(player_id): group for player_id, group in current_history.groupby("id", sort=False)}
-        if not current_history.empty
-        else {}
-    )
-    records: list[dict[str, float | int]] = []
-    for player in catalog[["player_id", "player_code"]].itertuples(index=False):
-        if season == TRAIN_SEASON:
-            history = prior.loc[(prior["id"] == player.player_id) & (prior["gw"] < target_gameweek)]
-            current_season_matches = len(history)
-        else:
-            pieces = []
-            previous = prior_groups.get(int(player.player_code))
-            if previous is not None:
-                pieces.append(previous)
-            this_season = current_groups.get(int(player.player_id))
-            if this_season is not None:
-                pieces.append(this_season)
-            history = pd.concat(pieces, ignore_index=True) if pieces else pd.DataFrame()
-            current_season_matches = 0 if this_season is None else len(this_season)
-        record: dict[str, float | int] = {"player_id": int(player.player_id)}
-        record["history_count"] = len(history)
-        record["current_season_matches"] = current_season_matches
-        record["cold_start"] = int(history.empty)
-        record["data_coverage"] = min(len(history), 5) / 5
-        for metric in RAW_METRICS:
-            values = (
-                pd.to_numeric(history.get(metric, pd.Series(dtype=float)), errors="coerce")
-                if not history.empty
-                else pd.Series(dtype=float)
-            )
-            for window in LAG_WINDOWS:
-                record[f"{metric}_lag{window}"] = (
-                    float(values.tail(window).mean()) if values.notna().any() else np.nan
-                )
-            if metric == "minutes":
-                record["minutes_lag1"] = float(values.iloc[-1]) if values.notna().any() else np.nan
-            if metric in RECENT_EWM_METRICS:
-                record[f"{metric}_ewm"] = (
-                    float(
-                        values.ewm(
-                            alpha=RECENT_EWM_ALPHA, adjust=False, min_periods=1
-                        ).mean().iloc[-1]
-                    )
-                    if values.notna().any()
-                    else np.nan
-                )
-        ep_next = (
-            pd.to_numeric(history.get("ep_next", pd.Series(dtype=float)), errors="coerce")
-            if not history.empty
-            else pd.Series(dtype=float)
+    history = training.copy()
+    if "season" not in history:
+        history["season"] = TRAIN_SEASON
+    history = history.loc[(history["season"] < season) | (
+        history["season"].eq(season) & history["gw"].lt(target_gameweek)
+    )]
+    current = _completed_current_history(season, target_gameweek)
+    if not current.empty:
+        current["season"] = season
+        # Completed training rows already carry context; only add new partial-GW rows.
+        history = pd.concat((history, current), ignore_index=True).drop_duplicates(
+            ["season", "player_code", "gw"], keep="first"
         )
-        record["ep_next_lag"] = float(ep_next.iloc[-1]) if len(ep_next) and pd.notna(ep_next.iloc[-1]) else np.nan
-        records.append(record)
-    return pd.DataFrame(records)
+    counts = history.loc[history["season"].eq(season)].groupby("player_code").size()
+    sentinel = catalog[["player_id", "player_code"]].copy()
+    sentinel["season"], sentinel["gw"], sentinel["_forecast_row"] = season, target_gameweek, True
+    combined = build_lagged_features(pd.concat((history, sentinel), ignore_index=True), "player_code")
+    features = combined.loc[combined["_forecast_row"].eq(True)].copy()
+    features["current_season_matches"] = features["player_code"].map(counts).fillna(0).astype(int)
+    # Live role information is known now; historical role snapshots are strictly shifted.
+    for column in SET_PIECE_COLUMNS:
+        if column in catalog:
+            features[f"{column}_lag1"] = features["player_id"].map(catalog.set_index("player_id")[column])
+    columns = ["player_id", "history_count", "current_season_matches", "cold_start", "data_coverage",
+               *LAG_COLUMNS, *RECENT_COLUMNS, *FORM_COLUMNS, "ep_next_lag"]
+    return features.reindex(columns=columns).reset_index(drop=True)
 
 
 def _forecast(
-    model: HistGradientBoostingRegressor,
+    model,
     training: pd.DataFrame,
     season: str,
     gameweeks: list[int],
 ) -> pd.DataFrame:
-    catalog, current_teams = _current_catalog(season)
+    catalog, _ = _current_catalog(season)
     lags = _current_lags(catalog, training, season, gameweeks[0])
     forecast = catalog.merge(lags, on="player_id", how="left", validate="one_to_one")
-    previous_teams = _read_csv(DATA / TRAIN_SEASON / "teams.csv", ("code", "elo"))
-    previous_elos = _team_elo_map(previous_teams)
-    current_codes = set(pd.to_numeric(current_teams["code"], errors="raise").astype(int))
-    promoted_codes = current_codes - set(previous_elos)
+    match_data = load_match_data(DATA / season)
+    deadline = pd.to_datetime(_read_csv(DATA / season / "gameweek_summaries.csv")
+                              .set_index("id").loc[gameweeks[0], "deadline_time"], utc=True)
+    as_of = min(deadline, pd.Timestamp.now(tz="UTC"))
+    recovery = estimate_return_availability(training)
+    previous_elos, promoted_codes = _deadline_elo(season, match_data[0], as_of)
     promoted_flags: list[pd.Series] = []
     future_columns: dict[str, np.ndarray] = {}
 
     for gameweek in gameweeks:
         fixtures = _read_csv(_fixture_file(season, gameweek))
-        context = _fixture_context(fixtures, previous_elos, promoted_codes)
+        context = _fixture_context(
+            fixtures.assign(home_team_elo=np.nan, away_team_elo=np.nan), previous_elos, promoted_codes
+        )
         features = forecast.merge(context, on="team_code", how="left", validate="many_to_one")
         features["fixture_count"] = features["fixture_count"].fillna(0)
         features["promoted_elo_fallback"] = features["promoted_elo_fallback"].fillna(0)
+        features = pd.concat((features, build_match_features(
+            features, match_data, as_of
+        )), axis=1).copy()
+        kickoff = pd.concat([
+            fixtures[[f"{side}_team", "kickoff_time"]].rename(columns={f"{side}_team": "team_code"})
+            for side in ("home", "away")
+        ]).assign(kickoff_time=lambda rows: pd.to_datetime(rows["kickoff_time"], utc=True))
+        target_dates = features["team_code"].map(kickoff.groupby("team_code")["kickoff_time"].min())
+        features["availability_lag1"] = availability_for_fixture(
+            features, target_dates, as_of, injury_return_probability=recovery["probability"],
+            is_next_round=gameweek == gameweeks[0],
+        )
         prediction = _served_prediction(features, model.predict(_model_frame(features)))
         future_columns[f"GW{gameweek}_predicted_points"] = prediction
         promoted_flags.append(features["promoted_elo_fallback"])
         future_columns[f"_GW{gameweek}_elo_diff"] = features["elo_diff"].to_numpy()
         future_columns[f"_GW{gameweek}_fixture_count"] = features["fixture_count"].to_numpy()
+        future_columns[f"GW{gameweek}_availability"] = features["availability_lag1"].to_numpy()
+        if gameweek == gameweeks[0]:
+            for column in WORKLOAD_COLUMNS:
+                future_columns[column] = features[column].to_numpy()
 
     forecast = pd.concat(
         (forecast, pd.DataFrame(future_columns, index=forecast.index)), axis=1
@@ -1084,6 +1201,11 @@ def _data_sha() -> str:
     return result.stdout.strip() if result.returncode == 0 else "unknown"
 
 
+def _model_sha() -> str:
+    sources = ("fpl_predictions.py", "match_features.py", "player_availability.py")
+    return hashlib.sha256(b"".join((ROOT / "scripts" / name).read_bytes() for name in sources)).hexdigest()
+
+
 def _markdown_table(headers: list[str], rows: Iterable[Iterable[object]]) -> str:
     def clean(value: object) -> str:
         if value is None or (isinstance(value, float) and np.isnan(value)):
@@ -1153,9 +1275,12 @@ def _render_markdown(
         )
     lines.extend(
         (
-        "The model is fitted on canonical 2025/26 data; completed 2026/27 results update strictly "
-        "lagged 3/5-GW and exponentially weighted recent form. Five-GW forecast weights are "
-        f"{list(HORIZON_WEIGHTS[:len(gameweeks)])}; price and availability are held constant.",
+        "The model learns from 2025/26 and completed, checked current-season Gameweeks. "
+        "An equal-weight blend balances the original features with recent participation, "
+        "longer-window per-90 rates, set-piece roles and observed "
+        "workload across league, cup, European and friendly matches. Five-GW forecast weights are "
+        f"{list(HORIZON_WEIGHTS[:len(gameweeks)])}; prices remain fixed. Dated suspensions expire "
+        "and later injury-return forecasts use a conservative historical recovery rate.",
         "",
         "## Walk-forward evaluation (historical GWs 31-38)",
         "",
@@ -1222,16 +1347,16 @@ def _render_markdown(
                 ),
                 "",
                 "XI + captain is measured before autosubs; archived exclusions are omitted from "
-                "forecast-skill metrics.",
+                "forecast-skill metrics. These frozen forecasts may come from earlier model versions.",
                 "",
             )
         )
     if gameweeks[0] == 1:
         lines.extend(
             (
-                "## GW1 confidence",
+                "## GW1 history coverage",
                 "",
-                "GW1 confidence is deliberately capped below `high`: returning players carry "
+                "GW1 history coverage is deliberately capped below `high`: returning players carry "
                 "2025/26 history by `player_code`, while new players are marked cold starts. "
                 "Blank current Elo uses 2025/26 club Elo; promoted clubs use the prior league-low "
                 "Elo and are explicitly flagged.",
@@ -1253,7 +1378,7 @@ def _render_markdown(
                     *[f"GW{gw}" for gw in gameweeks],
                     "5GW score",
                     "5GW value",
-                    "Confidence",
+                    "History coverage",
                     "Raw drivers",
                 ],
                 (
@@ -1272,6 +1397,8 @@ def _render_markdown(
             ),
             "",
             "Raw drivers are descriptive inputs, not SHAP or causal attributions.",
+            "History coverage measures available rows, not calibrated prediction certainty. "
+            "Missing match records do not prove that a player rested.",
             "",
         )
     )
@@ -1378,6 +1505,7 @@ PERFORMANCE_COLUMNS = (
     "season",
     "gameweek",
     "data_commit_sha",
+    "model_version",
     "players",
     "appeared",
     "zero_actual_pct",
@@ -1487,6 +1615,7 @@ def _live_performance(output_dir: Path, season: str) -> pd.DataFrame:
                 "season": season,
                 "gameweek": gameweek,
                 "data_commit_sha": str(archived.get("data_commit_sha", pd.Series(["unknown"])).iloc[0]),
+                "model_version": str(archived.get("model_version", pd.Series(["legacy_v1"])).iloc[0]),
                 "players": len(skill),
                 "appeared": int(appeared.sum()),
                 "zero_actual_pct": float(np.mean(observed == 0) * 100),
@@ -1534,6 +1663,9 @@ def _write_outputs(
 ) -> tuple[Path, Path]:
     identity = [
         "data_commit_sha",
+        "model_version",
+        "model_code_sha",
+        "forecast_created_at",
         "player_code",
         "player_id",
         "first_name",
@@ -1562,7 +1694,11 @@ def _write_outputs(
                 f"current_GW{gameweek}_vice_captain",
             )
         )
-    columns = identity + point_columns + [
+    extra_columns = [column for column in (
+        *[f"GW{gameweek}_availability" for gameweek in gameweeks], *WORKLOAD_COLUMNS,
+        *FORM_COLUMNS,
+    ) if column in forecast]
+    columns = identity + point_columns + extra_columns + [
         "weighted_score",
         "predicted_value",
         "confidence",
@@ -1634,6 +1770,8 @@ def run(
     gameweeks = list(range(gameweek, min(gameweek + 5, 39)))
 
     training = _load_training_data()
+    if season != TRAIN_SEASON:
+        training = _load_training_data(season, gameweek, prior_history=training)
     model, evaluation, evaluation_context = _evaluate_and_fit(training)
     forecast = _forecast(model, training, season, gameweeks)
     user_squad = None
@@ -1647,6 +1785,9 @@ def run(
     recommended = forecast.loc[selected_indices]
     recommended_codes = set(recommended["player_code"].astype(int))
     forecast["data_commit_sha"] = _data_sha()
+    forecast["model_version"] = MODEL_VERSION
+    forecast["model_code_sha"] = _model_sha()
+    forecast["forecast_created_at"] = datetime.now(UTC).isoformat()
     forecast["recommended_squad"] = forecast["player_code"].astype(int).isin(recommended_codes)
     forecast["current_squad"] = False
     for gameweek_value in gameweeks:

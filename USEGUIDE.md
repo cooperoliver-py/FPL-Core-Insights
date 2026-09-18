@@ -129,3 +129,18 @@ The scheduled workflow will use the updated squad automatically.
 source .venv/bin/activate
 python -m unittest discover -s tests
 ```
+
+## Compare model accuracy
+
+```bash
+OMP_NUM_THREADS=1 python scripts/evaluate_predictions.py --split development --output-dir predictions/evaluation/development
+OMP_NUM_THREADS=1 python scripts/evaluate_predictions.py --split holdout --output-dir predictions/evaluation/holdout
+```
+
+See `metrics.csv`, `by_gameweek.csv` and `metadata.json` in each output folder.
+The comparisons are retrospective; `predictions/performance.csv` continues to
+score the original frozen forecasts and records the model version used.
+
+The report's **history coverage** label is not prediction certainty. In the CSV,
+`GWx_availability` shows the chance factor applied to each forecast week. Known
+suspensions can expire; a stated injury return remains an uncertain estimate.
