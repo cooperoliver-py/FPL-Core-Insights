@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW6
 
-Last generated: 2026-09-20 05:15 UTC
+Last generated: 2026-09-20 13:11 UTC
 
-Data commit: `fdfe0f88fc4e3983bd8adda7531f184df22cbe56`
+Data commit: `2d5d12302676a344241fe21a908391a39efcbd6d`
 
 ## Data freshness
 
@@ -43,13 +43,13 @@ XI + captain is measured before autosubs; archived exclusions are omitted from f
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | B.Fernandes | MUN | Midfielder | 7.30 | 7.48 | 5.49 | 6.80 | 5.43 | 26.44 | 2.20 | high | 5-GW avg pts 8.60; mins 90; xGI 0.73; current GWs 4; fixture Elo diff +76 |
 | Gabriel | ARS | Defender | 6.18 | 6.11 | 5.98 | 5.28 | 6.64 | 24.15 | 3.02 | high | 5-GW avg pts 5.00; mins 90; xGI 0.14; current GWs 5; fixture Elo diff +291 |
-| Gibbs-White | NFO | Midfielder | 5.67 | 2.88 | 7.91 | 5.52 | 3.89 | 20.79 | 2.60 | high | 5-GW avg pts 5.60; mins 90; xGI 0.60; current GWs 5; fixture Elo diff -41 |
+| Gibbs-White | NFO | Midfielder | 6.02 | 2.99 | 8.12 | 5.81 | 4.07 | 21.72 | 2.71 | high | 5-GW avg pts 5.60; mins 90; xGI 0.60; current GWs 5; fixture Elo diff -41 |
 | Saka | ARS | Midfielder | 5.55 | 5.32 | 5.51 | 5.22 | 6.67 | 22.41 | 2.36 | high | 5-GW avg pts 6.40; mins 83; xGI 0.84; current GWs 5; fixture Elo diff +291 |
 | Havertz | ARS | Forward | 5.48 | 5.17 | 5.44 | 4.85 | 6.11 | 21.55 | 2.84 | high | 5-GW avg pts 3.80; mins 87; xGI 0.41; current GWs 5; fixture Elo diff +291 |
 | Haaland | MCI | Forward | 5.43 | 8.15 | 5.43 | 6.15 | 6.97 | 25.59 | 1.64 | high | 5-GW avg pts 6.60; mins 72; xGI 0.77; current GWs 4; fixture Elo diff +144 |
 | Mbeumo | MUN | Midfielder | 5.35 | 5.65 | 5.02 | 5.44 | 5.03 | 21.28 | 2.69 | high | 5-GW avg pts 6.40; mins 87; xGI 0.86; current GWs 4; fixture Elo diff +76 |
 | Palmer | CHE | Midfielder | 5.23 | 5.25 | 5.28 | 5.00 | 5.25 | 20.82 | 2.15 | high | 5-GW avg pts 5.60; mins 88; xGI 0.42; current GWs 5; fixture Elo diff +10 |
-| Cunha | MUN | Midfielder | 5.05 | 4.86 | 4.90 | 4.77 | 4.85 | 19.60 | 2.48 | high | 5-GW avg pts 3.20; mins 63; xGI 0.20; current GWs 4; fixture Elo diff +76 |
+| Cunha | MUN | Midfielder | 5.07 | 4.88 | 4.91 | 4.79 | 4.85 | 19.66 | 2.49 | high | 5-GW avg pts 3.20; mins 63; xGI 0.20; current GWs 4; fixture Elo diff +76 |
 | Semenyo | MCI | Midfielder | 4.98 | 7.10 | 4.98 | 5.23 | 5.30 | 22.19 | 2.64 | high | 5-GW avg pts 4.40; mins 83; xGI 0.27; current GWs 4; fixture Elo diff +144 |
 | Barnes | NEW | Midfielder | 4.96 | 3.58 | 4.03 | 4.02 | 4.24 | 16.76 | 2.75 | high | 5-GW avg pts 5.60; mins 90; xGI 0.22; current GWs 5; fixture Elo diff +37 |
 | Dewsbury-Hall | EVE | Midfielder | 4.83 | 4.69 | 2.80 | 4.36 | 5.20 | 17.46 | 2.65 | high | 5-GW avg pts 4.00; mins 90; xGI 0.36; current GWs 5; fixture Elo diff +18 |
@@ -90,8 +90,8 @@ The squad comparison below is affordable with **£0.3m** left in the bank. It ma
 | B.Fernandes | MUN | Midfielder | £12.0m | 26.44 | GW6, GW7, GW8, GW9, GW10 | GW6, GW7, GW9 | — |
 | Saka | ARS | Midfielder | £9.5m | 22.41 | GW6, GW7, GW8, GW9, GW10 | GW10 | — |
 | Semenyo | MCI | Midfielder | £8.4m | 22.19 | GW6, GW7, GW8, GW9, GW10 | — | GW7 |
+| Gibbs-White | NFO | Midfielder | £8.0m | 21.72 | GW6, GW8, GW9, GW10 | GW8 | GW9 |
 | Mbeumo | MUN | Midfielder | £7.9m | 21.28 | GW6, GW7, GW8, GW9, GW10 | — | — |
-| Gibbs-White | NFO | Midfielder | £8.0m | 20.79 | GW6, GW8, GW9, GW10 | GW8 | GW9 |
 
 Squad cost: £99.1m.
 
@@ -100,10 +100,10 @@ Squad cost: £99.1m.
 | Player | Club | Position | Cost | Weighted score | Starts | Captains | Vice-captains |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Botman | NEW | Defender | £5.0m | 15.43 | GW6, GW7, GW8, GW9, GW10 | — | — |
-| Maguire | MUN | Defender | £4.9m | 15.01 | GW6, GW7, GW8, GW9, GW10 | — | — |
+| Maguire | MUN | Defender | £4.9m | 14.77 | GW6, GW7, GW8, GW9, GW10 | — | — |
 | Virgil | LIV | Defender | £6.5m | 13.62 | GW6, GW7, GW8, GW10 | — | — |
 | Mitchell | CRY | Defender | £4.5m | 12.20 | GW6, GW7, GW8, GW9, GW10 | — | — |
-| Muñoz | NFO | Defender | £5.4m | 9.73 | GW9 | — | — |
+| Muñoz | NFO | Defender | £5.4m | 10.32 | GW9 | — | — |
 | Thiago | BRE | Forward | £7.8m | 18.35 | GW6, GW7, GW8, GW9, GW10 | GW8 | — |
 | João Pedro | CHE | Forward | £7.8m | 6.43 | Bench | — | — |
 | Mheuka | CHE | Forward | £4.5m | 0.38 | Bench | — | — |
@@ -112,27 +112,27 @@ Squad cost: £99.1m.
 | B.Fernandes | MUN | Midfielder | £12.0m | 26.44 | GW6, GW7, GW8, GW9, GW10 | GW6, GW7, GW9 | — |
 | Saka | ARS | Midfielder | £9.5m | 22.41 | GW6, GW7, GW8, GW9, GW10 | GW10 | GW6, GW8 |
 | Mbeumo | MUN | Midfielder | £7.9m | 21.28 | GW6, GW7, GW8, GW9, GW10 | — | GW7, GW9 |
-| Szoboszlai | LIV | Midfielder | £7.0m | 17.48 | GW6, GW7, GW8, GW9, GW10 | — | GW10 |
+| Szoboszlai | LIV | Midfielder | £7.0m | 17.41 | GW6, GW7, GW8, GW9, GW10 | — | GW10 |
 | Gakpo | LIV | Midfielder | £7.2m | 12.92 | GW6, GW7, GW8, GW9, GW10 | — | — |
 
 Squad cost: £99.4m.
 
 ## One-transfer recommendation
 
-**João Pedro → Havertz** (projected weighted XI+captain gain 9.92).
+**João Pedro → Havertz** (projected weighted XI+captain gain 9.85).
 
 | Out | In | Sell | Buy | Bank after | XI+captain gain |
 | --- | --- | --- | --- | --- | --- |
-| João Pedro | Havertz | £7.6m | £7.6m | £0.2m | 9.92 |
-| João Pedro | Wissa | £7.6m | £6.2m | £1.6m | 5.19 |
+| João Pedro | Havertz | £7.6m | £7.6m | £0.2m | 9.85 |
+| João Pedro | Wissa | £7.6m | £6.2m | £1.6m | 5.12 |
 | Gakpo | Dewsbury-Hall | £7.2m | £6.6m | £0.8m | 4.54 |
 | Gakpo | Rice | £7.2m | £7.4m | £0.0m | 4.40 |
-| Muñoz | Truffert | £5.4m | £5.5m | £0.1m | 4.31 |
-| Muñoz | Branthwaite | £5.4m | £5.5m | £0.1m | 4.23 |
-| Muñoz | Silva | £5.4m | £5.0m | £0.6m | 4.22 |
-| Muñoz | Rúben | £5.4m | £5.5m | £0.1m | 3.95 |
-| João Pedro | Barry | £7.6m | £5.6m | £2.2m | 3.92 |
-| Gakpo | Barnes | £7.2m | £6.1m | £1.3m | 3.84 |
+| Muñoz | Truffert | £5.4m | £5.5m | £0.1m | 4.24 |
+| Muñoz | Branthwaite | £5.4m | £5.5m | £0.1m | 4.16 |
+| Muñoz | Silva | £5.4m | £5.0m | £0.6m | 4.15 |
+| Muñoz | Murillo | £5.4m | £5.5m | £0.1m | 3.93 |
+| Muñoz | Rúben | £5.4m | £5.5m | £0.1m | 3.88 |
+| João Pedro | Barry | £7.6m | £5.6m | £2.2m | 3.85 |
 
 ## Limits
 
