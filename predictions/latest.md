@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW6
 
-Last generated: 2026-09-25 05:15 UTC
+Last generated: 2026-09-25 14:06 UTC
 
-Data commit: `f8a340b6305603bc52428ba7a298798ba087a442`
+Data commit: `9a6a236f81531b5d2bfc831434fdc535864857fe`
 
 ## Data freshness
 
@@ -128,8 +128,8 @@ Squad cost: £99.3m.
 | Havertz | Barry | £7.6m | £5.6m | £2.0m | 3.36 |
 | Havertz | Evanilson | £7.6m | £6.0m | £1.6m | 3.17 |
 | Semenyo | Gakpo | £8.4m | £7.2m | £1.2m | 3.16 |
-| Semenyo | Schade | £8.4m | £6.2m | £2.2m | 3.15 |
 | Semenyo | Groß | £8.4m | £5.8m | £2.6m | 3.13 |
+| Semenyo | Schade | £8.4m | £6.2m | £2.2m | 3.12 |
 
 ## Limits
 
