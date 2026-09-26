@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW6
 
-Last generated: 2026-09-26 05:19 UTC
+Last generated: 2026-09-26 13:20 UTC
 
-Data commit: `2a9d74f217a78d62e0374f99e9bb8fb4a9a2d4ba`
+Data commit: `49bcf446efe16408ed9f297a2318daf7c9b7bf37`
 
 ## Data freshness
 
@@ -76,19 +76,19 @@ The squad comparison below is affordable with **£0.0m** left in the bank. It ma
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Gabriel | ARS | Defender | £8.0m | 21.62 | GW6, GW7, GW8, GW9, GW10 | GW6, GW10 | GW8 |
 | Silva | BOU | Defender | £5.0m | 17.24 | GW6, GW7, GW8, GW9, GW10 | — | — |
+| Van Hecke | TOT | Defender | £4.9m | 15.36 | GW7, GW8, GW9, GW10 | — | — |
 | Mykolenko | EVE | Defender | £4.6m | 15.14 | GW6, GW10 | — | — |
-| Konsa | ARS | Defender | £4.6m | 14.63 | GW7, GW8, GW10 | — | — |
 | Giles | HUL | Defender | £4.0m | 12.29 | GW9 | — | — |
 | Haaland | MCI | Forward | £15.6m | 24.56 | GW6, GW7, GW8, GW9, GW10 | GW7, GW9 | GW10 |
 | Thiago | BRE | Forward | £7.8m | 19.65 | GW6, GW7, GW8, GW9, GW10 | — | GW9 |
-| Barry | EVE | Forward | £5.6m | 15.37 | GW6, GW7, GW9, GW10 | — | — |
+| Salia | NEW | Forward | £4.5m | 0.45 | Bench | — | — |
 | Pickford | EVE | Goalkeeper | £5.5m | 15.07 | GW6, GW9, GW10 | — | — |
 | Leno | FUL | Goalkeeper | £4.5m | 13.29 | GW7, GW8 | — | — |
 | Gibbs-White | NFO | Midfielder | £8.0m | 21.35 | GW6, GW7, GW8, GW9, GW10 | GW8 | GW6 |
 | Cherki | MCI | Midfielder | £7.8m | 18.25 | GW6, GW7, GW8, GW9, GW10 | — | GW7 |
 | Mbeumo | MUN | Midfielder | £7.9m | 18.24 | GW6, GW7, GW8, GW9, GW10 | — | — |
+| Groß | BHA | Midfielder | £5.8m | 16.37 | GW6, GW7, GW8, GW9, GW10 | — | — |
 | Iwobi | FUL | Midfielder | £5.4m | 15.87 | GW6, GW7, GW8 | — | — |
-| Janelt | BRE | Midfielder | £5.0m | 14.30 | GW8, GW9 | — | — |
 
 Squad cost: £99.3m.
 
