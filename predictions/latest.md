@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW6
 
-Last generated: 2026-09-27 19:51 UTC
+Last generated: 2026-09-28 05:45 UTC
 
-Data commit: `c3ed2efd3f26bfaf044e530286824f2b31d7cb90`
+Data commit: `8f77e53a6bd43baf169183f174a3b4c3eac1baed`
 
 ## Data freshness
 
@@ -52,7 +52,7 @@ XI + captain is measured before autosubs; archived exclusions are omitted from f
 | Thiago | BRE | Forward | 4.43 | 4.77 | 5.54 | 5.20 | 4.74 | 19.64 | 2.52 | high | 5-GW avg pts 2.00; mins 88; xGI 0.66; current GWs 5; fixture Elo diff +31 |
 | Saka | ARS | Midfielder | 4.42 | 4.26 | 4.42 | 4.13 | 6.02 | 18.29 | 1.93 | high | 5-GW avg pts 6.40; mins 83; xGI 0.84; current GWs 5; fixture Elo diff +291 |
 | Branthwaite | EVE | Defender | 4.41 | 3.82 | 2.64 | 3.65 | 4.78 | 15.38 | 2.80 | high | 5-GW avg pts 5.40; mins 90; xGI 0.04; current GWs 5; fixture Elo diff +18 |
-| Barry | EVE | Forward | 4.40 | 4.02 | 2.38 | 3.77 | 4.46 | 15.24 | 2.72 | high | 5-GW avg pts 4.00; mins 83; xGI 0.73; current GWs 5; fixture Elo diff +18 |
+| Barry | EVE | Forward | 4.40 | 4.02 | 2.38 | 3.77 | 4.46 | 15.24 | 2.67 | high | 5-GW avg pts 4.00; mins 83; xGI 0.73; current GWs 5; fixture Elo diff +18 |
 | Murillo | NFO | Defender | 4.33 | 2.99 | 4.32 | 3.65 | 3.15 | 14.92 | 2.71 | high | 5-GW avg pts 4.60; mins 90; xGI 0.16; current GWs 5; fixture Elo diff -41 |
 | Iwobi | FUL | Midfielder | 4.30 | 4.68 | 4.16 | 2.97 | 3.22 | 15.86 | 2.94 | high | 5-GW avg pts 2.80; mins 82; xGI 0.32; current GWs 5; fixture Elo diff +95 |
 | Groß | BHA | Midfielder | 4.29 | 4.58 | 3.78 | 3.64 | 4.49 | 16.67 | 2.87 | high | 5-GW avg pts 9.40; mins 90; xGI 0.53; current GWs 5; fixture Elo diff -10 |
@@ -81,7 +81,7 @@ The squad comparison below is affordable with **£0.3m** left in the bank. It ma
 | Davis | IPS | Defender | £4.0m | 13.67 | GW8, GW9 | — | — |
 | Haaland | MCI | Forward | £15.6m | 24.53 | GW6, GW7, GW8, GW9, GW10 | GW7, GW9 | GW10 |
 | Thiago | BRE | Forward | £7.8m | 19.64 | GW6, GW7, GW8, GW9, GW10 | — | GW8 |
-| J.Angulo | SUN | Forward | £4.5m | 0.34 | Bench | — | — |
+| Walle Egeli | IPS | Forward | £4.5m | 0.84 | Bench | — | — |
 | Pickford | EVE | Goalkeeper | £5.5m | 15.94 | GW6, GW7, GW9, GW10 | — | — |
 | Kelleher | BRE | Goalkeeper | £5.0m | 13.43 | GW8 | — | — |
 | Gibbs-White | NFO | Midfielder | £8.0m | 21.75 | GW6, GW7, GW8, GW9, GW10 | GW6, GW8 | GW9 |
@@ -126,7 +126,7 @@ Squad cost: £99.3m.
 | Semenyo | Groß | £8.4m | £5.8m | £2.6m | 3.94 |
 | Havertz | Gonzalo | £7.6m | £6.0m | £1.6m | 3.67 |
 | Havertz | Wissa | £7.6m | £6.2m | £1.4m | 3.52 |
-| Havertz | Barry | £7.6m | £5.6m | £2.0m | 3.48 |
+| Havertz | Barry | £7.6m | £5.7m | £1.9m | 3.48 |
 | Semenyo | Schade | £8.4m | £6.2m | £2.2m | 3.37 |
 | Semenyo | Barnes | £8.4m | £6.1m | £2.3m | 3.35 |
 | Havertz | Evanilson | £7.6m | £6.0m | £1.6m | 3.33 |
