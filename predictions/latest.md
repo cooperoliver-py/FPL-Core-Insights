@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW6
 
-Last generated: 2026-09-29 20:59 UTC
+Last generated: 2026-09-30 05:51 UTC
 
-Data commit: `4af8d4e22fb31c7fb60b004b956ccce39bbbd6ed`
+Data commit: `03b8d079710853dd10720b35d00879b71effee08`
 
 ## Data freshness
 
@@ -68,29 +68,29 @@ Bank: **£0.0m**. Current squad selling value: **£99.3m**. Total available fund
 
 A transfer can spend your bank plus the outgoing player's selling price. Keeping a player does not require buying them back at their current price.
 
-The squad comparison below is affordable with **£0.1m** left in the bank. It may require multiple transfers; use the one-transfer recommendation for your next move.
+The squad comparison below is affordable with **£0.3m** left in the bank. It may require multiple transfers; use the one-transfer recommendation for your next move.
 
 ## ML-optimal squad within your budget
 
 | Player | Club | Position | Cost | Weighted score | Starts | Captains | Vice-captains |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Gabriel | ARS | Defender | £8.0m | 21.45 | GW6, GW7, GW8, GW9, GW10 | GW10 | GW6 |
-| Silva | BOU | Defender | £5.0m | 18.60 | GW6, GW7, GW8, GW9, GW10 | — | — |
+| Silva | BOU | Defender | £5.0m | 18.89 | GW6, GW7, GW8, GW9, GW10 | — | — |
 | Mykolenko | EVE | Defender | £4.6m | 16.57 | GW6, GW10 | — | — |
-| Van Hecke | TOT | Defender | £4.9m | 15.44 | GW7, GW8, GW9, GW10 | — | — |
-| Davis | IPS | Defender | £4.0m | 13.80 | GW9 | — | — |
+| Truffert | BOU | Defender | £5.4m | 16.47 | GW7, GW8, GW9, GW10 | — | — |
+| Davis | IPS | Defender | £4.0m | 13.80 | GW8, GW9 | — | — |
 | Haaland | MCI | Forward | £15.6m | 24.53 | GW6, GW7, GW8, GW9, GW10 | GW7, GW9 | GW10 |
 | Thiago | BRE | Forward | £7.8m | 19.67 | GW6, GW7, GW8, GW9, GW10 | — | GW8 |
-| Gonzalo | FUL | Forward | £6.0m | 15.55 | GW6, GW7, GW8, GW10 | — | — |
+| Walle Egeli | IPS | Forward | £4.5m | 0.63 | Bench | — | — |
 | Pickford | EVE | Goalkeeper | £5.5m | 16.28 | GW6, GW7, GW9, GW10 | — | — |
 | Kelleher | BRE | Goalkeeper | £5.0m | 13.51 | GW8 | — | — |
 | Gibbs-White | NFO | Midfielder | £8.0m | 21.75 | GW6, GW7, GW8, GW9, GW10 | GW6, GW8 | GW9 |
 | Cherki | MCI | Midfielder | £7.8m | 18.24 | GW6, GW7, GW8, GW9, GW10 | — | GW7 |
 | Dewsbury-Hall | EVE | Midfielder | £6.6m | 17.69 | GW6, GW7, GW9, GW10 | — | — |
+| Groß | BHA | Midfielder | £5.8m | 16.70 | GW6, GW7, GW8, GW9, GW10 | — | — |
 | Iwobi | FUL | Midfielder | £5.4m | 15.86 | GW6, GW7, GW8 | — | — |
-| Janelt | BRE | Midfielder | £5.0m | 14.55 | GW8, GW9 | — | — |
 
-Squad cost: £99.2m.
+Squad cost: £99.0m.
 
 ## Your current squad
 
@@ -127,7 +127,7 @@ Squad cost: £99.3m.
 | Havertz | Gonzalo | £7.6m | £6.0m | £1.6m | 3.67 |
 | Havertz | Barry | £7.6m | £5.7m | £1.9m | 3.50 |
 | Havertz | Wissa | £7.6m | £6.2m | £1.4m | 3.46 |
-| Havertz | Evanilson | £7.6m | £6.0m | £1.6m | 3.39 |
+| Havertz | Evanilson | £7.6m | £6.0m | £1.6m | 3.44 |
 | Semenyo | Schade | £8.4m | £6.2m | £2.2m | 3.34 |
 | Semenyo | Barnes | £8.4m | £6.1m | £2.3m | 3.33 |
 
