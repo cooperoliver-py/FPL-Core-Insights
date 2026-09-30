@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW6
 
-Last generated: 2026-09-30 05:51 UTC
+Last generated: 2026-09-30 15:10 UTC
 
-Data commit: `03b8d079710853dd10720b35d00879b71effee08`
+Data commit: `798f80703b7642098c8c138bd1d4c6069d964c4c`
 
 ## Data freshness
 
@@ -68,29 +68,29 @@ Bank: **£0.0m**. Current squad selling value: **£99.3m**. Total available fund
 
 A transfer can spend your bank plus the outgoing player's selling price. Keeping a player does not require buying them back at their current price.
 
-The squad comparison below is affordable with **£0.3m** left in the bank. It may require multiple transfers; use the one-transfer recommendation for your next move.
+The squad comparison below is affordable with **£0.1m** left in the bank. It may require multiple transfers; use the one-transfer recommendation for your next move.
 
 ## ML-optimal squad within your budget
 
 | Player | Club | Position | Cost | Weighted score | Starts | Captains | Vice-captains |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Gabriel | ARS | Defender | £8.0m | 21.45 | GW6, GW7, GW8, GW9, GW10 | GW10 | GW6 |
-| Silva | BOU | Defender | £5.0m | 18.89 | GW6, GW7, GW8, GW9, GW10 | — | — |
+| Silva | BOU | Defender | £5.0m | 18.88 | GW6, GW7, GW8, GW9, GW10 | — | — |
 | Mykolenko | EVE | Defender | £4.6m | 16.57 | GW6, GW10 | — | — |
-| Truffert | BOU | Defender | £5.4m | 16.47 | GW7, GW8, GW9, GW10 | — | — |
-| Davis | IPS | Defender | £4.0m | 13.80 | GW8, GW9 | — | — |
+| Truffert | BOU | Defender | £5.4m | 16.46 | GW7, GW8, GW9, GW10 | — | — |
+| Davis | IPS | Defender | £4.0m | 13.80 | GW9 | — | — |
 | Haaland | MCI | Forward | £15.6m | 24.53 | GW6, GW7, GW8, GW9, GW10 | GW7, GW9 | GW10 |
 | Thiago | BRE | Forward | £7.8m | 19.67 | GW6, GW7, GW8, GW9, GW10 | — | GW8 |
-| Walle Egeli | IPS | Forward | £4.5m | 0.63 | Bench | — | — |
-| Pickford | EVE | Goalkeeper | £5.5m | 16.28 | GW6, GW7, GW9, GW10 | — | — |
-| Kelleher | BRE | Goalkeeper | £5.0m | 13.51 | GW8 | — | — |
+| Gonzalo | FUL | Forward | £6.0m | 15.62 | GW6, GW7, GW8, GW10 | — | — |
+| Pickford | EVE | Goalkeeper | £5.5m | 16.28 | GW6, GW9, GW10 | — | — |
+| Leno | FUL | Goalkeeper | £4.5m | 13.94 | GW7, GW8 | — | — |
 | Gibbs-White | NFO | Midfielder | £8.0m | 21.75 | GW6, GW7, GW8, GW9, GW10 | GW6, GW8 | GW9 |
 | Cherki | MCI | Midfielder | £7.8m | 18.24 | GW6, GW7, GW8, GW9, GW10 | — | GW7 |
 | Dewsbury-Hall | EVE | Midfielder | £6.6m | 17.69 | GW6, GW7, GW9, GW10 | — | — |
-| Groß | BHA | Midfielder | £5.8m | 16.70 | GW6, GW7, GW8, GW9, GW10 | — | — |
 | Iwobi | FUL | Midfielder | £5.4m | 15.86 | GW6, GW7, GW8 | — | — |
+| Janelt | BRE | Midfielder | £5.0m | 14.55 | GW8, GW9 | — | — |
 
-Squad cost: £99.0m.
+Squad cost: £99.2m.
 
 ## Your current squad
 
@@ -98,13 +98,13 @@ Squad cost: £99.0m.
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Gabriel | ARS | Defender | £8.0m | 21.45 | GW6, GW7, GW8, GW9, GW10 | GW10 | GW7 |
 | Branthwaite | EVE | Defender | £5.5m | 15.83 | GW6, GW7, GW8, GW9, GW10 | — | — |
-| Bassey | FUL | Defender | £4.5m | 14.00 | GW6, GW7, GW8, GW9, GW10 | — | — |
+| Bassey | FUL | Defender | £4.5m | 14.25 | GW6, GW7, GW8, GW9, GW10 | — | — |
 | Egan | HUL | Defender | £4.1m | 12.23 | GW6, GW7, GW8, GW9 | — | — |
 | Furlong | IPS | Defender | £3.9m | 0.73 | Bench | — | — |
 | Thiago | BRE | Forward | £7.8m | 19.67 | GW6, GW7, GW8, GW9, GW10 | — | — |
 | Havertz | ARS | Forward | £7.6m | 11.42 | GW6, GW8, GW10 | — | — |
 | Mheuka | CHE | Forward | £4.5m | 0.34 | Bench | — | — |
-| Leno | FUL | Goalkeeper | £4.5m | 13.47 | GW7, GW8 | — | — |
+| Leno | FUL | Goalkeeper | £4.5m | 13.94 | GW7, GW8 | — | — |
 | Horníček | NEW | Goalkeeper | £5.0m | 13.00 | GW6, GW9, GW10 | — | — |
 | B.Fernandes | MUN | Midfielder | £11.9m | 22.17 | GW6, GW7, GW8, GW9, GW10 | GW6, GW7, GW9 | GW8, GW10 |
 | Gibbs-White | NFO | Midfielder | £8.0m | 21.75 | GW6, GW7, GW8, GW9, GW10 | GW8 | GW6, GW9 |
@@ -124,10 +124,10 @@ Squad cost: £99.3m.
 | Semenyo | Dewsbury-Hall | £8.4m | £6.6m | £1.8m | 4.90 |
 | Semenyo | Cunha | £8.4m | £7.9m | £0.5m | 4.87 |
 | Semenyo | Groß | £8.4m | £5.8m | £2.6m | 3.92 |
-| Havertz | Gonzalo | £7.6m | £6.0m | £1.6m | 3.67 |
+| Havertz | Gonzalo | £7.6m | £6.0m | £1.6m | 3.74 |
 | Havertz | Barry | £7.6m | £5.7m | £1.9m | 3.50 |
 | Havertz | Wissa | £7.6m | £6.2m | £1.4m | 3.46 |
-| Havertz | Evanilson | £7.6m | £6.0m | £1.6m | 3.44 |
+| Havertz | Evanilson | £7.6m | £6.0m | £1.6m | 3.42 |
 | Semenyo | Schade | £8.4m | £6.2m | £2.2m | 3.34 |
 | Semenyo | Barnes | £8.4m | £6.1m | £2.3m | 3.33 |
 
