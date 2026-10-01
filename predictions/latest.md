@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW6
 
-Last generated: 2026-09-30 20:58 UTC
+Last generated: 2026-10-01 06:24 UTC
 
-Data commit: `d83d9d4789a349b1f060f86de9618d0bee2cadde`
+Data commit: `ad1d46d342d9e082098d5aae1d5995a0ebc74f9c`
 
 ## Data freshness
 
@@ -45,7 +45,7 @@ XI + captain is measured before autosubs; archived exclusions are omitted from f
 | Mykolenko | EVE | Defender | 5.23 | 3.56 | 2.75 | 3.55 | 5.50 | 16.43 | 3.57 | high | 5-GW avg pts 5.40; mins 90; xGI 0.04; current GWs 5; fixture Elo diff +18 |
 | Pickford | EVE | Goalkeeper | 5.17 | 3.50 | 2.72 | 3.47 | 5.57 | 16.27 | 2.96 | high | 5-GW avg pts 5.00; mins 90; xGI 0.00; current GWs 5; fixture Elo diff +18 |
 | Dewsbury-Hall | EVE | Midfielder | 5.14 | 4.23 | 3.28 | 4.16 | 5.20 | 17.60 | 2.67 | high | 5-GW avg pts 4.00; mins 90; xGI 0.36; current GWs 5; fixture Elo diff +18 |
-| Tarkowski | EVE | Defender | 4.92 | 3.90 | 2.73 | 3.75 | 5.22 | 16.37 | 2.68 | high | 5-GW avg pts 8.60; mins 90; xGI 0.04; current GWs 5; fixture Elo diff +18 |
+| Tarkowski | EVE | Defender | 4.92 | 3.90 | 2.73 | 3.75 | 5.22 | 16.37 | 2.64 | high | 5-GW avg pts 8.60; mins 90; xGI 0.04; current GWs 5; fixture Elo diff +18 |
 | Cunha | MUN | Midfielder | 4.63 | 4.23 | 4.61 | 4.15 | 4.46 | 17.70 | 2.24 | high | 5-GW avg pts 5.20; mins 81; xGI 0.29; current GWs 5; fixture Elo diff +76 |
 | Branthwaite | EVE | Defender | 4.59 | 3.88 | 2.70 | 3.75 | 4.93 | 15.83 | 2.88 | high | 5-GW avg pts 5.40; mins 90; xGI 0.04; current GWs 5; fixture Elo diff +18 |
 | Mbeumo | MUN | Midfielder | 4.57 | 4.40 | 4.67 | 4.40 | 4.58 | 18.10 | 2.29 | high | 5-GW avg pts 5.00; mins 90; xGI 0.77; current GWs 5; fixture Elo diff +76 |
