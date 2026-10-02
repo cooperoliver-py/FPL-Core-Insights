@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW6
 
-Last generated: 2026-10-01 21:14 UTC
+Last generated: 2026-10-02 06:01 UTC
 
-Data commit: `258a5cdaecd6aa3fc0f12e4f0e83e4e3fdabe157`
+Data commit: `bfcc14deaaa924157eee1d60f33a898cbd64404e`
 
 ## Data freshness
 
@@ -42,7 +42,6 @@ XI + captain is measured before autosubs; archived exclusions are omitted from f
 | Gibbs-White | NFO | Midfielder | 5.57 | 4.60 | 6.74 | 5.24 | 4.96 | 21.75 | 2.72 | high | 5-GW avg pts 5.60; mins 90; xGI 0.60; current GWs 5; fixture Elo diff -41 |
 | Gabriel | ARS | Defender | 5.45 | 4.92 | 5.45 | 4.55 | 6.71 | 21.45 | 2.68 | high | 5-GW avg pts 5.00; mins 90; xGI 0.14; current GWs 5; fixture Elo diff +291 |
 | Haaland | MCI | Forward | 5.30 | 7.86 | 5.35 | 6.11 | 6.01 | 24.53 | 1.57 | high | 5-GW avg pts 7.80; mins 90; xGI 0.99; current GWs 5; fixture Elo diff +144 |
-| Mykolenko | EVE | Defender | 5.23 | 3.56 | 2.75 | 3.55 | 5.50 | 16.43 | 3.57 | high | 5-GW avg pts 5.40; mins 90; xGI 0.04; current GWs 5; fixture Elo diff +18 |
 | Pickford | EVE | Goalkeeper | 5.17 | 3.50 | 2.72 | 3.47 | 5.57 | 16.27 | 2.96 | high | 5-GW avg pts 5.00; mins 90; xGI 0.00; current GWs 5; fixture Elo diff +18 |
 | Dewsbury-Hall | EVE | Midfielder | 5.14 | 4.23 | 3.28 | 4.16 | 5.20 | 17.60 | 2.67 | high | 5-GW avg pts 4.00; mins 90; xGI 0.36; current GWs 5; fixture Elo diff +18 |
 | Tarkowski | EVE | Defender | 4.92 | 3.90 | 2.73 | 3.75 | 5.22 | 16.37 | 2.64 | high | 5-GW avg pts 8.60; mins 90; xGI 0.04; current GWs 5; fixture Elo diff +18 |
@@ -58,6 +57,7 @@ XI + captain is measured before autosubs; archived exclusions are omitted from f
 | Groß | BHA | Midfielder | 4.31 | 4.56 | 3.77 | 3.63 | 4.48 | 16.66 | 2.87 | high | 5-GW avg pts 9.40; mins 90; xGI 0.53; current GWs 5; fixture Elo diff -10 |
 | Iwobi | FUL | Midfielder | 4.30 | 4.68 | 4.16 | 2.97 | 3.22 | 15.86 | 2.94 | high | 5-GW avg pts 2.80; mins 82; xGI 0.32; current GWs 5; fixture Elo diff +95 |
 | Barnes | NEW | Midfielder | 4.30 | 3.50 | 4.11 | 4.05 | 4.24 | 16.11 | 2.64 | high | 5-GW avg pts 5.60; mins 90; xGI 0.22; current GWs 5; fixture Elo diff +37 |
+| Armstrong | EVE | Midfielder | 4.30 | 3.26 | 2.57 | 3.23 | 4.27 | 14.11 | 2.82 | high | 5-GW avg pts 3.20; mins 89; xGI 0.14; current GWs 5; fixture Elo diff +18 |
 
 Raw drivers are descriptive inputs, not SHAP or causal attributions.
 History coverage measures available rows, not calibrated prediction certainty. Missing match records do not prove that a player rested.
@@ -76,19 +76,19 @@ The squad comparison below is affordable with **£0.0m** left in the bank. It ma
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Gabriel | ARS | Defender | £8.0m | 21.45 | GW6, GW7, GW8, GW9, GW10 | GW10 | GW6 |
 | Silva | BOU | Defender | £5.0m | 18.65 | GW6, GW7, GW8, GW9, GW10 | — | — |
-| Hill | BOU | Defender | £5.5m | 16.47 | GW7, GW8, GW9, GW10 | — | — |
-| Mykolenko | EVE | Defender | £4.6m | 16.43 | GW6, GW10 | — | — |
+| Truffert | BOU | Defender | £5.4m | 16.35 | GW6, GW7, GW8, GW9, GW10 | — | — |
+| Muharemović | LEE | Defender | £5.0m | 14.79 | GW8, GW10 | — | — |
 | Davis | IPS | Defender | £4.0m | 13.80 | GW9 | — | — |
 | Haaland | MCI | Forward | £15.6m | 24.53 | GW6, GW7, GW8, GW9, GW10 | GW7, GW9 | GW10 |
 | Thiago | BRE | Forward | £7.8m | 19.66 | GW6, GW7, GW8, GW9, GW10 | — | GW8 |
-| Gonzalo | FUL | Forward | £6.0m | 15.62 | GW6, GW7, GW8, GW10 | — | — |
+| Barry | EVE | Forward | £5.7m | 15.33 | GW6, GW7, GW9, GW10 | — | — |
 | Pickford | EVE | Goalkeeper | £5.5m | 16.27 | GW6, GW9, GW10 | — | — |
 | Leno | FUL | Goalkeeper | £4.5m | 13.94 | GW7, GW8 | — | — |
 | Gibbs-White | NFO | Midfielder | £8.0m | 21.75 | GW6, GW7, GW8, GW9, GW10 | GW6, GW8 | GW9 |
 | Cherki | MCI | Midfielder | £7.8m | 18.24 | GW6, GW7, GW8, GW9, GW10 | — | GW7 |
 | Dewsbury-Hall | EVE | Midfielder | £6.6m | 17.60 | GW6, GW7, GW9, GW10 | — | — |
 | Iwobi | FUL | Midfielder | £5.4m | 15.86 | GW6, GW7, GW8 | — | — |
-| Janelt | BRE | Midfielder | £5.0m | 14.54 | GW8, GW9 | — | — |
+| Janelt | BRE | Midfielder | £5.0m | 14.60 | GW8 | — | — |
 
 Squad cost: £99.3m.
 
