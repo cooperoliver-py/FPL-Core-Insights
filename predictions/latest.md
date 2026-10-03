@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW6
 
-Last generated: 2026-10-03 05:37 UTC
+Last generated: 2026-10-03 13:38 UTC
 
-Data commit: `bcea139cd777b4f16e21887db22c90e5b498999e`
+Data commit: `bff722f89a659de296193b7e5c13429962924093`
 
 ## Data freshness
 
@@ -44,19 +44,19 @@ XI + captain is measured before autosubs; archived exclusions are omitted from f
 | Haaland | MCI | Forward | 5.30 | 7.86 | 5.35 | 6.11 | 6.01 | 24.53 | 1.57 | high | 5-GW avg pts 7.80; mins 90; xGI 0.99; current GWs 5; fixture Elo diff +144 |
 | Pickford | EVE | Goalkeeper | 5.17 | 3.50 | 2.72 | 3.47 | 5.57 | 16.27 | 2.96 | high | 5-GW avg pts 5.00; mins 90; xGI 0.00; current GWs 5; fixture Elo diff +18 |
 | Dewsbury-Hall | EVE | Midfielder | 5.14 | 4.22 | 3.28 | 4.15 | 5.19 | 17.59 | 2.67 | high | 5-GW avg pts 4.00; mins 90; xGI 0.36; current GWs 5; fixture Elo diff +18 |
-| Tarkowski | EVE | Defender | 4.92 | 3.90 | 2.73 | 3.75 | 5.22 | 16.37 | 2.64 | high | 5-GW avg pts 8.60; mins 90; xGI 0.04; current GWs 5; fixture Elo diff +18 |
-| Cunha | MUN | Midfielder | 4.63 | 4.23 | 4.61 | 4.15 | 4.46 | 17.70 | 2.24 | high | 5-GW avg pts 5.20; mins 81; xGI 0.29; current GWs 5; fixture Elo diff +76 |
-| Branthwaite | EVE | Defender | 4.59 | 3.88 | 2.70 | 3.75 | 4.93 | 15.83 | 2.88 | high | 5-GW avg pts 5.40; mins 90; xGI 0.04; current GWs 5; fixture Elo diff +18 |
+| Tarkowski | EVE | Defender | 4.94 | 3.92 | 2.72 | 3.74 | 5.24 | 16.41 | 2.65 | high | 5-GW avg pts 8.60; mins 90; xGI 0.04; current GWs 5; fixture Elo diff +18 |
+| Cunha | MUN | Midfielder | 4.63 | 4.22 | 4.60 | 4.15 | 4.46 | 17.69 | 2.24 | high | 5-GW avg pts 5.20; mins 81; xGI 0.29; current GWs 5; fixture Elo diff +76 |
+| Branthwaite | EVE | Defender | 4.61 | 3.90 | 2.69 | 3.75 | 4.95 | 15.87 | 2.89 | high | 5-GW avg pts 5.40; mins 90; xGI 0.04; current GWs 5; fixture Elo diff +18 |
 | Mbeumo | MUN | Midfielder | 4.57 | 4.40 | 4.67 | 4.40 | 4.58 | 18.10 | 2.29 | high | 5-GW avg pts 5.00; mins 90; xGI 0.77; current GWs 5; fixture Elo diff +76 |
+| Botman | NEW | Defender | 4.56 | 3.33 | 3.80 | 3.94 | 3.80 | 15.64 | 3.13 | high | 5-GW avg pts 3.00; mins 90; xGI 0.05; current GWs 5; fixture Elo diff +37 |
 | Saka | ARS | Midfielder | 4.52 | 4.35 | 4.52 | 4.23 | 6.12 | 18.68 | 1.97 | high | 5-GW avg pts 6.40; mins 83; xGI 0.84; current GWs 5; fixture Elo diff +291 |
-| Botman | NEW | Defender | 4.48 | 3.33 | 3.71 | 3.86 | 3.72 | 15.38 | 3.08 | high | 5-GW avg pts 3.00; mins 90; xGI 0.05; current GWs 5; fixture Elo diff +37 |
 | Barry | EVE | Forward | 4.44 | 4.03 | 2.39 | 3.78 | 4.50 | 15.32 | 2.69 | high | 5-GW avg pts 4.00; mins 83; xGI 0.73; current GWs 5; fixture Elo diff +18 |
+| Murillo | NFO | Defender | 4.38 | 3.04 | 4.49 | 3.73 | 3.21 | 15.25 | 2.77 | high | 5-GW avg pts 4.60; mins 90; xGI 0.16; current GWs 5; fixture Elo diff -41 |
 | Armstrong | EVE | Midfielder | 4.37 | 3.26 | 2.57 | 3.23 | 4.35 | 14.23 | 2.85 | high | 5-GW avg pts 3.20; mins 89; xGI 0.14; current GWs 5; fixture Elo diff +18 |
-| Murillo | NFO | Defender | 4.36 | 3.05 | 4.47 | 3.71 | 3.21 | 15.21 | 2.77 | high | 5-GW avg pts 4.60; mins 90; xGI 0.16; current GWs 5; fixture Elo diff -41 |
 | Groß | BHA | Midfielder | 4.31 | 4.56 | 3.77 | 3.63 | 4.47 | 16.65 | 2.87 | high | 5-GW avg pts 9.40; mins 90; xGI 0.53; current GWs 5; fixture Elo diff -10 |
-| Iwobi | FUL | Midfielder | 4.30 | 4.68 | 4.16 | 2.97 | 3.22 | 15.86 | 2.94 | high | 5-GW avg pts 2.80; mins 82; xGI 0.32; current GWs 5; fixture Elo diff +95 |
+| Iwobi | FUL | Midfielder | 4.30 | 4.68 | 4.16 | 2.97 | 3.22 | 15.85 | 2.94 | high | 5-GW avg pts 2.80; mins 82; xGI 0.32; current GWs 5; fixture Elo diff +95 |
 | Barnes | NEW | Midfielder | 4.30 | 3.49 | 4.11 | 4.04 | 4.24 | 16.10 | 2.64 | high | 5-GW avg pts 5.60; mins 90; xGI 0.22; current GWs 5; fixture Elo diff +37 |
-| Garner | EVE | Midfielder | 4.24 | 3.99 | 2.91 | 3.86 | 4.18 | 15.37 | 2.56 | high | 5-GW avg pts 2.20; mins 66; xGI 0.07; current GWs 5; fixture Elo diff +18 |
+| Garner | EVE | Midfielder | 4.26 | 4.01 | 2.91 | 3.85 | 4.20 | 15.41 | 2.57 | high | 5-GW avg pts 2.20; mins 66; xGI 0.07; current GWs 5; fixture Elo diff +18 |
 | Rogers | CHE | Midfielder | 4.23 | 4.09 | 4.20 | 3.97 | 4.09 | 16.51 | 2.14 | high | 5-GW avg pts 5.80; mins 87; xGI 0.59; current GWs 5; fixture Elo diff +10 |
 
 Raw drivers are descriptive inputs, not SHAP or causal attributions.
@@ -75,9 +75,9 @@ The squad comparison below is affordable with **£0.0m** left in the bank. It ma
 | Player | Club | Position | Cost | Weighted score | Starts | Captains | Vice-captains |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Gabriel | ARS | Defender | £8.0m | 21.81 | GW6, GW7, GW8, GW9, GW10 | GW10 | GW6, GW8 |
-| Silva | BOU | Defender | £5.0m | 18.65 | GW6, GW7, GW8, GW9, GW10 | — | — |
+| Silva | BOU | Defender | £5.0m | 18.64 | GW6, GW7, GW8, GW9, GW10 | — | — |
 | Truffert | BOU | Defender | £5.4m | 16.35 | GW6, GW7, GW8, GW9, GW10 | — | — |
-| Muharemović | LEE | Defender | £5.0m | 14.79 | GW8, GW10 | — | — |
+| Muharemović | LEE | Defender | £5.0m | 14.78 | GW8, GW10 | — | — |
 | Davis | IPS | Defender | £4.0m | 13.79 | GW9 | — | — |
 | Haaland | MCI | Forward | £15.6m | 24.53 | GW6, GW7, GW8, GW9, GW10 | GW7, GW9 | GW10 |
 | Thiago | BRE | Forward | £7.8m | 18.77 | GW6, GW7, GW8, GW9, GW10 | — | — |
@@ -85,9 +85,9 @@ The squad comparison below is affordable with **£0.0m** left in the bank. It ma
 | Pickford | EVE | Goalkeeper | £5.5m | 16.27 | GW6, GW9, GW10 | — | — |
 | Leno | FUL | Goalkeeper | £4.5m | 13.94 | GW7, GW8 | — | — |
 | Gibbs-White | NFO | Midfielder | £8.0m | 21.74 | GW6, GW7, GW8, GW9, GW10 | GW6, GW8 | GW9 |
-| Cherki | MCI | Midfielder | £7.8m | 18.24 | GW6, GW7, GW8, GW9, GW10 | — | GW7 |
+| Cherki | MCI | Midfielder | £7.8m | 18.60 | GW6, GW7, GW8, GW9, GW10 | — | GW7 |
 | Dewsbury-Hall | EVE | Midfielder | £6.6m | 17.59 | GW6, GW7, GW9, GW10 | — | — |
-| Iwobi | FUL | Midfielder | £5.4m | 15.86 | GW6, GW7, GW8 | — | — |
+| Iwobi | FUL | Midfielder | £5.4m | 15.85 | GW6, GW7, GW8 | — | — |
 | Janelt | BRE | Midfielder | £5.0m | 14.55 | GW8, GW9 | — | — |
 
 Squad cost: £99.3m.
@@ -97,9 +97,9 @@ Squad cost: £99.3m.
 | Player | Club | Position | Cost | Weighted score | Starts | Captains | Vice-captains |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Gabriel | ARS | Defender | £8.0m | 21.81 | GW6, GW7, GW8, GW9, GW10 | GW10 | GW7 |
-| Branthwaite | EVE | Defender | £5.5m | 15.83 | GW6, GW7, GW8, GW9, GW10 | — | — |
+| Branthwaite | EVE | Defender | £5.5m | 15.87 | GW6, GW7, GW8, GW9, GW10 | — | — |
 | Bassey | FUL | Defender | £4.5m | 14.25 | GW6, GW7, GW8, GW9, GW10 | — | — |
-| Egan | HUL | Defender | £4.1m | 12.23 | GW6, GW7, GW8, GW9 | — | — |
+| Egan | HUL | Defender | £4.1m | 12.51 | GW6, GW7, GW8, GW9 | — | — |
 | Furlong | IPS | Defender | £3.9m | 0.73 | Bench | — | — |
 | Thiago | BRE | Forward | £7.8m | 18.77 | GW6, GW7, GW8, GW9, GW10 | — | — |
 | Havertz | ARS | Forward | £7.6m | 11.42 | GW6, GW8, GW10 | — | — |
@@ -116,20 +116,20 @@ Squad cost: £99.3m.
 
 ## One-transfer recommendation
 
-**Semenyo → Cherki** (projected weighted XI+captain gain 5.63).
+**Semenyo → Cherki** (projected weighted XI+captain gain 6.07).
 
 | Out | In | Sell | Buy | Bank after | XI+captain gain |
 | --- | --- | --- | --- | --- | --- |
-| Semenyo | Cherki | £8.4m | £7.8m | £0.6m | 5.63 |
+| Semenyo | Cherki | £8.4m | £7.8m | £0.6m | 6.07 |
 | Semenyo | Cunha | £8.4m | £7.9m | £0.5m | 4.91 |
-| Semenyo | Dewsbury-Hall | £8.4m | £6.6m | £1.8m | 4.80 |
+| Semenyo | Dewsbury-Hall | £8.4m | £6.6m | £1.8m | 4.81 |
 | Semenyo | Groß | £8.4m | £5.8m | £2.6m | 3.87 |
-| Havertz | Gonzalo | £7.6m | £6.0m | £1.6m | 3.74 |
-| Havertz | Barry | £7.6m | £5.7m | £1.9m | 3.52 |
-| Havertz | Wissa | £7.6m | £6.2m | £1.4m | 3.46 |
-| Havertz | Evanilson | £7.6m | £6.0m | £1.6m | 3.40 |
+| Havertz | Gonzalo | £7.6m | £6.0m | £1.6m | 3.65 |
+| Havertz | Barry | £7.6m | £5.7m | £1.9m | 3.44 |
+| Havertz | Wissa | £7.6m | £6.2m | £1.4m | 3.38 |
 | Semenyo | Barnes | £8.4m | £6.1m | £2.3m | 3.32 |
-| Semenyo | Anderson | £8.4m | £6.3m | £2.1m | 3.17 |
+| Havertz | Evanilson | £7.6m | £6.0m | £1.6m | 3.32 |
+| Semenyo | Anderson | £8.4m | £6.3m | £2.1m | 3.18 |
 
 ## Limits
 
