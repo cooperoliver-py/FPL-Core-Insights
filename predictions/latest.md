@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW6
 
-Last generated: 2026-10-05 06:05 UTC
+Last generated: 2026-10-05 17:19 UTC
 
-Data commit: `15516ec4ae6a7856b1d95319c0b83a95fa4350bb`
+Data commit: `73fc40a754b8793102d1cd01417986c8aaa66438`
 
 ## Data freshness
 
@@ -123,13 +123,13 @@ Squad cost: £99.3m.
 | Semenyo | Cherki | £8.4m | £7.8m | £0.6m | 5.56 |
 | Semenyo | Cunha | £8.4m | £7.9m | £0.5m | 4.77 |
 | Semenyo | Dewsbury-Hall | £8.4m | £6.6m | £1.8m | 4.44 |
-| Semenyo | Scott | £8.4m | £6.1m | £2.3m | 3.66 |
 | Semenyo | Anderson | £8.4m | £6.3m | £2.1m | 3.51 |
 | Havertz | Gonzalo | £7.6m | £6.0m | £1.6m | 3.43 |
 | Semenyo | Groß | £8.4m | £5.9m | £2.5m | 3.27 |
 | Branthwaite | Silva | £5.5m | £5.0m | £0.5m | 3.27 |
 | Semenyo | Barnes | £8.4m | £6.1m | £2.3m | 3.02 |
 | Havertz | Wissa | £7.6m | £6.2m | £1.4m | 2.98 |
+| Havertz | Barry | £7.6m | £5.7m | £1.9m | 2.96 |
 
 ## Limits
 
