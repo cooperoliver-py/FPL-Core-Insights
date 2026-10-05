@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW6
 
-Last generated: 2026-10-04 19:47 UTC
+Last generated: 2026-10-05 06:05 UTC
 
-Data commit: `56be5dec057296a4a571c83ab3c2d96b13b36432`
+Data commit: `15516ec4ae6a7856b1d95319c0b83a95fa4350bb`
 
 ## Data freshness
 
