@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW6
 
-Last generated: 2026-10-05 17:19 UTC
+Last generated: 2026-10-06 06:45 UTC
 
-Data commit: `73fc40a754b8793102d1cd01417986c8aaa66438`
+Data commit: `1c9191ab6b0c191378ea27f257fdab2bae63caba`
 
 ## Data freshness
 
@@ -53,7 +53,7 @@ XI + captain is measured before autosubs; archived exclusions are omitted from f
 | Rogers | CHE | Midfielder | 4.23 | 4.09 | 4.20 | 3.97 | 4.09 | 16.51 | 2.14 | high | 5-GW avg pts 5.80; mins 87; xGI 0.59; current GWs 5; fixture Elo diff +10 |
 | Silva | BOU | Defender | 4.23 | 5.39 | 3.99 | 4.95 | 5.05 | 18.77 | 3.75 | high | 5-GW avg pts 2.60; mins 90; xGI 0.23; current GWs 5; fixture Elo diff +88 |
 | Thiago | BRE | Forward | 4.21 | 4.56 | 5.29 | 5.00 | 4.53 | 18.77 | 2.41 | high | 5-GW avg pts 2.00; mins 88; xGI 0.66; current GWs 5; fixture Elo diff +31 |
-| Saka | ARS | Midfielder | 4.17 | 4.09 | 4.17 | 3.96 | 5.71 | 17.38 | 1.83 | high | 5-GW avg pts 6.40; mins 83; xGI 0.84; current GWs 5; fixture Elo diff +291 |
+| Saka | ARS | Midfielder | 4.17 | 4.09 | 4.17 | 3.96 | 5.71 | 17.38 | 1.81 | high | 5-GW avg pts 6.40; mins 83; xGI 0.84; current GWs 5; fixture Elo diff +291 |
 | Barry | EVE | Forward | 4.16 | 3.83 | 2.30 | 3.58 | 4.26 | 14.51 | 2.55 | high | 5-GW avg pts 4.00; mins 83; xGI 0.73; current GWs 5; fixture Elo diff +18 |
 | Iwobi | FUL | Midfielder | 4.14 | 4.50 | 4.00 | 2.83 | 3.06 | 15.21 | 2.82 | high | 5-GW avg pts 2.80; mins 82; xGI 0.32; current GWs 5; fixture Elo diff +95 |
 | Barnes | NEW | Midfielder | 4.09 | 3.33 | 3.92 | 3.85 | 4.06 | 15.35 | 2.52 | high | 5-GW avg pts 5.60; mins 90; xGI 0.22; current GWs 5; fixture Elo diff +37 |
