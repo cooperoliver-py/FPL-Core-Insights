@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW6
 
-Last generated: 2026-10-06 21:09 UTC
+Last generated: 2026-10-07 06:20 UTC
 
-Data commit: `a0cb12a43e302c73afd868114cbec2f12c041151`
+Data commit: `6d220404e84babd80b80beb96cf08ac2546ab79f`
 
 ## Data freshness
 
@@ -50,7 +50,7 @@ XI + captain is measured before autosubs; archived exclusions are omitted from f
 | Branthwaite | EVE | Defender | 4.40 | 3.89 | 2.79 | 3.73 | 4.79 | 15.62 | 2.84 | high | 5-GW avg pts 5.40; mins 90; xGI 0.04; current GWs 5; fixture Elo diff +18 |
 | Botman | NEW | Defender | 4.36 | 3.38 | 3.84 | 3.98 | 3.85 | 15.56 | 3.11 | high | 5-GW avg pts 3.00; mins 90; xGI 0.05; current GWs 5; fixture Elo diff +37 |
 | Murillo | NFO | Defender | 4.27 | 3.02 | 4.28 | 3.62 | 3.09 | 14.81 | 2.69 | high | 5-GW avg pts 4.60; mins 90; xGI 0.16; current GWs 5; fixture Elo diff -41 |
-| Rogers | CHE | Midfielder | 4.23 | 4.09 | 4.20 | 3.97 | 4.09 | 16.51 | 2.14 | high | 5-GW avg pts 5.80; mins 87; xGI 0.59; current GWs 5; fixture Elo diff +10 |
+| Rogers | CHE | Midfielder | 4.23 | 4.09 | 4.20 | 3.97 | 4.09 | 16.51 | 2.12 | high | 5-GW avg pts 5.80; mins 87; xGI 0.59; current GWs 5; fixture Elo diff +10 |
 | Silva | BOU | Defender | 4.23 | 5.39 | 3.99 | 4.95 | 5.05 | 18.77 | 3.75 | high | 5-GW avg pts 2.60; mins 90; xGI 0.23; current GWs 5; fixture Elo diff +88 |
 | Thiago | BRE | Forward | 4.21 | 4.56 | 5.29 | 5.00 | 4.53 | 18.77 | 2.41 | high | 5-GW avg pts 2.00; mins 88; xGI 0.66; current GWs 5; fixture Elo diff +31 |
 | Saka | ARS | Midfielder | 4.17 | 4.09 | 4.17 | 3.96 | 5.71 | 17.38 | 1.81 | high | 5-GW avg pts 6.40; mins 83; xGI 0.84; current GWs 5; fixture Elo diff +291 |
@@ -109,10 +109,10 @@ Squad cost: £99.2m.
 | B.Fernandes | MUN | Midfielder | £11.9m | 21.00 | GW6, GW7, GW8, GW9, GW10 | GW6, GW7, GW9 | GW10 |
 | Gibbs-White | NFO | Midfielder | £8.0m | 20.09 | GW6, GW7, GW8, GW9, GW10 | GW8 | — |
 | Mbeumo | MUN | Midfielder | £7.9m | 17.47 | GW6, GW7, GW8, GW9, GW10 | — | — |
-| Rogers | CHE | Midfielder | £7.7m | 16.51 | GW6, GW7, GW8, GW9, GW10 | — | — |
+| Rogers | CHE | Midfielder | £7.8m | 16.51 | GW6, GW7, GW8, GW9, GW10 | — | — |
 | Semenyo | MCI | Midfielder | £8.4m | 11.53 | GW7, GW9 | — | — |
 
-Squad cost: £99.3m.
+Squad cost: £99.4m.
 
 ## One-transfer recommendation
 
