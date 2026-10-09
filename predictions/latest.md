@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW6
 
-Last generated: 2026-10-09 06:32 UTC
+Last generated: 2026-10-09 15:31 UTC
 
-Data commit: `bc54bccf0d63b0f7f8bbd476807254ed0eb10ed3`
+Data commit: `c47416c51f7ed04503237f52d5f5f166378d4ce1`
 
 ## Data freshness
 
@@ -81,7 +81,7 @@ The squad comparison below is affordable with **£0.1m** left in the bank. It ma
 | Muharemović | LEE | Defender | £5.0m | 14.94 | GW8, GW10 | — | — |
 | Haaland | MCI | Forward | £15.6m | 23.58 | GW6, GW7, GW8, GW9, GW10 | GW7, GW9 | GW10 |
 | Thiago | BRE | Forward | £7.8m | 18.77 | GW6, GW7, GW8, GW9, GW10 | — | GW9 |
-| Salia | NEW | Forward | £4.5m | 0.34 | Bench | — | — |
+| J.Angulo | SUN | Forward | £4.5m | 0.34 | Bench | — | — |
 | Pickford | EVE | Goalkeeper | £5.5m | 15.13 | GW6, GW9, GW10 | — | — |
 | Leno | FUL | Goalkeeper | £4.5m | 12.69 | GW7, GW8 | — | — |
 | Gibbs-White | NFO | Midfielder | £8.0m | 20.09 | GW6, GW7, GW8, GW9, GW10 | GW8 | GW6 |
