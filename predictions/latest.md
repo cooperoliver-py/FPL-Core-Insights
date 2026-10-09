@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW6
 
-Last generated: 2026-10-09 15:31 UTC
+Last generated: 2026-10-09 21:08 UTC
 
-Data commit: `c47416c51f7ed04503237f52d5f5f166378d4ce1`
+Data commit: `0a6bfd74df0cafc742cff27a26e5c678c4eb5900`
 
 ## Data freshness
 
@@ -44,6 +44,7 @@ XI + captain is measured before autosubs; archived exclusions are omitted from f
 | Haaland | MCI | Forward | 5.11 | 7.51 | 5.16 | 5.93 | 5.71 | 23.58 | 1.51 | high | 5-GW avg pts 7.80; mins 90; xGI 0.99; current GWs 5; fixture Elo diff +144 |
 | Dewsbury-Hall | EVE | Midfielder | 4.84 | 4.03 | 3.20 | 3.96 | 4.94 | 16.76 | 2.54 | high | 5-GW avg pts 4.00; mins 90; xGI 0.36; current GWs 5; fixture Elo diff +18 |
 | Pickford | EVE | Goalkeeper | 4.69 | 3.30 | 2.62 | 3.27 | 5.14 | 15.13 | 2.75 | high | 5-GW avg pts 5.00; mins 90; xGI 0.00; current GWs 5; fixture Elo diff +18 |
+| Palmer | CHE | Midfielder | 4.50 | 4.19 | 4.40 | 4.11 | 4.25 | 17.23 | 1.78 | high | 5-GW avg pts 5.60; mins 88; xGI 0.42; current GWs 5; fixture Elo diff +10 |
 | Cunha | MUN | Midfielder | 4.47 | 4.08 | 4.45 | 4.01 | 4.32 | 17.10 | 2.16 | high | 5-GW avg pts 5.20; mins 81; xGI 0.29; current GWs 5; fixture Elo diff +76 |
 | Tarkowski | EVE | Defender | 4.47 | 3.72 | 2.65 | 3.54 | 4.81 | 15.30 | 2.47 | high | 5-GW avg pts 8.60; mins 90; xGI 0.04; current GWs 5; fixture Elo diff +18 |
 | Mbeumo | MUN | Midfielder | 4.41 | 4.23 | 4.53 | 4.24 | 4.44 | 17.47 | 2.21 | high | 5-GW avg pts 5.00; mins 90; xGI 0.77; current GWs 5; fixture Elo diff +76 |
@@ -57,7 +58,6 @@ XI + captain is measured before autosubs; archived exclusions are omitted from f
 | Barry | EVE | Forward | 4.16 | 3.83 | 2.30 | 3.58 | 4.26 | 14.51 | 2.55 | high | 5-GW avg pts 4.00; mins 83; xGI 0.73; current GWs 5; fixture Elo diff +18 |
 | Iwobi | FUL | Midfielder | 4.14 | 4.50 | 4.00 | 2.83 | 3.06 | 15.21 | 2.82 | high | 5-GW avg pts 2.80; mins 82; xGI 0.32; current GWs 5; fixture Elo diff +95 |
 | Barnes | NEW | Midfielder | 4.09 | 3.33 | 3.92 | 3.85 | 4.06 | 15.35 | 2.52 | high | 5-GW avg pts 5.60; mins 90; xGI 0.22; current GWs 5; fixture Elo diff +37 |
-| Cherki | MCI | Midfielder | 4.04 | 5.49 | 4.09 | 4.23 | 4.11 | 17.68 | 2.27 | high | 5-GW avg pts 6.80; mins 60; xGI 0.45; current GWs 5; fixture Elo diff +144 |
 
 Raw drivers are descriptive inputs, not SHAP or causal attributions.
 History coverage measures available rows, not calibrated prediction certainty. Missing match records do not prove that a player rested.
