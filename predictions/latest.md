@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW6
 
-Last generated: 2026-10-09 21:08 UTC
+Last generated: 2026-10-10 06:14 UTC
 
-Data commit: `0a6bfd74df0cafc742cff27a26e5c678c4eb5900`
+Data commit: `561bd00f699ec25ce095a0245e6ad52300ebdc01`
 
 ## Data freshness
 
@@ -81,7 +81,7 @@ The squad comparison below is affordable with **£0.1m** left in the bank. It ma
 | Muharemović | LEE | Defender | £5.0m | 14.94 | GW8, GW10 | — | — |
 | Haaland | MCI | Forward | £15.6m | 23.58 | GW6, GW7, GW8, GW9, GW10 | GW7, GW9 | GW10 |
 | Thiago | BRE | Forward | £7.8m | 18.77 | GW6, GW7, GW8, GW9, GW10 | — | GW9 |
-| J.Angulo | SUN | Forward | £4.5m | 0.34 | Bench | — | — |
+| Danns | LIV | Forward | £4.5m | 0.32 | Bench | — | — |
 | Pickford | EVE | Goalkeeper | £5.5m | 15.13 | GW6, GW9, GW10 | — | — |
 | Leno | FUL | Goalkeeper | £4.5m | 12.69 | GW7, GW8 | — | — |
 | Gibbs-White | NFO | Midfielder | £8.0m | 20.09 | GW6, GW7, GW8, GW9, GW10 | GW8 | GW6 |
@@ -124,7 +124,7 @@ Squad cost: £99.4m.
 | Semenyo | Cunha | £8.4m | £7.9m | £0.5m | 4.77 |
 | Semenyo | Dewsbury-Hall | £8.4m | £6.6m | £1.8m | 4.44 |
 | Semenyo | Anderson | £8.4m | £6.3m | £2.1m | 3.51 |
-| Havertz | Gonzalo | £7.6m | £6.0m | £1.6m | 3.43 |
+| Havertz | Gonzalo | £7.6m | £6.1m | £1.5m | 3.43 |
 | Semenyo | Groß | £8.4m | £5.9m | £2.5m | 3.27 |
 | Branthwaite | Silva | £5.5m | £5.0m | £0.5m | 3.27 |
 | Semenyo | Barnes | £8.4m | £6.1m | £2.3m | 3.02 |
