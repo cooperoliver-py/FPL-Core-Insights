@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW7
 
-Last generated: 2026-10-11 06:14 UTC
+Last generated: 2026-10-11 15:02 UTC
 
-Data commit: `7a279fb621de381f8f78ee01c897efac220b4d9a`
+Data commit: `bcf0661e9cf340e151b5184eb2bcb4f747b8b8b0`
 
 ## Data freshness
 
@@ -87,7 +87,7 @@ The squad comparison below is affordable with **£0.0m** left in the bank. It ma
 | Thiago | BRE | Forward | £7.8m | 21.08 | GW7, GW8, GW9, GW10, GW11 | — | GW8, GW9 |
 | Havertz | ARS | Forward | £7.5m | 18.34 | GW7, GW8, GW9, GW10, GW11 | — | — |
 | Raya | ARS | Goalkeeper | £6.1m | 15.61 | GW7, GW8, GW9, GW10, GW11 | — | — |
-| Matthews | CRY | Goalkeeper | £4.0m | 0.33 | Bench | — | — |
+| Steele | BHA | Goalkeeper | £4.0m | 0.43 | Bench | — | — |
 | Gibbs-White | NFO | Midfielder | £8.0m | 19.79 | GW7, GW8, GW9, GW10, GW11 | GW8 | — |
 | Mbeumo | MUN | Midfielder | £7.9m | 19.13 | GW7, GW8, GW9, GW10, GW11 | — | — |
 | Groß | BHA | Midfielder | £6.0m | 17.15 | GW7, GW10, GW11 | — | GW11 |
