@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW7
 
-Last generated: 2026-10-14 13:58 UTC
+Last generated: 2026-10-14 20:18 UTC
 
-Data commit: `b5eb7123b7cb431d06b14d323e02afbfa91205eb`
+Data commit: `c023e79b6849eaaa496ff71ba8ce84732bf437d0`
 
 ## Data freshness
 
@@ -56,7 +56,7 @@ XI + captain is measured before autosubs; archived exclusions are omitted from f
 | Rice | ARS | Midfielder | 4.58 | 4.65 | 4.24 | 4.85 | 4.28 | 18.12 | 2.48 | high | 5-GW avg pts 4.80; mins 87; xGI 0.15; current GWs 6; fixture Elo diff +283 |
 | Mbeumo | MUN | Midfielder | 4.52 | 4.99 | 4.50 | 4.94 | 4.83 | 18.96 | 2.40 | high | 5-GW avg pts 6.20; mins 90; xGI 0.70; current GWs 6; fixture Elo diff +49 |
 | Thiago | BRE | Forward | 4.46 | 5.19 | 5.25 | 4.79 | 4.99 | 19.68 | 2.52 | high | 5-GW avg pts 2.80; mins 90; xGI 0.48; current GWs 6; fixture Elo diff +54 |
-| Gibbs-White | NFO | Midfielder | 4.40 | 6.64 | 5.75 | 4.63 | 5.31 | 21.40 | 2.67 | high | 5-GW avg pts 5.60; mins 90; xGI 0.67; current GWs 6; fixture Elo diff -55 |
+| Gibbs-White | NFO | Midfielder | 4.38 | 6.63 | 5.73 | 4.61 | 5.29 | 21.33 | 2.67 | high | 5-GW avg pts 5.60; mins 90; xGI 0.67; current GWs 6; fixture Elo diff -55 |
 | Matheus N. | MCI | Defender | 4.36 | 3.38 | 3.81 | 4.11 | 4.13 | 15.80 | 2.68 | high | 5-GW avg pts 3.20; mins 54; xGI 0.01; current GWs 6; fixture Elo diff +163 |
 | Rogers | CHE | Midfielder | 4.34 | 4.57 | 4.18 | 4.33 | 4.70 | 17.65 | 2.23 | high | 5-GW avg pts 6.00; mins 88; xGI 0.43; current GWs 6; fixture Elo diff +25 |
 
@@ -84,10 +84,10 @@ The squad comparison below is affordable with **£0.0m** left in the bank. It ma
 | Thiago | BRE | Forward | £7.8m | 19.68 | GW7, GW8, GW9, GW10, GW11 | — | — |
 | Kusi-Asare | FUL | Forward | £4.4m | 0.48 | Bench | — | — |
 | Raya | ARS | Goalkeeper | £6.1m | 16.25 | GW7, GW8, GW9, GW10, GW11 | — | — |
-| Balcombe | BRE | Goalkeeper | £4.0m | 0.28 | Bench | — | — |
+| Steele | BHA | Goalkeeper | £4.0m | 0.37 | Bench | — | — |
 | Semenyo | MCI | Midfielder | £8.3m | 25.31 | GW7, GW8, GW9, GW10, GW11 | — | GW7, GW9, GW10, GW11 |
 | Cherki | MCI | Midfielder | £7.9m | 23.54 | GW7, GW8, GW9, GW10, GW11 | — | — |
-| Gibbs-White | NFO | Midfielder | £8.0m | 21.40 | GW7, GW8, GW9, GW10, GW11 | GW8 | — |
+| Gibbs-White | NFO | Midfielder | £8.0m | 21.33 | GW7, GW8, GW9, GW10, GW11 | GW8 | — |
 | Iwobi | FUL | Midfielder | £5.4m | 17.75 | GW7, GW8, GW10 | — | — |
 | Janelt | BRE | Midfielder | £5.0m | 15.95 | GW7, GW8, GW9, GW11 | — | — |
 
@@ -108,7 +108,7 @@ Squad cost: £99.3m.
 | Leno | FUL | Goalkeeper | £4.5m | 11.83 | GW7, GW8, GW10 | — | — |
 | Horníček | NEW | Goalkeeper | £5.0m | 11.41 | GW9, GW11 | — | — |
 | Cherki | MCI | Midfielder | £7.9m | 23.54 | GW7, GW8, GW9, GW10, GW11 | GW7, GW9, GW11 | GW10 |
-| Gibbs-White | NFO | Midfielder | £8.0m | 21.40 | GW7, GW8, GW9, GW10, GW11 | GW8 | GW9, GW11 |
+| Gibbs-White | NFO | Midfielder | £8.0m | 21.33 | GW7, GW8, GW9, GW10, GW11 | GW8 | GW9, GW11 |
 | B.Fernandes | MUN | Midfielder | £11.9m | 20.32 | GW7, GW8, GW9, GW10, GW11 | — | GW8 |
 | Mbeumo | MUN | Midfielder | £7.9m | 18.96 | GW7, GW8, GW9, GW10, GW11 | — | — |
 | Rogers | CHE | Midfielder | £7.9m | 17.65 | GW7, GW8, GW9, GW10, GW11 | — | — |
@@ -127,7 +127,7 @@ Squad cost: £98.8m.
 | Bassey | Silva | £4.5m | £5.0m | £0.1m | 4.61 |
 | Branthwaite | Silva | £5.5m | £5.0m | £1.1m | 4.20 |
 | Horníček | Donnarumma | £5.0m | £5.5m | £0.1m | 4.15 |
-| Gibbs-White | Semenyo | £8.0m | £8.3m | £0.3m | 4.01 |
+| Gibbs-White | Semenyo | £8.0m | £8.3m | £0.3m | 4.09 |
 | Branthwaite | Guéhi | £5.5m | £6.0m | £0.1m | 3.76 |
 | Branthwaite | Rúben | £5.5m | £5.5m | £0.6m | 3.11 |
 | Cherki | Semenyo | £7.8m | £8.3m | £0.1m | 3.00 |
