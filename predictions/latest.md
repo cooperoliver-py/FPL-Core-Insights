@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW7
 
-Last generated: 2026-10-15 13:38 UTC
+Last generated: 2026-10-15 20:00 UTC
 
-Data commit: `c7e7ab54b43a29d374c568e0e7f59c94c76a2755`
+Data commit: `d5e4db357272f7f89e8ccf5c0ce3e6773b35581d`
 
 ## Data freshness
 
@@ -54,11 +54,11 @@ XI + captain is measured before autosubs; archived exclusions are omitted from f
 | Van Hecke | TOT | Defender | 4.67 | 3.26 | 3.89 | 3.68 | 4.33 | 15.89 | 3.24 | high | 5-GW avg pts 5.20; mins 90; xGI 0.22; current GWs 6; fixture Elo diff +31 |
 | Anderson | MCI | Midfielder | 4.66 | 3.76 | 4.17 | 4.35 | 4.45 | 17.10 | 2.71 | high | 5-GW avg pts 3.80; mins 88; xGI 0.14; current GWs 6; fixture Elo diff +163 |
 | Rice | ARS | Midfielder | 4.58 | 4.66 | 4.24 | 4.86 | 4.28 | 18.14 | 2.48 | high | 5-GW avg pts 4.80; mins 87; xGI 0.15; current GWs 6; fixture Elo diff +283 |
-| Thiago | BRE | Forward | 4.46 | 5.19 | 5.25 | 4.79 | 4.99 | 19.68 | 2.52 | high | 5-GW avg pts 2.80; mins 90; xGI 0.48; current GWs 6; fixture Elo diff +54 |
+| Thiago | BRE | Forward | 4.44 | 5.17 | 5.23 | 4.77 | 4.97 | 19.60 | 2.51 | high | 5-GW avg pts 2.80; mins 90; xGI 0.48; current GWs 6; fixture Elo diff +54 |
 | Mbeumo | MUN | Midfielder | 4.43 | 4.90 | 4.40 | 4.86 | 4.74 | 18.61 | 2.36 | high | 5-GW avg pts 6.20; mins 90; xGI 0.70; current GWs 6; fixture Elo diff +49 |
 | Matheus N. | MCI | Defender | 4.41 | 3.59 | 4.01 | 4.28 | 4.33 | 16.44 | 2.79 | high | 5-GW avg pts 3.20; mins 54; xGI 0.01; current GWs 6; fixture Elo diff +163 |
 | Gibbs-White | NFO | Midfielder | 4.39 | 6.64 | 5.74 | 4.63 | 5.30 | 21.39 | 2.67 | high | 5-GW avg pts 5.60; mins 90; xGI 0.67; current GWs 6; fixture Elo diff -55 |
-| Rogers | CHE | Midfielder | 4.34 | 4.57 | 4.18 | 4.33 | 4.70 | 17.65 | 2.23 | high | 5-GW avg pts 6.00; mins 88; xGI 0.43; current GWs 6; fixture Elo diff +25 |
+| Hill | BOU | Defender | 4.34 | 3.43 | 3.99 | 4.84 | 3.97 | 16.39 | 2.98 | high | 5-GW avg pts 2.60; mins 90; xGI 0.16; current GWs 6; fixture Elo diff +90 |
 
 Raw drivers are descriptive inputs, not SHAP or causal attributions.
 History coverage measures available rows, not calibrated prediction certainty. Missing match records do not prove that a player rested.
@@ -81,10 +81,10 @@ The squad comparison below is affordable with **£0.0m** left in the bank. It ma
 | Muharemović | LEE | Defender | £5.0m | 15.58 | GW8, GW10, GW11 | — | — |
 | Diop | IPS | Defender | £4.0m | 12.42 | GW9 | — | — |
 | Haaland | MCI | Forward | £15.6m | 29.18 | GW7, GW8, GW9, GW10, GW11 | GW7, GW9, GW10, GW11 | GW8 |
-| Thiago | BRE | Forward | £7.8m | 19.68 | GW7, GW8, GW9, GW10, GW11 | — | — |
+| Thiago | BRE | Forward | £7.8m | 19.60 | GW7, GW8, GW9, GW10, GW11 | — | — |
 | Kusi-Asare | FUL | Forward | £4.4m | 0.48 | Bench | — | — |
 | Raya | ARS | Goalkeeper | £6.1m | 16.06 | GW7, GW8, GW9, GW10, GW11 | — | — |
-| Balcombe | BRE | Goalkeeper | £4.0m | 0.28 | Bench | — | — |
+| Matthews | CRY | Goalkeeper | £4.0m | 0.39 | Bench | — | — |
 | Semenyo | MCI | Midfielder | £8.3m | 26.12 | GW7, GW8, GW9, GW10, GW11 | — | GW7, GW9, GW10, GW11 |
 | Cherki | MCI | Midfielder | £7.9m | 23.35 | GW7, GW8, GW9, GW10, GW11 | — | — |
 | Gibbs-White | NFO | Midfielder | £8.0m | 21.39 | GW7, GW8, GW9, GW10, GW11 | GW8 | — |
@@ -102,7 +102,7 @@ Squad cost: £99.3m.
 | Egan | HUL | Defender | £4.1m | 13.69 | GW8, GW9, GW11 | — | — |
 | Bassey | FUL | Defender | £4.5m | 12.99 | GW7, GW8, GW10 | — | — |
 | Furlong | IPS | Defender | £3.9m | 0.74 | Bench | — | — |
-| Thiago | BRE | Forward | £7.8m | 19.68 | GW7, GW8, GW9, GW10, GW11 | — | — |
+| Thiago | BRE | Forward | £7.8m | 19.60 | GW7, GW8, GW9, GW10, GW11 | — | — |
 | Havertz | ARS | Forward | £7.5m | 16.77 | GW7, GW8, GW9, GW10, GW11 | — | — |
 | Mheuka | CHE | Forward | £4.5m | 0.31 | Bench | — | — |
 | Leno | FUL | Goalkeeper | £4.5m | 11.83 | GW7, GW8, GW10 | — | — |
@@ -111,7 +111,7 @@ Squad cost: £99.3m.
 | Cherki | MCI | Midfielder | £7.9m | 23.35 | GW7, GW8, GW9, GW10, GW11 | — | GW7, GW9, GW11 |
 | Gibbs-White | NFO | Midfielder | £8.0m | 21.39 | GW7, GW8, GW9, GW10, GW11 | GW8 | — |
 | B.Fernandes | MUN | Midfielder | £11.9m | 19.97 | GW7, GW8, GW9, GW10, GW11 | — | — |
-| Rogers | CHE | Midfielder | £7.9m | 17.65 | GW7, GW8, GW9, GW10, GW11 | — | — |
+| Rogers | CHE | Midfielder | £7.9m | 17.61 | GW7, GW8, GW9, GW10, GW11 | — | — |
 
 Squad cost: £99.2m.
 
@@ -128,7 +128,7 @@ Squad cost: £99.2m.
 | Branthwaite | Van Hecke | £5.5m | £4.9m | £0.8m | 1.09 |
 | Horníček | Kinsky | £5.0m | £4.5m | £0.7m | 1.06 |
 | Horníček | Lammens | £5.0m | £4.9m | £0.3m | 1.03 |
-| Rogers | Mbeumo | £7.8m | £7.9m | £0.1m | 0.96 |
+| Rogers | Mbeumo | £7.8m | £7.9m | £0.1m | 1.00 |
 | Horníček | Petrović | £5.0m | £4.5m | £0.7m | 0.95 |
 | Branthwaite | Muharemović | £5.5m | £5.0m | £0.7m | 0.80 |
 
