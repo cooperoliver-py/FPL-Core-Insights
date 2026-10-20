@@ -1,0 +1,16 @@
+season,gameweek,position,position_rank,player_code,player_id,first_name,second_name,web_name,team_code,club,points,minutes,goals_scored,assists,clean_sheets,bonus
+2026-2027,7,Goalkeeper,1,154561,1,David,Raya Martín,Raya,3,ARS,9,90.0,0.0,0.0,1.0,3.0
+2026-2027,7,Goalkeeper,2,98980,28,Emiliano,Martínez Romero,Martinez,8,CHE,8,74.0,0.0,0.0,1.0,1.0
+2026-2027,7,Defender,1,551210,148,Jorrel,Hato,Hato,8,CHE,11,90.0,0.0,1.0,1.0,2.0
+2026-2027,7,Defender,2,610799,504,Luka,Vušković,Vuskovic,36,BHA,11,90.0,0.0,1.0,1.0,0.0
+2026-2027,7,Defender,3,204120,114,Olivier,Boscagli,Boscagli,36,BHA,10,80.0,0.0,1.0,1.0,1.0
+2026-2027,7,Defender,4,184667,37,Victor,Lindelöf,Lindelöf,7,AVL,9,90.0,0.0,0.0,1.0,1.0
+2026-2027,7,Defender,5,199798,31,Ezri,Konsa Ngoyo,Konsa,3,ARS,9,90.0,0.0,0.0,1.0,3.0
+2026-2027,7,Midfielder,1,247632,156,Pedro,Lomba Neto,Neto,8,CHE,15,90.0,2.0,0.0,1.0,3.0
+2026-2027,7,Midfielder,2,509416,129,Yasin,Ayari,Ayari,36,BHA,13,80.0,1.0,1.0,1.0,2.0
+2026-2027,7,Midfielder,3,153133,261,Alex,Iwobi,Iwobi,54,FUL,11,90.0,1.0,0.0,1.0,3.0
+2026-2027,7,Midfielder,4,614071,53,Johan,Manzambi,Manzambi,7,AVL,11,71.0,1.0,0.0,1.0,3.0
+2026-2027,7,Midfielder,5,201658,68,Marcus,Tavernier,Tavernier,91,BOU,10,78.0,1.0,0.0,1.0,2.0
+2026-2027,7,Forward,1,223094,411,Erling,Haaland,Haaland,43,MCI,13,90.0,2.0,0.0,0.0,3.0
+2026-2027,7,Forward,2,444102,79,Francisco Evanilson,de Lima Barbosa,Evanilson,91,BOU,12,78.0,1.0,1.0,1.0,3.0
+2026-2027,7,Forward,3,647850,138,Charalampos,Kostoulas,Kostoulas,36,BHA,12,70.0,1.0,1.0,1.0,3.0
