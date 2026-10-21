@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW8
 
-Last generated: 2026-10-21 14:03 UTC
+Last generated: 2026-10-21 20:19 UTC
 
-Data commit: `57bd37159e0c41bc7d38cc951fae8400f9c776d1`
+Data commit: `0c5bc558d79dbaa3f636d77276f9ea733f00f43f`
 
 ## Data freshness
 
@@ -44,22 +44,22 @@ XI + captain is measured before autosubs; archived exclusions are omitted from f
 | B.Fernandes | MUN | Midfielder | 5.94 | 5.43 | 5.80 | 5.34 | 5.94 | 22.77 | 1.93 | high | 5-GW avg pts 1.60; mins 90; xGI 0.26; current GWs 7; fixture Elo diff +41 |
 | Iwobi | FUL | Midfielder | 5.89 | 3.51 | 4.35 | 3.31 | 3.79 | 17.11 | 3.17 | high | 5-GW avg pts 5.00; mins 81; xGI 0.51; current GWs 7; fixture Elo diff -39 |
 | Thiago | BRE | Forward | 5.56 | 4.95 | 4.58 | 4.80 | 3.99 | 19.43 | 2.49 | high | 5-GW avg pts 3.20; mins 90; xGI 0.46; current GWs 7; fixture Elo diff +53 |
-| Wirtz | LIV | Midfielder | 5.52 | 4.06 | 4.95 | 5.48 | 4.95 | 19.93 | 2.77 | high | 5-GW avg pts 3.80; mins 81; xGI 0.24; current GWs 7; fixture Elo diff +25 |
+| Wirtz | LIV | Midfielder | 5.52 | 3.96 | 4.95 | 5.48 | 4.95 | 19.85 | 2.76 | high | 5-GW avg pts 3.80; mins 81; xGI 0.24; current GWs 7; fixture Elo diff +25 |
+| Gibbs-White | NFO | Midfielder | 5.40 | 3.83 | 3.90 | 3.62 | 4.54 | 17.23 | 2.18 | high | 5-GW avg pts 3.00; mins 72; xGI 0.50; current GWs 7; fixture Elo diff -8 |
 | Rice | ARS | Midfielder | 5.34 | 4.97 | 6.10 | 5.14 | 4.57 | 21.03 | 2.88 | high | 5-GW avg pts 5.60; mins 88; xGI 0.24; current GWs 7; fixture Elo diff +253 |
 | João Pedro | CHE | Forward | 5.21 | 4.46 | 4.54 | 5.24 | 4.56 | 19.27 | 2.44 | high | 5-GW avg pts 5.40; mins 68; xGI 0.28; current GWs 7; fixture Elo diff +21 |
 | Palmer | CHE | Midfielder | 5.11 | 4.46 | 5.14 | 5.14 | 5.11 | 19.90 | 2.05 | high | 5-GW avg pts 3.60; mins 89; xGI 0.22; current GWs 7; fixture Elo diff +21 |
 | N.Williams | NFO | Defender | 5.08 | 3.65 | 2.96 | 3.33 | 3.80 | 15.34 | 3.07 | high | 5-GW avg pts 3.00; mins 90; xGI 0.25; current GWs 7; fixture Elo diff -8 |
 | Gabriel | ARS | Defender | 5.04 | 4.75 | 5.62 | 5.01 | 4.28 | 19.88 | 2.52 | high | 5-GW avg pts 4.40; mins 90; xGI 0.19; current GWs 7; fixture Elo diff +253 |
 | Murillo | NFO | Defender | 4.97 | 3.94 | 2.98 | 3.56 | 3.96 | 15.76 | 2.87 | high | 5-GW avg pts 4.40; mins 90; xGI 0.20; current GWs 7; fixture Elo diff -8 |
-| Barcola | LIV | Midfielder | 4.89 | 3.20 | 4.69 | 4.84 | 4.69 | 17.72 | 2.22 | high | 5-GW avg pts 2.60; mins 69; xGI 0.24; current GWs 5; fixture Elo diff +25 |
+| Barcola | LIV | Midfielder | 4.88 | 3.09 | 4.67 | 4.83 | 4.67 | 17.58 | 2.20 | high | 5-GW avg pts 2.60; mins 69; xGI 0.24; current GWs 5; fixture Elo diff +25 |
 | Rogers | CHE | Midfielder | 4.86 | 4.22 | 4.71 | 4.84 | 4.64 | 18.60 | 2.32 | high | 5-GW avg pts 5.40; mins 88; xGI 0.24; current GWs 7; fixture Elo diff +21 |
-| Haaland | MCI | Forward | 4.69 | 5.47 | 5.81 | 6.36 | 3.78 | 20.98 | 1.34 | high | 5-GW avg pts 8.60; mins 88; xGI 1.01; current GWs 7; fixture Elo diff +78 |
 | Ødegaard | ARS | Midfielder | 4.68 | 4.21 | 4.83 | 4.26 | 3.94 | 17.67 | 2.60 | high | 5-GW avg pts 3.80; mins 82; xGI 0.61; current GWs 7; fixture Elo diff +253 |
+| Haaland | MCI | Forward | 4.65 | 5.44 | 5.76 | 6.24 | 3.63 | 20.69 | 1.32 | high | 5-GW avg pts 8.60; mins 88; xGI 1.01; current GWs 7; fixture Elo diff +78 |
 | Saka | ARS | Midfielder | 4.62 | 4.32 | 5.81 | 4.39 | 3.90 | 18.57 | 1.93 | high | 5-GW avg pts 3.40; mins 88; xGI 0.69; current GWs 7; fixture Elo diff +253 |
 | McAtee | NFO | Midfielder | 4.55 | 3.74 | 3.01 | 3.37 | 3.80 | 14.96 | 2.72 | high | 5-GW avg pts 2.60; mins 85; xGI 0.26; current GWs 7; fixture Elo diff -8 |
 | Stach | LEE | Midfielder | 4.47 | 3.62 | 4.39 | 3.96 | 4.79 | 16.88 | 2.81 | high | 5-GW avg pts 2.80; mins 89; xGI 0.33; current GWs 7; fixture Elo diff +22 |
 | Bassey | FUL | Defender | 4.45 | 2.67 | 3.43 | 2.40 | 3.08 | 13.12 | 2.92 | high | 5-GW avg pts 4.60; mins 90; xGI 0.07; current GWs 7; fixture Elo diff -39 |
-| Doku | MCI | Midfielder | 4.40 | 5.04 | 4.57 | 5.06 | 3.53 | 18.25 | 2.43 | high | 5-GW avg pts 3.80; mins 25; xGI 0.24; current GWs 7; fixture Elo diff +78 |
 
 Raw drivers are descriptive inputs, not SHAP or causal attributions.
 History coverage measures available rows, not calibrated prediction certainty. Missing match records do not prove that a player rested.
@@ -88,7 +88,7 @@ The squad comparison below is affordable with **£0.2m** left in the bank. It ma
 | Leno | FUL | Goalkeeper | £4.5m | 12.19 | GW8 | — | — |
 | B.Fernandes | MUN | Midfielder | £11.8m | 22.77 | GW8, GW9, GW10, GW11, GW12 | GW9, GW12 | GW8, GW10 |
 | Rice | ARS | Midfielder | £7.3m | 21.03 | GW8, GW9, GW10, GW11, GW12 | GW10 | GW9 |
-| Wirtz | LIV | Midfielder | £7.2m | 19.93 | GW8, GW9, GW10, GW11, GW12 | — | GW11 |
+| Wirtz | LIV | Midfielder | £7.2m | 19.85 | GW8, GW9, GW10, GW11, GW12 | — | GW11 |
 | Iwobi | FUL | Midfielder | £5.4m | 17.11 | GW8, GW10 | — | — |
 | E.Le Fée | SUN | Midfielder | £5.7m | 16.02 | GW9, GW12 | — | — |
 
@@ -110,28 +110,28 @@ Squad cost: £98.9m.
 | Horníček | NEW | Goalkeeper | £5.0m | 11.76 | GW9, GW10, GW11, GW12 | — | — |
 | B.Fernandes | MUN | Midfielder | £11.8m | 22.77 | GW8, GW9, GW10, GW11, GW12 | GW8, GW9, GW10, GW11, GW12 | — |
 | Rogers | CHE | Midfielder | £8.0m | 18.60 | GW8, GW9, GW10, GW11, GW12 | — | GW12 |
+| Gibbs-White | NFO | Midfielder | £7.9m | 17.23 | GW8, GW9, GW10, GW11, GW12 | — | — |
 | Cherki | MCI | Midfielder | £8.0m | 13.35 | GW8, GW9, GW10, GW11, GW12 | — | — |
-| Gibbs-White | NFO | Midfielder | £7.9m | 7.39 | GW8, GW9, GW10, GW11, GW12 | — | — |
 | Semenyo | MCI | Midfielder | £8.3m | 0.00 | Bench | — | — |
 
 Squad cost: £99.2m.
 
 ## One-transfer recommendation
 
-**Gibbs-White → Rice** (projected weighted XI+captain gain 13.88).
+**Semenyo → Rice** (projected weighted XI+captain gain 11.37).
 
 | Out | In | Sell | Buy | Bank after | XI+captain gain |
 | --- | --- | --- | --- | --- | --- |
-| Gibbs-White | Rice | £7.9m | £7.3m | £0.8m | 13.88 |
-| Semenyo | Rice | £8.3m | £7.3m | £1.2m | 13.88 |
-| Gibbs-White | Wirtz | £7.9m | £7.2m | £0.9m | 12.64 |
-| Semenyo | Wirtz | £8.3m | £7.2m | £1.3m | 12.64 |
-| Gibbs-White | Doku | £7.9m | £7.5m | £0.6m | 10.86 |
-| Semenyo | Doku | £8.3m | £7.5m | £1.0m | 10.86 |
-| Gibbs-White | Barcola | £7.9m | £8.0m | £0.1m | 10.33 |
-| Semenyo | Barcola | £8.3m | £8.0m | £0.5m | 10.33 |
-| Gibbs-White | Ødegaard | £7.9m | £6.8m | £1.3m | 10.28 |
-| Semenyo | Ødegaard | £8.3m | £6.8m | £1.7m | 10.28 |
+| Semenyo | Rice | £8.3m | £7.3m | £1.2m | 11.37 |
+| Semenyo | Wirtz | £8.3m | £7.2m | £1.3m | 10.04 |
+| Semenyo | Doku | £8.3m | £7.5m | £1.0m | 8.49 |
+| Cherki | Rice | £7.9m | £7.3m | £0.8m | 7.92 |
+| Semenyo | Ødegaard | £8.3m | £6.8m | £1.7m | 7.77 |
+| Semenyo | Barcola | £8.3m | £8.0m | £0.5m | 7.68 |
+| Semenyo | Iwobi | £8.3m | £5.4m | £3.1m | 7.21 |
+| Semenyo | Stach | £8.3m | £6.0m | £2.5m | 6.98 |
+| Cherki | Wirtz | £7.9m | £7.2m | £0.9m | 6.59 |
+| Semenyo | Mbeumo | £8.3m | £7.8m | £0.7m | 6.54 |
 
 ## Limits
 
