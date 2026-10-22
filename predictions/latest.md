@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW8
 
-Last generated: 2026-10-22 14:01 UTC
+Last generated: 2026-10-22 20:15 UTC
 
-Data commit: `2f2262e66e9b9952165aea02eb1bbaaea11270d4`
+Data commit: `4dd6aa8f411896c6eb5ffb44f6f9cf749149e11a`
 
 ## Data freshness
 
@@ -90,7 +90,7 @@ The squad comparison below is affordable with **£0.0m** left in the bank. It ma
 | Palmer | CHE | Midfielder | £9.7m | 20.07 | GW8, GW9, GW10, GW11, GW12 | — | GW12 |
 | Rice | ARS | Midfielder | £7.3m | 20.03 | GW8, GW9, GW10, GW11, GW12 | — | GW10 |
 | Iwobi | FUL | Midfielder | £5.4m | 17.37 | GW8, GW10, GW12 | — | — |
-| Kamara | AVL | Midfielder | £5.0m | 14.85 | GW9, GW11, GW12 | — | — |
+| Kamara | AVL | Midfielder | £5.0m | 14.81 | GW9, GW11, GW12 | — | — |
 
 Squad cost: £99.1m.
 
