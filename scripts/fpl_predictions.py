@@ -854,6 +854,59 @@ def _completed_current_history(season: str, target_gameweek: int) -> pd.DataFram
     return pd.concat(parts, ignore_index=True) if parts else pd.DataFrame()
 
 
+def _recent_gameweek_points(history: pd.DataFrame, season: str, target_gameweek: int) -> pd.Series:
+    """Display observed current-season GW totals, including zero-point weeks."""
+    recent = history.loc[
+        history["season"].eq(season) & history["gw"].lt(target_gameweek)
+    ].sort_values("gw", kind="mergesort").groupby("player_code").tail(5).copy()
+    recent["label"] = [
+        f"GW{int(gw)}: {points:g}" if pd.notna(points) else f"GW{int(gw)}: unavailable"
+        for gw, points in zip(recent["gw"], recent["total_points"])
+    ]
+    return recent.groupby("player_code")["label"].agg(", ".join)
+
+
+def _recent_gameweek_summary(history: pd.DataFrame, season: str, target_gameweek: int) -> pd.DataFrame:
+    """Summarize observed points in the same five calendar GWs for every player."""
+    window = history.loc[
+        history["season"].eq(season)
+        & history["gw"].between(max(1, target_gameweek - 5), target_gameweek - 1)
+    ]
+    summary = window.groupby("player_code")["total_points"].agg(
+        recent_points_total=lambda points: points.sum(min_count=1),
+        recent_points_average="mean",
+        recent_points_count="count",
+    )
+    summary["recent_points_breakdown"] = _recent_gameweek_points(window, season, target_gameweek)
+    return summary
+
+
+def _recent_performers_markdown(forecast: pd.DataFrame, target_gameweek: int) -> list[str]:
+    top = forecast.loc[forecast["recent_points_count"].gt(0)].sort_values(
+        ["recent_points_total", "player_code"], ascending=[False, True], kind="mergesort"
+    ).head(20)
+    lines = [
+        "## Top 20 players over the last 5 Gameweeks",
+        "",
+        f"Ranked by recorded FPL points in GW{max(1, target_gameweek - 5)}–GW{target_gameweek - 1}. "
+        "Average is total divided by recorded Gameweeks, including zero-point weeks. "
+        "Missing Gameweeks are not treated as zero. Injured and excluded players are included.",
+        "",
+    ]
+    if top.empty:
+        return [lines[0], "", "No completed Gameweek points are available in this window.", ""]
+    lines.extend([
+        _markdown_table(
+            ["Player", "Club", "Pos", "GW points (oldest to newest)", "Total", "Average", "GWs recorded"],
+            ((row.web_name, row.team_short_name, row.position, row.recent_points_breakdown,
+              f"{row.recent_points_total:g}", f"{row.recent_points_average:.2f}",
+              str(int(row.recent_points_count))) for row in top.itertuples(index=False)),
+        ),
+        "",
+    ])
+    return lines
+
+
 def _current_lags(
     catalog: pd.DataFrame,
     training: pd.DataFrame,
@@ -873,17 +926,23 @@ def _current_lags(
         history = pd.concat((history, current), ignore_index=True).drop_duplicates(
             ["season", "player_code", "gw"], keep="first"
         )
+    recent_points = _recent_gameweek_points(history, season, target_gameweek)
+    recent_summary = _recent_gameweek_summary(history, season, target_gameweek)
     counts = history.loc[history["season"].eq(season)].groupby("player_code").size()
     sentinel = catalog[["player_id", "player_code"]].copy()
     sentinel["season"], sentinel["gw"], sentinel["_forecast_row"] = season, target_gameweek, True
     combined = build_lagged_features(pd.concat((history, sentinel), ignore_index=True), "player_code")
     features = combined.loc[combined["_forecast_row"].eq(True)].copy()
+    features["recent_gameweek_points"] = features["player_code"].map(recent_points).fillna("No completed GW history")
+    for column in recent_summary:
+        features[column] = features["player_code"].map(recent_summary[column])
+    features["recent_points_count"] = features["recent_points_count"].fillna(0).astype(int)
     features["current_season_matches"] = features["player_code"].map(counts).fillna(0).astype(int)
     # Live role information is known now; historical role snapshots are strictly shifted.
     for column in SET_PIECE_COLUMNS:
         if column in catalog:
             features[f"{column}_lag1"] = features["player_id"].map(catalog.set_index("player_id")[column])
-    columns = ["player_id", "history_count", "current_season_matches", "cold_start", "data_coverage",
+    columns = ["player_id", "recent_gameweek_points", *recent_summary.columns, "history_count", "current_season_matches", "cold_start", "data_coverage",
                *LAG_COLUMNS, *RECENT_COLUMNS, *FORM_COLUMNS, "ep_next_lag"]
     return features.reindex(columns=columns).reset_index(drop=True)
 
@@ -1411,6 +1470,14 @@ def _render_markdown(
                 "",
             )
         )
+    lines.extend(_recent_performers_markdown(forecast, gameweeks[0]))
+    recent_points = forecast.set_index("player_code")["recent_gameweek_points"]
+    lines.extend((
+        "Last 5 GW points are recorded current-season FPL totals, oldest to newest. "
+        "Zero-point weeks are included. Double Gameweeks combine multiple matches; "
+        "fewer entries mean fewer completed Gameweeks are available.",
+        "",
+    ))
     top = forecast.loc[~forecast["excluded"]].sort_values(
         [point_columns[0], "player_code"], ascending=[False, True], kind="mergesort"
     ).head(20)
@@ -1421,6 +1488,7 @@ def _render_markdown(
             _markdown_table(
                 [
                     "Player",
+                    "Last 5 GW points",
                     "Club",
                     "Pos",
                     *[f"GW{gw}" for gw in gameweeks],
@@ -1432,6 +1500,7 @@ def _render_markdown(
                 (
                     (
                         row.web_name,
+                        row.recent_gameweek_points,
                         row.team_short_name,
                         row.position,
                         *[f"{getattr(row, column):.2f}" for column in point_columns],
@@ -1480,6 +1549,7 @@ def _render_markdown(
                 _markdown_table(
                     [
                         "Player",
+                        "Last 5 GW points",
                         "Club",
                         "Position",
                         "Cost",
@@ -1491,6 +1561,7 @@ def _render_markdown(
                     (
                         (
                             row.web_name,
+                            row.recent_gameweek_points,
                             row.team_short_name,
                             row.position,
                             f"£{row.now_cost:.1f}m",
@@ -1535,11 +1606,13 @@ def _render_markdown(
         lines.extend(
             (
                 _markdown_table(
-                    ["Out", "In", "Sell", "Buy", "Bank after", "XI+captain gain"],
+                    ["Out", "Last 5 GW points (out)", "In", "Last 5 GW points (in)", "Sell", "Buy", "Bank after", "XI+captain gain"],
                     (
                         (
                             row.out,
+                            recent_points.loc[row.out_player_code],
                             row["in"],
+                            recent_points.loc[row.in_player_code],
                             f"£{row.selling_price:.1f}m",
                             f"£{row.buy_price:.1f}m",
                             f"£{row.bank_after:.1f}m",

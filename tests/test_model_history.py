@@ -57,6 +57,7 @@ class ModelHistoryTests(unittest.TestCase):
             "player_id": [1, 1, 2, 2, 1, 2],
             "player_code": [100, 100, 200, 100, 200, 100],
             "event_points": [2, 4, 9, 8, 6, 900],
+            "total_points": [2, 4, 9, 8, 6, 900],
             "minutes": [90, 90, 90, 90, 60, 900],
             "expected_goals": [.1, .2, .9, .4, .3, 900],
         })
@@ -64,7 +65,7 @@ class ModelHistoryTests(unittest.TestCase):
         duplicate = history.loc[history["season"].eq(current) & history["gw"].eq(1)].copy()
         duplicate["event_points"] = 1000  # Must not replace already-loaded training rows.
         new = pd.DataFrame({"season": [current], "gw": [2], "id": [2], "player_id": [2],
-                            "player_code": [100], "event_points": [10], "minutes": [90], "expected_goals": [.5]})
+                            "player_code": [100], "total_points": [10], "event_points": [10], "minutes": [90], "expected_goals": [.5]})
         with patch.object(predictions, "_completed_current_history", return_value=pd.concat([duplicate, new])):
             actual = predictions._current_lags(catalog, history, current, 3).set_index("player_id")
         sentinel = catalog.assign(season=current, gw=3, _forecast_row=True)
@@ -75,6 +76,9 @@ class ModelHistoryTests(unittest.TestCase):
         columns = [column for column in (*predictions.LAG_COLUMNS, *predictions.RECENT_COLUMNS,
                                          *predictions.FORM_COLUMNS) if column in expected]
         pd.testing.assert_frame_equal(actual[columns], expected[columns], check_dtype=False)
+        self.assertEqual(actual.loc[2, "recent_gameweek_points"], "GW1: 8, GW2: 10")
+        self.assertEqual(actual.loc[1, "recent_gameweek_points"], "GW1: 6")
+        self.assertEqual(actual.loc[3, "recent_gameweek_points"], "No completed GW history")
         self.assertEqual(actual.loc[2, "history_count"], 4)
         self.assertEqual(actual.loc[2, "current_season_matches"], 2)
         self.assertAlmostEqual(actual.loc[2, "event_points_lag3"], 22 / 3)

@@ -425,11 +425,63 @@ class FPLPredictionsTests(unittest.TestCase):
         )
         self.assertNotIn(16, selected_codes)
 
+    def test_recent_gameweek_points_preserve_zero_and_exclude_future_and_prior_seasons(self):
+        history = pd.DataFrame({
+            "season": ["2026-2027"] * 8 + ["2025-2026"],
+            "player_code": [101] * 7 + [202, 101],
+            "gw": [7, 2, 6, 1, 5, 4, 3, 2, 38],
+            "total_points": [99, 2, -1, 8, 0, 4, 3, 0, 50],
+        })
+        points = predictions._recent_gameweek_points(history, "2026-2027", 7)
+        self.assertEqual(points.loc[101], "GW2: 2, GW3: 3, GW4: 4, GW5: 0, GW6: -1")
+        self.assertEqual(points.loc[202], "GW2: 0")
+        self.assertTrue(predictions._recent_gameweek_points(history, "2026-2027", 1).empty)
+
+    def test_recent_performers_rank_recorded_totals_in_shared_window(self):
+        history = pd.DataFrame({
+            "season": ["2026-2027"] * 7 + ["2025-2026"],
+            "player_code": [1, 1, 2, 2, 3, 4, 1, 1],
+            "gw": [1, 6, 2, 6, 6, 6, 7, 6],
+            "total_points": [100, 4, 0, 6, 0, -1, 99, 99],
+        })
+        summary = predictions._recent_gameweek_summary(history, "2026-2027", 7)
+        self.assertEqual(summary.loc[1, "recent_points_total"], 4)
+        self.assertEqual(summary.loc[2, "recent_points_total"], 6)
+        self.assertEqual(summary.loc[2, "recent_points_average"], 3)
+        self.assertEqual(summary.loc[2, "recent_points_count"], 2)
+        self.assertEqual(summary.loc[3, "recent_points_average"], 0)
+        missing = pd.DataFrame({"season": ["2026-2027"] * 3, "player_code": [5, 5, 6],
+                                "gw": [5, 6, 6], "total_points": [None, 8, None]})
+        incomplete = predictions._recent_gameweek_summary(missing, "2026-2027", 7)
+        self.assertEqual(incomplete.loc[5, "recent_points_average"], 8)
+        self.assertEqual(incomplete.loc[5, "recent_points_count"], 1)
+        self.assertEqual(incomplete.loc[6, "recent_points_count"], 0)
+        self.assertTrue(pd.isna(incomplete.loc[6, "recent_points_total"]))
+        catalog = pd.DataFrame({
+            "player_code": [1, 2, 3, 4], "web_name": ["One", "Two", "Zero", "Negative"],
+            "team_short_name": ["TST"] * 4, "position": ["Forward"] * 4,
+            "excluded": [False, True, False, False], "status": ["a", "i", "a", "a"],
+            "GW7_predicted_points": [99, 0, 5, 3],
+        })
+        markdown = "\n".join(predictions._recent_performers_markdown(catalog.join(summary, on="player_code"), 7))
+        self.assertLess(markdown.index("| Two |"), markdown.index("| One |"))
+        self.assertIn("GW2: 0, GW6: 6 | 6 | 3.00 | 2 |", markdown)
+        self.assertIn("GW6: 0 | 0 | 0.00 | 1 |", markdown)
+        self.assertIn("GW6: -1 | -1 | -1.00 | 1 |", markdown)
+        empty = predictions._recent_gameweek_summary(history, "2026-2027", 1)
+        self.assertTrue(empty.empty)
+        self.assertIn("No completed Gameweek", "\n".join(predictions._recent_performers_markdown(catalog.join(empty, on="player_code"), 1)))
+
     def test_non_empty_transfer_table_renders_reserved_in_column(self):
         forecast = pd.DataFrame(
             {
                 "player_code": [1],
                 "web_name": ["Starter"],
+                "recent_gameweek_points": ["GW1: 0, GW2: 5"],
+                "recent_points_total": [5],
+                "recent_points_average": [2.5],
+                "recent_points_count": [2],
+                "recent_points_breakdown": ["GW1: 0, GW2: 5"],
                 "team_short_name": ["TST"],
                 "position": ["Forward"],
                 "GW1_predicted_points": [5.0],
@@ -452,6 +504,8 @@ class FPLPredictionsTests(unittest.TestCase):
             [
                 {
                     "out": "Outgoing",
+                    "out_player_code": 1,
+                    "in_player_code": 1,
                     "in": "Incoming",
                     "selling_price": 5.0,
                     "buy_price": 5.0,
@@ -479,12 +533,12 @@ class FPLPredictionsTests(unittest.TestCase):
             )
 
         self.assertIn("**Outgoing → Incoming**", markdown)
-        self.assertIn("| Outgoing | Incoming |", markdown)
+        self.assertIn("| Outgoing | GW1: 0, GW2: 5 | Incoming | GW1: 0, GW2: 5 |", markdown)
         self.assertIn("## ML-optimal £100m squad", markdown)
         self.assertIn("## Your current squad", markdown)
         self.assertIn("GW2: 9/10 fixtures finished", markdown)
         self.assertIn("ARS, AVL are deferred", markdown)
-        self.assertIn("| Starter | TST | Forward | £5.0m | 5.00 | GW1 | — | GW1 |", markdown)
+        self.assertIn("| Starter | GW1: 0, GW2: 5 | TST | Forward | £5.0m | 5.00 | GW1 | — | GW1 |", markdown)
         self.assertRegex(markdown, r"Last generated: \d{4}-\d{2}-\d{2} \d{2}:\d{2} UTC")
 
     def test_workflow_data_revision_override_is_stable(self):
