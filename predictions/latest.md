@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW9
 
-Last generated: 2026-10-24 04:56 UTC
+Last generated: 2026-10-24 12:53 UTC
 
-Data commit: `03dfae66eb65644c33b04a5f9c38c582f459692a`
+Data commit: `d9221db9eab2982d9ef8fdda6483e54503198c6a`
 
 ## Data freshness
 
@@ -73,26 +73,26 @@ Last 5 GW points are recorded current-season FPL totals, oldest to newest. Zero-
 
 | Player | Last 5 GW points | Club | Pos | GW9 | GW10 | GW11 | GW12 | GW13 | 5GW score | 5GW value | History coverage | Raw drivers |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| B.Fernandes | GW3: 2, GW4: 2, GW5: 2, GW6: 1, GW7: 1 | MUN | Midfielder | 5.60 | 5.64 | 5.36 | 5.90 | 5.60 | 22.45 | 1.92 | high | 5-GW avg pts 1.60; mins 90; xGI 0.26; current GWs 7; fixture Elo diff +48 |
-| Gibbs-White | GW4: 8, GW5: 2, GW6: 2, GW7: 0, GW8: 2 | NFO | Midfielder | 5.54 | 4.12 | 4.87 | 5.86 | 6.60 | 21.21 | 2.69 | high | 5-GW avg pts 2.80; mins 72; xGI 0.59; current GWs 8; fixture Elo diff +13 |
+| B.Fernandes | GW3: 2, GW4: 2, GW5: 2, GW6: 1, GW7: 1 | MUN | Midfielder | 5.66 | 5.70 | 5.42 | 5.96 | 5.66 | 22.69 | 1.94 | high | 5-GW avg pts 1.60; mins 90; xGI 0.26; current GWs 7; fixture Elo diff +48 |
+| Gibbs-White | GW4: 8, GW5: 2, GW6: 2, GW7: 0, GW8: 2 | NFO | Midfielder | 5.60 | 4.12 | 4.90 | 5.95 | 6.61 | 21.36 | 2.70 | high | 5-GW avg pts 2.80; mins 72; xGI 0.59; current GWs 8; fixture Elo diff +13 |
 | Haaland | GW3: 9, GW4: 9, GW5: 6, GW6: 6, GW7: 13 | MCI | Forward | 5.20 | 5.32 | 5.85 | 3.38 | 5.85 | 20.55 | 1.31 | high | 5-GW avg pts 8.60; mins 88; xGI 1.01; current GWs 7; fixture Elo diff +103 |
 | Thiago | GW3: 2, GW4: 1, GW5: 5, GW6: 4, GW7: 4 | BRE | Forward | 4.96 | 4.43 | 4.87 | 3.93 | 2.93 | 17.35 | 2.22 | high | 5-GW avg pts 3.20; mins 90; xGI 0.46; current GWs 7; fixture Elo diff -53 |
-| Gabriel | GW3: 2, GW4: 9, GW5: 1, GW6: 2, GW7: 8 | ARS | Defender | 4.87 | 5.78 | 5.09 | 4.23 | 5.09 | 20.17 | 2.55 | high | 5-GW avg pts 4.40; mins 90; xGI 0.19; current GWs 7; fixture Elo diff +246 |
+| Gabriel | GW3: 2, GW4: 9, GW5: 1, GW6: 2, GW7: 8 | ARS | Defender | 4.82 | 5.78 | 5.04 | 4.18 | 5.04 | 20.01 | 2.53 | high | 5-GW avg pts 4.40; mins 90; xGI 0.19; current GWs 7; fixture Elo diff +246 |
 | Doku | GW3: 0, GW4: 0, GW5: 1, GW6: 12, GW7: 6 | MCI | Midfielder | 4.76 | 4.45 | 4.81 | 3.46 | 4.81 | 17.92 | 2.39 | high | 5-GW avg pts 3.80; mins 25; xGI 0.24; current GWs 7; fixture Elo diff +103 |
-| Rice | GW3: 5, GW4: 6, GW5: 1, GW6: 7, GW7: 9 | ARS | Midfielder | 4.68 | 5.75 | 4.83 | 4.40 | 4.83 | 19.69 | 2.70 | high | 5-GW avg pts 5.60; mins 88; xGI 0.24; current GWs 7; fixture Elo diff +246 |
-| Palmer | GW3: 1, GW4: 5, GW5: 2, GW6: 8, GW7: 2 | CHE | Midfielder | 4.63 | 5.13 | 5.15 | 5.01 | 5.15 | 19.96 | 2.04 | high | 5-GW avg pts 3.60; mins 89; xGI 0.22; current GWs 7; fixture Elo diff +16 |
-| Mbeumo | GW3: 8, GW4: 2, GW5: 2, GW6: 8, GW7: 8 | MUN | Midfielder | 4.47 | 4.59 | 4.41 | 4.68 | 4.47 | 18.09 | 2.29 | high | 5-GW avg pts 5.60; mins 90; xGI 0.43; current GWs 7; fixture Elo diff +48 |
-| João Pedro | GW3: 1, GW4: 12, GW5: 0, GW6: 12, GW7: 2 | CHE | Forward | 4.42 | 4.69 | 5.14 | 4.59 | 5.14 | 19.05 | 2.41 | high | 5-GW avg pts 5.40; mins 68; xGI 0.28; current GWs 7; fixture Elo diff +16 |
+| Rice | GW3: 5, GW4: 6, GW5: 1, GW6: 7, GW7: 9 | ARS | Midfielder | 4.70 | 5.76 | 4.85 | 4.41 | 4.85 | 19.76 | 2.71 | high | 5-GW avg pts 5.60; mins 88; xGI 0.24; current GWs 7; fixture Elo diff +246 |
+| Palmer | GW3: 1, GW4: 5, GW5: 2, GW6: 8, GW7: 2 | CHE | Midfielder | 4.63 | 5.15 | 5.16 | 5.06 | 5.16 | 20.04 | 2.04 | high | 5-GW avg pts 3.60; mins 89; xGI 0.22; current GWs 7; fixture Elo diff +16 |
 | Van Hecke | GW3: 8, GW4: 8, GW5: 6, GW6: 3, GW7: 4 | TOT | Defender | 4.42 | 4.05 | 5.42 | 4.21 | 4.19 | 17.87 | 3.65 | high | 5-GW avg pts 5.80; mins 90; xGI 0.20; current GWs 7; fixture Elo diff +19 |
 | E.Le Fée | GW3: 8, GW4: 0, GW5: 5, GW6: 2, GW7: 4 | SUN | Midfielder | 4.36 | 3.55 | 3.26 | 3.83 | 3.26 | 14.80 | 2.60 | high | 5-GW avg pts 3.80; mins 88; xGI 0.62; current GWs 7; fixture Elo diff -84 |
+| Mbeumo | GW3: 8, GW4: 2, GW5: 2, GW6: 8, GW7: 8 | MUN | Midfielder | 4.35 | 4.47 | 4.29 | 4.57 | 4.35 | 17.62 | 2.23 | high | 5-GW avg pts 5.60; mins 90; xGI 0.43; current GWs 7; fixture Elo diff +48 |
+| João Pedro | GW3: 1, GW4: 12, GW5: 0, GW6: 12, GW7: 2 | CHE | Forward | 4.29 | 4.68 | 5.00 | 4.60 | 5.00 | 18.73 | 2.37 | high | 5-GW avg pts 5.40; mins 68; xGI 0.28; current GWs 7; fixture Elo diff +16 |
 | Isak | GW3: 13, GW4: 2, GW5: 8, GW6: 0, GW7: 9 | LIV | Forward | 4.18 | 4.85 | 5.73 | 4.85 | 5.99 | 20.12 | 2.24 | high | 5-GW avg pts 6.40; mins 62; xGI 0.38; current GWs 7; fixture Elo diff +46 |
-| Rogers | GW3: 6, GW4: 8, GW5: 2, GW6: 9, GW7: 2 | CHE | Midfielder | 4.11 | 4.58 | 4.87 | 4.55 | 4.80 | 18.20 | 2.27 | high | 5-GW avg pts 5.40; mins 88; xGI 0.24; current GWs 7; fixture Elo diff +16 |
+| Rogers | GW3: 6, GW4: 8, GW5: 2, GW6: 9, GW7: 2 | CHE | Midfielder | 4.12 | 4.61 | 4.88 | 4.60 | 4.81 | 18.27 | 2.28 | high | 5-GW avg pts 5.40; mins 88; xGI 0.24; current GWs 7; fixture Elo diff +16 |
 | Botman | GW3: 1, GW4: 2, GW5: 4, GW6: 8, GW7: 3 | NEW | Defender | 4.07 | 3.85 | 2.67 | 3.62 | 3.40 | 14.25 | 2.85 | high | 5-GW avg pts 3.60; mins 90; xGI 0.08; current GWs 7; fixture Elo diff -50 |
-| Richards | GW3: 1, GW4: 2, GW5: 8, GW6: 4, GW7: 2 | CRY | Defender | 4.07 | 3.28 | 4.37 | 4.45 | 3.54 | 15.75 | 3.21 | high | 5-GW avg pts 3.40; mins 90; xGI 0.04; current GWs 7; fixture Elo diff +61 |
-| Khalaili | GW3: 3, GW4: 7, GW5: 6, GW6: 2, GW7: 0 | CRY | Defender | 4.05 | 3.46 | 4.24 | 4.32 | 3.71 | 15.81 | 3.16 | high | 5-GW avg pts 3.60; mins 90; xGI 0.32; current GWs 7; fixture Elo diff +61 |
+| Richards | GW3: 1, GW4: 2, GW5: 8, GW6: 4, GW7: 2 | CRY | Defender | 4.06 | 3.26 | 4.36 | 4.44 | 3.53 | 15.70 | 3.20 | high | 5-GW avg pts 3.40; mins 90; xGI 0.04; current GWs 7; fixture Elo diff +61 |
 | N.Jackson | GW3: 2, GW4: 0, GW5: 6, GW6: 9, GW7: 2 | AVL | Forward | 4.05 | 3.96 | 4.35 | 4.21 | 4.01 | 16.45 | 2.49 | high | 5-GW avg pts 3.80; mins 79; xGI 0.44; current GWs 7; fixture Elo diff +139 |
-| Calafiori | GW3: 2, GW4: 6, GW5: 1, GW6: 9, GW7: 6 | ARS | Defender | 4.05 | 4.29 | 4.10 | 3.46 | 4.10 | 16.06 | 2.68 | high | 5-GW avg pts 4.80; mins 83; xGI 0.30; current GWs 7; fixture Elo diff +246 |
+| O'Shea | GW4: 1, GW5: 2, GW6: 11, GW7: 3, GW8: 2 | IPS | Defender | 4.04 | 3.28 | 2.92 | 3.12 | 3.75 | 13.76 | 3.44 | high | 5-GW avg pts 3.80; mins 90; xGI 0.07; current GWs 8; fixture Elo diff -113 |
 | Tavernier | GW3: 10, GW4: 8, GW5: 2, GW6: 1, GW7: 10 | BOU | Midfielder | 4.04 | 4.04 | 4.07 | 3.89 | 3.91 | 16.00 | 2.54 | high | 5-GW avg pts 6.20; mins 79; xGI 0.65; current GWs 7; fixture Elo diff +89 |
+| Barnes | GW3: 12, GW4: 2, GW5: 9, GW6: 2, GW7: 2 | NEW | Midfielder | 3.99 | 3.93 | 2.62 | 3.76 | 3.37 | 14.27 | 2.34 | high | 5-GW avg pts 5.40; mins 90; xGI 0.39; current GWs 7; fixture Elo diff -50 |
 
 Raw drivers are descriptive inputs, not SHAP or causal attributions.
 History coverage measures available rows, not calibrated prediction certainty. Missing match records do not prove that a player rested.
@@ -109,20 +109,20 @@ The squad comparison below is affordable with **£0.0m** left in the bank. It ma
 
 | Player | Last 5 GW points | Club | Position | Cost | Weighted score | Starts | Captains | Vice-captains |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Gabriel | GW3: 2, GW4: 9, GW5: 1, GW6: 2, GW7: 8 | ARS | Defender | £7.9m | 20.17 | GW9, GW10, GW11, GW12, GW13 | GW10 | — |
-| Van Hecke | GW3: 8, GW4: 8, GW5: 6, GW6: 3, GW7: 4 | TOT | Defender | £4.9m | 17.87 | GW9, GW10, GW11, GW12, GW13 | — | GW11 |
-| Silva | GW3: 1, GW4: 3, GW5: 3, GW6: 0, GW7: 8 | BOU | Defender | £5.0m | 16.39 | GW9, GW10, GW11, GW13 | — | — |
-| Richards | GW3: 1, GW4: 2, GW5: 8, GW6: 4, GW7: 2 | CRY | Defender | £4.9m | 15.75 | GW9, GW11, GW12 | — | — |
-| Diop | GW4: 1, GW5: 4, GW6: 2, GW7: 3, GW8: 1 | IPS | Defender | £3.9m | 12.02 | Bench | — | — |
+| Gabriel | GW3: 2, GW4: 9, GW5: 1, GW6: 2, GW7: 8 | ARS | Defender | £7.9m | 20.01 | GW9, GW10, GW11, GW12, GW13 | GW10 | — |
+| Van Hecke | GW3: 8, GW4: 8, GW5: 6, GW6: 3, GW7: 4 | TOT | Defender | £4.9m | 17.87 | GW9, GW10, GW11, GW12, GW13 | — | — |
+| Silva | GW3: 1, GW4: 3, GW5: 3, GW6: 0, GW7: 8 | BOU | Defender | £5.0m | 16.34 | GW9, GW10, GW11, GW13 | — | — |
+| Richards | GW3: 1, GW4: 2, GW5: 8, GW6: 4, GW7: 2 | CRY | Defender | £4.9m | 15.70 | GW9, GW11, GW12 | — | — |
+| Diop | GW4: 1, GW5: 4, GW6: 2, GW7: 3, GW8: 1 | IPS | Defender | £3.9m | 12.41 | Bench | — | — |
 | Isak | GW3: 13, GW4: 2, GW5: 8, GW6: 0, GW7: 9 | LIV | Forward | £9.0m | 20.12 | GW9, GW10, GW11, GW12, GW13 | GW11 | GW13 |
-| João Pedro | GW3: 1, GW4: 12, GW5: 0, GW6: 12, GW7: 2 | CHE | Forward | £7.9m | 19.05 | GW9, GW10, GW11, GW12, GW13 | — | — |
+| João Pedro | GW3: 1, GW4: 12, GW5: 0, GW6: 12, GW7: 2 | CHE | Forward | £7.9m | 18.73 | GW9, GW10, GW11, GW12, GW13 | — | — |
 | Kusi-Asare | GW3: 0, GW4: 0, GW5: 0, GW6: 0, GW7: 0 | FUL | Forward | £4.4m | 0.33 | Bench | — | — |
 | Kinsky | GW3: 6, GW4: 7, GW5: 2, GW6: 3, GW7: 2 | TOT | Goalkeeper | £4.4m | 13.21 | GW9, GW11, GW12, GW13 | — | — |
 | Petrović | GW3: 1, GW4: 1, GW5: 2, GW6: 0, GW7: 6 | BOU | Goalkeeper | £4.5m | 12.98 | GW10 | — | — |
-| B.Fernandes | GW3: 2, GW4: 2, GW5: 2, GW6: 1, GW7: 1 | MUN | Midfielder | £11.7m | 22.45 | GW9, GW10, GW11, GW12, GW13 | GW9, GW12 | — |
-| Gibbs-White | GW4: 8, GW5: 2, GW6: 2, GW7: 0, GW8: 2 | NFO | Midfielder | £7.9m | 21.21 | GW9, GW10, GW11, GW12, GW13 | GW13 | GW9, GW12 |
-| Palmer | GW3: 1, GW4: 5, GW5: 2, GW6: 8, GW7: 2 | CHE | Midfielder | £9.8m | 19.96 | GW9, GW10, GW11, GW12, GW13 | — | — |
-| Rice | GW3: 5, GW4: 6, GW5: 1, GW6: 7, GW7: 9 | ARS | Midfielder | £7.3m | 19.69 | GW9, GW10, GW11, GW12, GW13 | — | GW10 |
+| B.Fernandes | GW3: 2, GW4: 2, GW5: 2, GW6: 1, GW7: 1 | MUN | Midfielder | £11.7m | 22.69 | GW9, GW10, GW11, GW12, GW13 | GW9, GW12 | GW11 |
+| Gibbs-White | GW4: 8, GW5: 2, GW6: 2, GW7: 0, GW8: 2 | NFO | Midfielder | £7.9m | 21.36 | GW9, GW10, GW11, GW12, GW13 | GW13 | GW9, GW12 |
+| Palmer | GW3: 1, GW4: 5, GW5: 2, GW6: 8, GW7: 2 | CHE | Midfielder | £9.8m | 20.04 | GW9, GW10, GW11, GW12, GW13 | — | — |
+| Rice | GW3: 5, GW4: 6, GW5: 1, GW6: 7, GW7: 9 | ARS | Midfielder | £7.3m | 19.76 | GW9, GW10, GW11, GW12, GW13 | — | GW10 |
 | Iwobi | GW3: 2, GW4: 3, GW5: 5, GW6: 4, GW7: 11 | FUL | Midfielder | £5.4m | 16.15 | GW10, GW12, GW13 | — | — |
 
 Squad cost: £98.9m.
@@ -131,19 +131,19 @@ Squad cost: £98.9m.
 
 | Player | Last 5 GW points | Club | Position | Cost | Weighted score | Starts | Captains | Vice-captains |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Gabriel | GW3: 2, GW4: 9, GW5: 1, GW6: 2, GW7: 8 | ARS | Defender | £7.9m | 20.17 | GW9, GW10, GW11, GW12, GW13 | GW10 | GW11 |
-| Branthwaite | GW3: 3, GW4: 6, GW5: 8, GW6: 3, GW7: 1 | EVE | Defender | £5.5m | 14.90 | GW9, GW10, GW11, GW12, GW13 | — | — |
-| Bassey | GW3: 1, GW4: 6, GW5: 6, GW6: 2, GW7: 8 | FUL | Defender | £4.5m | 12.23 | GW9, GW10, GW11, GW12, GW13 | — | — |
+| Gabriel | GW3: 2, GW4: 9, GW5: 1, GW6: 2, GW7: 8 | ARS | Defender | £7.9m | 20.01 | GW9, GW10, GW11, GW12, GW13 | GW10 | GW11 |
+| Branthwaite | GW3: 3, GW4: 6, GW5: 8, GW6: 3, GW7: 1 | EVE | Defender | £5.5m | 15.08 | GW9, GW10, GW11, GW12, GW13 | — | — |
+| Bassey | GW3: 1, GW4: 6, GW5: 6, GW6: 2, GW7: 8 | FUL | Defender | £4.5m | 12.32 | GW9, GW10, GW11, GW12, GW13 | — | — |
 | Egan | GW3: 6, GW4: 2, GW5: 1, GW6: 1, GW7: 4 | HUL | Defender | £4.1m | 11.36 | GW9, GW10, GW11, GW12, GW13 | — | — |
-| Furlong | GW4: 0, GW5: 0, GW6: 0, GW7: 0, GW8: 0 | IPS | Defender | £3.9m | 0.75 | Bench | — | — |
+| Furlong | GW4: 0, GW5: 0, GW6: 0, GW7: 0, GW8: 0 | IPS | Defender | £3.9m | 0.64 | Bench | — | — |
 | Thiago | GW3: 2, GW4: 1, GW5: 5, GW6: 4, GW7: 4 | BRE | Forward | £7.8m | 17.35 | GW9, GW10, GW11, GW12, GW13 | — | — |
-| Havertz | GW3: 8, GW4: 1, GW5: 2, GW6: 2, GW7: 2 | ARS | Forward | £7.5m | 15.96 | GW9, GW10, GW11, GW12, GW13 | — | — |
+| Havertz | GW3: 8, GW4: 1, GW5: 2, GW6: 2, GW7: 2 | ARS | Forward | £7.5m | 15.94 | GW9, GW10, GW11, GW12, GW13 | — | — |
 | Mheuka | GW3: 0, GW4: 0, GW5: 0, GW6: 0, GW7: 0 | CHE | Forward | £4.5m | 0.41 | Bench | — | — |
 | Leno | GW3: 1, GW4: 9, GW5: 3, GW6: 2, GW7: 6 | FUL | Goalkeeper | £4.5m | 11.47 | GW10, GW11, GW12, GW13 | — | — |
 | Horníček | GW3: 2, GW4: 1, GW5: 3, GW6: 0, GW7: 2 | NEW | Goalkeeper | £5.0m | 11.44 | GW9 | — | — |
-| B.Fernandes | GW3: 2, GW4: 2, GW5: 2, GW6: 1, GW7: 1 | MUN | Midfielder | £11.7m | 22.45 | GW9, GW10, GW11, GW12, GW13 | GW9, GW11, GW12 | GW10, GW13 |
-| Gibbs-White | GW4: 8, GW5: 2, GW6: 2, GW7: 0, GW8: 2 | NFO | Midfielder | £7.9m | 21.21 | GW9, GW10, GW11, GW12, GW13 | GW13 | GW9, GW12 |
-| Rogers | GW3: 6, GW4: 8, GW5: 2, GW6: 9, GW7: 2 | CHE | Midfielder | £8.0m | 18.20 | GW9, GW10, GW11, GW12, GW13 | — | — |
+| B.Fernandes | GW3: 2, GW4: 2, GW5: 2, GW6: 1, GW7: 1 | MUN | Midfielder | £11.7m | 22.69 | GW9, GW10, GW11, GW12, GW13 | GW9, GW11, GW12 | GW10, GW13 |
+| Gibbs-White | GW4: 8, GW5: 2, GW6: 2, GW7: 0, GW8: 2 | NFO | Midfielder | £7.9m | 21.36 | GW9, GW10, GW11, GW12, GW13 | GW13 | GW9, GW12 |
+| Rogers | GW3: 6, GW4: 8, GW5: 2, GW6: 9, GW7: 2 | CHE | Midfielder | £8.0m | 18.27 | GW9, GW10, GW11, GW12, GW13 | — | — |
 | Cherki | GW3: 3, GW4: 1, GW5: 8, GW6: 10, GW7: 0 | MCI | Midfielder | £8.0m | 12.36 | GW9, GW10, GW11, GW12, GW13 | — | — |
 | Semenyo | GW3: 6, GW4: 3, GW5: 17, GW6: 3, GW7: 1 | MCI | Midfielder | £8.2m | 0.00 | Bench | — | — |
 
@@ -151,20 +151,20 @@ Squad cost: £99.0m.
 
 ## One-transfer recommendation
 
-**Semenyo → Rice** (projected weighted XI+captain gain 9.40).
+**Semenyo → Rice** (projected weighted XI+captain gain 9.44).
 
 | Out | Last 5 GW points (out) | In | Last 5 GW points (in) | Sell | Buy | Bank after | XI+captain gain |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Semenyo | GW3: 6, GW4: 3, GW5: 17, GW6: 3, GW7: 1 | Rice | GW3: 5, GW4: 6, GW5: 1, GW6: 7, GW7: 9 | £8.2m | £7.3m | £1.1m | 9.40 |
-| Semenyo | GW3: 6, GW4: 3, GW5: 17, GW6: 3, GW7: 1 | Mbeumo | GW3: 8, GW4: 2, GW5: 2, GW6: 8, GW7: 8 | £8.2m | £7.9m | £0.5m | 7.80 |
-| Semenyo | GW3: 6, GW4: 3, GW5: 17, GW6: 3, GW7: 1 | Barcola | GW3: 1, GW4: 3, GW5: 3, GW6: 2, GW7: 4 | £8.2m | £8.0m | £0.4m | 7.64 |
-| Semenyo | GW3: 6, GW4: 3, GW5: 17, GW6: 3, GW7: 1 | Doku | GW3: 0, GW4: 0, GW5: 1, GW6: 12, GW7: 6 | £8.2m | £7.5m | £0.9m | 7.63 |
-| Semenyo | GW3: 6, GW4: 3, GW5: 17, GW6: 3, GW7: 1 | Wirtz | GW3: 3, GW4: 3, GW5: 6, GW6: 2, GW7: 5 | £8.2m | £7.2m | £1.2m | 7.40 |
-| Cherki | GW3: 3, GW4: 1, GW5: 8, GW6: 10, GW7: 0 | Rice | GW3: 5, GW4: 6, GW5: 1, GW6: 7, GW7: 9 | £7.9m | £7.3m | £0.8m | 7.32 |
-| Semenyo | GW3: 6, GW4: 3, GW5: 17, GW6: 3, GW7: 1 | Groß | GW3: 1, GW4: 17, GW5: 14, GW6: 6, GW7: 5 | £8.2m | £6.2m | £2.2m | 5.87 |
-| Semenyo | GW3: 6, GW4: 3, GW5: 17, GW6: 3, GW7: 1 | Iwobi | GW3: 2, GW4: 3, GW5: 5, GW6: 4, GW7: 11 | £8.2m | £5.4m | £3.0m | 5.87 |
-| Cherki | GW3: 3, GW4: 1, GW5: 8, GW6: 10, GW7: 0 | Mbeumo | GW3: 8, GW4: 2, GW5: 2, GW6: 8, GW7: 8 | £7.9m | £7.9m | £0.2m | 5.72 |
-| Semenyo | GW3: 6, GW4: 3, GW5: 17, GW6: 3, GW7: 1 | Tavernier | GW3: 10, GW4: 8, GW5: 2, GW6: 1, GW7: 10 | £8.2m | £6.3m | £2.1m | 5.72 |
+| Semenyo | GW3: 6, GW4: 3, GW5: 17, GW6: 3, GW7: 1 | Rice | GW3: 5, GW4: 6, GW5: 1, GW6: 7, GW7: 9 | £8.2m | £7.3m | £1.1m | 9.44 |
+| Semenyo | GW3: 6, GW4: 3, GW5: 17, GW6: 3, GW7: 1 | Barcola | GW3: 1, GW4: 3, GW5: 3, GW6: 2, GW7: 4 | £8.2m | £8.0m | £0.4m | 7.60 |
+| Semenyo | GW3: 6, GW4: 3, GW5: 17, GW6: 3, GW7: 1 | Doku | GW3: 0, GW4: 0, GW5: 1, GW6: 12, GW7: 6 | £8.2m | £7.5m | £0.9m | 7.59 |
+| Cherki | GW3: 3, GW4: 1, GW5: 8, GW6: 10, GW7: 0 | Rice | GW3: 5, GW4: 6, GW5: 1, GW6: 7, GW7: 9 | £7.9m | £7.3m | £0.8m | 7.40 |
+| Semenyo | GW3: 6, GW4: 3, GW5: 17, GW6: 3, GW7: 1 | Wirtz | GW3: 3, GW4: 3, GW5: 6, GW6: 2, GW7: 5 | £8.2m | £7.2m | £1.2m | 7.36 |
+| Semenyo | GW3: 6, GW4: 3, GW5: 17, GW6: 3, GW7: 1 | Mbeumo | GW3: 8, GW4: 2, GW5: 2, GW6: 8, GW7: 8 | £8.2m | £7.9m | £0.5m | 7.30 |
+| Semenyo | GW3: 6, GW4: 3, GW5: 17, GW6: 3, GW7: 1 | Groß | GW3: 1, GW4: 17, GW5: 14, GW6: 6, GW7: 5 | £8.2m | £6.2m | £2.2m | 5.83 |
+| Semenyo | GW3: 6, GW4: 3, GW5: 17, GW6: 3, GW7: 1 | Iwobi | GW3: 2, GW4: 3, GW5: 5, GW6: 4, GW7: 11 | £8.2m | £5.4m | £3.0m | 5.83 |
+| Semenyo | GW3: 6, GW4: 3, GW5: 17, GW6: 3, GW7: 1 | Ødegaard | GW3: 10, GW4: 3, GW5: 2, GW6: 1, GW7: 3 | £8.2m | £6.8m | £1.6m | 5.68 |
+| Semenyo | GW3: 6, GW4: 3, GW5: 17, GW6: 3, GW7: 1 | Tavernier | GW3: 10, GW4: 8, GW5: 2, GW6: 1, GW7: 10 | £8.2m | £6.3m | £2.1m | 5.68 |
 
 ## Limits
 
