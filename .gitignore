@@ -172,7 +172,7 @@ cython_debug/
 
 # FPML local state and frontend build artifacts
 .fpml/
-frontend/node_modules/
+node_modules/
 frontend/dist/
 frontend/*.tsbuildinfo
 frontend/.env
