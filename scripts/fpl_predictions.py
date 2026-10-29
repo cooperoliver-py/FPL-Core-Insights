@@ -1148,6 +1148,13 @@ def _resolve_user_squad(
         payload = json.loads(path.read_text(encoding="utf-8"))
     except json.JSONDecodeError as exc:
         raise ValueError(f"invalid squad JSON in {path}: {exc}") from exc
+    return resolve_squad(payload, catalog)
+
+
+def resolve_squad(
+    payload: dict, catalog: pd.DataFrame
+) -> tuple[pd.DataFrame, float, set[int]]:
+    """Resolve an in-memory squad using the same rules as the CLI."""
     validate_squad(payload, catalog)
     excluded = payload.get("excluded_player_codes", [])
     if not isinstance(excluded, list) or any(
@@ -1629,7 +1636,7 @@ def _render_markdown(
             "## Limits",
             "",
             "Predictions are estimates, not guarantees. The model does not use chips, transfer hits, "
-            "price-change forecasts, recursive future form, or a UI.",
+            "price-change forecasts, or recursive future form.",
             "",
         )
     )
@@ -1911,6 +1918,14 @@ def run(
         training = _load_training_data(season, gameweek, prior_history=training)
     model, evaluation, evaluation_context = _evaluate_and_fit(training)
     forecast = _forecast(model, training, season, gameweeks)
+    if __package__:
+        from scripts.fpml_data import write_snapshot
+    else:
+        from fpml_data import write_snapshot
+    incomplete_source = _incomplete_source_gameweeks(season, gameweek)
+    live_performance = _live_performance(output_dir, season)
+    write_snapshot(forecast, season, gameweeks, evaluation, evaluation_context,
+                   incomplete_source, live_performance, output_dir)
     user_squad = None
     bank = 0.0
     excluded_codes: set[int] = set()
@@ -1971,8 +1986,6 @@ def run(
             ].astype(int).eq(vice_captain_code)
         transfers = _transfer_options(user_squad, bank, forecast, gameweeks)
 
-    incomplete_source = _incomplete_source_gameweeks(season, gameweek)
-    live_performance = _live_performance(output_dir, season)
     markdown = _render_markdown(
         forecast,
         evaluation,

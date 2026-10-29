@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-28T15:00:00Z",
+  "title": "Design System: FPML",
+  "extensions": {
+    "colorMeta": {
+      "bg": {
+        "role": "neutral",
+        "displayName": "Bg"
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Panel"
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Line"
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Text"
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted"
+      },
+      "green": {
+        "role": "secondary",
+        "displayName": "Green"
+      }
+    },
+    "motion": [
+      {
+        "name": "press",
+        "value": "100ms cubic-bezier(.23,1,.32,1)",
+        "purpose": "Brief button press feedback; disabled for reduced motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "mobile",
+        "value": "767px"
+      },
+      {
+        "name": "tablet",
+        "value": "1023px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Explicit main action.",
+      "html": "<button class=\"ds-primary\">Calculate preview</button>",
+      "css": ".ds-primary{font:500 .875rem \"IBM Plex Sans\",sans-serif;min-height:44px;padding:11px 18px;border:1px solid var(--text);border-radius:6px;color:var(--bg);background:var(--text)}.ds-primary:hover{opacity:.9}.ds-primary:active{transform:scale(.98)}.ds-primary:focus-visible{outline:2px solid var(--text);outline-offset:4px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "A quiet workspace for the next decision",
+    "overview": "Aligned squad rows and a narrow decision column keep the weekly review compact.",
+    "keyCharacteristics": [
+      "Dark neutral surfaces",
+      "Tabular numbers",
+      "White actions",
+      "Selective green gains"
+    ],
+    "rules": [],
+    "dos": [
+      "Preserve units and score meanings."
+    ],
+    "donts": [
+      "Add decorative football imagery."
+    ]
+  }
+}

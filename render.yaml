@@ -1,0 +1,38 @@
+services:
+  - type: web
+    name: fpml-api
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements-web.txt
+    startCommand: uvicorn scripts.fpml_api:app --host 0.0.0.0 --port $PORT --workers 1 --no-access-log
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.8
+      - key: FPML_FRONTEND_ORIGIN
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_ANON_KEY
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: FPML_OWNER_ID
+        sync: false
+      - key: FPML_SNAPSHOT_URL
+        sync: false
+  - type: web
+    name: fpml
+    runtime: static
+    buildCommand: cd frontend && npm ci && npm run build
+    staticPublishPath: frontend/dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_API_URL
+        sync: false
+      - key: VITE_SUPABASE_URL
+        sync: false
+      - key: VITE_SUPABASE_ANON_KEY
+        sync: false

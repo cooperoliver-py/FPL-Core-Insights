@@ -1,0 +1,843 @@
+{
+  "reopened": {
+    "index": 12,
+    "repairs": [],
+    "summary": {
+      "images": 0,
+      "layers": 781,
+      "name": "FPML",
+      "pages": 7
+    }
+  },
+  "prototypeLinksPersisted": 10,
+  "componentOverridePersisted": true,
+  "missingFonts": {
+    "families": []
+  },
+  "document": {
+    "colorProfile": "srgb",
+    "currentPage": 2,
+    "dirty": false,
+    "history": {
+      "redo": 0,
+      "undo": []
+    },
+    "images": 0,
+    "kind": "design",
+    "name": "FPML",
+    "pages": [
+      {
+        "background": "#F5F5F5",
+        "id": 1,
+        "name": "Page 1",
+        "type": "PAGE"
+      },
+      {
+        "background": "#F5F5F5",
+        "children": [
+          {
+            "absoluteBounds": {
+              "height": 64.0,
+              "width": 600.0,
+              "x": 0.0,
+              "y": 0.0
+            },
+            "childCount": 1,
+            "clip": true,
+            "fills": [
+              {
+                "color": "#181E22",
+                "type": "solid"
+              }
+            ],
+            "height": 64.0,
+            "id": 3,
+            "layout": {
+              "columnTracks": [],
+              "contentAlign": "auto",
+              "crossAlign": "min",
+              "crossGap": 10.0,
+              "gap": 16.0,
+              "gridColumns": 2,
+              "gridRows": 2,
+              "mainAlign": "min",
+              "mode": "horizontal",
+              "padding": [
+                16.0,
+                16.0,
+                16.0,
+                16.0
+              ],
+              "reverseZ": false,
+              "rowTracks": [],
+              "strokesIncluded": true,
+              "wrap": false
+            },
+            "name": "Player row",
+            "sizing": {
+              "horizontal": "fixed",
+              "vertical": "fixed"
+            },
+            "type": "COMPONENT",
+            "width": 600.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          {
+            "absoluteBounds": {
+              "height": 44.0,
+              "width": 200.0,
+              "x": 0.0,
+              "y": 130.0
+            },
+            "childCount": 1,
+            "clip": true,
+            "fills": [
+              {
+                "color": "#181E22",
+                "type": "solid"
+              }
+            ],
+            "height": 44.0,
+            "id": 5,
+            "layout": {
+              "columnTracks": [],
+              "contentAlign": "auto",
+              "crossAlign": "min",
+              "crossGap": 10.0,
+              "gap": 16.0,
+              "gridColumns": 2,
+              "gridRows": 2,
+              "mainAlign": "min",
+              "mode": "horizontal",
+              "padding": [
+                16.0,
+                16.0,
+                16.0,
+                16.0
+              ],
+              "reverseZ": false,
+              "rowTracks": [],
+              "strokesIncluded": true,
+              "wrap": false
+            },
+            "name": "Primary action",
+            "sizing": {
+              "horizontal": "fixed",
+              "vertical": "fixed"
+            },
+            "type": "COMPONENT",
+            "width": 200.0,
+            "x": 0.0,
+            "y": 130.0
+          },
+          {
+            "absoluteBounds": {
+              "height": 64.0,
+              "width": 390.0,
+              "x": 0.0,
+              "y": 260.0
+            },
+            "childCount": 1,
+            "clip": true,
+            "fills": [
+              {
+                "color": "#181E22",
+                "type": "solid"
+              }
+            ],
+            "height": 64.0,
+            "id": 7,
+            "layout": {
+              "columnTracks": [],
+              "contentAlign": "auto",
+              "crossAlign": "min",
+              "crossGap": 10.0,
+              "gap": 16.0,
+              "gridColumns": 2,
+              "gridRows": 2,
+              "mainAlign": "min",
+              "mode": "horizontal",
+              "padding": [
+                16.0,
+                16.0,
+                16.0,
+                16.0
+              ],
+              "reverseZ": false,
+              "rowTracks": [],
+              "strokesIncluded": true,
+              "wrap": false
+            },
+            "name": "Navigation",
+            "sizing": {
+              "horizontal": "fixed",
+              "vertical": "fixed"
+            },
+            "type": "COMPONENT",
+            "width": 390.0,
+            "x": 0.0,
+            "y": 260.0
+          },
+          {
+            "absoluteBounds": {
+              "height": 72.0,
+              "width": 350.0,
+              "x": 0.0,
+              "y": 390.0
+            },
+            "childCount": 1,
+            "clip": true,
+            "fills": [
+              {
+                "color": "#181E22",
+                "type": "solid"
+              }
+            ],
+            "height": 72.0,
+            "id": 9,
+            "layout": {
+              "columnTracks": [],
+              "contentAlign": "auto",
+              "crossAlign": "min",
+              "crossGap": 10.0,
+              "gap": 16.0,
+              "gridColumns": 2,
+              "gridRows": 2,
+              "mainAlign": "min",
+              "mode": "horizontal",
+              "padding": [
+                16.0,
+                16.0,
+                16.0,
+                16.0
+              ],
+              "reverseZ": false,
+              "rowTracks": [],
+              "strokesIncluded": true,
+              "wrap": false
+            },
+            "name": "Forecast strip",
+            "sizing": {
+              "horizontal": "fixed",
+              "vertical": "fixed"
+            },
+            "type": "COMPONENT",
+            "width": 350.0,
+            "x": 0.0,
+            "y": 390.0
+          },
+          {
+            "absoluteBounds": {
+              "height": 72.0,
+              "width": 260.0,
+              "x": 0.0,
+              "y": 520.0
+            },
+            "childCount": 1,
+            "clip": true,
+            "fills": [
+              {
+                "color": "#181E22",
+                "type": "solid"
+              }
+            ],
+            "height": 72.0,
+            "id": 11,
+            "layout": {
+              "columnTracks": [],
+              "contentAlign": "auto",
+              "crossAlign": "min",
+              "crossGap": 10.0,
+              "gap": 16.0,
+              "gridColumns": 2,
+              "gridRows": 2,
+              "mainAlign": "min",
+              "mode": "horizontal",
+              "padding": [
+                16.0,
+                16.0,
+                16.0,
+                16.0
+              ],
+              "reverseZ": false,
+              "rowTracks": [],
+              "strokesIncluded": true,
+              "wrap": false
+            },
+            "name": "Price field",
+            "sizing": {
+              "horizontal": "fixed",
+              "vertical": "fixed"
+            },
+            "type": "COMPONENT",
+            "width": 260.0,
+            "x": 0.0,
+            "y": 520.0
+          },
+          {
+            "absoluteBounds": {
+              "height": 44.0,
+              "width": 200.0,
+              "x": 700.0,
+              "y": 130.0
+            },
+            "childCount": 1,
+            "clip": true,
+            "fills": [
+              {
+                "color": "#181E22",
+                "type": "solid"
+              }
+            ],
+            "height": 44.0,
+            "id": 787,
+            "layout": {
+              "columnTracks": [],
+              "contentAlign": "auto",
+              "crossAlign": "min",
+              "crossGap": 10.0,
+              "gap": 16.0,
+              "gridColumns": 2,
+              "gridRows": 2,
+              "mainAlign": "min",
+              "mode": "horizontal",
+              "padding": [
+                16.0,
+                16.0,
+                16.0,
+                16.0
+              ],
+              "reverseZ": false,
+              "rowTracks": [],
+              "strokesIncluded": true,
+              "wrap": false
+            },
+            "mainComponent": 5,
+            "mainComponentName": "Primary action",
+            "name": "Primary action",
+            "sizing": {
+              "horizontal": "fixed",
+              "vertical": "fixed"
+            },
+            "type": "INSTANCE",
+            "width": 200.0,
+            "x": 700.0,
+            "y": 130.0
+          }
+        ],
+        "id": 2,
+        "name": "Components",
+        "type": "PAGE"
+      },
+      {
+        "background": "#F5F5F5",
+        "children": [
+          {
+            "absoluteBounds": {
+              "height": 1300.0,
+              "width": 1440.0,
+              "x": 0.0,
+              "y": 0.0
+            },
+            "childCount": 11,
+            "clip": true,
+            "fills": [
+              {
+                "color": "#101417",
+                "type": "solid"
+              }
+            ],
+            "height": 1300.0,
+            "id": 14,
+            "name": "A / squad first / desktop",
+            "type": "FRAME",
+            "width": 1440.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          {
+            "absoluteBounds": {
+              "height": 1640.0,
+              "width": 390.0,
+              "x": 1520.0,
+              "y": 0.0
+            },
+            "childCount": 8,
+            "clip": true,
+            "fills": [
+              {
+                "color": "#101417",
+                "type": "solid"
+              }
+            ],
+            "height": 1640.0,
+            "id": 108,
+            "name": "B / decision first / mobile",
+            "type": "FRAME",
+            "width": 390.0,
+            "x": 1520.0,
+            "y": 0.0
+          }
+        ],
+        "id": 13,
+        "name": "Composition study",
+        "type": "PAGE"
+      },
+      {
+        "background": "#F5F5F5",
+        "children": [
+          {
+            "absoluteBounds": {
+              "height": 1300.0,
+              "width": 1440.0,
+              "x": 0.0,
+              "y": 0.0
+            },
+            "childCount": 11,
+            "clip": true,
+            "fills": [
+              {
+                "color": "#101417",
+                "type": "solid"
+              }
+            ],
+            "height": 1300.0,
+            "id": 200,
+            "name": "Team / desktop",
+            "type": "FRAME",
+            "width": 1440.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          {
+            "absoluteBounds": {
+              "height": 1000.0,
+              "width": 1440.0,
+              "x": 1520.0,
+              "y": 0.0
+            },
+            "childCount": 7,
+            "clip": true,
+            "fills": [
+              {
+                "color": "#101417",
+                "type": "solid"
+              }
+            ],
+            "height": 1000.0,
+            "id": 294,
+            "name": "Players / desktop",
+            "type": "FRAME",
+            "width": 1440.0,
+            "x": 1520.0,
+            "y": 0.0
+          },
+          {
+            "absoluteBounds": {
+              "height": 1000.0,
+              "width": 1440.0,
+              "x": 3040.0,
+              "y": 0.0
+            },
+            "childCount": 25,
+            "clip": true,
+            "fills": [
+              {
+                "color": "#101417",
+                "type": "solid"
+              }
+            ],
+            "height": 1000.0,
+            "id": 338,
+            "name": "Model / desktop",
+            "type": "FRAME",
+            "width": 1440.0,
+            "x": 3040.0,
+            "y": 0.0
+          }
+        ],
+        "id": 199,
+        "name": "Desktop",
+        "type": "PAGE"
+      },
+      {
+        "background": "#F5F5F5",
+        "children": [
+          {
+            "absoluteBounds": {
+              "height": 1640.0,
+              "width": 390.0,
+              "x": 0.0,
+              "y": 0.0
+            },
+            "childCount": 8,
+            "clip": true,
+            "fills": [
+              {
+                "color": "#101417",
+                "type": "solid"
+              }
+            ],
+            "height": 1640.0,
+            "id": 365,
+            "interactions": [
+              {
+                "actions": [
+                  {
+                    "dest": 702,
+                    "type": "navigate"
+                  }
+                ],
+                "duration_ms": 300,
+                "easing": "easeOut",
+                "transition": {
+                  "type": "instant"
+                },
+                "trigger": {
+                  "type": "onClick"
+                }
+              }
+            ],
+            "name": "Team / mobile",
+            "type": "FRAME",
+            "width": 390.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          {
+            "absoluteBounds": {
+              "height": 1120.0,
+              "width": 390.0,
+              "x": 460.0,
+              "y": 0.0
+            },
+            "childCount": 7,
+            "clip": true,
+            "fills": [
+              {
+                "color": "#101417",
+                "type": "solid"
+              }
+            ],
+            "height": 1120.0,
+            "id": 456,
+            "name": "Players / mobile",
+            "type": "FRAME",
+            "width": 390.0,
+            "x": 460.0,
+            "y": 0.0
+          },
+          {
+            "absoluteBounds": {
+              "height": 1120.0,
+              "width": 390.0,
+              "x": 920.0,
+              "y": 0.0
+            },
+            "childCount": 11,
+            "clip": true,
+            "fills": [
+              {
+                "color": "#101417",
+                "type": "solid"
+              }
+            ],
+            "height": 1120.0,
+            "id": 501,
+            "name": "Model / mobile",
+            "type": "FRAME",
+            "width": 390.0,
+            "x": 920.0,
+            "y": 0.0
+          }
+        ],
+        "id": 364,
+        "name": "Mobile",
+        "type": "PAGE"
+      },
+      {
+        "background": "#F5F5F5",
+        "children": [
+          {
+            "absoluteBounds": {
+              "height": 1640.0,
+              "width": 320.0,
+              "x": 0.0,
+              "y": 0.0
+            },
+            "childCount": 8,
+            "clip": true,
+            "fills": [
+              {
+                "color": "#101417",
+                "type": "solid"
+              }
+            ],
+            "height": 1640.0,
+            "id": 515,
+            "name": "Team / 320",
+            "type": "FRAME",
+            "width": 320.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          {
+            "absoluteBounds": {
+              "height": 1640.0,
+              "width": 768.0,
+              "x": 420.0,
+              "y": 0.0
+            },
+            "childCount": 8,
+            "clip": true,
+            "fills": [
+              {
+                "color": "#101417",
+                "type": "solid"
+              }
+            ],
+            "height": 1640.0,
+            "id": 606,
+            "name": "Team / 768",
+            "type": "FRAME",
+            "width": 768.0,
+            "x": 420.0,
+            "y": 0.0
+          }
+        ],
+        "id": 514,
+        "name": "Layout checks",
+        "type": "PAGE"
+      },
+      {
+        "background": "#F5F5F5",
+        "children": [
+          {
+            "absoluteBounds": {
+              "height": 1000.0,
+              "width": 390.0,
+              "x": 0.0,
+              "y": 0.0
+            },
+            "childCount": 7,
+            "clip": true,
+            "fills": [
+              {
+                "color": "#101417",
+                "type": "solid"
+              }
+            ],
+            "height": 1000.0,
+            "id": 697,
+            "name": "Player details",
+            "type": "FRAME",
+            "width": 390.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          {
+            "absoluteBounds": {
+              "height": 1000.0,
+              "width": 390.0,
+              "x": 460.0,
+              "y": 0.0
+            },
+            "childCount": 7,
+            "clip": true,
+            "fills": [
+              {
+                "color": "#101417",
+                "type": "solid"
+              }
+            ],
+            "height": 1000.0,
+            "id": 707,
+            "name": "Transfer preview",
+            "type": "FRAME",
+            "width": 390.0,
+            "x": 460.0,
+            "y": 0.0
+          },
+          {
+            "absoluteBounds": {
+              "height": 1000.0,
+              "width": 390.0,
+              "x": 920.0,
+              "y": 0.0
+            },
+            "childCount": 7,
+            "clip": true,
+            "fills": [
+              {
+                "color": "#101417",
+                "type": "solid"
+              }
+            ],
+            "height": 1000.0,
+            "id": 717,
+            "name": "Calculated preview",
+            "type": "FRAME",
+            "width": 390.0,
+            "x": 920.0,
+            "y": 0.0
+          },
+          {
+            "absoluteBounds": {
+              "height": 1000.0,
+              "width": 390.0,
+              "x": 1380.0,
+              "y": 0.0
+            },
+            "childCount": 7,
+            "clip": true,
+            "fills": [
+              {
+                "color": "#101417",
+                "type": "solid"
+              }
+            ],
+            "height": 1000.0,
+            "id": 727,
+            "name": "Saved current team",
+            "type": "FRAME",
+            "width": 390.0,
+            "x": 1380.0,
+            "y": 0.0
+          },
+          {
+            "absoluteBounds": {
+              "height": 1000.0,
+              "width": 390.0,
+              "x": 1840.0,
+              "y": 0.0
+            },
+            "childCount": 7,
+            "clip": true,
+            "fills": [
+              {
+                "color": "#101417",
+                "type": "solid"
+              }
+            ],
+            "height": 1000.0,
+            "id": 737,
+            "name": "Loading",
+            "type": "FRAME",
+            "width": 390.0,
+            "x": 1840.0,
+            "y": 0.0
+          },
+          {
+            "absoluteBounds": {
+              "height": 1000.0,
+              "width": 390.0,
+              "x": 2300.0,
+              "y": 0.0
+            },
+            "childCount": 7,
+            "clip": true,
+            "fills": [
+              {
+                "color": "#101417",
+                "type": "solid"
+              }
+            ],
+            "height": 1000.0,
+            "id": 747,
+            "name": "Hold",
+            "type": "FRAME",
+            "width": 390.0,
+            "x": 2300.0,
+            "y": 0.0
+          },
+          {
+            "absoluteBounds": {
+              "height": 1000.0,
+              "width": 390.0,
+              "x": 2760.0,
+              "y": 0.0
+            },
+            "childCount": 7,
+            "clip": true,
+            "fills": [
+              {
+                "color": "#101417",
+                "type": "solid"
+              }
+            ],
+            "height": 1000.0,
+            "id": 757,
+            "name": "Invalid squad",
+            "type": "FRAME",
+            "width": 390.0,
+            "x": 2760.0,
+            "y": 0.0
+          },
+          {
+            "absoluteBounds": {
+              "height": 1000.0,
+              "width": 390.0,
+              "x": 3220.0,
+              "y": 0.0
+            },
+            "childCount": 7,
+            "clip": true,
+            "fills": [
+              {
+                "color": "#101417",
+                "type": "solid"
+              }
+            ],
+            "height": 1000.0,
+            "id": 767,
+            "name": "Stale analysis",
+            "type": "FRAME",
+            "width": 390.0,
+            "x": 3220.0,
+            "y": 0.0
+          },
+          {
+            "absoluteBounds": {
+              "height": 1000.0,
+              "width": 390.0,
+              "x": 3680.0,
+              "y": 0.0
+            },
+            "childCount": 7,
+            "clip": true,
+            "fills": [
+              {
+                "color": "#101417",
+                "type": "solid"
+              }
+            ],
+            "height": 1000.0,
+            "id": 777,
+            "name": "Save error",
+            "type": "FRAME",
+            "width": 390.0,
+            "x": 3680.0,
+            "y": 0.0
+          }
+        ],
+        "flows": [
+          {
+            "description": "",
+            "name": "Team \u2192 details \u2192 preview \u2192 save",
+            "start": 365
+          }
+        ],
+        "id": 696,
+        "name": "Flow and states",
+        "type": "PAGE"
+      }
+    ],
+    "path": null,
+    "selection": [],
+    "styles": [],
+    "textEdit": null,
+    "variables": 6
+  },
+  "playback": "Not verified: window 0 is minimised or hidden; ui.screenshot needs it on screen. Native ui.render works."
+}

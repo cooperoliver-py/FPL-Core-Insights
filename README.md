@@ -11,6 +11,10 @@ It combines three powerful data sources:
 
 ---
 
+## FPML personal app
+
+The desktop and mobile interface includes team previews, player forecasts and model performance. See [local setup and hosting](docs/FPML_HOSTING.md), [the implementation checks](docs/FPML_VERIFICATION.md), and [the editable FigCraft design](design/README.md).
+
 ## 💬 Join the Community
 
 Join the official **[FPL Core Discord](https://discord.gg/QXrzKvgGZm)** — where data enthusiasts and football fans collide.

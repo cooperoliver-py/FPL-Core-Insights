@@ -1,0 +1,35 @@
+import { Disclosure, Help } from './components';
+import { localTime, number, recordValue } from './domain';
+import type { Snapshot } from './domain';
+const labels: Record<string, string> = { gameweek: 'GW', model_mae: 'Mean error', model_rmse: 'RMSE', model_spearman: 'Ranking correlation', top20_actual_mean: 'Top 20 average', pool_actual_mean: 'Pool average', optimal_xi_captain_points: 'Model XI + captain', fpl_average: 'FPL average', zero_actual_pct: 'Zero-point share (%)', players: 'Player records', appeared: 'Appearances' };
+const label = (key: string) => labels[key] || key.replaceAll('_', ' ').replace(/^./, letter => letter.toUpperCase());
+function PerformanceChart({ rows }: { rows: Snapshot['performance'] }) {
+  const valid = rows.filter(row => typeof row.gameweek === 'number' && typeof row.optimal_xi_captain_points === 'number' && typeof row.fpl_average === 'number');
+  if (!valid.length) return null;
+  const width = 900, height = 260, left = 44, right = 20, top = 25, bottom = 40;
+  const numeric = (value: unknown) => typeof value === 'number' ? value : 0;
+  const max = Math.ceil(Math.max(...valid.flatMap(row => [numeric(row.optimal_xi_captain_points), numeric(row.fpl_average)])) / 20) * 20 || 20;
+  const x = (index: number) => left + index * ((width - left - right) / Math.max(1, valid.length - 1));
+  const y = (value: unknown) => height - bottom - numeric(value) / max * (height - top - bottom);
+  return <div className="performance-chart"><svg viewBox={`0 0 ${width} ${height}`} role="img" aria-label="Model XI plus captain and FPL average points by completed Gameweek. Exact values are in the results table below.">
+    {[0, 1, 2, 3].map(i => { const value = max * i / 3; return <g key={i}><line x1={left} x2={width - right} y1={y(value)} y2={y(value)} className="chart-grid"/><text x={left - 12} y={y(value) + 4} textAnchor="end">{Math.round(value)}</text></g>; })}
+    <polyline points={valid.map((row, i) => `${x(i)},${y(row.fpl_average)}`).join(' ')} className="chart-baseline"/>
+    <polyline points={valid.map((row, i) => `${x(i)},${y(row.optimal_xi_captain_points)}`).join(' ')} className="chart-model"/>
+    {valid.map((row, i) => <g key={String(row.gameweek)}><circle cx={x(i)} cy={y(row.optimal_xi_captain_points)} r={4} className="chart-point"><title>GW{String(row.gameweek)}: model {recordValue(row.optimal_xi_captain_points)}, FPL average {recordValue(row.fpl_average)}</title></circle><text x={x(i)} y={height - 12} textAnchor="middle">GW{String(row.gameweek)}</text></g>)}
+  </svg></div>;
+}
+export default function Model({ snapshot }: { snapshot: Snapshot }) {
+  const columns = ['gameweek', 'model_mae', 'model_rmse', 'model_spearman', 'top20_actual_mean', 'pool_actual_mean', 'optimal_xi_captain_points', 'fpl_average'];
+  const allColumns = snapshot.performance.length ? Object.keys(snapshot.performance[0]).filter(key => !['data_commit_sha', 'model_version', 'season'].includes(key)) : [];
+  function table(keys: string[]) { return <div className="table-scroll" tabIndex={0} role="region" aria-label="Gameweek performance results"><table><thead><tr>{keys.map(key => <th key={key}>{label(key)}</th>)}</tr></thead><tbody>{snapshot.performance.map(row => <tr key={String(row.gameweek)}>{keys.map((key, i) => i === 0 ? <th key={key} scope="row">{recordValue(row[key])}</th> : <td key={key}>{recordValue(row[key])}</td>)}</tr>)}</tbody></table></div>; }
+  return <>
+    <header className="page-heading"><div><h1>Model performance</h1><p>Frozen forecasts and historical evaluation.</p></div><span className="tag">{snapshot.season.replace('-', '/')}</span></header>
+    <section className="model-performance"><div className="section-heading"><h2>Live-season results</h2><span className="chart-legend"><span><i className="legend-model"/>Model XI + captain</span><span><i className="legend-average"/>FPL average</span></span></div>
+      {snapshot.performance.length ? <><PerformanceChart rows={snapshot.performance}/><p className="caption">Frozen pre-deadline forecasts, scored after official checks. XI points are before autosubs. Earlier Gameweeks may use older model versions.</p>{table(columns)}<Disclosure title="All live metrics">{table(allColumns)}</Disclosure></> : <div className="empty-results"><h3>No completed forecast results yet</h3><p>Results appear after the Gameweek is officially finished and checked.</p></div>}
+    </section>
+    <section className="evaluation"><div className="section-heading"><h2>Historical walk-forward evaluation</h2><Help label="evaluation metrics">MAE is average absolute error in FPL points. RMSE gives larger misses more weight. Spearman measures ranking agreement; higher is better.</Help></div><p className="caption">Historical GWs 31–38. These results are separate from live-season forecasts.</p><div className="table-scroll"><table><thead><tr><th>Method</th><th>MAE <small>lower is better</small></th><th>RMSE</th><th>Spearman</th></tr></thead><tbody>{Object.entries(snapshot.evaluation).map(([method, metric]) => <tr key={method}><th scope="row">{method}</th><td>{number(metric.mae, 3)}</td><td>{number(metric.rmse, 3)}</td><td>{number(metric.spearman, 3)}</td></tr>)}</tbody></table></div>
+      {!Object.keys(snapshot.evaluation).length && <p className="notice">Historical evaluation is unavailable in this snapshot.</p>}<Disclosure title="Sample sizes and evaluation context"><dl className="context-facts">{Object.entries(snapshot.evaluation_context).map(([key, value]) => <div key={key}><dt>{label(key)}</dt><dd>{recordValue(value)}</dd></div>)}</dl></Disclosure></section>
+    <div className="model-detail-grid"><Disclosure title="Data freshness and provenance" open><dl className="facts"><div><dt>Season</dt><dd>{snapshot.season}</dd></div><div><dt>Forecast generated</dt><dd>{localTime(snapshot.generated_at)}</dd></div><div><dt>Deadline</dt><dd>{snapshot.deadline ? localTime(snapshot.deadline) : 'Unavailable'}</dd></div><div><dt>Forecast horizon</dt><dd>{snapshot.gameweeks.length} Gameweeks</dd></div></dl>{snapshot.freshness.length ? <ul className="freshness-list">{snapshot.freshness.map((item, i) => <li key={i}>{Object.entries(item).map(([key, value]) => <p key={key}><b>{label(key)}</b>: {recordValue(value)}</p>)}</li>)}</ul> : <p className="caption">All scheduled fixtures before the target Gameweek are complete.</p>}<dl className="context-facts">{['id', 'model_version', 'model_code_sha', 'data_commit_sha'].map(key => <div key={key}><dt>{label(key)}</dt><dd className="hash-value">{recordValue(snapshot[key])}</dd></div>)}</dl></Disclosure>
+      <div><Disclosure title="How forecasts work" open><p className="methodology">{snapshot.methodology}</p><p>Forecast weights: {snapshot.weights.join(', ')}.</p><p className="caption">History coverage measures available records, not prediction certainty. Missing match records do not prove that a player rested.</p></Disclosure><Disclosure title="Model limits" open><ul className="limits-list">{snapshot.limits.map(limit => <li key={limit}>{limit}</li>)}</ul></Disclosure></div></div>
+  </>;
+}
