@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW9
 
-Last generated: 2026-10-29 21:21 UTC
+Last generated: 2026-10-30 06:17 UTC
 
-Data commit: `66cef929451c6ad2cb48c534dfe003092bf36d19`
+Data commit: `614ff744264cbabf9e8426a7e53f8d2629adbd0e`
 
 ## Data freshness
 
@@ -75,7 +75,7 @@ Last 5 GW points are recorded current-season FPL totals, oldest to newest. Zero-
 | Thiago | GW4: 1, GW5: 5, GW6: 4, GW7: 4, GW8: 5 | BRE | Forward | 4.77 | 4.60 | 4.87 | 4.05 | 3.03 | 17.47 | 2.24 | high | 5-GW avg pts 3.80; mins 90; xGI 0.53; current GWs 8; fixture Elo diff -53 |
 | Rogers | GW4: 8, GW5: 2, GW6: 9, GW7: 2, GW8: 1 | CHE | Midfielder | 4.69 | 5.51 | 5.63 | 5.55 | 5.63 | 21.41 | 2.68 | high | 5-GW avg pts 4.40; mins 89; xGI 0.24; current GWs 8; fixture Elo diff +16 |
 | Silva | GW4: 3, GW5: 3, GW6: 0, GW7: 8, GW8: 8 | BOU | Defender | 4.57 | 5.09 | 4.63 | 4.31 | 4.23 | 18.41 | 3.68 | high | 5-GW avg pts 4.40; mins 90; xGI 0.27; current GWs 8; fixture Elo diff +89 |
-| Gibbs-White | GW4: 8, GW5: 2, GW6: 2, GW7: 0, GW8: 2 | NFO | Midfielder | 4.48 | 3.56 | 3.98 | 4.67 | 5.51 | 17.44 | 2.21 | high | 5-GW avg pts 2.80; mins 72; xGI 0.59; current GWs 8; fixture Elo diff +13 |
+| Gibbs-White | GW4: 8, GW5: 2, GW6: 2, GW7: 0, GW8: 2 | NFO | Midfielder | 4.48 | 3.64 | 3.98 | 4.70 | 5.51 | 17.53 | 2.22 | high | 5-GW avg pts 2.80; mins 72; xGI 0.59; current GWs 8; fixture Elo diff +13 |
 | Mbeumo | GW4: 2, GW5: 2, GW6: 8, GW7: 8, GW8: 2 | MUN | Midfielder | 4.47 | 4.49 | 4.44 | 4.53 | 4.46 | 17.91 | 2.27 | high | 5-GW avg pts 4.40; mins 90; xGI 0.48; current GWs 8; fixture Elo diff +48 |
 | Doku | GW4: 0, GW5: 1, GW6: 12, GW7: 6, GW8: 2 | MCI | Midfielder | 4.42 | 4.06 | 4.47 | 3.23 | 4.56 | 16.64 | 2.22 | high | 5-GW avg pts 4.20; mins 43; xGI 0.35; current GWs 8; fixture Elo diff +103 |
 | Cherki | GW4: 1, GW5: 8, GW6: 10, GW7: 0, GW8: 0 | MCI | Midfielder | 4.38 | 4.05 | 4.40 | 3.42 | 4.27 | 16.50 | 2.06 | high | 5-GW avg pts 3.80; mins 53; xGI 0.30; current GWs 8; fixture Elo diff +103 |
@@ -87,7 +87,7 @@ Last 5 GW points are recorded current-season FPL totals, oldest to newest. Zero-
 | N.Jackson | GW4: 0, GW5: 6, GW6: 9, GW7: 2, GW8: 13 | AVL | Forward | 4.07 | 3.41 | 4.72 | 4.62 | 3.96 | 16.52 | 2.43 | high | 5-GW avg pts 6.00; mins 79; xGI 0.38; current GWs 8; fixture Elo diff +139 |
 | Xhaka | GW4: 1, GW5: 2, GW6: 2, GW7: 2, GW8: 3 | SUN | Midfielder | 4.00 | 3.29 | 2.94 | 3.98 | 2.87 | 13.83 | 2.56 | high | 5-GW avg pts 2.00; mins 90; xGI 0.21; current GWs 8; fixture Elo diff -84 |
 | Tonali | GW4: 3, GW5: 2, GW6: 7, GW7: 4, GW8: 5 | TOT | Midfielder | 4.00 | 3.89 | 4.62 | 4.07 | 4.00 | 16.44 | 3.10 | high | 5-GW avg pts 4.20; mins 89; xGI 0.28; current GWs 8; fixture Elo diff +19 |
-| Evanilson | GW4: 5, GW5: 2, GW6: 7, GW7: 12, GW8: 6 | BOU | Forward | 4.00 | 4.85 | 4.01 | 3.83 | 3.69 | 16.47 | 2.66 | high | 5-GW avg pts 6.40; mins 87; xGI 0.62; current GWs 8; fixture Elo diff +89 |
+| Evanilson | GW4: 5, GW5: 2, GW6: 7, GW7: 12, GW8: 6 | BOU | Forward | 4.00 | 4.85 | 4.01 | 3.83 | 3.69 | 16.47 | 2.61 | high | 5-GW avg pts 6.40; mins 87; xGI 0.62; current GWs 8; fixture Elo diff +89 |
 | Kamara | GW4: 2, GW5: 6, GW6: 4, GW7: 5, GW8: 4 | AVL | Midfielder | 3.94 | 3.26 | 4.15 | 4.22 | 3.89 | 15.48 | 3.10 | high | 5-GW avg pts 4.20; mins 89; xGI 0.06; current GWs 8; fixture Elo diff +139 |
 | Gray | GW4: 3, GW5: 2, GW6: 3, GW7: 2, GW8: 3 | TOT | Midfielder | 3.91 | 3.70 | 4.23 | 3.88 | 4.05 | 15.77 | 3.22 | high | 5-GW avg pts 2.60; mins 85; xGI 0.08; current GWs 8; fixture Elo diff +19 |
 
@@ -96,11 +96,11 @@ History coverage measures available rows, not calibrated prediction certainty. M
 
 ## Your budget
 
-Bank: **£1.0m**. Current squad selling value: **£97.9m**. Total available funds: **£98.9m**.
+Bank: **£1.0m**. Current squad selling value: **£97.8m**. Total available funds: **£98.8m**.
 
 A transfer can spend your bank plus the outgoing player's selling price. Keeping a player does not require buying them back at their current price.
 
-The squad comparison below is affordable with **£0.1m** left in the bank. It may require multiple transfers; use the one-transfer recommendation for your next move.
+The squad comparison below is affordable with **£0.0m** left in the bank. It may require multiple transfers; use the one-transfer recommendation for your next move.
 
 ## ML-optimal squad within your budget
 
@@ -134,17 +134,17 @@ Squad cost: £99.0m.
 | Branthwaite | GW4: 6, GW5: 8, GW6: 3, GW7: 1, GW8: 0 | EVE | Defender | £5.5m | 8.74 | GW9, GW10, GW11, GW12, GW13 | — | — |
 | Furlong | GW4: 0, GW5: 0, GW6: 0, GW7: 0, GW8: 0 | IPS | Defender | £3.9m | 0.71 | Bench | — | — |
 | Thiago | GW4: 1, GW5: 5, GW6: 4, GW7: 4, GW8: 5 | BRE | Forward | £7.8m | 17.47 | GW9, GW10, GW11, GW12, GW13 | — | GW9 |
-| Havertz | GW4: 1, GW5: 2, GW6: 2, GW7: 2, GW8: 1 | ARS | Forward | £7.5m | 12.91 | GW9, GW10, GW11, GW12, GW13 | — | — |
+| Havertz | GW4: 1, GW5: 2, GW6: 2, GW7: 2, GW8: 1 | ARS | Forward | £7.4m | 12.44 | GW9, GW10, GW11, GW12, GW13 | — | — |
 | Mheuka | GW4: 0, GW5: 0, GW6: 0, GW7: 0, GW8: 0 | CHE | Forward | £4.5m | 0.42 | Bench | — | — |
 | Horníček | GW4: 1, GW5: 3, GW6: 0, GW7: 2, GW8: 8 | NEW | Goalkeeper | £5.0m | 12.12 | GW9, GW10, GW11, GW12 | — | — |
 | Leno | GW4: 9, GW5: 3, GW6: 2, GW7: 6, GW8: 8 | FUL | Goalkeeper | £4.5m | 11.01 | GW13 | — | — |
 | Rogers | GW4: 8, GW5: 2, GW6: 9, GW7: 2, GW8: 1 | CHE | Midfielder | £8.0m | 21.41 | GW9, GW10, GW11, GW12, GW13 | GW11, GW12, GW13 | GW10 |
-| Gibbs-White | GW4: 8, GW5: 2, GW6: 2, GW7: 0, GW8: 2 | NFO | Midfielder | £7.9m | 17.44 | GW9, GW10, GW11, GW12, GW13 | — | GW13 |
+| Gibbs-White | GW4: 8, GW5: 2, GW6: 2, GW7: 0, GW8: 2 | NFO | Midfielder | £7.9m | 17.53 | GW9, GW10, GW11, GW12, GW13 | — | GW13 |
 | Cherki | GW4: 1, GW5: 8, GW6: 10, GW7: 0, GW8: 0 | MCI | Midfielder | £8.0m | 16.50 | GW9, GW10, GW11, GW12, GW13 | — | — |
 | B.Fernandes | GW4: 2, GW5: 2, GW6: 1, GW7: 1, GW8: 0 | MUN | Midfielder | £11.7m | 11.04 | GW9, GW10, GW11, GW12, GW13 | — | — |
 | Rice | GW4: 6, GW5: 1, GW6: 7, GW7: 9, GW8: 3 | ARS | Midfielder | £7.4m | 8.73 | GW10 | — | — |
 
-Squad cost: £98.2m.
+Squad cost: £98.1m.
 
 ## One-transfer recommendation
 
