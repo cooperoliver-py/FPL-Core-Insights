@@ -4,7 +4,18 @@ import { Disclosure, ForecastStrip, Gain, Help, Icon, SquadRows } from './compon
 import { money, number, positionShort, sellingPrice } from './domain';
 import type { Analysis, Player, Snapshot, Squad, Transfer } from './domain';
 
-export function Team({ snapshot, analysis, gw, onPlayer, onEdit, onTransfer, isPreview }: { snapshot: Snapshot; analysis: Analysis | null; gw: number; onPlayer: (id: number) => void; onEdit: () => void; onTransfer: (transfer: Transfer) => void; isPreview: boolean }) {
+export function Team({ snapshot, analysis, savedSquad, gw, onPlayer, onEdit, onTransfer, isPreview }: { snapshot: Snapshot; analysis: Analysis | null; savedSquad: Squad | null; gw: number; onPlayer: (id: number) => void; onEdit: () => void; onTransfer: (transfer: Transfer) => void; isPreview: boolean }) {
+  if (!analysis && savedSquad) return <>
+    <header className="page-heading"><div><h1>Your team</h1><p>Your squad is saved. Calculate a preview for the latest forecasts.</p></div><button className="secondary" onClick={onEdit}><Icon><Pencil size={16}/></Icon>Edit team</button></header>
+    <section className="lineup-section" aria-label="Saved squad">
+      <div className="section-heading"><h2>Saved squad</h2><span>Bank {money(savedSquad.bank)}</span></div>
+      <div className="table-scroll"><table><thead><tr><th>Player</th><th>Position</th><th>Paid</th></tr></thead><tbody>{savedSquad.players.map(holding => {
+        const player = snapshot.players.find(p => p.player_code === holding.player_code);
+        return <tr key={holding.player_code}><th scope="row">{player?.web_name || `Player ${holding.player_code}`}</th><td>{player?.position || 'Unavailable'}</td><td>{money(holding.purchase_price)}</td></tr>;
+      })}</tbody></table></div>
+      <button className="primary" onClick={onEdit}>Review and calculate</button>
+    </section>
+  </>;
   if (!analysis) return <section className="empty-team"><div className="empty-mark"><Plus size={30}/></div><h1>Your team, your next move.</h1><p>Add your current 15 players and bank to see your lineup and legal transfer options.</p><button className="primary" onClick={onEdit}>Set up your team</button><p className="caption">You can import your existing squad JSON in the editor.</p></section>;
   const lineup = analysis.current.lineups[String(gw)];
   const best = analysis.transfers[0];

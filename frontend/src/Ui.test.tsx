@@ -36,6 +36,25 @@ beforeEach(() => {
 });
 afterEach(cleanup);
 describe('observable UI workflows', () => {
+  it('keeps the saved team visible when a new forecast invalidates its old analysis', async () => {
+    network.request.mockResolvedValue({ ...workspace, snapshot: { ...workspace.snapshot, id: 'new-forecast' } });
+    mount();
+    await screen.findByRole('heading', { name: 'Your team' });
+    expect(screen.queryByRole('button', { name: 'Set up your team' })).toBeNull();
+    expect(screen.getByText('Player 15')).toBeTruthy();
+    expect(screen.queryByText('Projected XI + captain')).toBeNull();
+    expect(screen.queryByRole('button', { name: 'Preview transfer' })).toBeNull();
+    fireEvent.click(screen.getByRole('button', { name: 'Edit team' }));
+    expect(screen.getByRole('spinbutton', { name: 'Bank (£m)' })).toHaveProperty('value', '1');
+    expect(screen.getByRole('spinbutton', { name: 'Purchase price for Player 15' })).toHaveProperty('value', '5');
+  });
+
+  it('shows setup only when no team has been saved', async () => {
+    network.request.mockResolvedValue({ ...workspace, team: null, analysis: null });
+    mount();
+    expect(await screen.findByRole('button', { name: 'Set up your team' })).toBeTruthy();
+    expect(screen.queryByRole('region', { name: 'Saved squad' })).toBeNull();
+  });
   it('switches to Recent form and changes the sort in the same navigation', () => {
     render(<MemoryRouter initialEntries={['/players?gw=9']}><Players snapshot={workspace.snapshot} squad={workspace.team?.squad || null} gw={9} onPlayer={() => {}}/></MemoryRouter>);
     fireEvent.click(screen.getByRole('button', { name: 'Recent form' }));
