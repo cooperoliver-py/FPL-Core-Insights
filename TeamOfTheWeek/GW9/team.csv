@@ -1,0 +1,16 @@
+season,gameweek,position,position_rank,player_code,player_id,first_name,second_name,web_name,team_code,club,points,minutes,goals_scored,assists,clean_sheets,bonus
+2026-2027,9,Goalkeeper,1,489639,109,Bart,Verbruggen,Verbruggen,36,BHA,11,90.0,0.0,0.0,1.0,3.0
+2026-2027,9,Goalkeeper,2,111234,226,Jordan,Pickford,Pickford,11,EVE,7,90.0,0.0,0.0,1.0,1.0
+2026-2027,9,Defender,1,469142,112,Jan Paul,van Hecke,Van Hecke,6,TOT,15,90.0,1.0,0.0,1.0,3.0
+2026-2027,9,Defender,2,444463,145,Wesley,Fofana,Fofana,8,CHE,11,90.0,0.0,1.0,1.0,2.0
+2026-2027,9,Defender,3,199798,31,Ezri,Konsa Ngoyo,Konsa,3,ARS,10,90.0,0.0,0.0,1.0,2.0
+2026-2027,9,Defender,4,444765,85,Sepp,van den Berg,Van den Berg,94,BRE,10,90.0,0.0,0.0,1.0,2.0
+2026-2027,9,Defender,5,465730,115,Maxim,De Cuyper,De Cuyper,36,BHA,9,71.0,0.0,1.0,1.0,1.0
+2026-2027,9,Midfielder,1,509416,129,Yasin,Ayari,Ayari,36,BHA,10,90.0,1.0,0.0,1.0,2.0
+2026-2027,9,Midfielder,2,244850,40,Morgan,Rogers,Rogers,8,CHE,9,90.0,1.0,0.0,1.0,1.0
+2026-2027,9,Midfielder,3,480457,183,Jack,Rudoni,Rudoni,9,COV,9,90.0,1.0,0.0,0.0,2.0
+2026-2027,9,Midfielder,4,204480,13,Declan,Rice,Rice,3,ARS,8,90.0,0.0,1.0,1.0,2.0
+2026-2027,9,Midfielder,5,216055,571,Florentino Ibrain,Morris Luís,Florentino,40,IPS,8,69.0,1.0,0.0,0.0,1.0
+2026-2027,9,Forward,1,169432,295,Oli,McBurnie,McBurnie,88,HUL,12,90.0,1.0,1.0,0.0,3.0
+2026-2027,9,Forward,2,210156,492,Taiwo,Awoniyi,Awoniyi,9,COV,9,71.0,1.0,0.0,0.0,3.0
+2026-2027,9,Forward,3,219847,26,Kai,Havertz,Havertz,3,ARS,9,83.0,1.0,0.0,1.0,3.0
