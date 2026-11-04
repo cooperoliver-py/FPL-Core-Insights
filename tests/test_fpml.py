@@ -11,7 +11,7 @@ from unittest.mock import patch
 
 import pandas as pd
 from scripts import fpl_predictions as engine
-from scripts.fpml_data import analyse, write_snapshot, validate_snapshot
+from scripts.fpml_data import analyse, fixture_context, write_snapshot, validate_snapshot
 
 
 def fixture():
@@ -27,6 +27,33 @@ def fixture():
 
 
 class DataTests(unittest.TestCase):
+    def test_fixture_context_preserves_double_blank_and_unknown_gameweeks(self):
+        with tempfile.TemporaryDirectory() as directory, patch.object(engine, 'DATA', Path(directory)):
+            base = Path(directory) / 'test'
+            base.mkdir()
+            pd.DataFrame([dict(code=1, short_name='ONE'), dict(code=2, short_name='TWO')]).to_csv(base/'teams.csv', index=False)
+            for gw, rows in [(9, [dict(home_team=1, away_team=2), dict(home_team=2, away_team=1)]), (10, [])]:
+                path = engine._fixture_file('test', gw)
+                path.parent.mkdir(parents=True)
+                pd.DataFrame(rows, columns=['home_team', 'away_team']).to_csv(path, index=False)
+            context = fixture_context('test', [9, 10, 11])
+        self.assertEqual(len(context['9']), 2)
+        self.assertEqual(context['9'][0]['away_short_name'], 'TWO')
+        self.assertEqual(context['10'], [])
+        self.assertNotIn('11', context)
+        _, _, snapshot = fixture()
+        snapshot['fixtures'] = context
+        snapshot['gameweeks'] = [9, 10, 11]
+        snapshot['weights'] = [1, 1, 1]
+        for player in snapshot['players']:
+            for gw in (10, 11):
+                player[f'GW{gw}_predicted_points'] = 1
+                player[f'GW{gw}_availability'] = 1
+        self.assertIs(validate_snapshot(snapshot), snapshot)
+        snapshot['fixtures']['9'][0]['away_team'] = 1
+        with self.assertRaises(ValueError):
+            validate_snapshot(snapshot)
+
     def test_shared_analysis_money_and_lineup_parity(self):
         frame,squad,snapshot=fixture()
         result=analyse(snapshot,squad)
@@ -130,6 +157,51 @@ class APITests(unittest.TestCase):
         exported = self.client.get('/api/export?format=csv')
         self.assertIn('player_code',exported.text.splitlines()[0])
         self.assertIn('GW9_predicted_points',exported.text.splitlines()[0])
+
+    def wait_for_job(self, response):
+        self.assertEqual(response.status_code, 200, response.text)
+        job = response.json()
+        for _ in range(100):
+            job = self.client.get('/api/previews/' + job['id']).json()
+            if job['status'] in ('completed', 'failed'):
+                break
+            time.sleep(.02)
+        self.assertEqual(job['status'], 'completed', job)
+        return job
+
+    def test_recalculation_caches_analysis_without_changing_saved_holdings(self):
+        original = dict(team=dict(revision=3, saved_at='original timestamp', squad=self.squad), analysis=None)
+        self.store.put('team', original)
+        self.assertEqual(self.client.get('/api/export?format=md').status_code, 409)
+        job = self.wait_for_job(self.client.post('/api/analysis', json=dict(snapshot_id='test', revision=3)))
+        self.assertEqual(job['kind'], 'analysis')
+        self.assertEqual(self.store.get('team'), original)
+        workspace = self.client.get('/api/workspace').json()
+        self.assertEqual(workspace['team'], original['team'])
+        self.assertEqual(workspace['analysis'], job['analysis'])
+        self.assertEqual(self.client.get('/api/export?format=md').status_code, 200)
+        self.assertEqual(self.client.put('/api/team', json=dict(preview_id=job['id'], revision=3)).status_code, 409)
+        self.store.put('team', dict(team=dict(revision=4, saved_at='next', squad=self.squad), analysis=None))
+        self.assertIsNone(self.client.get('/api/workspace').json()['analysis'])
+        self.assertEqual(self.client.get('/api/export?format=md&preview_id='+job['id']).status_code, 409)
+
+    def test_preview_export_does_not_require_saving_hypothetical_team(self):
+        job = self.wait_for_job(self.client.post('/api/previews', json=dict(snapshot_id='test', revision=0, draft=self.squad)))
+        response = self.client.get('/api/export?format=md&preview_id='+job['id'])
+        self.assertEqual(response.status_code, 200, response.text)
+        self.assertIn('## Your current squad', response.text)
+        self.assertIn('Hypothetical squad analysis', response.text)
+        self.assertIn('fpml-preview.md', response.headers['content-disposition'])
+        self.assertIsNone(self.store.get('team'))
+        self.assertEqual(self.client.get('/api/export?format=json&preview_id='+job['id']).status_code, 404)
+        self.path.write_text(json.dumps({**self.snapshot, 'id': 'new'}))
+        self.assertEqual(self.client.get('/api/export?format=csv&preview_id='+job['id']).status_code, 409)
+
+    def test_recalculation_requires_saved_team_and_matching_version(self):
+        self.assertEqual(self.client.post('/api/analysis', json=dict(snapshot_id='test', revision=0)).status_code, 404)
+        self.store.put('team', dict(team=dict(revision=2, saved_at='then', squad=self.squad), analysis=None))
+        for snapshot_id, revision in [('old', 2), ('test', 1)]:
+            self.assertEqual(self.client.post('/api/analysis', json=dict(snapshot_id=snapshot_id, revision=revision)).status_code, 409)
 
     def test_auth_fails_closed_and_nonowner_denied(self):
         with patch.dict(os.environ,{"FPML_LOCAL":"0"}):

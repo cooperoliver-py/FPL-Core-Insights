@@ -37,9 +37,12 @@ class Squad(BaseModel):
     excluded_player_codes: list[StrictInt] = Field(default_factory=list)
 
 
-class PreviewInput(BaseModel):
+class AnalysisInput(BaseModel):
     snapshot_id: str
     revision: int = Field(ge=0)
+
+
+class PreviewInput(AnalysisInput):
     draft: Squad
 
 
@@ -184,12 +187,18 @@ def create_app(snapshot_path=None, store=None, analyser=analyse):
             raise HTTPException(409, "Team changed on another device. Reload before saving.")
         if snapshot_id != current_id:
             raise HTTPException(409, "Forecast changed. Calculate again.")
+        return state
+
+    def current_analysis(state, current):
+        if not state:
+            return None
+        return storage.get(f"analysis:{state['team']['revision']}:{current['id']}") or state.get("analysis")
 
     @app.get("/api/workspace", dependencies=[Depends(owner)])
     def workspace():
         current = snapshot()
         state = storage.get("team") or {}
-        analysis = state.get("analysis")
+        analysis = current_analysis(state, current)
         return dict(snapshot=current, team=state.get("team"), analysis=analysis,
                     auth=dict(mode="local" if os.getenv("FPML_LOCAL") == "1" else "supabase"))
 
@@ -197,7 +206,17 @@ def create_app(snapshot_path=None, store=None, analyser=analyse):
     def preview(payload: PreviewInput):
         current = snapshot()
         check(payload.revision, payload.snapshot_id, current["id"])
-        draft = payload.draft.model_dump()
+        return start_job(current, payload.revision, payload.draft.model_dump())
+
+    @app.post("/api/analysis", dependencies=[Depends(owner)])
+    def recalculate(payload: AnalysisInput):
+        current = snapshot()
+        state = check(payload.revision, payload.snapshot_id, current["id"])
+        if not state:
+            raise HTTPException(404, "Save your team before recalculating it.")
+        return start_job(current, payload.revision, state["team"]["squad"], saved_team=True)
+
+    def start_job(current, revision, draft, saved_team=False):
         try:
             import pandas as pd
             catalog = pd.DataFrame(current["players"])
@@ -209,7 +228,7 @@ def create_app(snapshot_path=None, store=None, analyser=analyse):
             raise HTTPException(422, str(exc))
         if not capacity.acquire(blocking=False):
             raise HTTPException(429, "Analysis is busy. Try again shortly.")
-        job = dict(id=str(uuid.uuid4()), status="queued", revision=payload.revision, snapshot_id=current["id"])
+        job = dict(id=str(uuid.uuid4()), status="queued", revision=revision, snapshot_id=current["id"], kind="analysis" if saved_team else "preview")
         try:
             storage.put("preview:" + job["id"], job)
         except Exception:
@@ -219,6 +238,8 @@ def create_app(snapshot_path=None, store=None, analyser=analyse):
             try:
                 storage.put("preview:" + job["id"], {**job, "status": "running"})
                 result = analyser(current, draft)
+                if saved_team:
+                    storage.put(f"analysis:{revision}:{current['id']}", result)
                 storage.put("preview:" + job["id"], {**job, "status": "completed", "analysis": result})
             except Exception:
                 storage.put("preview:" + job["id"], {**job, "status": "failed", "error": "Analysis failed. Check your squad and try again."})
@@ -237,6 +258,8 @@ def create_app(snapshot_path=None, store=None, analyser=analyse):
     @app.put("/api/team", dependencies=[Depends(owner)])
     def save(payload: SaveInput):
         job = get_preview(payload.preview_id)
+        if job.get("kind") == "analysis":
+            raise HTTPException(409, "Recalculation is already available. Your saved team is unchanged.")
         if job["status"] != "completed":
             raise HTTPException(409, "Calculate a successful preview before saving")
         if job["revision"] != payload.revision:
@@ -251,22 +274,35 @@ def create_app(snapshot_path=None, store=None, analyser=analyse):
         return value
 
     @app.get("/api/export", dependencies=[Depends(owner)])
-    def export(format: str = "json"):
+    def export(format: str = "json", preview_id: str | None = None):
         state = storage.get("team")
-        if not state:
+        hypothetical = False
+        if not state and (format == "json" or not preview_id):
             raise HTTPException(404, "Save your team first")
         if format == "json":
             body, media = json.dumps(state["team"]["squad"], indent=2), "application/json"
         elif format in ("md", "csv"):
             current = snapshot()
-            if state["analysis"]["snapshot_id"] != current["id"]:
-                raise HTTPException(409, "Forecast changed. Calculate and save before exporting analysis.")
-            forecast, markdown = private_report(current, state["analysis"])
+            if preview_id:
+                job = get_preview(preview_id)
+                check(job["revision"], job["snapshot_id"], current["id"])
+                if job["status"] != "completed":
+                    raise HTTPException(409, "Wait for the calculation before exporting analysis.")
+                analysis = job["analysis"]
+                hypothetical = job.get("kind") != "analysis"
+            else:
+                analysis = current_analysis(state, current)
+            if not analysis or analysis["snapshot_id"] != current["id"]:
+                raise HTTPException(409, "Forecast changed. Recalculate your team before exporting analysis.")
+            forecast, markdown = private_report(current, analysis)
+            if hypothetical:
+                markdown = "# FPML preview\n\nHypothetical squad analysis. Your saved team is unchanged.\n\n" + markdown
             body = markdown if format == "md" else forecast.to_csv(index=False, lineterminator="\n")
             media = "text/markdown" if format == "md" else "text/csv"
         else:
             raise HTTPException(422, "Choose json, csv or md")
-        return Response(body, media_type=media, headers={"Content-Disposition": f'attachment; filename="fpml.{format}"', "Cache-Control": "no-store"})
+        name = "fpml-preview" if hypothetical else "fpml"
+        return Response(body, media_type=media, headers={"Content-Disposition": f'attachment; filename="{name}.{format}"', "Cache-Control": "no-store"})
 
     @app.middleware("http")
     async def private_headers(request, call_next):

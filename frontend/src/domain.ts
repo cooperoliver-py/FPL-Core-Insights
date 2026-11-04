@@ -19,6 +19,7 @@ export type Player = z.infer<typeof playerSchema>;
 const metricSchema = z.object({ mae: z.number().nullable(), rmse: z.number().nullable(), spearman: z.number().nullable() });
 export const snapshotSchema = z.object({
   id: z.string(), schema_version: z.literal(1), season: z.string(), gameweeks: z.array(z.number().int()).min(1),
+  fixtures: z.record(z.string(), z.array(z.object({ home_team: z.number().int(), away_team: z.number().int(), home_short_name: z.string(), away_short_name: z.string() }))).optional(),
   generated_at: z.string(), deadline: z.string().nullable().optional(), weights: z.array(z.number()), players: z.array(playerSchema),
   evaluation: z.record(z.string(), metricSchema), evaluation_context: z.record(z.string(), z.unknown()),
   freshness: z.array(z.record(z.string(), z.unknown())), performance: z.array(z.record(z.string(), z.unknown())),

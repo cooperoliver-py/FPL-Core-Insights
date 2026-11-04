@@ -19,6 +19,29 @@ def records(frame):
     return json.loads(frame.to_json(orient="records", date_format="iso"))
 
 
+def fixture_context(season, gameweeks):
+    teams_path = engine.DATA / season / "teams.csv"
+    if not teams_path.exists():
+        return {}
+    names = pd.read_csv(teams_path).set_index("code")["short_name"].to_dict()
+    context = {}
+    for gw in gameweeks:
+        path = engine._fixture_file(season, gw)
+        if not path.exists():
+            continue
+        fixtures = pd.read_csv(path)
+        rows = []
+        for fixture in fixtures.itertuples(index=False):
+            home, away = fixture.home_team, fixture.away_team
+            if home not in names or away not in names:
+                break
+            rows.append(dict(home_team=int(home), away_team=int(away),
+                             home_short_name=names[home], away_short_name=names[away]))
+        else:
+            context[str(gw)] = rows
+    return context
+
+
 def write_snapshot(forecast, season, gameweeks, evaluation, context, freshness, performance, output_dir):
     # Public snapshots are built before any owner-specific projection changes.
     private = [c for c in forecast if c in {"excluded", "purchase_price", "selling_price", "bank", "current_squad", "recommended_squad"} or re.match(r"(?:current_)?GW\d+_(?:lineup|captain|vice_captain)$", c)]
@@ -29,6 +52,7 @@ def write_snapshot(forecast, season, gameweeks, evaluation, context, freshness, 
     deadline = str(summary.loc[gameweeks[0], "deadline_time"]) if gameweeks[0] in summary.index else None
     snapshot = dict(schema_version=1, season=season, gameweeks=gameweeks, generated_at=generated,
                     deadline=deadline, weights=list(engine.HORIZON_WEIGHTS[:len(gameweeks)]), players=players,
+                    fixtures=fixture_context(season, gameweeks),
                     evaluation=evaluation, evaluation_context=context, freshness=freshness,
                     performance=records(performance.drop(columns=["current_xi_captain_points"], errors="ignore")), limits=LIMITS,
                     methodology="Historical walk-forward evaluation. Forecasts combine lagged form, fixtures, availability and workload.",
@@ -59,6 +83,15 @@ def validate_snapshot(snapshot):
     weights = snapshot.get("weights")
     if not isinstance(weights, list) or len(weights) != len(weeks) or any(type(w) not in (int, float) or not math.isfinite(w) or w < 0 for w in weights):
         raise ValueError("Invalid forecast weights")
+    fixtures = snapshot.get("fixtures", {})
+    if not isinstance(fixtures, dict):
+        raise ValueError("Invalid forecast fixtures")
+    for gw, rows in fixtures.items():
+        if gw not in {str(week) for week in weeks} or not isinstance(rows, list):
+            raise ValueError("Invalid fixture Gameweek")
+        for row in rows:
+            if not isinstance(row, dict) or any(type(row.get(key)) is not int for key in ("home_team", "away_team")) or any(not isinstance(row.get(key), str) or not row[key] for key in ("home_short_name", "away_short_name")) or row["home_team"] == row["away_team"]:
+                raise ValueError("Invalid fixture teams")
     for key in ("evaluation", "evaluation_context"):
         if not isinstance(snapshot.get(key), dict):
             raise ValueError(f"Invalid snapshot {key}")

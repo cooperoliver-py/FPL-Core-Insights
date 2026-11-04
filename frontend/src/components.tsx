@@ -25,14 +25,27 @@ export function Gain({ value }: { value: number }) {
   return <span className={value > 0 ? 'gain' : value < 0 ? 'loss' : ''}>{value >= 0 ? <ArrowUpRight size={17} aria-hidden="true"/> : <ArrowDownRight size={17} aria-hidden="true"/>}{value > 0 ? '+' : ''}{number(value, 2)}</span>;
 }
 export function ForecastStrip({ player, snapshot, gw }: { player: Player; snapshot: Snapshot; gw: number }) {
-  return <div className="forecast-strip" aria-label={`${player.web_name} forecast points`}>{snapshot.gameweeks.map(week => <div key={week} className={week === gw ? 'current' : ''}><span>GW{week}</span><strong>{number(points(player, week))}</strong></div>)}</div>;
+  return <div className="forecast-strip" aria-label={`${player.web_name} forecast points`}>{snapshot.gameweeks.map(week => {
+    const fixtures = snapshot.fixtures?.[String(week)];
+    const opponents = fixtures?.flatMap(fixture => fixture.home_team === player.team_code ? [`${fixture.away_short_name} (H)`] : fixture.away_team === player.team_code ? [`${fixture.home_short_name} (A)`] : []);
+    const context = opponents === undefined ? 'Fixture unknown' : opponents.length ? opponents.join(' · ') : 'Blank';
+    return <div key={week} className={week === gw ? 'current' : ''}><span>GW{week}</span><strong>{number(points(player, week))}</strong><small className="fixture-context" title={context}>{context}</small></div>;
+  })}</div>;
 }
-export function PlayerDetails({ player, snapshot, gw, owned, excluded, onExclude, close }: { player: Player; snapshot: Snapshot; gw: number; owned: boolean; excluded: boolean; onExclude: () => void; close: () => void }) {
+export function PlayerDetails({ player, snapshot, gw, owned, previewStatus, excluded, onExclude, close }: { player: Player; snapshot: Snapshot; gw: number; owned: boolean; previewStatus?: 'incoming' | 'outgoing'; excluded: boolean; onExclude: () => void; close: () => void }) {
+  const closeRef = useRef(close);
+  closeRef.current = close;
+  useEffect(() => {
+    const opener = document.activeElement;
+    const dismiss = (event: KeyboardEvent) => { if (event.key === 'Escape' && !document.querySelector('dialog[open]')) { event.preventDefault(); closeRef.current(); } };
+    document.addEventListener('keydown', dismiss);
+    return () => { document.removeEventListener('keydown', dismiss); if (opener instanceof HTMLElement && opener.isConnected) opener.focus(); };
+  }, []);
   return <div className="player-detail">
     <header className="section-heading"><span className="muted">Player detail</span><button className="icon-button desktop-only" aria-label="Close player detail" onClick={close}><X size={18}/></button></header>
     <span className="club-label">{player.team} <span>{positionShort[player.position] || player.position}</span></span>
     <h2>{[player.first_name, player.second_name].filter(Boolean).join(' ') || player.web_name}</h2>
-    <div className="player-price">{money(player.now_cost)}{owned && <span className="tag">Owned</span>}</div>
+    <div className="player-price">{money(player.now_cost)}{owned && <span className="tag">Owned</span>}{previewStatus && <span className="tag">{previewStatus === 'incoming' ? 'In preview' : 'Leaving preview'}</span>}</div>
     <ForecastStrip player={player} snapshot={snapshot} gw={gw}/>
     {excluded && <p className="notice">Excluded from your suggestions. Your team analysis scores this player at zero; the strip above shows the original forecast.</p>}
     <dl className="facts"><div><dt>Weighted score <Help label="weighted score">Forecast points weighted {snapshot.weights.join(', ')} across the available Gameweeks.</Help></dt><dd>{number(player.weighted_score, 2)}</dd></div><div><dt>Value <Help label="value">Weighted forecast points per £1m of current price.</Help></dt><dd>{number(player.predicted_value, 2)}</dd></div><div><dt>History coverage</dt><dd className="sentence-case">{player.confidence}</dd></div><div><dt>Availability</dt><dd>{player.status === 'a' ? 'Available' : player.status === 'i' ? 'Injured' : player.status === 's' ? 'Suspended' : player.status === 'd' ? 'Doubtful' : 'Unavailable'}</dd></div></dl>

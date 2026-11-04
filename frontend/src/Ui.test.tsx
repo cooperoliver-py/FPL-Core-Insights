@@ -5,7 +5,7 @@ import { MemoryRouter } from 'react-router-dom';
 import { workspaceSchema, localTime } from './domain';
 import Players from './Players';
 const network = vi.hoisted(() => ({ request: vi.fn() }));
-vi.mock('./api', () => ({ authClient: null, request: network.request, download: vi.fn(), ApiError: class extends Error { constructor(message: string, public status: number) { super(message); } } }));
+vi.mock('./api', () => ({ authClient: null, request: network.request, workspaceRequest: network.request, download: vi.fn(), ApiError: class extends Error { constructor(message: string, public status: number) { super(message); } } }));
 import App from './App';
 import { ApiError } from './api';
 
@@ -22,6 +22,7 @@ if (!savedSquad) throw new Error('The test workspace must include a saved squad.
 function mount() { return render(<MemoryRouter initialEntries={['/team']}><App/></MemoryRouter>); }
 async function readyPreview() {
   fireEvent.click(await screen.findByRole('button', { name: 'Edit team' }));
+  fireEvent.change(screen.getByRole('spinbutton', { name: 'Bank (£m)' }), { target: { value: '2' } });
   fireEvent.click(within(screen.getByRole('dialog', { name: 'Edit your team' })).getByRole('button', { name: 'Calculate preview' }));
   await screen.findByRole('button', { name: 'Save as current team' });
 }
@@ -36,6 +37,31 @@ beforeEach(() => {
 });
 afterEach(cleanup);
 describe('observable UI workflows', () => {
+  it('does not create an unsaved preview by opening and closing the editor', async () => {
+    mount();
+    fireEvent.click(await screen.findByRole('button', { name: 'Edit team' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Close Edit your team' }));
+    expect(screen.queryByText('Unsaved preview')).toBeNull();
+    expect(screen.queryByRole('button', { name: 'Save as current team' })).toBeNull();
+  });
+  it('recalculates the saved team without saving or opening its editor', async () => {
+    mount();
+    fireEvent.click(await screen.findByRole('button', { name: 'Recalculate team' }));
+    await waitFor(() => expect(network.request).toHaveBeenCalledWith('/api/analysis', expect.anything(), null, expect.objectContaining({ method: 'POST' })));
+    expect(screen.queryByRole('dialog')).toBeNull();
+    expect(screen.queryByRole('button', { name: 'Save as current team' })).toBeNull();
+    expect(screen.getByText(/Team saved/).textContent).toContain(localTime(workspace.team!.saved_at));
+  });
+  it('resumes a completed preview after reload without posting another calculation', async () => {
+    const draft = { ...savedSquad, bank: 2 };
+    const { fingerprint } = await import('./domain');
+    sessionStorage.setItem('fpml-draft-v1', JSON.stringify({ owner: 'local', revision: 1, draft }));
+    sessionStorage.setItem('fpml-job-v1', JSON.stringify({ owner: 'local', revision: 1, snapshot: 'snapshot', signature: fingerprint(draft), id: 'preview' }));
+    mount();
+    expect(await screen.findByRole('button', { name: 'Save as current team' })).toBeTruthy();
+    expect(network.request.mock.calls.some(call => call[0] === '/api/previews')).toBe(false);
+  });
+
   it('keeps the saved team visible when a new forecast invalidates its old analysis', async () => {
     network.request.mockResolvedValue({ ...workspace, snapshot: { ...workspace.snapshot, id: 'new-forecast' } });
     mount();
@@ -49,6 +75,17 @@ describe('observable UI workflows', () => {
     expect(screen.getByRole('spinbutton', { name: 'Purchase price for Player 15' })).toHaveProperty('value', '5');
   });
 
+  it('keeps refreshed saved-team analysis after a hypothetical transfer is discarded', async () => {
+    network.request.mockImplementation(async (path: string) => path === '/api/workspace' ? { ...workspace, analysis: { ...workspace.analysis, snapshot_id: 'old' } } : { id: 'recalculated', status: 'completed', analysis: workspace.analysis });
+    mount();
+    fireEvent.click(await screen.findByRole('button', { name: 'Recalculate team' }));
+    fireEvent.click(await screen.findByRole('button', { name: 'Preview transfer' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Close Review transfer' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Discard' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Discard preview' }));
+    expect(screen.getByText('Projected XI + captain')).toBeTruthy();
+    expect(screen.queryByRole('region', { name: 'Saved squad' })).toBeNull();
+  });
   it('shows setup only when no team has been saved', async () => {
     network.request.mockResolvedValue({ ...workspace, team: null, analysis: null });
     mount();
