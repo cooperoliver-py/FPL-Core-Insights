@@ -878,6 +878,13 @@ def _recent_gameweek_summary(history: pd.DataFrame, season: str, target_gameweek
         recent_points_count="count",
     )
     summary["recent_points_breakdown"] = _recent_gameweek_points(window, season, target_gameweek)
+    summary["recent_gameweeks"] = pd.Series({
+        code: [dict(gameweek=int(row["gw"]),
+                    points=float(row["total_points"]) if pd.notna(row["total_points"]) else None,
+                    team_code=int(row["team_code"]) if pd.notna(row.get("team_code")) else None)
+               for _, row in group.sort_values("gw").iterrows()]
+        for code, group in window.groupby("player_code")
+    }, dtype=object)
     return summary
 
 
@@ -936,6 +943,7 @@ def _current_lags(
     features["recent_gameweek_points"] = features["player_code"].map(recent_points).fillna("No completed GW history")
     for column in recent_summary:
         features[column] = features["player_code"].map(recent_summary[column])
+    features["recent_gameweeks"] = features["recent_gameweeks"].map(lambda value: value if isinstance(value, list) else [])
     features["recent_points_count"] = features["recent_points_count"].fillna(0).astype(int)
     features["current_season_matches"] = features["player_code"].map(counts).fillna(0).astype(int)
     # Live role information is known now; historical role snapshots are strictly shifted.

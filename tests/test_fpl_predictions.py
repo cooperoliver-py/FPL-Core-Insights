@@ -437,6 +437,20 @@ class FPLPredictionsTests(unittest.TestCase):
         self.assertEqual(points.loc[202], "GW2: 0")
         self.assertTrue(predictions._recent_gameweek_points(history, "2026-2027", 1).empty)
 
+    def test_recent_gameweeks_keep_observed_points_and_historical_team(self):
+        history = pd.DataFrame({
+            "season": ["2026-2027"] * 4 + ["2025-2026"],
+            "player_code": [1] * 5, "gw": [1, 5, 6, 7, 6],
+            "total_points": [99, 0, None, 20, 30], "team_code": [10, 10, 20, 20, 30],
+        })
+        summary = predictions._recent_gameweek_summary(history, "2026-2027", 7)
+        self.assertEqual(summary.loc[1, "recent_gameweeks"], [
+            dict(gameweek=5, points=0, team_code=10),
+            dict(gameweek=6, points=None, team_code=20),
+        ])
+        self.assertEqual(summary.loc[1, "recent_points_total"], 0)
+        self.assertEqual(summary.loc[1, "recent_points_count"], 1)
+
     def test_recent_performers_rank_recorded_totals_in_shared_window(self):
         history = pd.DataFrame({
             "season": ["2026-2027"] * 7 + ["2025-2026"],

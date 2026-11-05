@@ -32,6 +32,20 @@ export function ForecastStrip({ player, snapshot, gw }: { player: Player; snapsh
     return <div key={week} className={week === gw ? 'current' : ''}><span>GW{week}</span><strong>{number(points(player, week))}</strong><small className="fixture-context" title={context}>{context}</small></div>;
   })}</div>;
 }
+export function RecentPointsStrip({ player, snapshot }: { player: Player; snapshot: Snapshot }) {
+  const target = snapshot.gameweeks[0];
+  const weeks = Array.from({ length: Math.min(5, target - 1) }, (_, index) => Math.max(1, target - 5) + index);
+  const legacy = new Map([...((player.recent_points_breakdown || player.recent_gameweek_points || '').matchAll(/GW(\d+):\s*(-?\d+(?:\.\d+)?|unavailable)/g))].map(match => [Number(match[1]), match[2] === 'unavailable' ? null : Number(match[2])]));
+  if (!weeks.length) return <p className="caption">No completed Gameweeks yet.</p>;
+  return <div className="forecast-strip" aria-label={`${player.web_name} recent points`}>{weeks.map(week => {
+    const record = player.recent_gameweeks?.find(row => row.gameweek === week);
+    const recordedPoints = player.recent_gameweeks ? record?.points : legacy.get(week);
+    const fixtures = record?.team_code == null ? undefined : snapshot.recent_fixtures?.[String(week)];
+    const opponents = fixtures?.flatMap(fixture => fixture.home_team === record?.team_code ? [`${fixture.away_short_name} (H)`] : fixture.away_team === record?.team_code ? [`${fixture.home_short_name} (A)`] : []);
+    const context = opponents === undefined ? 'Fixture unknown' : opponents.length ? opponents.join(' · ') : 'Blank';
+    return <div key={week}><span>GW{week}</span><strong aria-label={recordedPoints == null ? 'No recorded points' : `${recordedPoints} points`}>{number(recordedPoints, 0)}</strong><small className="fixture-context" title={context}>{context}</small></div>;
+  })}</div>;
+}
 export function PlayerDetails({ player, snapshot, gw, owned, previewStatus, excluded, onExclude, close }: { player: Player; snapshot: Snapshot; gw: number; owned: boolean; previewStatus?: 'incoming' | 'outgoing'; excluded: boolean; onExclude: () => void; close: () => void }) {
   const closeRef = useRef(close);
   closeRef.current = close;
@@ -49,7 +63,7 @@ export function PlayerDetails({ player, snapshot, gw, owned, previewStatus, excl
     <ForecastStrip player={player} snapshot={snapshot} gw={gw}/>
     {excluded && <p className="notice">Excluded from your suggestions. Your team analysis scores this player at zero; the strip above shows the original forecast.</p>}
     <dl className="facts"><div><dt>Weighted score <Help label="weighted score">Forecast points weighted {snapshot.weights.join(', ')} across the available Gameweeks.</Help></dt><dd>{number(player.weighted_score, 2)}</dd></div><div><dt>Value <Help label="value">Weighted forecast points per £1m of current price.</Help></dt><dd>{number(player.predicted_value, 2)}</dd></div><div><dt>History coverage</dt><dd className="sentence-case">{player.confidence}</dd></div><div><dt>Availability</dt><dd>{player.status === 'a' ? 'Available' : player.status === 'i' ? 'Injured' : player.status === 's' ? 'Suspended' : player.status === 'd' ? 'Doubtful' : 'Unavailable'}</dd></div></dl>
-    <section className="detail-section"><h3>Recent points</h3><p className="recent-history">{player.recent_gameweek_points || player.recent_points_breakdown || 'No recorded history'}</p><div className="inline-stats"><span>Total <b>{number(player.recent_points_total, 0)}</b></span><span>Average <b>{number(player.recent_points_average)}</b></span><span>Recorded <b>{number(player.recent_points_count, 0)} GWs</b></span></div></section>
+    <section className="detail-section"><h3>Recent points</h3><RecentPointsStrip player={player} snapshot={snapshot}/><div className="inline-stats"><span>Total <b>{number(player.recent_points_total, 0)}</b></span><span>Average <b>{number(player.recent_points_average)}</b></span><span>Recorded <b>{number(player.recent_points_count, 0)} GWs</b></span></div></section>
     <section className="detail-section"><h3>Forecast inputs</h3><p className="input-description">{player.drivers || 'No descriptive inputs available.'}</p><p className="caption">Descriptive inputs, not causal explanations.</p></section>
     {player.news && <p className="notice">{player.news}</p>}
     <dl className="facts compact">{snapshot.gameweeks.map(week => <div key={week}><dt>GW{week} availability</dt><dd>{typeof player[`GW${week}_availability`] === 'number' ? `${number(Number(player[`GW${week}_availability`]) * 100, 0)}%` : '—'}</dd></div>)}</dl>

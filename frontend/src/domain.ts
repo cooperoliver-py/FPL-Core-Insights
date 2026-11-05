@@ -6,6 +6,7 @@ export const squadSchema = z.object({
   excluded_player_codes: z.array(z.number().int().positive()).default([]),
 });
 export type Squad = z.infer<typeof squadSchema>;
+const fixtureContextSchema = z.record(z.string(), z.array(z.object({ home_team: z.number().int(), away_team: z.number().int(), home_short_name: z.string(), away_short_name: z.string() })));
 export const playerSchema = z.object({
   player_code: z.number().int(), web_name: z.string(), first_name: z.string().default(''), second_name: z.string().default(''),
   team_short_name: z.string(), team: z.string(), position: z.string(), team_code: z.number(),
@@ -13,13 +14,14 @@ export const playerSchema = z.object({
   confidence: z.string().default('unknown'), drivers: z.string().default(''), news: z.string().nullable().optional(),
   recent_gameweek_points: z.string().nullable().optional(), recent_points_breakdown: z.string().nullable().optional(),
   recent_points_total: z.number().nullable().optional(), recent_points_average: z.number().nullable().optional(),
+  recent_gameweeks: z.array(z.object({ gameweek: z.number().int().min(1).max(38), points: z.number().finite().nullable(), team_code: z.number().int().nullable() })).max(5).nullable().optional(),
   recent_points_count: z.number().nullable().optional(), data_coverage: z.number().nullable().optional(),
 }).catchall(z.unknown());
 export type Player = z.infer<typeof playerSchema>;
 const metricSchema = z.object({ mae: z.number().nullable(), rmse: z.number().nullable(), spearman: z.number().nullable() });
 export const snapshotSchema = z.object({
   id: z.string(), schema_version: z.literal(1), season: z.string(), gameweeks: z.array(z.number().int()).min(1),
-  fixtures: z.record(z.string(), z.array(z.object({ home_team: z.number().int(), away_team: z.number().int(), home_short_name: z.string(), away_short_name: z.string() }))).optional(),
+  fixtures: fixtureContextSchema.optional(), recent_fixtures: fixtureContextSchema.optional(),
   generated_at: z.string(), deadline: z.string().nullable().optional(), weights: z.array(z.number()), players: z.array(playerSchema),
   evaluation: z.record(z.string(), metricSchema), evaluation_context: z.record(z.string(), z.unknown()),
   freshness: z.array(z.record(z.string(), z.unknown())), performance: z.array(z.record(z.string(), z.unknown())),

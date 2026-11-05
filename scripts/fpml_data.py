@@ -53,6 +53,7 @@ def write_snapshot(forecast, season, gameweeks, evaluation, context, freshness, 
     snapshot = dict(schema_version=1, season=season, gameweeks=gameweeks, generated_at=generated,
                     deadline=deadline, weights=list(engine.HORIZON_WEIGHTS[:len(gameweeks)]), players=players,
                     fixtures=fixture_context(season, gameweeks),
+                    recent_fixtures=fixture_context(season, range(max(1, gameweeks[0] - 5), gameweeks[0])),
                     evaluation=evaluation, evaluation_context=context, freshness=freshness,
                     performance=records(performance.drop(columns=["current_xi_captain_points"], errors="ignore")), limits=LIMITS,
                     methodology="Historical walk-forward evaluation. Forecasts combine lagged form, fixtures, availability and workload.",
@@ -83,15 +84,17 @@ def validate_snapshot(snapshot):
     weights = snapshot.get("weights")
     if not isinstance(weights, list) or len(weights) != len(weeks) or any(type(w) not in (int, float) or not math.isfinite(w) or w < 0 for w in weights):
         raise ValueError("Invalid forecast weights")
-    fixtures = snapshot.get("fixtures", {})
-    if not isinstance(fixtures, dict):
-        raise ValueError("Invalid forecast fixtures")
-    for gw, rows in fixtures.items():
-        if gw not in {str(week) for week in weeks} or not isinstance(rows, list):
-            raise ValueError("Invalid fixture Gameweek")
-        for row in rows:
-            if not isinstance(row, dict) or any(type(row.get(key)) is not int for key in ("home_team", "away_team")) or any(not isinstance(row.get(key), str) or not row[key] for key in ("home_short_name", "away_short_name")) or row["home_team"] == row["away_team"]:
-                raise ValueError("Invalid fixture teams")
+    recent_weeks = range(max(1, weeks[0] - 5), weeks[0])
+    for field, allowed in (("fixtures", weeks), ("recent_fixtures", recent_weeks)):
+        fixtures = snapshot.get(field, {})
+        if not isinstance(fixtures, dict):
+            raise ValueError("Invalid forecast fixtures")
+        for gw, rows in fixtures.items():
+            if gw not in {str(week) for week in allowed} or not isinstance(rows, list):
+                raise ValueError("Invalid fixture Gameweek")
+            for row in rows:
+                if not isinstance(row, dict) or any(type(row.get(key)) is not int for key in ("home_team", "away_team")) or any(not isinstance(row.get(key), str) or not row[key] for key in ("home_short_name", "away_short_name")) or row["home_team"] == row["away_team"]:
+                    raise ValueError("Invalid fixture teams")
     for key in ("evaluation", "evaluation_context"):
         if not isinstance(snapshot.get(key), dict):
             raise ValueError(f"Invalid snapshot {key}")
@@ -151,6 +154,17 @@ def validate_snapshot(snapshot):
         for key in ("recent_points_total", "recent_points_average", "recent_points_count", "data_coverage"):
             if key in player and not finite(player[key], True):
                 raise ValueError(f"Invalid player {key}")
+        history = player.get("recent_gameweeks")
+        if history is not None:
+            if not isinstance(history, list) or len(history) > 5:
+                raise ValueError("Invalid recent Gameweeks")
+            recorded = []
+            for row in history:
+                if not isinstance(row, dict) or not {"gameweek", "points", "team_code"}.issubset(row) or type(row.get("gameweek")) is not int or row["gameweek"] not in recent_weeks or not finite(row.get("points"), True) or (row.get("team_code") is not None and type(row["team_code"]) is not int):
+                    raise ValueError("Invalid recent Gameweek record")
+                recorded.append(row["gameweek"])
+            if recorded != sorted(set(recorded)):
+                raise ValueError("Duplicate or unordered recent Gameweeks")
         for key in ("now_cost", "weighted_score", "predicted_value", "baseline", "baseline_rolling_points", "baseline_ep_next", "confidence_score", *[f"GW{gw}_predicted_points" for gw in weeks], *[f"GW{gw}_availability" for gw in weeks]):
             value = player.get(key)
             if type(value) not in (int, float) or not math.isfinite(value):

@@ -54,6 +54,23 @@ class DataTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             validate_snapshot(snapshot)
 
+    def test_recent_history_snapshot_contract_and_legacy_compatibility(self):
+        _, _, snapshot = fixture()
+        snapshot["recent_fixtures"] = {"8": [dict(home_team=1, away_team=2, home_short_name="ONE", away_short_name="TWO")]}
+        snapshot["players"][0]["recent_gameweeks"] = [dict(gameweek=8, points=0, team_code=1)]
+        self.assertIs(validate_snapshot(snapshot), snapshot)
+        for records in ([dict(gameweek=8, points=float("nan"), team_code=1)],
+                        [dict(gameweek=9, points=1, team_code=1)],
+                        [dict(gameweek=8, points=1)],
+                        [dict(gameweek=8, points=1, team_code=1)] * 2):
+            malformed = copy.deepcopy(snapshot)
+            malformed["players"][0]["recent_gameweeks"] = records
+            with self.assertRaises(ValueError):
+                validate_snapshot(malformed)
+        snapshot.pop("recent_fixtures")
+        snapshot["players"][0].pop("recent_gameweeks")
+        self.assertIs(validate_snapshot(snapshot), snapshot)
+
     def test_shared_analysis_money_and_lineup_parity(self):
         frame,squad,snapshot=fixture()
         result=analyse(snapshot,squad)
