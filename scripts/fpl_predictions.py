@@ -1229,6 +1229,8 @@ def _transfer_options(
     bank: float,
     forecast: pd.DataFrame,
     gameweeks: list[int],
+    *,
+    include_weekly_gains: bool = False,
 ) -> pd.DataFrame:
     point_columns = [f"GW{gameweek}_predicted_points" for gameweek in gameweeks]
     columns = [
@@ -1247,12 +1249,11 @@ def _transfer_options(
         forecast[["player_code", *point_columns]], on="player_code", how="left", validate="one_to_one"
     )
     weights = HORIZON_WEIGHTS[: len(gameweeks)]
-    base_score = sum(
-        weight * _exact_lineup_score(squad, column) for weight, column in zip(weights, point_columns)
-    )
+    base_scores = [_exact_lineup_score(squad, column) for column in point_columns]
+    base_score = sum(weight * score for weight, score in zip(weights, base_scores))
     squad_codes = set(squad["player_code"])
     club_counts = Counter(squad["team_code"])
-    options: list[dict[str, float | int | str]] = []
+    options = []
     for outgoing_index, outgoing in squad.iterrows():
         selling_price = calculate_selling_price(outgoing["purchase_price"], outgoing["now_cost"])
         funds = bank + selling_price
@@ -1271,22 +1272,25 @@ def _transfer_options(
             replacement = squad.copy()
             for column in columns:
                 replacement.at[outgoing_index, column] = getattr(incoming, column)
-            new_score = sum(
-                weight * _exact_lineup_score(replacement, column)
-                for weight, column in zip(weights, point_columns)
-            )
-            options.append(
-                {
-                    "out_player_code": int(outgoing["player_code"]),
-                    "out": outgoing["web_name"],
-                    "in_player_code": int(incoming.player_code),
-                    "in": incoming.web_name,
-                    "selling_price": selling_price,
-                    "buy_price": float(incoming.now_cost),
-                    "bank_after": funds - float(incoming.now_cost),
-                    "weighted_gain": new_score - base_score,
+            new_scores = [_exact_lineup_score(replacement, column) for column in point_columns]
+            new_score = sum(weight * score for weight, score in zip(weights, new_scores))
+            option = {
+                "out_player_code": int(outgoing["player_code"]),
+                "out": outgoing["web_name"],
+                "in_player_code": int(incoming.player_code),
+                "in": incoming.web_name,
+                "selling_price": selling_price,
+                "buy_price": float(incoming.now_cost),
+                "bank_after": funds - float(incoming.now_cost),
+                "weighted_gain": new_score - base_score,
+            }
+            if include_weekly_gains:
+                option["weekly_gains"] = {
+                    str(gw): score - base
+                    for gw, score, base in zip(gameweeks, new_scores, base_scores)
                 }
-            )
+                option["next_gw_gain"] = option["weekly_gains"][str(gameweeks[0])]
+            options.append(option)
     if not options:
         return pd.DataFrame(
             columns=(
@@ -1298,6 +1302,7 @@ def _transfer_options(
                 "buy_price",
                 "bank_after",
                 "weighted_gain",
+                *(("weekly_gains", "next_gw_gain") if include_weekly_gains else ()),
             )
         )
     return pd.DataFrame(options).sort_values(
@@ -1305,6 +1310,15 @@ def _transfer_options(
         ascending=[False, True, True],
         kind="mergesort",
     ).reset_index(drop=True)
+
+
+def _next_gameweek_result(transfers: pd.DataFrame, gameweek: int) -> dict:
+    ranked = transfers.sort_values(
+        ["next_gw_gain", "weighted_gain", "bank_after", "out_player_code", "in_player_code"],
+        ascending=[False, False, False, True, True], kind="mergesort",
+    )
+    return dict(gameweek=gameweek, transfers=ranked.head(10).to_dict(orient="records"),
+                hold=bool(ranked.empty or ranked.iloc[0]["next_gw_gain"] <= 1e-9))
 
 
 def _data_sha() -> str:
@@ -1352,6 +1366,7 @@ def _render_markdown(
     live_performance: pd.DataFrame | None = None,
     user_squad: pd.DataFrame | None = None,
     bank: float = 0.0,
+    next_gameweek: dict | None = None,
 ) -> str:
     point_columns = [f"GW{gameweek}_predicted_points" for gameweek in gameweeks]
     lines = [
@@ -1605,7 +1620,7 @@ def _render_markdown(
                 "",
             )
         )
-    if transfers is not None:
+    if transfers is not None and next_gameweek is None:
         lines.extend(("## One-transfer recommendation", ""))
         if transfers.empty or transfers.iloc[0]["weighted_gain"] <= 1e-9:
             lines.extend(("**HOLD** — no legal same-position swap has a positive projected gain.", ""))
@@ -1639,6 +1654,30 @@ def _render_markdown(
                 "",
             )
         )
+    elif transfers is not None:
+        lines.extend(("## Next-gameweek transfer recommendation", ""))
+        sections = [(f"GW{next_gameweek['gameweek']} immediate", pd.DataFrame(next_gameweek["transfers"]), next_gameweek["hold"], "next_gw_gain")]
+        sections.append((f"{len(gameweeks)}-GW weighted alternative", transfers, transfers.empty or transfers.iloc[0]["weighted_gain"] <= 1e-9, "weighted_gain"))
+        catalog = forecast.set_index("player_code")
+        for title, options, hold, objective in sections:
+            lines.extend((f"### {title}", ""))
+            if hold:
+                lines.extend(("**HOLD** — no legal same-position swap has a positive projected gain for this objective.", ""))
+            else:
+                best = options.iloc[0]
+                lines.extend((f"**{best['out']} → {best['in']}** (projected XI+captain gain {best[objective]:.2f}).", ""))
+            rows = []
+            for _, row in options.head(10).iterrows():
+                incoming = catalog.loc[row.in_player_code]
+                availability = incoming.get(f"GW{gameweeks[0]}_availability")
+                context = f"{incoming.get('status', 'unknown')} · " + (f"GW{gameweeks[0]} availability {availability:.0%}" if pd.notna(availability) else "availability unavailable")
+                weekly = ", ".join(f"GW{gw}: {gain:+.2f}" for gw, gain in row.weekly_gains.items())
+                rows.append((row.out, recent_points.loc[row.out_player_code], row["in"], recent_points.loc[row.in_player_code],
+                             f"£{row.selling_price:.1f}m", f"£{row.buy_price:.1f}m", f"£{row.bank_after:.1f}m",
+                             f"{row.next_gw_gain:+.2f}", f"{row.weighted_gain:+.2f}", weekly, context))
+            lines.extend((_markdown_table(
+                ["Out", "Last 5 GW points (out)", "In", "Last 5 GW points (in)", "Sell", "Buy", "Bank after", f"GW{gameweeks[0]} gain", "Weighted gain", "Weekly XI+captain gains", "Incoming availability"], rows), ""))
+        lines.extend(("Projected best XI + captain gains are before transfer costs. They are not survival probabilities. Later weeks assume no further transfers.", ""))
     lines.extend(
         (
             "## Limits",
@@ -1992,7 +2031,7 @@ def run(
             forecast[f"current_GW{gameweek_value}_vice_captain"] = forecast[
                 "player_code"
             ].astype(int).eq(vice_captain_code)
-        transfers = _transfer_options(user_squad, bank, forecast, gameweeks)
+        transfers = _transfer_options(user_squad, bank, forecast, gameweeks, include_weekly_gains=True)
 
     markdown = _render_markdown(
         forecast,
@@ -2006,6 +2045,7 @@ def run(
         live_performance=live_performance,
         user_squad=user_squad,
         bank=bank,
+        next_gameweek=_next_gameweek_result(transfers, gameweeks[0]) if transfers is not None else None,
     )
     return _write_outputs(
         forecast, markdown, output_dir, gameweeks, season, live_performance

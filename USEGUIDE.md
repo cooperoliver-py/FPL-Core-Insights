@@ -163,3 +163,11 @@ as -1 inside the model, alongside observed-record counts, rather than zero minut
 Live runs reject past-deadline Gameweeks, including those in the current season.
 The known copied metadata in 2025/26 GW1 is masked before building historical
 features; the underlying match results and original source files are retained.
+
+## Compare the next move in the CLI report
+
+This experiment changes only the CLI-generated `predictions/latest.md` report when run with a saved squad. The FPML Team page, analysis API, saved analysis and private Markdown export retain the existing weighted-horizon recommendation.
+
+The report leads with the first Gameweek in the forecast and shows a weighted horizon alternative below it. Each objective has its own hold decision and top-ten list ranked from the full legal same-position transfer pool. Both lists show next-Gameweek and weighted gains, weekly best XI plus captain gains, bank after and incoming availability.
+
+Equal immediate gains are ranked by weighted gain, then bank remaining, then player IDs. Extra bank is a tie-break. Gains are before transfer costs, so consider any points hit before acting. Higher expected points and extra bank are not survival probabilities. Later weeks assume no further transfers.

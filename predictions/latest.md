@@ -148,22 +148,43 @@ Squad cost: £98.3m.
 
 Squad cost: £99.4m.
 
-## One-transfer recommendation
+## Next-gameweek transfer recommendation
 
-**Havertz → Evanilson** (projected weighted XI+captain gain 11.39).
+### GW11 immediate
 
-| Out | Last 5 GW points (out) | In | Last 5 GW points (in) | Sell | Buy | Bank after | XI+captain gain |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Havertz | GW6: 2, GW7: 2, GW8: 1, GW9: 9, GW10: 2 | Evanilson | GW6: 7, GW7: 12, GW8: 6, GW9: 9, GW10: 9 | £7.4m | £6.5m | £1.2m | 11.39 |
-| Thiago | GW6: 4, GW7: 4, GW8: 5, GW9: 9, GW10: -2 | Evanilson | GW6: 7, GW7: 12, GW8: 6, GW9: 9, GW10: 9 | £7.8m | £6.5m | £1.6m | 11.39 |
-| Havertz | GW6: 2, GW7: 2, GW8: 1, GW9: 9, GW10: 2 | N.Jackson | GW6: 9, GW7: 2, GW8: 13, GW9: 9, GW10: 11 | £7.4m | £7.1m | £0.6m | 11.19 |
-| Thiago | GW6: 4, GW7: 4, GW8: 5, GW9: 9, GW10: -2 | N.Jackson | GW6: 9, GW7: 2, GW8: 13, GW9: 9, GW10: 11 | £7.8m | £7.1m | £1.0m | 11.19 |
-| Rice | GW6: 7, GW7: 9, GW8: 3, GW9: 8, GW10: 3 | Groß | GW6: 6, GW7: 5, GW8: 0, GW9: 2, GW10: 10 | £7.4m | £6.3m | £1.4m | 10.09 |
-| Cherki | GW6: 10, GW7: 0, GW8: 0, GW9: 1, GW10: 9 | Groß | GW6: 6, GW7: 5, GW8: 0, GW9: 2, GW10: 10 | £7.8m | £6.3m | £1.8m | 6.55 |
-| Branthwaite | GW6: 3, GW7: 1, GW8: 0, GW9: 9, GW10: 3 | Van Hecke | GW6: 3, GW7: 4, GW8: 7, GW9: 15, GW10: 4 | £5.5m | £5.1m | £0.7m | 6.05 |
-| Branthwaite | GW6: 3, GW7: 1, GW8: 0, GW9: 9, GW10: 3 | De Cuyper | GW6: 15, GW7: 6, GW8: 1, GW9: 9, GW10: 6 | £5.5m | £5.5m | £0.3m | 5.40 |
-| Branthwaite | GW6: 3, GW7: 1, GW8: 0, GW9: 9, GW10: 3 | Muharemović | GW6: 2, GW7: 5, GW8: 9, GW9: 3, GW10: 10 | £5.5m | £5.1m | £0.7m | 5.28 |
-| Branthwaite | GW6: 3, GW7: 1, GW8: 0, GW9: 9, GW10: 3 | Vuskovic | GW6: 8, GW7: 11, GW8: 1, GW9: 6, GW10: 12 | £5.5m | £5.3m | £0.5m | 5.03 |
+**Rice → Groß** (projected XI+captain gain 4.58).
+
+| Out | Last 5 GW points (out) | In | Last 5 GW points (in) | Sell | Buy | Bank after | GW11 gain | Weighted gain | Weekly XI+captain gains | Incoming availability |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Rice | GW6: 7, GW7: 9, GW8: 3, GW9: 8, GW10: 3 | Groß | GW6: 6, GW7: 5, GW8: 0, GW9: 2, GW10: 10 | £7.4m | £6.3m | £1.4m | +4.58 | +10.09 | GW11: +4.58, GW12: +1.92, GW13: +1.69, GW14: +1.60, GW15: +2.17 | a · GW11 availability 100% |
+| Gibbs-White | GW6: 2, GW7: 0, GW8: 2, GW9: 2, GW10: 5 | Groß | GW6: 6, GW7: 5, GW8: 0, GW9: 2, GW10: 10 | £7.8m | £6.3m | £1.8m | +3.62 | +2.84 | GW11: +3.62, GW12: +0.34, GW13: -2.06, GW14: +0.17, GW15: +0.73 | a · GW11 availability 100% |
+| Mbeumo | GW6: 8, GW7: 8, GW8: 2, GW9: 1, GW10: 2 | Groß | GW6: 6, GW7: 5, GW8: 0, GW9: 2, GW10: 10 | £7.9m | £6.3m | £1.9m | +3.53 | +4.91 | GW11: +3.53, GW12: +0.57, GW13: +0.63, GW14: -0.49, GW15: +1.18 | a · GW11 availability 100% |
+| Thiago | GW6: 4, GW7: 4, GW8: 5, GW9: 9, GW10: -2 | Evanilson | GW6: 7, GW7: 12, GW8: 6, GW9: 9, GW10: 9 | £7.8m | £6.5m | £1.6m | +3.44 | +11.39 | GW11: +3.44, GW12: +2.91, GW13: +2.41, GW14: +4.56, GW15: +0.35 | a · GW11 availability 100% |
+| Havertz | GW6: 2, GW7: 2, GW8: 1, GW9: 9, GW10: 2 | Evanilson | GW6: 7, GW7: 12, GW8: 6, GW9: 9, GW10: 9 | £7.4m | £6.5m | £1.2m | +3.44 | +11.39 | GW11: +3.44, GW12: +2.91, GW13: +2.41, GW14: +4.56, GW15: +0.35 | a · GW11 availability 100% |
+| Thiago | GW6: 4, GW7: 4, GW8: 5, GW9: 9, GW10: -2 | N.Jackson | GW6: 9, GW7: 2, GW8: 13, GW9: 9, GW10: 11 | £7.8m | £7.1m | £1.0m | +3.38 | +11.19 | GW11: +3.38, GW12: +4.23, GW13: +1.64, GW14: +0.85, GW15: +3.49 | a · GW11 availability 100% |
+| Havertz | GW6: 2, GW7: 2, GW8: 1, GW9: 9, GW10: 2 | N.Jackson | GW6: 9, GW7: 2, GW8: 13, GW9: 9, GW10: 11 | £7.4m | £7.1m | £0.6m | +3.38 | +11.19 | GW11: +3.38, GW12: +4.23, GW13: +1.64, GW14: +0.85, GW15: +3.49 | a · GW11 availability 100% |
+| Cherki | GW6: 10, GW7: 0, GW8: 0, GW9: 1, GW10: 9 | Groß | GW6: 6, GW7: 5, GW8: 0, GW9: 2, GW10: 10 | £7.8m | £6.3m | £1.8m | +3.07 | +6.55 | GW11: +3.07, GW12: +2.06, GW13: +0.18, GW14: +1.14, GW15: +1.14 | a · GW11 availability 100% |
+| Branthwaite | GW6: 3, GW7: 1, GW8: 0, GW9: 9, GW10: 3 | Van Hecke | GW6: 3, GW7: 4, GW8: 7, GW9: 15, GW10: 4 | £5.5m | £5.1m | £0.7m | +3.05 | +6.05 | GW11: +3.05, GW12: +1.23, GW13: +1.72, GW14: -1.00, GW15: +2.03 | a · GW11 availability 100% |
+| Branthwaite | GW6: 3, GW7: 1, GW8: 0, GW9: 9, GW10: 3 | De Cuyper | GW6: 15, GW7: 6, GW8: 1, GW9: 9, GW10: 6 | £5.5m | £5.5m | £0.3m | +2.77 | +5.40 | GW11: +2.77, GW12: +0.90, GW13: +0.86, GW14: +0.54, GW15: +1.27 | a · GW11 availability 100% |
+
+### 5-GW weighted alternative
+
+**Havertz → Evanilson** (projected XI+captain gain 11.39).
+
+| Out | Last 5 GW points (out) | In | Last 5 GW points (in) | Sell | Buy | Bank after | GW11 gain | Weighted gain | Weekly XI+captain gains | Incoming availability |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Havertz | GW6: 2, GW7: 2, GW8: 1, GW9: 9, GW10: 2 | Evanilson | GW6: 7, GW7: 12, GW8: 6, GW9: 9, GW10: 9 | £7.4m | £6.5m | £1.2m | +3.44 | +11.39 | GW11: +3.44, GW12: +2.91, GW13: +2.41, GW14: +4.56, GW15: +0.35 | a · GW11 availability 100% |
+| Thiago | GW6: 4, GW7: 4, GW8: 5, GW9: 9, GW10: -2 | Evanilson | GW6: 7, GW7: 12, GW8: 6, GW9: 9, GW10: 9 | £7.8m | £6.5m | £1.6m | +3.44 | +11.39 | GW11: +3.44, GW12: +2.91, GW13: +2.41, GW14: +4.56, GW15: +0.35 | a · GW11 availability 100% |
+| Havertz | GW6: 2, GW7: 2, GW8: 1, GW9: 9, GW10: 2 | N.Jackson | GW6: 9, GW7: 2, GW8: 13, GW9: 9, GW10: 11 | £7.4m | £7.1m | £0.6m | +3.38 | +11.19 | GW11: +3.38, GW12: +4.23, GW13: +1.64, GW14: +0.85, GW15: +3.49 | a · GW11 availability 100% |
+| Thiago | GW6: 4, GW7: 4, GW8: 5, GW9: 9, GW10: -2 | N.Jackson | GW6: 9, GW7: 2, GW8: 13, GW9: 9, GW10: 11 | £7.8m | £7.1m | £1.0m | +3.38 | +11.19 | GW11: +3.38, GW12: +4.23, GW13: +1.64, GW14: +0.85, GW15: +3.49 | a · GW11 availability 100% |
+| Rice | GW6: 7, GW7: 9, GW8: 3, GW9: 8, GW10: 3 | Groß | GW6: 6, GW7: 5, GW8: 0, GW9: 2, GW10: 10 | £7.4m | £6.3m | £1.4m | +4.58 | +10.09 | GW11: +4.58, GW12: +1.92, GW13: +1.69, GW14: +1.60, GW15: +2.17 | a · GW11 availability 100% |
+| Cherki | GW6: 10, GW7: 0, GW8: 0, GW9: 1, GW10: 9 | Groß | GW6: 6, GW7: 5, GW8: 0, GW9: 2, GW10: 10 | £7.8m | £6.3m | £1.8m | +3.07 | +6.55 | GW11: +3.07, GW12: +2.06, GW13: +0.18, GW14: +1.14, GW15: +1.14 | a · GW11 availability 100% |
+| Branthwaite | GW6: 3, GW7: 1, GW8: 0, GW9: 9, GW10: 3 | Van Hecke | GW6: 3, GW7: 4, GW8: 7, GW9: 15, GW10: 4 | £5.5m | £5.1m | £0.7m | +3.05 | +6.05 | GW11: +3.05, GW12: +1.23, GW13: +1.72, GW14: -1.00, GW15: +2.03 | a · GW11 availability 100% |
+| Branthwaite | GW6: 3, GW7: 1, GW8: 0, GW9: 9, GW10: 3 | De Cuyper | GW6: 15, GW7: 6, GW8: 1, GW9: 9, GW10: 6 | £5.5m | £5.5m | £0.3m | +2.77 | +5.40 | GW11: +2.77, GW12: +0.90, GW13: +0.86, GW14: +0.54, GW15: +1.27 | a · GW11 availability 100% |
+| Branthwaite | GW6: 3, GW7: 1, GW8: 0, GW9: 9, GW10: 3 | Muharemović | GW6: 2, GW7: 5, GW8: 9, GW9: 3, GW10: 10 | £5.5m | £5.1m | £0.7m | +0.56 | +5.28 | GW11: +0.56, GW12: +3.48, GW13: +0.17, GW14: +2.02, GW15: +0.07 | a · GW11 availability 100% |
+| Branthwaite | GW6: 3, GW7: 1, GW8: 0, GW9: 9, GW10: 3 | Vuskovic | GW6: 8, GW7: 11, GW8: 1, GW9: 6, GW10: 12 | £5.5m | £5.3m | £0.5m | +2.00 | +5.03 | GW11: +2.00, GW12: +0.99, GW13: +0.74, GW14: +0.82, GW15: +1.62 | a · GW11 availability 100% |
+
+Projected best XI + captain gains are before transfer costs. They are not survival probabilities. Later weeks assume no further transfers.
 
 ## Limits
 
