@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW11
 
-Last generated: 2026-11-17 08:21 UTC
+Last generated: 2026-11-17 17:48 UTC
 
-Data commit: `272ebd4fcc248575ee1766f4a8bbe365cfef3f35`
+Data commit: `32ac4d79f805d0dd610b58e2d5b94c19172f44dd`
 
 ## Data freshness
 
@@ -78,15 +78,15 @@ Last 5 GW points are recorded current-season FPL totals, oldest to newest. Zero-
 | Evanilson | GW6: 7, GW7: 12, GW8: 6, GW9: 9, GW10: 9 | BOU | Forward | 5.63 | 5.37 | 5.11 | 6.91 | 3.67 | 21.59 | 3.32 | high | 5-GW avg pts 8.60; mins 83; xGI 0.82; current GWs 10; fixture Elo diff +57 |
 | Haaland | GW6: 6, GW7: 13, GW8: 8, GW9: 2, GW10: 2 | MCI | Forward | 5.58 | 3.98 | 5.58 | 5.16 | 5.34 | 20.43 | 1.29 | high | 5-GW avg pts 6.20; mins 88; xGI 0.60; current GWs 10; fixture Elo diff +102 |
 | N.Jackson | GW6: 9, GW7: 2, GW8: 13, GW9: 9, GW10: 11 | AVL | Forward | 5.56 | 6.00 | 4.28 | 4.28 | 5.93 | 20.93 | 2.95 | high | 5-GW avg pts 8.80; mins 87; xGI 0.62; current GWs 10; fixture Elo diff +192 |
-| B.Fernandes | GW6: 1, GW7: 1, GW8: 0, GW9: 2, GW10: 10 | MUN | Midfielder | 5.28 | 5.16 | 5.32 | 6.61 | 5.56 | 22.15 | 1.91 | high | 5-GW avg pts 2.80; mins 72; xGI 0.45; current GWs 10; fixture Elo diff +105 |
-| Rogers | GW6: 9, GW7: 2, GW8: 1, GW9: 9, GW10: 2 | CHE | Midfielder | 5.26 | 5.11 | 5.26 | 4.68 | 3.42 | 19.39 | 2.36 | high | 5-GW avg pts 4.60; mins 89; xGI 0.32; current GWs 10; fixture Elo diff -30 |
-| Vuskovic | GW6: 8, GW7: 11, GW8: 1, GW9: 6, GW10: 12 | BHA | Defender | 5.15 | 3.98 | 3.61 | 4.41 | 4.47 | 17.39 | 3.28 | high | 5-GW avg pts 7.60; mins 90; xGI 0.19; current GWs 10; fixture Elo diff +68 |
+| B.Fernandes | GW6: 1, GW7: 1, GW8: 0, GW9: 2, GW10: 10 | MUN | Midfielder | 5.26 | 5.13 | 5.30 | 6.58 | 5.53 | 22.04 | 1.90 | high | 5-GW avg pts 2.80; mins 72; xGI 0.45; current GWs 10; fixture Elo diff +105 |
+| Rogers | GW6: 9, GW7: 2, GW8: 1, GW9: 9, GW10: 2 | CHE | Midfielder | 5.26 | 5.12 | 5.26 | 4.68 | 3.44 | 19.41 | 2.37 | high | 5-GW avg pts 4.60; mins 89; xGI 0.32; current GWs 10; fixture Elo diff -30 |
+| Vuskovic | GW6: 8, GW7: 11, GW8: 1, GW9: 6, GW10: 12 | BHA | Defender | 5.16 | 3.98 | 3.62 | 4.42 | 4.47 | 17.42 | 3.29 | high | 5-GW avg pts 7.60; mins 90; xGI 0.19; current GWs 10; fixture Elo diff +68 |
 | Barcola | GW6: 2, GW7: 4, GW8: 6, GW9: 1, GW10: 5 | LIV | Midfielder | 4.96 | 4.88 | 5.42 | 4.53 | 5.10 | 19.92 | 2.46 | high | 5-GW avg pts 3.60; mins 82; xGI 0.39; current GWs 8; fixture Elo diff +94 |
 | Isak | GW6: 0, GW7: 9, GW8: 9, GW9: 2, GW10: 8 | LIV | Forward | 4.88 | 4.83 | 5.39 | 4.56 | 4.91 | 19.68 | 2.12 | high | 5-GW avg pts 5.60; mins 67; xGI 0.31; current GWs 10; fixture Elo diff +94 |
 | Cherki | GW6: 10, GW7: 0, GW8: 0, GW9: 1, GW10: 9 | MCI | Midfielder | 4.75 | 3.35 | 4.75 | 4.16 | 4.64 | 17.26 | 2.19 | high | 5-GW avg pts 4.00; mins 52; xGI 0.30; current GWs 10; fixture Elo diff +102 |
 | Doku | GW6: 12, GW7: 6, GW8: 2, GW9: 2, GW10: 2 | MCI | Midfielder | 4.66 | 3.15 | 4.66 | 4.23 | 4.42 | 16.83 | 2.24 | high | 5-GW avg pts 4.80; mins 76; xGI 0.40; current GWs 10; fixture Elo diff +102 |
+| Verbruggen | GW6: 9, GW7: 6, GW8: 2, GW9: 11, GW10: 6 | BHA | Goalkeeper | 4.57 | 3.65 | 3.40 | 3.71 | 3.75 | 15.43 | 3.28 | high | 5-GW avg pts 6.80; mins 90; xGI 0.00; current GWs 10; fixture Elo diff +68 |
 | Tavernier | GW6: 1, GW7: 10, GW8: 10, GW9: 3, GW10: 3 | BOU | Midfielder | 4.56 | 4.34 | 4.31 | 5.08 | 2.63 | 17.05 | 2.55 | high | 5-GW avg pts 5.40; mins 83; xGI 0.61; current GWs 10; fixture Elo diff +57 |
-| Verbruggen | GW6: 9, GW7: 6, GW8: 2, GW9: 11, GW10: 6 | BHA | Goalkeeper | 4.56 | 3.65 | 3.39 | 3.70 | 3.75 | 15.40 | 3.28 | high | 5-GW avg pts 6.80; mins 90; xGI 0.00; current GWs 10; fixture Elo diff +68 |
 | Palmer | GW6: 8, GW7: 2, GW8: -1, GW9: 8, GW10: 2 | CHE | Midfielder | 4.55 | 4.40 | 4.55 | 3.98 | 2.87 | 16.65 | 1.70 | high | 5-GW avg pts 3.80; mins 87; xGI 0.33; current GWs 10; fixture Elo diff -30 |
 | Kudus | GW6: 3, GW7: 6, GW8: 3, GW9: 7, GW10: 2 | TOT | Midfielder | 4.55 | 4.16 | 4.18 | 2.66 | 4.27 | 16.06 | 2.43 | high | 5-GW avg pts 4.20; mins 82; xGI 0.32; current GWs 10; fixture Elo diff +20 |
 | Mbeumo | GW6: 8, GW7: 8, GW8: 2, GW9: 1, GW10: 2 | MUN | Midfielder | 4.50 | 4.88 | 4.52 | 5.58 | 4.79 | 19.28 | 2.44 | high | 5-GW avg pts 4.20; mins 88; xGI 0.41; current GWs 10; fixture Elo diff +105 |
@@ -110,15 +110,15 @@ The squad comparison below is affordable with **£1.0m** left in the bank. It ma
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Van Hecke | GW6: 3, GW7: 4, GW8: 7, GW9: 15, GW10: 4 | TOT | Defender | £5.1m | 18.16 | GW11, GW12, GW13, GW15 | — | — |
 | De Cuyper | GW6: 15, GW7: 6, GW8: 1, GW9: 9, GW10: 6 | BHA | Defender | £5.5m | 17.83 | GW11, GW13, GW15 | — | GW11 |
-| Vuskovic | GW6: 8, GW7: 11, GW8: 1, GW9: 6, GW10: 12 | BHA | Defender | £5.3m | 17.39 | GW11, GW13, GW14, GW15 | — | — |
+| Vuskovic | GW6: 8, GW7: 11, GW8: 1, GW9: 6, GW10: 12 | BHA | Defender | £5.3m | 17.42 | GW11, GW13, GW14, GW15 | — | — |
 | Muharemović | GW6: 2, GW7: 5, GW8: 9, GW9: 3, GW10: 10 | LEE | Defender | £5.1m | 17.24 | GW12, GW14 | — | GW12 |
 | Bogle | GW6: 1, GW7: 2, GW8: 5, GW9: 1, GW10: 7 | LEE | Defender | £4.8m | 16.26 | GW12, GW14 | — | — |
 | Evanilson | GW6: 7, GW7: 12, GW8: 6, GW9: 9, GW10: 9 | BOU | Forward | £6.5m | 21.59 | GW11, GW12, GW13, GW14 | GW14 | — |
 | N.Jackson | GW6: 9, GW7: 2, GW8: 13, GW9: 9, GW10: 11 | AVL | Forward | £7.1m | 20.93 | GW11, GW12, GW15 | GW12, GW15 | — |
 | Isak | GW6: 0, GW7: 9, GW8: 9, GW9: 2, GW10: 8 | LIV | Forward | £9.3m | 19.68 | GW11, GW12, GW13, GW14, GW15 | — | — |
 | Donnarumma | GW6: 9, GW7: 1, GW8: 1, GW9: 2, GW10: 1 | MCI | Goalkeeper | £5.4m | 15.49 | GW11, GW13, GW14, GW15 | — | — |
-| Roefs | GW6: 1, GW7: 2, GW8: 9, GW9: 1, GW10: 9 | SUN | Goalkeeper | £4.8m | 13.24 | GW12 | — | — |
-| B.Fernandes | GW6: 1, GW7: 1, GW8: 0, GW9: 2, GW10: 10 | MUN | Midfielder | £11.6m | 22.15 | GW11, GW12, GW13, GW14, GW15 | — | GW14, GW15 |
+| Roefs | GW6: 1, GW7: 2, GW8: 9, GW9: 1, GW10: 9 | SUN | Goalkeeper | £4.8m | 13.27 | GW12 | — | — |
+| B.Fernandes | GW6: 1, GW7: 1, GW8: 0, GW9: 2, GW10: 10 | MUN | Midfielder | £11.6m | 22.04 | GW11, GW12, GW13, GW14, GW15 | — | GW14, GW15 |
 | Groß | GW6: 6, GW7: 5, GW8: 0, GW9: 2, GW10: 10 | BHA | Midfielder | £6.3m | 21.81 | GW11, GW12, GW13, GW14, GW15 | GW11 | — |
 | Gibbs-White | GW6: 2, GW7: 0, GW8: 2, GW9: 2, GW10: 5 | NFO | Midfielder | £7.8m | 20.86 | GW11, GW12, GW13, GW14, GW15 | GW13 | — |
 | Barcola | GW6: 2, GW7: 4, GW8: 6, GW9: 1, GW10: 5 | LIV | Midfielder | £8.1m | 19.92 | GW11, GW12, GW13, GW14, GW15 | — | GW13 |
@@ -141,7 +141,7 @@ Squad cost: £98.1m.
 | Leno | GW6: 2, GW7: 6, GW8: 8, GW9: 2, GW10: 3 | FUL | Goalkeeper | £4.5m | 12.37 | GW11, GW12, GW13, GW14 | — | — |
 | Horníček | GW6: 0, GW7: 2, GW8: 8, GW9: 3, GW10: 3 | NEW | Goalkeeper | £5.0m | 12.07 | GW15 | — | — |
 | Gibbs-White | GW6: 2, GW7: 0, GW8: 2, GW9: 2, GW10: 5 | NFO | Midfielder | £7.8m | 20.86 | GW11, GW12, GW13, GW14, GW15 | GW13 | GW14, GW15 |
-| Rogers | GW6: 9, GW7: 2, GW8: 1, GW9: 9, GW10: 2 | CHE | Midfielder | £8.2m | 19.39 | GW11, GW12, GW13, GW14, GW15 | — | GW11, GW12 |
+| Rogers | GW6: 9, GW7: 2, GW8: 1, GW9: 9, GW10: 2 | CHE | Midfielder | £8.2m | 19.41 | GW11, GW12, GW13, GW14, GW15 | — | GW11, GW12 |
 | Mbeumo | GW6: 8, GW7: 8, GW8: 2, GW9: 1, GW10: 2 | MUN | Midfielder | £7.9m | 19.28 | GW11, GW12, GW13, GW14, GW15 | GW14 | — |
 | Cherki | GW6: 10, GW7: 0, GW8: 0, GW9: 1, GW10: 9 | MCI | Midfielder | £7.9m | 17.26 | GW11, GW12, GW13, GW14, GW15 | — | — |
 | Rice | GW6: 7, GW7: 9, GW8: 3, GW9: 8, GW10: 3 | ARS | Midfielder | £7.5m | 14.34 | GW11, GW12, GW13, GW14, GW15 | — | — |
