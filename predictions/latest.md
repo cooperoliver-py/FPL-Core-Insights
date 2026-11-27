@@ -1,8 +1,8 @@
 # FPL predictions: 2026-2027, GW12
 
-Last generated: 2026-11-26 08:47 UTC
+Last generated: 2026-11-27 00:44 UTC
 
-Data commit: `bf6e7ba37ccb38a381609395c1409a7000eec543`
+Data commit: `210ffa94d38ef44ccbf104241b9c401d4bed62ff`
 
 ## Data freshness
 
@@ -111,7 +111,7 @@ The squad comparison below is affordable with **£0.6m** left in the bank. It ma
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Gabriel | GW7: 8, GW8: 17, GW9: 6, GW10: 8, GW11: 1 | ARS | Defender | £8.1m | 18.84 | GW12, GW13, GW14, GW15, GW16 | — | — |
 | De Cuyper | GW7: 6, GW8: 1, GW9: 9, GW10: 6, GW11: 1 | BHA | Defender | £5.5m | 16.85 | GW15, GW16 | — | — |
-| Konsa | GW7: 9, GW8: 14, GW9: 10, GW10: 8, GW11: 1 | ARS | Defender | £4.9m | 16.65 | GW13, GW14, GW15, GW16 | — | — |
+| Konsa | GW7: 9, GW8: 14, GW9: 10, GW10: 8, GW11: 1 | ARS | Defender | £4.9m | 16.57 | GW13, GW14, GW15, GW16 | — | — |
 | Bogle | GW7: 2, GW8: 5, GW9: 1, GW10: 7, GW11: 4 | LEE | Defender | £4.8m | 15.29 | GW12, GW14, GW16 | — | — |
 | Van Hecke | GW7: 4, GW8: 7, GW9: 15, GW10: 4, GW11: 6 | TOT | Defender | £5.2m | 15.19 | GW12, GW13, GW15 | — | — |
 | Isak | GW7: 9, GW8: 9, GW9: 2, GW10: 8, GW11: 5 | LIV | Forward | £9.4m | 20.73 | GW12, GW13, GW14, GW15, GW16 | — | GW13, GW15 |
@@ -133,7 +133,7 @@ Squad cost: £98.8m.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Gabriel | GW7: 8, GW8: 17, GW9: 6, GW10: 8, GW11: 1 | ARS | Defender | £8.1m | 18.84 | GW12, GW13, GW14, GW15, GW16 | GW14 | GW15, GW16 |
 | Bassey | GW7: 8, GW8: 8, GW9: 1, GW10: 2, GW11: 1 | FUL | Defender | £4.5m | 13.49 | GW12, GW13, GW14, GW15, GW16 | — | — |
-| Branthwaite | GW7: 1, GW8: 0, GW9: 9, GW10: 3, GW11: 2 | EVE | Defender | £5.5m | 12.93 | GW12, GW13, GW14, GW15, GW16 | — | — |
+| Branthwaite | GW7: 1, GW8: 0, GW9: 9, GW10: 3, GW11: 2 | EVE | Defender | £5.5m | 12.91 | GW12, GW13, GW14, GW15, GW16 | — | — |
 | Furlong | GW7: 0, GW8: 0, GW9: 0, GW10: 0, GW11: 1 | IPS | Defender | £3.9m | 8.79 | Bench | — | — |
 | Egan | GW7: 4, GW8: 4, GW9: 1, GW10: 2, GW11: 0 | HUL | Defender | £4.0m | 6.22 | Bench | — | — |
 | Isak | GW7: 9, GW8: 9, GW9: 2, GW10: 8, GW11: 5 | LIV | Forward | £9.4m | 20.73 | GW12, GW13, GW14, GW15, GW16 | GW12, GW13, GW15, GW16 | — |
